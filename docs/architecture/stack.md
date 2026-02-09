@@ -7,9 +7,9 @@ owner: architecture-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  decided-by: [adr-001, adr-003]
+  decided-by: [adr-001, adr-003, adr-004]
   related: [arch-data-model, arch-ai-pipeline]
-tags: [architecture, stack, firebase]
+tags: [architecture, stack, firebase, monorepo]
 ---
 
 # Technology Stack
@@ -21,6 +21,16 @@ tags: [architecture, stack, firebase]
 - **AI:** Claude API (primary LLM), with OpenAI fallback. Orchestrated via Cloud Functions + Pub/Sub.
 - **Search:** Algolia or Typesense (full-text search across domains, tasks, artifacts).
 - **Analytics/Training:** Firestore -> BigQuery export for AI training data and usage analytics.
+- **Infrastructure as Code:** Pulumi (TypeScript) for Firebase + GCP resource management.
+
+## Toolchain
+
+- **Runtime:** Node.js 24.x LTS (Krypton), managed via nvm
+- **Package manager:** pnpm 9.x with workspaces
+- **Build orchestration:** Nx 20.x (caching, dependency graph, boundary enforcement)
+- **Language:** TypeScript 5.7+ (ES2024 target)
+- **IaC:** Pulumi 3.x (TypeScript)
+- **Monorepo structure:** Hybrid domain-package architecture (see ADR-004)
 
 ## Why Firebase
 

@@ -1,0 +1,3 @@
+name: syntropy
+runtime: nodejs
+description: Syntropy OS infrastructure — Firebase + GCP resources managed via Pulumi
