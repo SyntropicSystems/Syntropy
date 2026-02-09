@@ -24,6 +24,7 @@ The decision log is the entry point to the **reasoning graph**: the interconnect
 | ADR-002 | Event Sourcing on Firestore | accepted | Type 1 | 2025-02-07 |
 | ADR-003 | Claude as Primary LLM | accepted | Type 1 | 2025-02-07 |
 | ADR-004 | Hybrid Domain-Package Monorepo Architecture | accepted | Type 1 | 2025-02-09 |
+| ADR-005 | Dev Container and Build Container Strategy | accepted | Type 1 | 2025-02-09 |
 
 ## General Decision Records (DRs)
 
