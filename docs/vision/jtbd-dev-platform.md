@@ -8,14 +8,14 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12]
+  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13]
   related: [jtbd, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
 # Dev Platform — Jobs to Be Done
 
-The ten core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The eleven core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 
@@ -56,3 +56,7 @@ The ten core jobs that the development platform exists to fulfill. Every dev pla
 ## DJ10 — Support Each Contributor with a Personalized Work Companion
 
 **When** I'm reflecting on my work or trying to understand my own patterns and effectiveness, **I want** a personalized companion that knows my work context — what I committed, what I struggled with, what I've been noticing — and asks me the right questions to help me articulate and reflect more deeply, **so that** my reflections are richer and more specific than they'd be alone, I develop deeper self-awareness through guided introspection, and the companion grows over time into a genuine work ally that supports my effectiveness while also collaborating across contributors to surface collective signals that help the whole system evolve.
+
+## DJ11 — Build a Reasoning Graph That Makes Every Decision Reproducible and Traceable
+
+**When** decisions are made implicitly in conversations, lost in context switches, repeated because no one remembers why something was decided, or silently contradicted by newer choices, **I want** a system where every decision — from high-stakes architectural choices to everyday methodology picks — is captured as a lightweight record with its problem context, options explored, success metrics, and revisit triggers, organized as a navigable graph with hierarchy, domain scoping, and parent-child relationships, **so that** any contributor can understand the reasoning behind the current state of things, avoid repeating history, make informed decisions about changing what exists, reduce decision fatigue by building on what's already been thought through, and — taken together — the decision graph constitutes a reasoning trail that could reconstruct the system from scratch to its current state, even if the specific details would look different.

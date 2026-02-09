@@ -36,7 +36,8 @@ _base-traits.md              ← every agent inherits this
   ├── ux-agent.md
   ├── integration-agent.md
   ├── observations-agent.md
-  └── pulse-companion-agent.md
+  ├── pulse-companion-agent.md
+  └── decisions-agent.md
 ```
 
 ## Workflows
@@ -44,6 +45,7 @@ _base-traits.md              ← every agent inherits this
 Executable process documents — same instructions work for humans and AI:
 
 - Add a feature: `docs/workflows/add-feature-spec.md`
+- Record a decision: `docs/workflows/record-decision.md`
 - Architecture decision: `docs/workflows/make-architecture-decision.md`
 - Refine a story: `docs/workflows/refine-user-story.md`
 - Create an agent: `docs/workflows/create-agent.md`
@@ -74,7 +76,7 @@ docs/                       ← all project knowledge
   product/                  ← WHAT: features, use cases, stories, UX
     dev-platform/            ← dev platform as product (features, use cases, stories)
   architecture/             ← HOW: technical design, data model, stack
-  decisions/                ← ADRs: logged decisions with rationale
+  decisions/                ← Decision records: ADRs + general decisions (reasoning graph)
   open-questions/           ← unresolved explorations
   workflows/                ← executable process documents
 agents/                     ← sub-agent manifests (trait composition)
@@ -88,7 +90,7 @@ observations/               ← raw signals: frictions, ideas, bugs, thoughts
 
 The development platform (this knowledge graph + agent system) is documented as a product itself:
 
-- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 10 jobs the dev platform fulfills (DJ1–DJ10)
+- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 11 jobs the dev platform fulfills (DJ1–DJ11)
 - **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
 - **Surface**: `surfaces/dev-platform.md` — platform definition and principles
 

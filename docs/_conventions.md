@@ -46,6 +46,7 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 | `ux-pattern` | UX pattern or design decision | `ux-` + slug |
 | `architecture` | Technical architecture document | — |
 | `adr` | Architecture Decision Record | `adr-` + zero-padded number |
+| `decision-record` | General Decision Record | `dr-` + zero-padded number |
 | `open-question` | Unresolved exploration | `oq-` + slug |
 | `workflow` | Executable process document | `wf-` + slug |
 | `agent-manifest` | Sub-agent configuration | slug |
@@ -57,7 +58,7 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 ### Specs (features, use cases, stories, UX patterns):
 `exploring` → `defining` → `specified` → `building` → `shipped`
 
-### Decisions (ADRs):
+### Decisions (ADRs and Decision Records):
 `proposed` → `accepted` → `deprecated` | `superseded`
 
 ### Open Questions:
@@ -88,6 +89,7 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 - Feature specs: `fNN-slug.md`
 - Use cases: `uNN-slug.md`
 - ADRs: `adr-NNN-slug.md`
+- Decision records: `dr-NNN-slug.md`
 - Open questions: `oq-slug.md`
 - Observations: `YYYY-MM-DD-slug.md` (in observations directory)
 - Workflows: `slug.md` (in workflows directory)
@@ -271,6 +273,50 @@ What must be true before starting.
 
 ## Executor Notes
 Who/what can execute this workflow.
+```
+
+### Decision Record
+
+```markdown
+---
+id: "dr-NNN"
+type: decision-record
+title: "Decision Title"
+status: proposed
+owner: relevant-agent
+decision-type: type-2
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  parent: []
+  children: []
+  domain: []
+  affects: []
+  tensions: []
+  related: []
+tags: []
+---
+
+# DR-NNN: Decision Title
+
+## Problem Stack
+What problem does this solve? How does it connect to higher-level goals?
+
+## Context & Data
+What was true when this decision was made?
+
+## Options Explored
+- **Option A:** description, pros, cons
+- **Option B:** description, pros, cons
+
+## Decision
+What was decided? State it clearly.
+
+## Success Metrics
+How will we know this is working?
+
+## Revisit Triggers
+Under what conditions should we reconsider?
 ```
 
 ## Changelog Entry Format

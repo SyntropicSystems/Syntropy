@@ -91,6 +91,8 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | adr-002 | Event Sourcing on Firestore | accepted | architecture-agent | `docs/decisions/adr-002-event-sourcing-firestore.md` |
 | adr-003 | Claude as Primary LLM | accepted | architecture-agent | `docs/decisions/adr-003-claude-primary-llm.md` |
 
+*General decision records (dr-NNN) will appear here as they are captured.*
+
 ## Open Questions
 
 | ID | Title | Status | Owner | File |
@@ -105,6 +107,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
+| wf-record-decision | Record a Decision | active | decisions-agent | `docs/workflows/record-decision.md` |
 | wf-add-feature | Add a New Feature Spec | active | meta-agent | `docs/workflows/add-feature-spec.md` |
 | wf-make-decision | Make an Architecture Decision | active | meta-agent | `docs/workflows/make-architecture-decision.md` |
 | wf-refine-story | Refine a User Story | active | product-agent | `docs/workflows/refine-user-story.md` |
@@ -133,6 +136,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | f12-artifact-agent | Artifact Agent | active | Feature F12 | `agents/feature-agents/f12-artifact-agent.md` |
 | observations-agent | Observations Agent | active | Observation capture, structuring, patterns | `agents/observations-agent.md` |
 | pulse-companion-agent | Pulse Companion Agent | active | Assisted reflection, continuous pulse, work companion | `agents/pulse-companion-agent.md` |
+| decisions-agent | Decisions Agent | active | Decision records, reasoning graph, coherence | `agents/decisions-agent.md` |
 
 ## Dev Platform — Vision
 
@@ -156,6 +160,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp10 | Observation System | defining | observations-agent | `docs/product/dev-platform/features/dp10-observation-system.md` |
 | dp11 | Reflection Loop | defining | observations-agent | `docs/product/dev-platform/features/dp11-reflection-loop.md` |
 | dp12 | Pulse Companion | defining | pulse-companion-agent | `docs/product/dev-platform/features/dp12-pulse-companion.md` |
+| dp13 | Decision Records | defining | decisions-agent | `docs/product/dev-platform/features/dp13-decision-records.md` |
 
 ## Dev Platform — Use Cases
 
@@ -172,6 +177,8 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp-u09 | Auditing Observations for Patterns | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u09-auditing-observations.md` |
 | dp-u10 | Reflecting After Completing Work | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u10-reflecting-after-work.md` |
 | dp-u11 | Assisted Reflection with Pulse Companion | defining | pulse-companion-agent | `docs/product/dev-platform/use-cases/dp-u11-assisted-reflection.md` |
+| dp-u12 | Recording a Decision During Work | defining | decisions-agent | `docs/product/dev-platform/use-cases/dp-u12-recording-decision.md` |
+| dp-u13 | Navigating the Decision Graph to Understand Why | defining | decisions-agent | `docs/product/dev-platform/use-cases/dp-u13-navigating-decision-graph.md` |
 
 ## Dev Platform — User Stories
 
@@ -197,7 +204,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | product-index | Product Domain Index | active | product-agent | `docs/product/_index.md` |
 | dp-product-index | Dev Platform Product Index | active | meta-agent | `docs/product/dev-platform/_index.md` |
 | arch-index | Architecture Domain Index | active | architecture-agent | `docs/architecture/_index.md` |
-| decisions-index | Decisions Index | active | architecture-agent | `docs/decisions/_index.md` |
+| decisions-index | Decisions Index | active | decisions-agent | `docs/decisions/_index.md` |
 | surfaces-index | Surfaces Index | active | ux-agent | `surfaces/_index.md` |
 | observations-index | Observations Index | active | observations-agent | `observations/_index.md` |
 

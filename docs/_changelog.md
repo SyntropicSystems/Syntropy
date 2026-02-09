@@ -95,3 +95,17 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | updated | dp-product-index | Added DP12 to feature map, updated job and use case counts | meta-agent |
 | 2025-02-09 | updated | product-index | Updated dev platform counts to 10 JTBD, 12 features, 11 use cases, 35 stories | meta-agent |
 | 2025-02-09 | updated | CLAUDE.md | Added pulse-companion-agent to inheritance tree, updated JTBD count to DJ1–DJ10 | meta-agent |
+| 2025-02-09 | created | dp13 | Created DP13 Decision Records feature spec — reasoning graph for all decisions, generalizing ADRs with hierarchy, domain scoping, Type 1/2 classification, success metrics, revisit triggers | meta-agent |
+| 2025-02-09 | created | decisions-agent | Created decisions-agent manifest — DRI for decision records, reasoning graph integrity, conflict detection | meta-agent |
+| 2025-02-09 | created | wf-record-decision | Created workflow for recording any decision — general-purpose complement to wf-make-decision | meta-agent |
+| 2025-02-09 | created | dp-u12 | Created use case: Recording a Decision During Work | meta-agent |
+| 2025-02-09 | created | dp-u13 | Created use case: Navigating the Decision Graph to Understand Why | meta-agent |
+| 2025-02-09 | updated | jtbd-dev-platform | Added DJ11 — Build a Reasoning Graph That Makes Every Decision Reproducible and Traceable | meta-agent |
+| 2025-02-09 | updated | glossary | Added Decision Record, Reasoning Graph, and Revisit Trigger terms | meta-agent |
+| 2025-02-09 | updated | conventions | Added decision-record document type, dr-NNN naming convention, decision record template | meta-agent |
+| 2025-02-09 | updated | decisions-index | Expanded from ADR-only to full decision log with DR section, updated owner to decisions-agent | meta-agent |
+| 2025-02-09 | updated | meta-agent | Added decisions-agent to routing table and domain state | meta-agent |
+| 2025-02-09 | updated | base-traits | Updated rule #5 to include decision records, added wf-record-decision to inherited workflows | meta-agent |
+| 2025-02-09 | updated | dp-product-index | Added DP13 to feature map, updated job count to 11 and use case count to 13 | meta-agent |
+| 2025-02-09 | updated | CLAUDE.md | Added decisions-agent to inheritance tree, record-decision to workflows, updated JTBD count to DJ1–DJ11 | meta-agent |
+| 2025-02-09 | updated | registry | Added DP13, decisions-agent, wf-record-decision, dp-u12, dp-u13 to registry | meta-agent |
