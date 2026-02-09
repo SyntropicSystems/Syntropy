@@ -120,3 +120,14 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | created | — | Scaffolded monorepo: root config (nx.json, pnpm-workspace.yaml, tsconfig.base.json, .nvmrc, .gitignore), Phase 1 packages (shared-types, domain-events, domain-core, firebase, design-tokens), app stubs (web, mobile, dev-web, functions), infra/ (Pulumi) | architecture-agent |
 | 2025-02-09 | created | adr-005 | Accepted ADR-005: Dev Container and Build Container Strategy — multi-stage Dockerfile (base → build → devcontainer), devcontainer Features for dev tools, single source of truth for all environments | architecture-agent |
 | 2025-02-09 | created | — | Added .devcontainer/Dockerfile (3-stage: base, build, devcontainer) and .devcontainer/devcontainer.json (VS Code, Cursor, Codespaces support) | architecture-agent |
+| 2025-02-09 | created | jtbd-repo-platform | Created Repo Platform Jobs to Be Done (RJ1–RJ10) — engineering infrastructure jobs: reproducible environments, incremental builds, version consistency, declarative IaC, domain isolation, CI/CD, code quality, type safety, onboarding, scalable growth | architecture-agent |
+| 2025-02-09 | created | rp01–rp10 | Created 10 Repo Platform feature specs: Runtime Version Management, Workspace & Package Management, Build Orchestration & Caching, TypeScript Project Configuration, Development Container, Build Container, Infrastructure as Code, Version Control & Conventions, CI/CD Pipeline, Code Quality Automation | architecture-agent |
+| 2025-02-09 | created | rp-u01–rp-u07 | Created 7 Repo Platform use cases: Setup Local Dev, Add Package, Incremental Build, Deploy Infrastructure, CI/CD on PR, GitHub Codespaces, Upgrade Dependency | architecture-agent |
+| 2025-02-09 | created | rp-stories | Created 19 Repo Platform user stories (RP-S01–RP-S19) for developers, CI/CD pipelines, platform engineers, and future tooling | architecture-agent |
+| 2025-02-09 | created | rp-product-index | Created Repo Platform product index with feature map, use cases, and stories | architecture-agent |
+| 2025-02-09 | created | surf-repo-platform | Created Repo Platform surface definition — engineering infrastructure layer, tool-agnostic specs pattern | architecture-agent |
+| 2025-02-09 | updated | registry | Added Repo Platform vision, features, use cases, stories, surface, and index to registry | architecture-agent |
+| 2025-02-09 | updated | surfaces-index | Added Repo Platform to development surfaces | architecture-agent |
+| 2025-02-09 | updated | product-index | Added Repo Platform section, fixed Dev Platform counts to 11 JTBD, 13 features, 13 use cases | architecture-agent |
+| 2025-02-09 | updated | CLAUDE.md | Added Repo Platform as Product section, updated repository structure | architecture-agent |
+| 2025-02-09 | updated | arch-stack | Added Repo Platform cross-reference | architecture-agent |

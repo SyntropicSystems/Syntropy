@@ -75,13 +75,14 @@ docs/                       ← all project knowledge
   vision/                   ← WHY: philosophy, motivation, language
   product/                  ← WHAT: features, use cases, stories, UX
     dev-platform/            ← dev platform as product (features, use cases, stories)
+    repo-platform/           ← repo platform as product (build, containers, CI/CD, IaC)
   architecture/             ← HOW: technical design, data model, stack
   decisions/                ← Decision records: ADRs + general decisions (reasoning graph)
   open-questions/           ← unresolved explorations
   workflows/                ← executable process documents
 agents/                     ← sub-agent manifests (trait composition)
   feature-agents/           ← per-feature specialized agents
-surfaces/                   ← surface definitions (mobile, web, dev platform)
+surfaces/                   ← surface definitions (mobile, web, dev platform, repo platform)
 prototypes/                 ← interactive React JSX design prototypes
 observations/               ← raw signals: frictions, ideas, bugs, thoughts
 ```
@@ -93,6 +94,14 @@ The development platform (this knowledge graph + agent system) is documented as 
 - **JTBD**: `docs/vision/jtbd-dev-platform.md` — 11 jobs the dev platform fulfills (DJ1–DJ11)
 - **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
 - **Surface**: `surfaces/dev-platform.md` — platform definition and principles
+
+## Repo Platform as Product
+
+The engineering infrastructure (build, containers, CI/CD, IaC) is documented as a product:
+
+- **JTBD**: `docs/vision/jtbd-repo-platform.md` — 10 jobs the repo platform fulfills (RJ1–RJ10)
+- **Product Index**: `docs/product/repo-platform/_index.md` — feature map, use cases, stories
+- **Surface**: `surfaces/repo-platform.md` — platform definition and principles
 
 ## Current Status
 
