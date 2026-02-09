@@ -92,9 +92,11 @@ When work arrives, route to the appropriate agent:
 
 ### Current Focus
 - Knowledge graph infrastructure is stable and fully scaffolded
-- Dev platform product documentation (DP01–DP10) is being specified
+- Dev platform product documentation (DP01–DP11) is being specified
 - Domain Context Sync (DP09) feature being introduced — adds sync protocol to all agents
 - Observation System (DP10) being introduced — zero-barrier signal capture, audit, and pattern detection
+- Reflection Loop (DP11) being introduced — post-work personal reflection feeding observation system
+- Feature Inception workflow (wf-feature-inception) created — meta-workflow for cross-cutting capabilities
 
 ### Key Decisions in Effect
 - ADR-001: Firebase as backend platform

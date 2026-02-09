@@ -19,7 +19,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Jobs to Be Done
 
-8 core jobs → `docs/vision/jtbd-dev-platform.md`
+9 core jobs → `docs/vision/jtbd-dev-platform.md`
 
 ## Feature Map
 
@@ -32,6 +32,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 - **DP08** — Entry Point Routing: CLAUDE.md → meta-agent → domain graph navigation → `features/dp08-entry-point-routing.md`
 - **DP09** — Domain Context Sync: Living domain state, drift detection, DRI review → `features/dp09-domain-context-sync.md`
 - **DP10** — Observation System: Zero-barrier signal capture, audit, pattern detection, upleveling → `features/dp10-observation-system.md`
+- **DP11** — Reflection Loop: Post-work personal reflection feeding the observation system → `features/dp11-reflection-loop.md`
 
 ### P1 — High Priority
 - **DP06** — Surface Definitions: Platform delivery specs for each surface → `features/dp06-surface-definitions.md`
@@ -39,7 +40,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Use Cases
 
-9 concrete usage scenarios → `use-cases/`
+10 concrete usage scenarios → `use-cases/`
 
 ## User Stories
 

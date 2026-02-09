@@ -8,14 +8,14 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10]
+  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11]
   related: [jtbd, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
 # Dev Platform — Jobs to Be Done
 
-The eight core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The nine core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 
@@ -48,3 +48,7 @@ The eight core jobs that the development platform exists to fulfill. Every dev p
 ## DJ8 — Capture and Surface Emergent Signals from All Contributors
 
 **When** anyone working on the system notices a friction, bug, idea, question, anxiety, pattern, need, or any other signal, **I want** a zero-barrier way to capture that observation in the moment — with as much or as little structure as they can provide — and have those signals periodically audited for patterns, structured retroactively where needed, and promoted to actionable items when the signal is strong enough, **so that** the system grows and evolves organically by emergence, no insight is lost, everyone contributes to collective intelligence just by sharing what they notice, and contributors are continuously upleveled to become more effective observers without creating dependency or learned helplessness.
+
+## DJ9 — Enable Continuous Self-Improvement Through Honest Reflection
+
+**When** I finish a piece of work (a feature inception, a spec review, a debugging session, an audit), **I want** a lightweight practice that prompts me to pause and genuinely notice my personal experience — what worked for me, what was hard, where I got stuck, what felt effective, what I'd need next time — without requiring me to design solutions or think about what others should do, **so that** I continuously develop self-awareness about my own effectiveness, my reflections feed the observation system as honest signals that surface patterns across contributors, and the whole system improves organically because everyone is simply noticing and sharing their actual experience.
