@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [jtbd-dev-platform]
-  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, stories]
+  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, stories]
 tags: [dev-platform, stories, requirements]
 ---
 
@@ -110,6 +110,18 @@ As a contributor, I want to know that even if I write a vague or poorly structur
 **Features:** DP10
 **Jobs:** DJ8
 
+### DP-S28 — Reflect After Completing Work
+As a contributor who just finished a task, I want a lightweight prompt to pause and genuinely notice my personal experience — what worked, what was hard, how it felt — so I build self-awareness about my own effectiveness and contribute honest signals that help the system improve.
+
+**Features:** DP11, DP10
+**Jobs:** DJ9, DJ8
+
+### DP-S29 — Add a Complete Feature Without Missing Layers
+As a contributor adding a cross-cutting capability, I want a meta-workflow that tells me every layer I need to touch (JTBD, feature spec, use cases, stories, workflows, agent, glossary, directory, conventions) and the order to create them in, so I don't discover missing documents halfway through or have to reverse-engineer the scope from the changelog.
+
+**Features:** DP03, DP05
+**Jobs:** DJ2, DJ5
+
 ---
 
 ## AI Agent Stories
@@ -167,6 +179,12 @@ As the observations-agent, I want to scan all observations for recurring themes,
 
 **Features:** DP10, DP04
 **Jobs:** DJ8, DJ1
+
+### DP-S30 — Reflect on My Own Processing Experience
+As an AI agent that just completed a task, I want to genuinely reflect on what happened during my processing — what context was helpful, what was missing, where I had to infer, where I was uncertain — so my reflection is honest signal about how the system serves AI agents, not theoretical observations about ideal systems.
+
+**Features:** DP11, DP10
+**Jobs:** DJ9, DJ8
 
 ---
 

@@ -5,7 +5,7 @@ title: "Document Conventions"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 ---
 
 # Document Conventions
@@ -49,6 +49,7 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 | `open-question` | Unresolved exploration | `oq-` + slug |
 | `workflow` | Executable process document | `wf-` + slug |
 | `agent-manifest` | Sub-agent configuration | slug |
+| `observation` | Raw signal, friction, idea, reflection | `obs-` + date + slug |
 | `surface` | Platform surface definition | `surf-` + slug |
 
 ## Status Lifecycles
@@ -61,6 +62,9 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 
 ### Open Questions:
 `draft` → `exploring` → `converging` → `resolved`
+
+### Observations:
+`raw` → `structured` → `triaged` → `promoted` | `archived`
 
 ### Workflows, agents, references:
 `draft` → `active` → `superseded` | `archived`
@@ -85,6 +89,7 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 - Use cases: `uNN-slug.md`
 - ADRs: `adr-NNN-slug.md`
 - Open questions: `oq-slug.md`
+- Observations: `YYYY-MM-DD-slug.md` (in observations directory)
 - Workflows: `slug.md` (in workflows directory)
 
 ### Directories

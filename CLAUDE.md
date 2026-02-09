@@ -52,6 +52,8 @@ Executable process documents — same instructions work for humans and AI:
 - Domain DRI review: `docs/workflows/domain-review.md`
 - Capture observation: `docs/workflows/capture-observation.md`
 - Audit observations: `docs/workflows/audit-observations.md`
+- Feature inception: `docs/workflows/feature-inception.md`
+- Reflect after work: `docs/workflows/reflect.md`
 
 ## Principles
 
@@ -85,7 +87,7 @@ observations/               ← raw signals: frictions, ideas, bugs, thoughts
 
 The development platform (this knowledge graph + agent system) is documented as a product itself:
 
-- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 8 jobs the dev platform fulfills (DJ1–DJ8)
+- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 9 jobs the dev platform fulfills (DJ1–DJ9)
 - **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
 - **Surface**: `surfaces/dev-platform.md` — platform definition and principles
 

@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [wf-make-decision, wf-refine-story, wf-create-agent, wf-decompose-spec]
+  related: [wf-make-decision, wf-refine-story, wf-create-agent, wf-decompose-spec, wf-feature-inception]
 ---
 
 # Workflow: Add a New Feature Spec
@@ -79,3 +79,5 @@ A new feature needs to be formally specified and added to the knowledge graph �
 ## Executor Notes
 
 This workflow can be executed by: `product-agent`, `meta-agent`, or any human team member. If the feature has architecture implications, consult `architecture-agent` during Step 3.
+
+**Note:** If the new capability requires more than just a feature spec — e.g., it needs its own workflows, agent, directory, JTBD, or glossary terms — use `docs/workflows/feature-inception.md` instead. This workflow is for adding a single feature spec to the graph; feature inception covers the full cross-cutting scope.

@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [meta-agent, dp10, wf-capture-observation, wf-audit-observations, observations-index]
+  related: [meta-agent, dp10, dp11, wf-capture-observation, wf-audit-observations, wf-reflect, observations-index]
 ---
 
 # Observations Agent
@@ -29,7 +29,8 @@ This agent embodies a core Syntropy principle: **the system grows by emergence**
 ### Always
 - `observations/_index.md` — observation directory structure, types, domains
 - `observations/_template.md` — template for new observations
-- `docs/product/dev-platform/features/dp10-observation-system.md` — feature spec
+- `docs/product/dev-platform/features/dp10-observation-system.md` — observation system spec
+- `docs/product/dev-platform/features/dp11-reflection-loop.md` — reflection loop spec
 - `docs/workflows/capture-observation.md` — capture workflow
 - `docs/workflows/audit-observations.md` — audit workflow
 
@@ -58,6 +59,7 @@ This agent embodies a core Syntropy principle: **the system grows by emergence**
 
 - `docs/workflows/capture-observation.md` — helping contributors capture observations
 - `docs/workflows/audit-observations.md` — periodic audit, structuring, pattern detection
+- `docs/workflows/reflect.md` — post-work reflection practice
 
 ## Decision Authority
 
@@ -88,6 +90,7 @@ This agent embodies a core Syntropy principle: **the system grows by emergence**
 
 ### Current Focus
 - Observation system being established (DP10 in `defining` status)
+- Reflection loop being established (DP11 in `defining` status)
 - Capture and audit workflows created
 - Observation directory and templates set up
 - No observations captured yet — system is ready for use

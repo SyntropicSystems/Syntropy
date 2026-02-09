@@ -43,6 +43,7 @@ Every agent can execute these workflows:
 - `docs/workflows/sync-domain-context.md` — when catching up on changes or auditing domain coherence
 - `docs/workflows/domain-review.md` — when reviewing changes that touch a domain before merge
 - `docs/workflows/capture-observation.md` — when capturing a friction, idea, question, or any signal
+- `docs/workflows/reflect.md` — after completing work, to notice and capture your experience
 
 ## Escalation Protocol
 
