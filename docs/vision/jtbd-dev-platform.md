@@ -1,0 +1,42 @@
+---
+id: "jtbd-dev-platform"
+type: vision
+title: "Dev Platform — Jobs to Be Done"
+status: active
+owner: meta-agent
+created: 2025-02-09
+updated: 2025-02-09
+refs:
+  depends-on: [manifesto]
+  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08]
+  related: [jtbd, principles, surf-dev-platform]
+tags: [vision, motivation, jtbd, dev-platform, meta]
+---
+
+# Dev Platform — Jobs to Be Done
+
+The six core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+
+## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
+
+**When** product knowledge is scattered across conversations, documents, and people's heads, **I want** a structured system where every concept has one canonical file with explicit cross-references **so that** anyone (human or AI) can find the authoritative definition of anything without ambiguity or duplication.
+
+## DJ2 — Enable Humans and AI Agents to Execute the Same Processes
+
+**When** a task needs to be done (add a feature, make a decision, resolve a question), **I want** executable workflow documents that work identically whether a human or AI agent follows them **so that** the process is consistent, repeatable, and not dependent on tribal knowledge.
+
+## DJ3 — Keep Decisions Traceable and Reversible
+
+**When** a design or architecture decision is made, **I want** it logged as an ADR with context, rationale, alternatives, and consequences, and all affected documents updated **so that** future contributors can understand why things are the way they are and make informed decisions about changing them.
+
+## DJ4 — Scale Development Complexity Without Restructuring
+
+**When** the product grows in scope (new features, new domains, new integrations), **I want** to add nodes and edges to the knowledge graph without reorganizing existing structure **so that** growth is additive and the system remains navigable at any scale.
+
+## DJ5 — Reduce Friction When Adding, Finding, or Changing Product Specs
+
+**When** I need to add a new feature spec, find an existing use case, or update a decision, **I want** clear entry points, consistent navigation patterns, and standardized templates **so that** the mechanical overhead of documentation is minimal and I can focus on the content.
+
+## DJ6 — Ensure Consistency Across All Documentation
+
+**When** multiple contributors (humans and AI agents) are working on documentation simultaneously, **I want** enforced conventions (frontmatter, naming, cross-references, status lifecycles) **so that** every document follows the same structure and the knowledge graph maintains its integrity.

@@ -5,9 +5,9 @@ title: "Development Platform"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 refs:
-  related: [meta-agent, base-traits]
+  related: [meta-agent, base-traits, jtbd-dev-platform, dp-product-index, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08]
 tags: [surface, development, methodology, meta]
 ---
 
@@ -54,3 +54,13 @@ The structure never needs reorganization. Growth means adding nodes and edges, n
 3. **Single source of truth** — one file per concept, cross-reference everything else
 4. **Equally executable** — same docs work for humans reading and AI agents following
 5. **Trait composition** — agents inherit shared foundations, compose domain-specific capabilities
+
+## Product Documentation
+
+The dev platform is documented as a product with the same structure as the application itself:
+
+- **Jobs to Be Done**: `docs/vision/jtbd-dev-platform.md` — 6 core jobs (DJ1–DJ6)
+- **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
+- **Feature Specs**: `docs/product/dev-platform/features/dp01–dp08` — 8 feature specs
+- **Use Cases**: `docs/product/dev-platform/use-cases/dp-u01–dp-u05` — 5 use cases
+- **User Stories**: `docs/product/dev-platform/user-stories/stories-dev-platform.md` — 15 stories

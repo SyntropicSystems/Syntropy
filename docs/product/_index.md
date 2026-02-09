@@ -5,7 +5,7 @@ title: "Product Domain"
 status: active
 owner: product-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 ---
 
 # Product Domain
@@ -38,3 +38,11 @@ Overview of the Syntropy OS product specification. This domain covers what we're
 
 ## UX Patterns
 6 design patterns → `ux/`
+
+## Dev Platform (as Product)
+
+The development platform itself is documented as a product → `dev-platform/_index.md`
+- 6 JTBD (DJ1–DJ6) → `docs/vision/jtbd-dev-platform.md`
+- 8 Feature Specs (DP01–DP08) → `dev-platform/features/`
+- 5 Use Cases (DP-U01–DP-U05) → `dev-platform/use-cases/`
+- 15 User Stories (DP-S01–DP-S15) → `dev-platform/user-stories/stories-dev-platform.md`

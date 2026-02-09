@@ -64,6 +64,7 @@ CLAUDE.md                   ← you are here (root entry point)
 docs/                       ← all project knowledge
   vision/                   ← WHY: philosophy, motivation, language
   product/                  ← WHAT: features, use cases, stories, UX
+    dev-platform/            ← dev platform as product (features, use cases, stories)
   architecture/             ← HOW: technical design, data model, stack
   decisions/                ← ADRs: logged decisions with rationale
   open-questions/           ← unresolved explorations
@@ -73,6 +74,14 @@ agents/                     ← sub-agent manifests (trait composition)
 surfaces/                   ← surface definitions (mobile, web, dev platform)
 prototypes/                 ← interactive React JSX design prototypes
 ```
+
+## Dev Platform as Product
+
+The development platform (this knowledge graph + agent system) is documented as a product itself:
+
+- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 6 jobs the dev platform fulfills (DJ1–DJ6)
+- **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
+- **Surface**: `surfaces/dev-platform.md` — platform definition and principles
 
 ## Current Status
 

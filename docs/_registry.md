@@ -5,7 +5,7 @@ title: "Document Registry"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 ---
 
 # Document Registry
@@ -126,6 +126,41 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | f11-domains-agent | Domains Agent | active | Feature F11 | `agents/feature-agents/f11-domains-agent.md` |
 | f12-artifact-agent | Artifact Agent | active | Feature F12 | `agents/feature-agents/f12-artifact-agent.md` |
 
+## Dev Platform — Vision
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| jtbd-dev-platform | Dev Platform JTBD | active | meta-agent | `docs/vision/jtbd-dev-platform.md` |
+
+## Dev Platform — Features
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| dp01 | Knowledge Graph | defining | meta-agent | `docs/product/dev-platform/features/dp01-knowledge-graph.md` |
+| dp02 | Agent System | defining | meta-agent | `docs/product/dev-platform/features/dp02-agent-system.md` |
+| dp03 | Workflow Engine | defining | meta-agent | `docs/product/dev-platform/features/dp03-workflow-engine.md` |
+| dp04 | Registry & Changelog | defining | meta-agent | `docs/product/dev-platform/features/dp04-registry-changelog.md` |
+| dp05 | Convention System | defining | meta-agent | `docs/product/dev-platform/features/dp05-convention-system.md` |
+| dp06 | Surface Definitions | defining | meta-agent | `docs/product/dev-platform/features/dp06-surface-definitions.md` |
+| dp07 | Prototype System | defining | ux-agent | `docs/product/dev-platform/features/dp07-prototype-system.md` |
+| dp08 | Entry Point Routing | defining | meta-agent | `docs/product/dev-platform/features/dp08-entry-point-routing.md` |
+
+## Dev Platform — Use Cases
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| dp-u01 | Adding a New Feature to the Product | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u01-add-feature.md` |
+| dp-u02 | New Contributor Onboarding | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u02-contributor-onboarding.md` |
+| dp-u03 | Making and Recording an Architecture Decision | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u03-architecture-decision.md` |
+| dp-u04 | Exploring the Knowledge Graph | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u04-exploring-knowledge-graph.md` |
+| dp-u05 | Resolving an Open Question | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u05-resolving-open-question.md` |
+
+## Dev Platform — User Stories
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| dp-stories | Dev Platform User Stories (DP-S01–DP-S15) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
+
 ## Surfaces
 
 | ID | Title | Status | Owner | File |
@@ -142,6 +177,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | changelog | Changelog | active | meta-agent | `docs/_changelog.md` |
 | registry | Document Registry | active | meta-agent | `docs/_registry.md` |
 | product-index | Product Domain Index | active | product-agent | `docs/product/_index.md` |
+| dp-product-index | Dev Platform Product Index | active | meta-agent | `docs/product/dev-platform/_index.md` |
 | arch-index | Architecture Domain Index | active | architecture-agent | `docs/architecture/_index.md` |
 | decisions-index | Decisions Index | active | architecture-agent | `docs/decisions/_index.md` |
 | surfaces-index | Surfaces Index | active | ux-agent | `surfaces/_index.md` |
