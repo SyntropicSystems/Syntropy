@@ -118,3 +118,5 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | updated | adr-004 | Added concrete tooling: Nx 20.x, Pulumi 3.x (TypeScript), Node 24 LTS (nvm), pnpm 9.x; added infra/ to structure | architecture-agent |
 | 2025-02-09 | updated | arch-stack | Added toolchain section: Node 24 LTS, pnpm, Nx, Pulumi; added Pulumi to stack | architecture-agent |
 | 2025-02-09 | created | — | Scaffolded monorepo: root config (nx.json, pnpm-workspace.yaml, tsconfig.base.json, .nvmrc, .gitignore), Phase 1 packages (shared-types, domain-events, domain-core, firebase, design-tokens), app stubs (web, mobile, dev-web, functions), infra/ (Pulumi) | architecture-agent |
+| 2025-02-09 | created | adr-005 | Accepted ADR-005: Dev Container and Build Container Strategy — multi-stage Dockerfile (base → build → devcontainer), devcontainer Features for dev tools, single source of truth for all environments | architecture-agent |
+| 2025-02-09 | created | — | Added .devcontainer/Dockerfile (3-stage: base, build, devcontainer) and .devcontainer/devcontainer.json (VS Code, Cursor, Codespaces support) | architecture-agent |

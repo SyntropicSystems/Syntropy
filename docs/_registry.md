@@ -91,6 +91,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | adr-002 | Event Sourcing on Firestore | accepted | architecture-agent | `docs/decisions/adr-002-event-sourcing-firestore.md` |
 | adr-003 | Claude as Primary LLM | accepted | architecture-agent | `docs/decisions/adr-003-claude-primary-llm.md` |
 | adr-004 | Hybrid Domain-Package Monorepo Architecture | accepted | architecture-agent | `docs/decisions/adr-004-hybrid-monorepo.md` |
+| adr-005 | Dev Container and Build Container Strategy | accepted | architecture-agent | `docs/decisions/adr-005-dev-build-containers.md` |
 
 *General decision records (dr-NNN) will appear here as they are captured.*
 
