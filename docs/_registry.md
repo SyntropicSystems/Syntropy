@@ -189,6 +189,45 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 |----|-------|--------|-------|------|
 | dp-stories | Dev Platform User Stories (DP-S01–DP-S35) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
 
+## Repo Platform — Vision
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| jtbd-repo-platform | Repo Platform JTBD | active | architecture-agent | `docs/vision/jtbd-repo-platform.md` |
+
+## Repo Platform — Features
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| rp01 | Runtime Version Management | defining | architecture-agent | `docs/product/repo-platform/features/rp01-runtime-version-management.md` |
+| rp02 | Workspace & Package Management | defining | architecture-agent | `docs/product/repo-platform/features/rp02-workspace-management.md` |
+| rp03 | Build Orchestration & Caching | defining | architecture-agent | `docs/product/repo-platform/features/rp03-build-orchestration.md` |
+| rp04 | TypeScript Project Configuration | defining | architecture-agent | `docs/product/repo-platform/features/rp04-typescript-project-config.md` |
+| rp05 | Development Container | defining | architecture-agent | `docs/product/repo-platform/features/rp05-dev-container.md` |
+| rp06 | Build Container | defining | architecture-agent | `docs/product/repo-platform/features/rp06-build-container.md` |
+| rp07 | Infrastructure as Code | defining | architecture-agent | `docs/product/repo-platform/features/rp07-infrastructure-as-code.md` |
+| rp08 | Version Control & Conventions | defining | architecture-agent | `docs/product/repo-platform/features/rp08-version-control.md` |
+| rp09 | CI/CD Pipeline | exploring | architecture-agent | `docs/product/repo-platform/features/rp09-ci-cd-pipeline.md` |
+| rp10 | Code Quality Automation | exploring | architecture-agent | `docs/product/repo-platform/features/rp10-code-quality.md` |
+
+## Repo Platform — Use Cases
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| rp-u01 | Setting Up Local Development | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u01-setup-local-dev.md` |
+| rp-u02 | Adding a New Package to the Monorepo | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u02-add-package.md` |
+| rp-u03 | Running an Incremental Build After Code Changes | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u03-incremental-build.md` |
+| rp-u04 | Deploying Infrastructure Changes | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u04-deploy-infrastructure.md` |
+| rp-u05 | Running CI/CD on a Pull Request | exploring | architecture-agent | `docs/product/repo-platform/use-cases/rp-u05-ci-cd-pull-request.md` |
+| rp-u06 | Opening the Project in GitHub Codespaces | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u06-github-codespaces.md` |
+| rp-u07 | Upgrading a Shared Runtime Dependency | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u07-upgrade-dependency.md` |
+
+## Repo Platform — User Stories
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| rp-stories | Repo Platform User Stories (RP-S01–RP-S19) | defining | architecture-agent | `docs/product/repo-platform/user-stories/stories-repo-platform.md` |
+
 ## Surfaces
 
 | ID | Title | Status | Owner | File |
@@ -196,6 +235,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | surf-mobile | Mobile Surface | defining | ux-agent | `surfaces/mobile.md` |
 | surf-web | Web Surface | defining | ux-agent | `surfaces/web.md` |
 | surf-dev-platform | Development Platform | active | meta-agent | `surfaces/dev-platform.md` |
+| surf-repo-platform | Repo Platform | active | architecture-agent | `surfaces/repo-platform.md` |
 
 ## Index & Meta Files
 
@@ -206,6 +246,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | registry | Document Registry | active | meta-agent | `docs/_registry.md` |
 | product-index | Product Domain Index | active | product-agent | `docs/product/_index.md` |
 | dp-product-index | Dev Platform Product Index | active | meta-agent | `docs/product/dev-platform/_index.md` |
+| rp-product-index | Repo Platform Product Index | active | architecture-agent | `docs/product/repo-platform/_index.md` |
 | arch-index | Architecture Domain Index | active | architecture-agent | `docs/architecture/_index.md` |
 | decisions-index | Decisions Index | active | decisions-agent | `docs/decisions/_index.md` |
 | surfaces-index | Surfaces Index | active | ux-agent | `surfaces/_index.md` |

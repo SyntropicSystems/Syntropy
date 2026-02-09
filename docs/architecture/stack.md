@@ -7,8 +7,8 @@ owner: architecture-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  decided-by: [adr-001, adr-003, adr-004]
-  related: [arch-data-model, arch-ai-pipeline]
+  decided-by: [adr-001, adr-003, adr-004, adr-005]
+  related: [arch-data-model, arch-ai-pipeline, surf-repo-platform, rp01, rp02, rp03, rp04, rp07]
 tags: [architecture, stack, firebase, monorepo]
 ---
 

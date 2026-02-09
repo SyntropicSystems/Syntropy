@@ -24,3 +24,4 @@ Syntropy OS is a platform with multiple surfaces — each surface is an interfac
 | Surface | Description | File |
 |---------|-------------|------|
 | Dev Platform | This knowledge graph system itself — the methodology for building Syntropy OS | `dev-platform.md` |
+| Repo Platform | The engineering infrastructure layer — build, containers, CI/CD, IaC | `repo-platform.md` |
