@@ -23,7 +23,7 @@ This project uses **trait-based agent composition**. Each agent inherits shared 
 1. Read this file (done)
 2. Read `agents/meta-agent.md` to understand routing
 3. Identify the right agent for the task scope
-4. Load that agent's manifest — follow its context cache, rules, and workflows
+4. Load that agent's manifest — follow its context cache, domain state, rules, and workflows
 
 ### Inheritance model:
 
@@ -47,6 +47,8 @@ Executable process documents — same instructions work for humans and AI:
 - Create an agent: `docs/workflows/create-agent.md`
 - Resolve a question: `docs/workflows/resolve-open-question.md`
 - Decompose a spec: `docs/workflows/decompose-spec.md`
+- Sync domain context: `docs/workflows/sync-domain-context.md`
+- Domain DRI review: `docs/workflows/domain-review.md`
 
 ## Principles
 
@@ -79,7 +81,7 @@ prototypes/                 ← interactive React JSX design prototypes
 
 The development platform (this knowledge graph + agent system) is documented as a product itself:
 
-- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 6 jobs the dev platform fulfills (DJ1–DJ6)
+- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 7 jobs the dev platform fulfills (DJ1–DJ7)
 - **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
 - **Surface**: `surfaces/dev-platform.md` — platform definition and principles
 

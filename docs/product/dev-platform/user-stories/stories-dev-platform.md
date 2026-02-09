@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [jtbd-dev-platform]
-  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, stories]
+  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, stories]
 tags: [dev-platform, stories, requirements]
 ---
 
@@ -68,6 +68,24 @@ As a contributor about to create a new document, I want to search the registry t
 **Features:** DP04, DP01
 **Jobs:** DJ1
 
+### DP-S16 — Catch Up on a Domain After Being Away
+As a developer returning to a domain after working elsewhere, I want to read the domain agent's current state and immediately understand what's active, what decisions are in effect, and what's unresolved so I can resume productive work without re-reading every document.
+
+**Features:** DP09, DP02
+**Jobs:** DJ7, DJ5
+
+### DP-S17 — Delegate Work to Domain Experts
+As an implementer working across multiple domains, I want to hand off implementation or review to domain-specific agents who maintain their own context and expertise so I can multiply myself without losing quality.
+
+**Features:** DP09, DP02, DP03
+**Jobs:** DJ7, DJ2
+
+### DP-S18 — Verify Domain Coherence Before Merging
+As a contributor finishing cross-domain work, I want each affected domain's DRI to review my changes against their invariants and rules so nothing slips through that violates domain constraints.
+
+**Features:** DP09, DP02
+**Jobs:** DJ7, DJ6
+
 ---
 
 ## AI Agent Stories
@@ -95,6 +113,24 @@ As an AI agent working on a feature spec, I want typed cross-references in front
 
 **Features:** DP01
 **Jobs:** DJ1, DJ5
+
+### DP-S19 — Spin Up with Full Domain State
+As an AI agent being activated in a domain, I want to load the domain's living state (current focus, active decisions, invariants, open threads, dependencies) so I can be immediately productive without scanning the entire knowledge graph.
+
+**Features:** DP09, DP02
+**Jobs:** DJ7, DJ2
+
+### DP-S20 — Audit My Domain for Drift
+As an AI agent, I want to scan the changelog for changes since my last sync, check my invariants, and update my domain state so I can detect and resolve drift before it compounds.
+
+**Features:** DP09, DP04
+**Jobs:** DJ7, DJ6
+
+### DP-S21 — Review Changes as Domain DRI
+As an AI agent acting as a domain DRI, I want to review proposed changes against my domain's rules, invariants, and decisions so I can approve or flag issues before they merge.
+
+**Features:** DP09, DP02, DP03
+**Jobs:** DJ7, DJ2
 
 ---
 

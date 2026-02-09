@@ -9,8 +9,8 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [dp01, dp05]
-  enables: [dp03, dp-u01, dp-u02, dp-u03]
-  related: [dp08, base-traits, meta-agent]
+  enables: [dp03, dp09, dp-u01, dp-u02, dp-u03, dp-u06, dp-u07]
+  related: [dp08, dp09, base-traits, meta-agent]
   informed-by: [jtbd-dev-platform]
 tags: [dev-platform, core, agents, p0]
 ---
@@ -45,6 +45,7 @@ Each agent manifest defines:
 - **Own workflows**: processes this agent can execute
 - **Decision authority**: what it can decide autonomously vs. what requires escalation
 - **Delegates to / Delegated from**: how work flows between agents
+- **Domain State**: living snapshot of the domain's current understanding (see DP09)
 
 ### Routing
 
@@ -68,10 +69,10 @@ Each agent manifest defines:
 ## Dependencies
 
 - Requires: DP01 (Knowledge Graph) — agents navigate and modify the graph; DP05 (Convention System) — agent manifests follow conventions
-- Enables: DP03 (Workflow Engine) — agents execute workflows
+- Enables: DP03 (Workflow Engine) — agents execute workflows; DP09 (Domain Context Sync) — agents maintain living domain state
 
 ## Open Questions
 
 - [ ] When should a feature get its own feature agent vs. staying under a domain agent?
-- [ ] Should agents have explicit "handoff protocols" for cross-domain work?
+- [x] Should agents have explicit "handoff protocols" for cross-domain work? → Yes, addressed by DP09 Domain Context Sync: `wf-domain-review` for pre-merge handoff, `wf-sync-domain-context` for catch-up handoff
 - [ ] How do we handle conflicting agent decisions (e.g., product-agent vs. architecture-agent)?

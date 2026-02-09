@@ -7,7 +7,7 @@ inherits: [_base-traits, product-agent]
 scope: "Feature F04: AI Action Engine — confidence scoring, domain agents, auto-execution"
 authority: feature-dri
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 refs:
   related: [f04, f07, f10, arch-ai-pipeline, product-agent]
 ---
@@ -67,3 +67,38 @@ Feature-level DRI for the AI Action Engine (F04). Specializes in the intelligenc
 
 ## Delegated From
 - `agents/product-agent.md` — deep AI engine work
+
+## Domain State
+
+### Current Focus
+- F04 spec in `exploring` status — needs deeper specification
+- Confidence scoring model and domain agent architecture being designed
+- Tightly coupled with F10 (confidence thresholds) and F07 (self-learning)
+
+### Key Decisions in Effect
+- ADR-003: Claude as primary LLM
+- Domain agents are prompt + context strategies, not separate AI models
+- Confidence scores are always visible to users
+- Auto-execution requires both confidence threshold AND action type allowance
+
+### Invariants
+- Confidence is never hidden from the user
+- Every AI action (auto or suggested) is logged as an event (via F06)
+- User corrections always take precedence over AI suggestions
+- Domain agents don't make autonomous decisions above their confidence threshold
+
+### Open Threads
+- F04 still in `exploring` — core architecture of confidence scoring TBD
+- Privacy model for AI reading external data (affects AI analysis scope)
+- How domain agents specialize (prompt engineering strategies)
+- Learning signal feedback loop design (F07 dependency)
+
+### Cross-Domain Dependencies
+- F10 (confidence thresholds) defines trust controls — tightly coupled
+- F07 (self-learning) feeds confidence calibration
+- AI pipeline architecture (arch-ai-pipeline) constrains implementation
+- Privacy model (oq-privacy-model) constrains what AI can analyze
+- F06 (event sourcing) provides the audit trail for all AI actions
+
+### Last Synced
+2025-02-09

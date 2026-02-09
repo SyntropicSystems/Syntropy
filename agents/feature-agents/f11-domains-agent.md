@@ -7,7 +7,7 @@ inherits: [_base-traits, product-agent]
 scope: "Feature F11: Domains/Spaces — persistent life contexts, knowledge base, info management"
 authority: feature-dri
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 refs:
   related: [f11, f12, arch-data-model, product-agent]
 ---
@@ -65,3 +65,36 @@ Feature-level DRI for Domains/Spaces (F11). Specializes in the persistent life c
 
 ## Delegated From
 - `agents/product-agent.md` — deep Domains/Spaces work
+
+## Domain State
+
+### Current Focus
+- F11 spec in `defining` status — space structure and info tab being specified
+- Spaces navigation UX pattern defined
+- Auto-filing (U07) and living reference (U06) use cases being developed
+
+### Key Decisions in Effect
+- Spaces are permanent — never "complete" or "end"
+- Hierarchy is Space → Project → Task/Card (naming is strict)
+- Info tab is structured knowledge base (category → key-value), not free-form
+- Cross-space awareness is a core AI capability
+
+### Invariants
+- Spaces never complete (unlike projects)
+- Hierarchy naming is Space → Project → Task (no aliases)
+- Info tab structure is category → key-value (not free-form notes)
+- Every entity can belong to a space, but space-less entities are valid
+
+### Open Threads
+- Multi-user / shared spaces (oq-multi-user) — directly affects F11
+- How cross-space connections surface to users
+- Auto-filing classification logic (U07)
+
+### Cross-Domain Dependencies
+- F12 (Artifact Intelligence) — artifacts live in and link to spaces
+- F02 (Recursive Hierarchy) — projects live within spaces
+- Data model (arch-data-model) defines Firestore domain/info collections
+- UX (spaces-navigation) defines how users interact with spaces
+
+### Last Synced
+2025-02-09
