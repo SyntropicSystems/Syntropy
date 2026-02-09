@@ -2,14 +2,14 @@
 id: "oq-monorepo-architecture"
 type: open-question
 title: "Monorepo Architecture — Code Organization Strategy"
-status: exploring
+status: resolved
 owner: architecture-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
   affects: [arch-stack, f08]
   related: [adr-001, arch-data-model, arch-ai-pipeline]
-  resolves-to: []
+  resolves-to: [adr-004]
 tags: [architecture, monorepo, deployment, ddd]
 ---
 

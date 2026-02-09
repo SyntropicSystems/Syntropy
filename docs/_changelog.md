@@ -110,3 +110,8 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | updated | CLAUDE.md | Added decisions-agent to inheritance tree, record-decision to workflows, updated JTBD count to DJ1–DJ11 | meta-agent |
 | 2025-02-09 | updated | registry | Added DP13, decisions-agent, wf-record-decision, dp-u12, dp-u13 to registry | meta-agent |
 | 2025-02-09 | created | oq-monorepo-architecture | Created open question exploring monorepo architecture options: Flat Package, Domain DDD, Platform-Centric, Hybrid, Multi-Repo — with comparison matrix and current thinking | architecture-agent |
+| 2025-02-09 | created | adr-004 | Accepted ADR-004: Hybrid Domain-Package Monorepo — domain packages (pure TS) + infrastructure packages + UI packages + thin app shells, with incremental phase 1 starting from domain-core | architecture-agent |
+| 2025-02-09 | updated | oq-monorepo-architecture | Resolved → ADR-004 | architecture-agent |
+| 2025-02-09 | updated | decisions-index | Added ADR-004 to decision log | architecture-agent |
+| 2025-02-09 | updated | arch-index | Added ADR-004 to key decisions | architecture-agent |
+| 2025-02-09 | updated | registry | Added ADR-004, updated oq-monorepo-architecture status to resolved | architecture-agent |

@@ -25,3 +25,4 @@ Technical architecture for Syntropy OS. This domain covers how we're building it
 - ADR-001: Firebase as Backend Platform → `../decisions/adr-001-firebase-backend.md`
 - ADR-002: Event Sourcing on Firestore → `../decisions/adr-002-event-sourcing-firestore.md`
 - ADR-003: Claude as Primary LLM → `../decisions/adr-003-claude-primary-llm.md`
+- ADR-004: Hybrid Domain-Package Monorepo → `../decisions/adr-004-hybrid-monorepo.md`
