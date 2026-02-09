@@ -3,17 +3,30 @@ id: "decisions-index"
 type: reference
 title: "Decision Log"
 status: active
-owner: architecture-agent
+owner: decisions-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
+refs:
+  related: [dp13, decisions-agent, wf-record-decision, wf-make-decision]
 ---
 
 # Decision Log
 
-Architecture Decision Records (ADRs) for Syntropy OS. Decisions are logged here, not buried in conversation.
+Decision records for Syntropy OS. All decisions — architecture, product, process, methodology, convention — are logged here, not buried in conversation.
 
-| ID | Title | Status | Date |
-|----|-------|--------|------|
-| ADR-001 | Firebase as Backend Platform | accepted | 2025-02-07 |
-| ADR-002 | Event Sourcing on Firestore | accepted | 2025-02-07 |
-| ADR-003 | Claude as Primary LLM | accepted | 2025-02-07 |
+The decision log is the entry point to the **reasoning graph**: the interconnected set of decisions that explains why everything in the system is the way it is. For the feature spec, see DP13. For the capture workflow, see `wf-record-decision`.
+
+## Architecture Decision Records (ADRs)
+
+| ID | Title | Status | Type | Date |
+|----|-------|--------|------|------|
+| ADR-001 | Firebase as Backend Platform | accepted | Type 1 | 2025-02-07 |
+| ADR-002 | Event Sourcing on Firestore | accepted | Type 1 | 2025-02-07 |
+| ADR-003 | Claude as Primary LLM | accepted | Type 1 | 2025-02-07 |
+
+## General Decision Records (DRs)
+
+| ID | Title | Status | Type | Domain | Date |
+|----|-------|--------|------|--------|------|
+
+*No general decision records yet. Use `wf-record-decision` to capture your first one.*

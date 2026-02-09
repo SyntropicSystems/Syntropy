@@ -28,7 +28,7 @@ These documents form the shared foundation every agent operates from:
 2. **Frontmatter required** — all documents must have YAML frontmatter with at minimum: id, type, title, status, owner, created, updated
 3. **Bidirectional references** — when adding a `refs` entry to document A pointing to B, also add the reciprocal entry in B
 4. **Log all changes** — every document creation, update, or archival must be appended to `docs/_changelog.md`
-5. **Decisions are ADRs** — significant decisions go through the ADR workflow (`docs/workflows/make-architecture-decision.md`), not inline in other documents
+5. **Decisions are recorded** — significant decisions go through the decision record workflow (`docs/workflows/record-decision.md`) or the architecture-specific ADR workflow (`docs/workflows/make-architecture-decision.md`), not inline in other documents
 6. **IDs are stable** — cross-reference by document ID, never by file path; IDs never change even if files move
 7. **Escalation over assumption** — when a task crosses domain boundaries, escalate to the relevant agent or to `meta-agent` rather than making assumptions
 8. **Domain state hygiene** — after completing work in your domain, update your Domain State section; before starting significant new work, verify your domain state is current
@@ -38,7 +38,8 @@ These documents form the shared foundation every agent operates from:
 
 Every agent can execute these workflows:
 
-- `docs/workflows/make-architecture-decision.md` — when a significant decision needs to be made
+- `docs/workflows/record-decision.md` — when any decision needs to be captured
+- `docs/workflows/make-architecture-decision.md` — when an architecture-specific decision needs to be made
 - `docs/workflows/resolve-open-question.md` — when exploring and resolving an open question
 - `docs/workflows/sync-domain-context.md` — when catching up on changes or auditing domain coherence
 - `docs/workflows/domain-review.md` — when reviewing changes that touch a domain before merge
