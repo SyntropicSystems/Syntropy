@@ -111,6 +111,8 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | wf-create-agent | Create a New Agent | active | meta-agent | `docs/workflows/create-agent.md` |
 | wf-resolve-question | Resolve an Open Question | active | meta-agent | `docs/workflows/resolve-open-question.md` |
 | wf-decompose-spec | Decompose a Spec Document | active | meta-agent | `docs/workflows/decompose-spec.md` |
+| wf-sync-domain-context | Sync Domain Context | active | meta-agent | `docs/workflows/sync-domain-context.md` |
+| wf-domain-review | Domain DRI Review | active | meta-agent | `docs/workflows/domain-review.md` |
 
 ## Agents
 
@@ -144,6 +146,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp06 | Surface Definitions | defining | meta-agent | `docs/product/dev-platform/features/dp06-surface-definitions.md` |
 | dp07 | Prototype System | defining | ux-agent | `docs/product/dev-platform/features/dp07-prototype-system.md` |
 | dp08 | Entry Point Routing | defining | meta-agent | `docs/product/dev-platform/features/dp08-entry-point-routing.md` |
+| dp09 | Domain Context Sync | defining | meta-agent | `docs/product/dev-platform/features/dp09-domain-context-sync.md` |
 
 ## Dev Platform — Use Cases
 
@@ -154,12 +157,14 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp-u03 | Making and Recording an Architecture Decision | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u03-architecture-decision.md` |
 | dp-u04 | Exploring the Knowledge Graph | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u04-exploring-knowledge-graph.md` |
 | dp-u05 | Resolving an Open Question | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u05-resolving-open-question.md` |
+| dp-u06 | Syncing Domain Context After Changes | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u06-domain-context-sync.md` |
+| dp-u07 | Domain DRI Review Before Merge | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u07-domain-review-before-merge.md` |
 
 ## Dev Platform — User Stories
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| dp-stories | Dev Platform User Stories (DP-S01–DP-S15) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
+| dp-stories | Dev Platform User Stories (DP-S01–DP-S21) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
 
 ## Surfaces
 

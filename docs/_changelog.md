@@ -47,3 +47,14 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | updated | registry | Added dev platform vision, features, use cases, stories, and index to registry | meta-agent |
 | 2025-02-09 | updated | surf-dev-platform | Added product documentation references to dev platform surface | meta-agent |
 | 2025-02-09 | updated | product-index | Added dev platform section to main product index | meta-agent |
+| 2025-02-09 | created | dp09 | Created DP09 Domain Context Sync feature spec — living domain state, drift detection, DRI review pattern | meta-agent |
+| 2025-02-09 | created | wf-sync-domain-context | Created workflow for auditing and syncing domain agent context state | meta-agent |
+| 2025-02-09 | created | wf-domain-review | Created workflow for domain DRI review before merge | meta-agent |
+| 2025-02-09 | updated | jtbd-dev-platform | Added DJ7 — Preserve Domain Expertise and Enable Fast Context Recovery | meta-agent |
+| 2025-02-09 | updated | base-traits | Added Domain State Protocol, sync workflows to inherited workflows, domain state hygiene rule | meta-agent |
+| 2025-02-09 | updated | agents | Added Domain State sections to all 8 agent manifests (meta, product, architecture, ux, integration, f04, f11, f12) | meta-agent |
+| 2025-02-09 | created | dp-u06 | Created use case: Syncing Domain Context After Changes | meta-agent |
+| 2025-02-09 | created | dp-u07 | Created use case: Domain DRI Review Before Merge | meta-agent |
+| 2025-02-09 | updated | dp-stories | Added 6 new user stories (DP-S16–DP-S21) for domain context sync — developer and AI agent stories | meta-agent |
+| 2025-02-09 | updated | dp-product-index | Added DP09 to feature map, updated use case and job counts | meta-agent |
+| 2025-02-09 | updated | registry | Added DP09, wf-sync-domain-context, wf-domain-review, dp-u06, dp-u07 to registry | meta-agent |

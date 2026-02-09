@@ -8,14 +8,14 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08]
+  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09]
   related: [jtbd, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
 # Dev Platform — Jobs to Be Done
 
-The six core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The seven core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 
@@ -40,3 +40,7 @@ The six core jobs that the development platform exists to fulfill. Every dev pla
 ## DJ6 — Ensure Consistency Across All Documentation
 
 **When** multiple contributors (humans and AI agents) are working on documentation simultaneously, **I want** enforced conventions (frontmatter, naming, cross-references, status lifecycles) **so that** every document follows the same structure and the knowledge graph maintains its integrity.
+
+## DJ7 — Preserve Domain Expertise and Enable Fast Context Recovery
+
+**When** work in a domain pauses (context switch, session end, handoff to another contributor) or when I need to multiply myself by delegating to domain experts, **I want** each domain's current understanding preserved as living state (not just file lists but what's active, what decisions govern it, what invariants hold, what's unresolved) **so that** anyone (human or AI) can spin up in a domain instantly, no expertise is lost between sessions, and domain experts can independently audit and maintain their territory.

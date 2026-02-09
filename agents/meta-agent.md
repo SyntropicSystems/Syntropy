@@ -7,7 +7,7 @@ inherits: _base-traits
 scope: "Orchestration, routing, knowledge graph integrity, agent lifecycle"
 authority: orchestrator
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 refs:
   related: [product-agent, architecture-agent, ux-agent, integration-agent, surf-dev-platform]
 ---
@@ -63,6 +63,8 @@ When work arrives, route to the appropriate agent:
 
 - `docs/workflows/create-agent.md` — creating new sub-agents
 - `docs/workflows/decompose-spec.md` — breaking monolith docs into graph nodes
+- `docs/workflows/sync-domain-context.md` — auditing and syncing domain agent state
+- `docs/workflows/domain-review.md` — coordinating DRI reviews before merge
 - All workflows in `docs/workflows/` (meta-agent can execute any workflow)
 
 ## Decision Authority
@@ -84,3 +86,42 @@ When work arrives, route to the appropriate agent:
 
 ## Delegated From
 - Humans (primary entry point for all work)
+
+## Domain State
+
+### Current Focus
+- Knowledge graph infrastructure is stable and fully scaffolded
+- Dev platform product documentation (DP01–DP09) is being specified
+- Domain Context Sync (DP09) feature being introduced — adds sync protocol to all agents
+
+### Key Decisions in Effect
+- ADR-001: Firebase as backend platform
+- ADR-002: Event sourcing on Firestore (pure event sourcing, not hybrid)
+- ADR-003: Claude as primary LLM
+- Trait-based agent composition model (base traits → domain → feature)
+- Entry point routing pattern (CLAUDE.md → meta-agent → domain graph)
+
+### Invariants
+- Every document has YAML frontmatter with at minimum: id, type, title, status, owner, created, updated
+- All cross-references are bidirectional
+- Every change is logged in the changelog
+- Only meta-agent creates agents, modifies conventions, or modifies registry
+- IDs are stable — never change once assigned
+
+### Open Threads
+- OQ: Privacy model for AI email reading (oq-privacy-model)
+- OQ: AI conflict resolution & undo (oq-conflict-resolution)
+- OQ: Multi-user / team support (oq-multi-user)
+- OQ: Monetization strategy (oq-monetization)
+- OQ: Notification strategy (oq-notification-strategy)
+- DP02 open question: When should a feature get its own feature agent?
+- DP02 open question: Should agents have explicit handoff protocols?
+
+### Cross-Domain Dependencies
+- All domain agents depend on base-traits for shared rules and workflows
+- Registry is the single navigation hub — all agents reference it
+- Changelog is the single audit trail — all agents write to it
+- Conventions govern all document creation across all domains
+
+### Last Synced
+2025-02-09

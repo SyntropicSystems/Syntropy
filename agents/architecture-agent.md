@@ -7,7 +7,7 @@ inherits: _base-traits
 scope: "Technical architecture, data model, tech stack, infrastructure, event sourcing"
 authority: domain-dri
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 refs:
   related: [product-agent, integration-agent, meta-agent]
 ---
@@ -73,3 +73,36 @@ DRI for all technical architecture documents. Owns the "how" — technology stac
 
 - `agents/meta-agent.md` — architecture-related routing
 - `agents/product-agent.md` — feasibility checks, architecture-impacting scope changes
+
+## Domain State
+
+### Current Focus
+- 7 architecture documents in defining/exploring status
+- 3 ADRs accepted (Firebase, event sourcing, Claude LLM)
+- AI pipeline architecture still in `exploring` — needs deeper specification
+
+### Key Decisions in Effect
+- ADR-001: Firebase backend (Firestore, Auth, Functions, Storage, Hosting)
+- ADR-002: Pure event sourcing on Firestore (not hybrid CRUD + events)
+- ADR-003: Claude as primary LLM (via Anthropic API)
+- Offline-first with Firestore offline persistence
+
+### Invariants
+- Every significant technical decision is an ADR (not inline)
+- Architecture docs describe design; ADRs explain why
+- Data model changes must consider: Firestore query patterns, offline behavior, event sourcing compatibility
+- Alternatives must always be documented, even for obvious choices
+
+### Open Threads
+- AI pipeline architecture in `exploring` — needs detailed design
+- Privacy model for AI reading external data (oq-privacy-model)
+- Event sourcing implementation details (pure ES on Firestore)
+
+### Cross-Domain Dependencies
+- Product features drive architecture requirements
+- Integration specs depend on security, data model, and AI pipeline architecture
+- Event sourcing design affects all features that write data (F01–F12)
+- Offline strategy affects all client-side behavior
+
+### Last Synced
+2025-02-09

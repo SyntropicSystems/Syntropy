@@ -7,7 +7,7 @@ inherits: _base-traits
 scope: "External integrations — Gmail, Calendar, Slack, GitHub, financial, IoT"
 authority: domain-dri
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 refs:
   related: [architecture-agent, product-agent, meta-agent]
 ---
@@ -70,3 +70,35 @@ DRI for all external integration specifications. Owns the connection points betw
 
 - `agents/meta-agent.md` — integration-related routing
 - `agents/architecture-agent.md` — integration-specific architecture questions
+
+## Domain State
+
+### Current Focus
+- Gmail/Google Workspace is the first integration (F03, phase 1)
+- Integration roadmap defined with phased approach
+- Auth, data mapping, sync strategy, and error handling patterns being established
+
+### Key Decisions in Effect
+- OAuth tokens stored encrypted, decrypted only by Cloud Functions
+- Integration failures degrade gracefully — system works without any integration
+- Each integration phase is independent
+- Firebase backend drives integration architecture patterns
+
+### Invariants
+- Every integration defines: auth flow, data model mapping, sync strategy, error handling
+- No integration is required for core functionality
+- Token security follows encryption-at-rest pattern
+- Integration data maps cleanly to Firestore data model
+
+### Open Threads
+- Privacy model for AI reading external data (oq-privacy-model) — directly affects Gmail integration
+- Sync strategy details for Gmail (push via webhooks vs pull via polling)
+
+### Cross-Domain Dependencies
+- Integration specs depend on security architecture (architecture → integration)
+- Integration data flows into AI pipeline (integration → architecture)
+- Product features define what integrations need to provide (product → integration)
+- Privacy decisions constrain what data integrations can access
+
+### Last Synced
+2025-02-09
