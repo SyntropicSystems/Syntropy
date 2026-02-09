@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [jtbd-dev-platform]
-  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, stories]
+  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, stories]
 tags: [dev-platform, stories, requirements]
 ---
 
@@ -86,6 +86,30 @@ As a contributor finishing cross-domain work, I want each affected domain's DRI 
 **Features:** DP09, DP02
 **Jobs:** DJ7, DJ6
 
+### DP-S22 — Capture a Quick Observation Without Breaking Flow
+As a contributor who just noticed a friction, idea, or concern, I want to dump my thought into the system in 2 minutes or less — with as little or as much structure as I feel like providing — so the observation is captured before I forget it and I can return to my original work without losing context.
+
+**Features:** DP10, DP03
+**Jobs:** DJ8, DJ5
+
+### DP-S23 — Get Help Articulating an Observation
+As a contributor who noticed something but is struggling to express it clearly, I want to talk through it with the observations-agent who will ask me clarifying questions and create a well-structured observation on my behalf, so my insight isn't lost just because I couldn't find the right words in the moment.
+
+**Features:** DP10, DP02
+**Jobs:** DJ8
+
+### DP-S24 — Audit Observations in My Domain
+As a domain DRI, I want to review all observations tagged to my domain so I can see what contributors are experiencing, identify frictions I might have missed, discover ideas from outside my perspective, and use these signals to continuously evolve my domain.
+
+**Features:** DP10, DP09
+**Jobs:** DJ8, DJ7
+
+### DP-S25 — Not Feel Anxious About Unstructured Observations
+As a contributor, I want to know that even if I write a vague or poorly structured observation, someone (the observations-agent) will eventually add structure, ask me questions if needed, and make it useful — so I never hold back from capturing something because I'm worried about quality.
+
+**Features:** DP10
+**Jobs:** DJ8
+
 ---
 
 ## AI Agent Stories
@@ -131,6 +155,18 @@ As an AI agent acting as a domain DRI, I want to review proposed changes against
 
 **Features:** DP09, DP02, DP03
 **Jobs:** DJ7, DJ2
+
+### DP-S26 — Structure Raw Observations During Audit
+As the observations-agent, I want to periodically process raw observations — adding types, domain tags, context, and formatting — while preserving the observer's voice and intent, so that unstructured signals become useful data without requiring the observer to do the structuring work themselves.
+
+**Features:** DP10, DP03
+**Jobs:** DJ8, DJ6
+
+### DP-S27 — Detect Patterns Across Observations
+As the observations-agent, I want to scan all observations for recurring themes, clustering signals, and cross-domain correlations so I can surface emergent patterns that no individual contributor could see alone and promote high-signal patterns to formal action items.
+
+**Features:** DP10, DP04
+**Jobs:** DJ8, DJ1
 
 ---
 

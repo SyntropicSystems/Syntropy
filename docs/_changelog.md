@@ -58,3 +58,16 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | updated | dp-stories | Added 6 new user stories (DP-S16–DP-S21) for domain context sync — developer and AI agent stories | meta-agent |
 | 2025-02-09 | updated | dp-product-index | Added DP09 to feature map, updated use case and job counts | meta-agent |
 | 2025-02-09 | updated | registry | Added DP09, wf-sync-domain-context, wf-domain-review, dp-u06, dp-u07 to registry | meta-agent |
+| 2025-02-09 | created | dp10 | Created DP10 Observation System feature spec — zero-barrier signal capture, audit, pattern detection, upleveling | meta-agent |
+| 2025-02-09 | created | observations-agent | Created observations-agent manifest — DRI for observation capture, structuring, and pattern detection | meta-agent |
+| 2025-02-09 | created | wf-capture-observation | Created workflow for capturing observations with zero barrier to entry | meta-agent |
+| 2025-02-09 | created | wf-audit-observations | Created workflow for periodic observation audit, structuring, pattern detection, and promotion | meta-agent |
+| 2025-02-09 | created | observations-index | Created observations directory with index and template | meta-agent |
+| 2025-02-09 | created | dp-u08 | Created use case: Capturing an Observation in the Moment | meta-agent |
+| 2025-02-09 | created | dp-u09 | Created use case: Auditing Observations for Patterns and Priorities | meta-agent |
+| 2025-02-09 | updated | jtbd-dev-platform | Added DJ8 — Capture and Surface Emergent Signals from All Contributors | meta-agent |
+| 2025-02-09 | updated | dp-stories | Added 6 new user stories (DP-S22–DP-S27) for observations — developer and AI agent stories | meta-agent |
+| 2025-02-09 | updated | glossary | Added Observation and Upleveling terms | meta-agent |
+| 2025-02-09 | updated | base-traits | Added upleveling rule (#9) and capture-observation to inherited workflows | meta-agent |
+| 2025-02-09 | updated | meta-agent | Added observations-agent to routing table and domain state | meta-agent |
+| 2025-02-09 | updated | registry | Added DP10, observations-agent, wf-capture-observation, wf-audit-observations, dp-u08, dp-u09, observations-index to registry | meta-agent |

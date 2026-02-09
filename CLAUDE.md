@@ -34,7 +34,8 @@ _base-traits.md              ← every agent inherits this
   │   └── f11-domains-agent  ← inherits base + product + own specialization
   ├── architecture-agent.md
   ├── ux-agent.md
-  └── integration-agent.md
+  ├── integration-agent.md
+  └── observations-agent.md
 ```
 
 ## Workflows
@@ -49,6 +50,8 @@ Executable process documents — same instructions work for humans and AI:
 - Decompose a spec: `docs/workflows/decompose-spec.md`
 - Sync domain context: `docs/workflows/sync-domain-context.md`
 - Domain DRI review: `docs/workflows/domain-review.md`
+- Capture observation: `docs/workflows/capture-observation.md`
+- Audit observations: `docs/workflows/audit-observations.md`
 
 ## Principles
 
@@ -75,13 +78,14 @@ agents/                     ← sub-agent manifests (trait composition)
   feature-agents/           ← per-feature specialized agents
 surfaces/                   ← surface definitions (mobile, web, dev platform)
 prototypes/                 ← interactive React JSX design prototypes
+observations/               ← raw signals: frictions, ideas, bugs, thoughts
 ```
 
 ## Dev Platform as Product
 
 The development platform (this knowledge graph + agent system) is documented as a product itself:
 
-- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 7 jobs the dev platform fulfills (DJ1–DJ7)
+- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 8 jobs the dev platform fulfills (DJ1–DJ8)
 - **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
 - **Surface**: `surfaces/dev-platform.md` — platform definition and principles
 
