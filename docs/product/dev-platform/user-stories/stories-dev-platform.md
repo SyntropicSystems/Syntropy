@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [jtbd-dev-platform]
-  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, stories]
+  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, stories]
 tags: [dev-platform, stories, requirements]
 ---
 
@@ -122,6 +122,24 @@ As a contributor adding a cross-cutting capability, I want a meta-workflow that 
 **Features:** DP03, DP05
 **Jobs:** DJ2, DJ5
 
+### DP-S31 — Get Help Reflecting Through Context-Aware Questions
+As a contributor who just finished work, I want a companion that has read my commits, files, and AI threads and asks me specific questions about what I experienced — not "how did it go?" but "you rewrote those cross-refs three times, what was tricky?" — so my reflections are richer and more specific than they'd be if I reflected alone.
+
+**Features:** DP12, DP11, DP10
+**Jobs:** DJ10, DJ9
+
+### DP-S32 — Develop Self-Awareness Through Guided Reflection
+As a contributor over multiple sessions, I want the pulse companion to remember my patterns and notice things about my experience that I might not see myself — like "you capture fewer observations when working on architecture" or "your reflections are shorter after long sessions" — so I develop genuine self-awareness about how I work.
+
+**Features:** DP12, DP11
+**Jobs:** DJ10, DJ9
+
+### DP-S33 — Control What My Companion Shares
+As a contributor, I want full control over whether my reflections and pulse data are shared (even anonymized) with others, and I want the companion to explain what it noticed and why it's asking before surfacing anything — so I trust it and feel safe being honest.
+
+**Features:** DP12
+**Jobs:** DJ10
+
 ---
 
 ## AI Agent Stories
@@ -185,6 +203,18 @@ As an AI agent that just completed a task, I want to genuinely reflect on what h
 
 **Features:** DP11, DP10
 **Jobs:** DJ9, DJ8
+
+### DP-S34 — Assist Contributors with Context-Grounded Questions
+As the pulse companion agent, I want to analyze a contributor's recent work artifacts (commits, file changes, agent threads, captured observations) and generate specific, grounded questions about their experience — so that assisted reflections produce richer signal than solo reflections and the contributor feels genuinely understood.
+
+**Features:** DP12, DP11, DP10
+**Jobs:** DJ10, DJ9, DJ8
+
+### DP-S35 — Surface Individual Patterns to Collective Intelligence
+As the pulse companion agent, I want to detect recurring themes in a single contributor's reflections and — with their explicit consent — share anonymized patterns with the observations-agent, so that individual friction points that are actually systemic issues get surfaced without compromising anyone's trust or privacy.
+
+**Features:** DP12, DP10
+**Jobs:** DJ10, DJ8
 
 ---
 

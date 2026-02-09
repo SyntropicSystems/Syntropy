@@ -8,14 +8,14 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11]
+  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12]
   related: [jtbd, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
 # Dev Platform — Jobs to Be Done
 
-The nine core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The ten core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 
@@ -52,3 +52,7 @@ The nine core jobs that the development platform exists to fulfill. Every dev pl
 ## DJ9 — Enable Continuous Self-Improvement Through Honest Reflection
 
 **When** I finish a piece of work (a feature inception, a spec review, a debugging session, an audit), **I want** a lightweight practice that prompts me to pause and genuinely notice my personal experience — what worked for me, what was hard, where I got stuck, what felt effective, what I'd need next time — without requiring me to design solutions or think about what others should do, **so that** I continuously develop self-awareness about my own effectiveness, my reflections feed the observation system as honest signals that surface patterns across contributors, and the whole system improves organically because everyone is simply noticing and sharing their actual experience.
+
+## DJ10 — Support Each Contributor with a Personalized Work Companion
+
+**When** I'm reflecting on my work or trying to understand my own patterns and effectiveness, **I want** a personalized companion that knows my work context — what I committed, what I struggled with, what I've been noticing — and asks me the right questions to help me articulate and reflect more deeply, **so that** my reflections are richer and more specific than they'd be alone, I develop deeper self-awareness through guided introspection, and the companion grows over time into a genuine work ally that supports my effectiveness while also collaborating across contributors to surface collective signals that help the whole system evolve.

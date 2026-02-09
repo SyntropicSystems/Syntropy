@@ -7,7 +7,7 @@ owner: observations-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [wf-capture-observation, wf-feature-inception, dp11, dp10]
+  related: [wf-capture-observation, wf-feature-inception, dp11, dp10, dp12, pulse-companion-agent]
 ---
 
 # Workflow: Reflect After Work
@@ -92,3 +92,26 @@ This workflow can be executed by: **anyone** — human or AI agent. It's intenti
 **For AI agents**: Reflect genuinely on your actual experience processing the task. What context was helpful? What was missing? Where did you have to infer? Where were you uncertain? This is valuable data for improving how the system serves AI agents — not theoretical observations about what an ideal system would look like, but what actually happened when you did the work.
 
 **This is not a performance review.** No one is evaluating the quality of your reflection. No reflection is too short, too messy, or too emotional. The only bad reflection is the one you didn't capture.
+
+## Assisted Reflection (with Pulse Companion)
+
+If you want help articulating your experience, you can invoke the pulse companion for an assisted reflection. Instead of reflecting alone, the companion:
+
+1. **Reads your work context** — commits, files changed, AI agent threads, observations captured during the session
+2. **Opens with a specific observation** — grounded in what actually happened, not a generic prompt
+3. **Asks follow-up questions** — helps you get past "it was fine" to the specific frictions, satisfactions, and needs
+4. **Captures the reflection for you** — creates a well-structured observation preserving your voice
+
+### When to use assisted reflection
+- When you notice something was hard but can't quite articulate why
+- When the session was complex and you want help unpacking it
+- When you want richer, more specific reflections than you'd produce solo
+- When you're new to reflecting and want to learn what good noticing looks like
+
+### When to reflect solo
+- When you know exactly what you want to say
+- When the reflection is quick and clear
+- When you prefer privacy (the companion reads work artifacts to ask good questions)
+- Always — solo reflection is the default and is never gated on companion availability
+
+See `docs/product/dev-platform/features/dp12-pulse-companion.md` for the full companion spec.
