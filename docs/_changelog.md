@@ -5,7 +5,7 @@ title: "Changelog"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 ---
 
 # Changelog
@@ -39,3 +39,11 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-07 | updated | ux-* | Fixed bidirectional refs across UX pattern docs | meta-agent |
 | 2025-02-07 | updated | agents | Added meta-agent/product-agent bidirectional refs across all agent manifests | meta-agent |
 | 2025-02-07 | updated | wf-*, adr-003 | Fixed remaining cross-reference gaps | meta-agent |
+| 2025-02-09 | created | jtbd-dev-platform | Created dev platform Jobs to Be Done (DJ1–DJ6) — parallel to app JTBD | meta-agent |
+| 2025-02-09 | created | dp01–dp08 | Created 8 dev platform feature specs: Knowledge Graph, Agent System, Workflow Engine, Registry & Changelog, Convention System, Surface Definitions, Prototype System, Entry Point Routing | meta-agent |
+| 2025-02-09 | created | dp-u01–dp-u05 | Created 5 dev platform use cases: Add Feature, Onboarding, Architecture Decision, Explore Graph, Resolve Question | meta-agent |
+| 2025-02-09 | created | dp-stories | Created 15 dev platform user stories (DP-S01–DP-S15) for developers, AI agents, and future tooling | meta-agent |
+| 2025-02-09 | created | dp-product-index | Created dev platform product index with feature map, use cases, and stories | meta-agent |
+| 2025-02-09 | updated | registry | Added dev platform vision, features, use cases, stories, and index to registry | meta-agent |
+| 2025-02-09 | updated | surf-dev-platform | Added product documentation references to dev platform surface | meta-agent |
+| 2025-02-09 | updated | product-index | Added dev platform section to main product index | meta-agent |
