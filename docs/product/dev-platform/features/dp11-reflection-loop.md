@@ -9,8 +9,8 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [dp10, dp02, dp03]
-  enables: [dp-u10]
-  related: [dp09, wf-reflect, f07]
+  enables: [dp-u10, dp12]
+  related: [dp09, wf-reflect, f07, pulse-companion-agent]
   informed-by: [jtbd-dev-platform]
 tags: [dev-platform, core, reflection, learning, observations, p0]
 ---

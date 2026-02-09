@@ -132,6 +132,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | f11-domains-agent | Domains Agent | active | Feature F11 | `agents/feature-agents/f11-domains-agent.md` |
 | f12-artifact-agent | Artifact Agent | active | Feature F12 | `agents/feature-agents/f12-artifact-agent.md` |
 | observations-agent | Observations Agent | active | Observation capture, structuring, patterns | `agents/observations-agent.md` |
+| pulse-companion-agent | Pulse Companion Agent | active | Assisted reflection, continuous pulse, work companion | `agents/pulse-companion-agent.md` |
 
 ## Dev Platform — Vision
 
@@ -154,6 +155,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp09 | Domain Context Sync | defining | meta-agent | `docs/product/dev-platform/features/dp09-domain-context-sync.md` |
 | dp10 | Observation System | defining | observations-agent | `docs/product/dev-platform/features/dp10-observation-system.md` |
 | dp11 | Reflection Loop | defining | observations-agent | `docs/product/dev-platform/features/dp11-reflection-loop.md` |
+| dp12 | Pulse Companion | defining | pulse-companion-agent | `docs/product/dev-platform/features/dp12-pulse-companion.md` |
 
 ## Dev Platform — Use Cases
 
@@ -169,12 +171,13 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp-u08 | Capturing an Observation in the Moment | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u08-capturing-observation.md` |
 | dp-u09 | Auditing Observations for Patterns | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u09-auditing-observations.md` |
 | dp-u10 | Reflecting After Completing Work | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u10-reflecting-after-work.md` |
+| dp-u11 | Assisted Reflection with Pulse Companion | defining | pulse-companion-agent | `docs/product/dev-platform/use-cases/dp-u11-assisted-reflection.md` |
 
 ## Dev Platform — User Stories
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| dp-stories | Dev Platform User Stories (DP-S01–DP-S30) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
+| dp-stories | Dev Platform User Stories (DP-S01–DP-S35) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
 
 ## Surfaces
 

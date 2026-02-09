@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [meta-agent, dp10, dp11, wf-capture-observation, wf-audit-observations, wf-reflect, observations-index]
+  related: [meta-agent, pulse-companion-agent, dp10, dp11, dp12, wf-capture-observation, wf-audit-observations, wf-reflect, observations-index]
 ---
 
 # Observations Agent
@@ -80,7 +80,7 @@ This agent embodies a core Syntropy principle: **the system grows by emergence**
 - Any action that modifies documents outside `observations/` → relevant domain agent
 
 ## Delegates To
-- (none — routes promoted items to appropriate domain agents)
+- `pulse-companion-agent` — for personalized assisted reflection with individual contributors
 
 ## Delegated From
 - `agents/meta-agent.md` — observation capture and audit work
@@ -114,6 +114,7 @@ This agent embodies a core Syntropy principle: **the system grows by emergence**
 - Attachment support for screenshots/logs TBD
 - Upleveling metrics TBD
 - Signal intelligence layer design (future)
+- Pulse companion (DP12) collaboration model — companion produces reflections, observations-agent audits them
 
 ### Cross-Domain Dependencies
 - All domain agents consume observation signals tagged to their domain

@@ -82,3 +82,16 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | updated | base-traits | Added wf-reflect to inherited workflows | meta-agent |
 | 2025-02-09 | updated | observations-agent | Added DP11, wf-reflect to context and workflows | meta-agent |
 | 2025-02-09 | updated | registry | Added DP11, wf-feature-inception, wf-reflect, dp-u10 to registry | meta-agent |
+| 2025-02-09 | created | dp12 | Created DP12 Pulse Companion feature spec — personalized work companion starting as reflection assistant, growing by emergence | meta-agent |
+| 2025-02-09 | created | pulse-companion-agent | Created pulse-companion-agent manifest — DRI for assisted reflection, continuous pulse sensing, personalized companionship | meta-agent |
+| 2025-02-09 | created | dp-u11 | Created use case: Assisted Reflection with Pulse Companion | meta-agent |
+| 2025-02-09 | updated | jtbd-dev-platform | Added DJ10 — Support Each Contributor with a Personalized Work Companion | meta-agent |
+| 2025-02-09 | updated | glossary | Added Pulse Companion term | meta-agent |
+| 2025-02-09 | updated | dp-stories | Added 5 new user stories (DP-S31–DP-S35) for pulse companion — developer and AI agent stories | meta-agent |
+| 2025-02-09 | updated | wf-reflect | Added assisted reflection mode with pulse companion integration | meta-agent |
+| 2025-02-09 | updated | observations-agent | Added pulse-companion-agent to refs and domain state | meta-agent |
+| 2025-02-09 | updated | meta-agent | Added pulse-companion-agent to routing table and domain state | meta-agent |
+| 2025-02-09 | updated | registry | Added DP12, pulse-companion-agent, dp-u11 to registry; updated dp-stories count to DP-S01–DP-S35 | meta-agent |
+| 2025-02-09 | updated | dp-product-index | Added DP12 to feature map, updated job and use case counts | meta-agent |
+| 2025-02-09 | updated | product-index | Updated dev platform counts to 10 JTBD, 12 features, 11 use cases, 35 stories | meta-agent |
+| 2025-02-09 | updated | CLAUDE.md | Added pulse-companion-agent to inheritance tree, updated JTBD count to DJ1–DJ10 | meta-agent |

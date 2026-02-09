@@ -19,7 +19,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Jobs to Be Done
 
-9 core jobs → `docs/vision/jtbd-dev-platform.md`
+10 core jobs → `docs/vision/jtbd-dev-platform.md`
 
 ## Feature Map
 
@@ -37,10 +37,11 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 ### P1 — High Priority
 - **DP06** — Surface Definitions: Platform delivery specs for each surface → `features/dp06-surface-definitions.md`
 - **DP07** — Prototype System: Interactive React JSX for design exploration → `features/dp07-prototype-system.md`
+- **DP12** — Pulse Companion: Personalized work companion, assisted reflection, continuous pulse → `features/dp12-pulse-companion.md`
 
 ## Use Cases
 
-10 concrete usage scenarios → `use-cases/`
+11 concrete usage scenarios → `use-cases/`
 
 ## User Stories
 
