@@ -9,7 +9,7 @@ authority: orchestrator
 created: 2025-02-07
 updated: 2025-02-09
 refs:
-  related: [product-agent, architecture-agent, ux-agent, integration-agent, surf-dev-platform]
+  related: [product-agent, architecture-agent, ux-agent, integration-agent, observations-agent, surf-dev-platform]
 ---
 
 # Meta Agent
@@ -45,6 +45,7 @@ When work arrives, route to the appropriate agent:
 | Feature F04 (AI Engine) deep work | `feature-agents/f04-ai-engine-agent` | AI confidence, agents, learning |
 | Feature F11 (Domains/Spaces) deep work | `feature-agents/f11-domains-agent` | Spaces, info, knowledge base |
 | Feature F12 (Artifact Intelligence) deep work | `feature-agents/f12-artifact-agent` | Upload, extraction, linking |
+| Observations, signals, frictions, ideas | `observations-agent` | Capture, structure, pattern detection, upleveling |
 
 ### Routing Rules
 1. Check if work falls clearly within one agent's scope → route directly
@@ -91,8 +92,9 @@ When work arrives, route to the appropriate agent:
 
 ### Current Focus
 - Knowledge graph infrastructure is stable and fully scaffolded
-- Dev platform product documentation (DP01–DP09) is being specified
+- Dev platform product documentation (DP01–DP10) is being specified
 - Domain Context Sync (DP09) feature being introduced — adds sync protocol to all agents
+- Observation System (DP10) being introduced — zero-barrier signal capture, audit, and pattern detection
 
 ### Key Decisions in Effect
 - ADR-001: Firebase as backend platform

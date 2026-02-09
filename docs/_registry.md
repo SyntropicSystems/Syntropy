@@ -113,6 +113,8 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | wf-decompose-spec | Decompose a Spec Document | active | meta-agent | `docs/workflows/decompose-spec.md` |
 | wf-sync-domain-context | Sync Domain Context | active | meta-agent | `docs/workflows/sync-domain-context.md` |
 | wf-domain-review | Domain DRI Review | active | meta-agent | `docs/workflows/domain-review.md` |
+| wf-capture-observation | Capture an Observation | active | observations-agent | `docs/workflows/capture-observation.md` |
+| wf-audit-observations | Audit Observations | active | observations-agent | `docs/workflows/audit-observations.md` |
 
 ## Agents
 
@@ -127,6 +129,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | f04-ai-engine-agent | AI Engine Agent | active | Feature F04 | `agents/feature-agents/f04-ai-engine-agent.md` |
 | f11-domains-agent | Domains Agent | active | Feature F11 | `agents/feature-agents/f11-domains-agent.md` |
 | f12-artifact-agent | Artifact Agent | active | Feature F12 | `agents/feature-agents/f12-artifact-agent.md` |
+| observations-agent | Observations Agent | active | Observation capture, structuring, patterns | `agents/observations-agent.md` |
 
 ## Dev Platform — Vision
 
@@ -147,6 +150,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp07 | Prototype System | defining | ux-agent | `docs/product/dev-platform/features/dp07-prototype-system.md` |
 | dp08 | Entry Point Routing | defining | meta-agent | `docs/product/dev-platform/features/dp08-entry-point-routing.md` |
 | dp09 | Domain Context Sync | defining | meta-agent | `docs/product/dev-platform/features/dp09-domain-context-sync.md` |
+| dp10 | Observation System | defining | observations-agent | `docs/product/dev-platform/features/dp10-observation-system.md` |
 
 ## Dev Platform — Use Cases
 
@@ -159,12 +163,14 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp-u05 | Resolving an Open Question | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u05-resolving-open-question.md` |
 | dp-u06 | Syncing Domain Context After Changes | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u06-domain-context-sync.md` |
 | dp-u07 | Domain DRI Review Before Merge | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u07-domain-review-before-merge.md` |
+| dp-u08 | Capturing an Observation in the Moment | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u08-capturing-observation.md` |
+| dp-u09 | Auditing Observations for Patterns | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u09-auditing-observations.md` |
 
 ## Dev Platform — User Stories
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| dp-stories | Dev Platform User Stories (DP-S01–DP-S21) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
+| dp-stories | Dev Platform User Stories (DP-S01–DP-S27) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
 
 ## Surfaces
 
@@ -186,6 +192,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | arch-index | Architecture Domain Index | active | architecture-agent | `docs/architecture/_index.md` |
 | decisions-index | Decisions Index | active | architecture-agent | `docs/decisions/_index.md` |
 | surfaces-index | Surfaces Index | active | ux-agent | `surfaces/_index.md` |
+| observations-index | Observations Index | active | observations-agent | `observations/_index.md` |
 
 ## Prototypes
 

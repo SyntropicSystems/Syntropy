@@ -5,7 +5,7 @@ title: "Glossary"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-02-09
 refs:
   related: [manifesto, principles]
 tags: [vision, language, reference]
@@ -32,4 +32,6 @@ Canonical term definitions for Syntropy OS. This is the shared language — use 
 | **Artifact** | Any uploaded or captured file (photo, PDF, voice memo, document) that has been processed by the AI extraction pipeline and linked to domains/projects/tasks. |
 | **Surface** | A platform or interface through which users interact with the system (mobile app, web app, development platform). |
 | **DRI** | Directly Responsible Individual — the agent (human or AI) that owns a domain and is accountable for its correctness. |
+| **Observation** | A raw signal captured by any contributor — a friction, bug, idea, question, anxiety, pattern, need, praise, or any thought worth recording. Observations are the atomic unit of emergent intelligence: they accumulate, get structured retroactively, and are audited for patterns that inform system evolution. |
+| **Upleveling** | The principle that every interaction and feedback loop should help contributors become more effective over time — better at expressing ideas, capturing observations, structuring thoughts, and contributing to the system — without creating dependency or learned helplessness. |
 | **Trait** | A composable set of context, rules, and workflows that an agent inherits. Agents are composed from base traits + domain-specific traits. |

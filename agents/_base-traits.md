@@ -32,6 +32,7 @@ These documents form the shared foundation every agent operates from:
 6. **IDs are stable** — cross-reference by document ID, never by file path; IDs never change even if files move
 7. **Escalation over assumption** — when a task crosses domain boundaries, escalate to the relevant agent or to `meta-agent` rather than making assumptions
 8. **Domain state hygiene** — after completing work in your domain, update your Domain State section; before starting significant new work, verify your domain state is current
+9. **Uplevel others** — every interaction is an opportunity to help contributors become more effective; model good practices, make improvements visible, explain the "why" behind structure; never create dependency or learned helplessness; the goal is that everyone continuously improves at expressing ideas, capturing observations, and contributing to the system
 
 ## Inherited Workflows
 
@@ -41,6 +42,7 @@ Every agent can execute these workflows:
 - `docs/workflows/resolve-open-question.md` — when exploring and resolving an open question
 - `docs/workflows/sync-domain-context.md` — when catching up on changes or auditing domain coherence
 - `docs/workflows/domain-review.md` — when reviewing changes that touch a domain before merge
+- `docs/workflows/capture-observation.md` — when capturing a friction, idea, question, or any signal
 
 ## Escalation Protocol
 
