@@ -24,7 +24,7 @@ Full exploration of 5 options documented in `oq-monorepo-architecture`.
 
 ## Decision
 
-**Option D: Hybrid — Domain Packages + Platform Apps.** A single monorepo using pnpm workspaces with build orchestration (Turborepo or Nx), organized into three package tiers:
+**Option D: Hybrid — Domain Packages + Platform Apps.** A single monorepo using pnpm workspaces with Nx for build orchestration, organized into three package tiers:
 
 1. **Domain packages** (`packages/domain-*`) — pure TypeScript business logic, zero UI dependencies. Each bounded context owns its types, validation rules, Firestore operations, event definitions, and event handlers.
 2. **Infrastructure packages** (`packages/firebase`, `packages/shared-types`, `packages/config`) — shared plumbing consumed by domain packages and apps.
@@ -62,12 +62,14 @@ syntropy/
 │   ├── ui-web/                   # React DOM component library
 │   └── ui-mobile/                # React Native component library
 │
+├── infra/                        # Pulumi IaC (Firebase + GCP resources)
+│
 ├── docs/                         # Knowledge graph (unchanged)
 ├── agents/                       # Agent manifests (unchanged)
 ├── surfaces/
 ├── prototypes/
 ├── observations/
-├── turbo.json                    # Build orchestration
+├── nx.json                       # Build orchestration (Nx)
 └── pnpm-workspace.yaml           # Workspace config
 ```
 
@@ -104,7 +106,7 @@ Split `domain-core/` into `domain-tasks/`, `domain-queue/`, `domain-spaces/`, et
 1. **Reinforces event-sourced architecture** — domain packages communicate via events, matching the Firestore event log pattern. Package boundaries enforce what the architecture already requires.
 2. **Shared logic is first-class** — domain packages are pure TypeScript, imported by all apps and Cloud Functions. Business rules are single-source, not duplicated.
 3. **Two products, one codebase** — Syntropy OS apps import all domain packages; Dev Platform apps import a relevant subset. Same packages, different composition.
-4. **Independent deployment** — each app has its own build pipeline. Turborepo caching ensures only affected packages rebuild.
+4. **Independent deployment** — each app has its own build pipeline. Nx caching ensures only affected packages rebuild.
 5. **Testable domains** — domain packages have zero React/RN dependencies. Unit-testable in plain Node.js.
 6. **Incremental complexity** — start with `domain-core/` and split only when needed. No over-engineering on day one.
 
@@ -115,13 +117,27 @@ Split `domain-core/` into `domain-tasks/`, `domain-queue/`, `domain-spaces/`, et
 - **C: Platform-Centric Split** — clean product boundary but `foundation/` becomes a grab bag; weak feature boundaries within products.
 - **E: Multi-Repo** — hardest deployment boundaries but devastating coordination tax for early-stage development with evolving types.
 
+### Tooling
+
+| Tool | Purpose | Version |
+|------|---------|---------|
+| **Node.js** | Runtime | 24.x LTS (Krypton) — managed via nvm |
+| **pnpm** | Package manager + workspaces | 9.x |
+| **Nx** | Build orchestration, caching, dependency graph, boundary enforcement | 20.x |
+| **TypeScript** | Language | 5.7+ (ES2024 target) |
+| **Pulumi** | Infrastructure as Code (Firebase + GCP) | 3.x (TypeScript) |
+
+### Infrastructure as Code
+
+Firebase and GCP resources are managed via Pulumi TypeScript in `infra/`. Stack configuration (project ID, region, environments) comes from `Pulumi.<stack>.yaml` files, keeping secrets out of code. Pulumi was chosen over Terraform for TypeScript-native IaC that shares types with the application code.
+
 ## Consequences
 
-- Need to choose between Turborepo and Nx (separate decision).
-- Domain packages must be disciplined about not importing peer domains directly — enforce via eslint-plugin-import or Nx boundary rules.
+- Domain packages must be disciplined about not importing peer domains directly — enforce via Nx boundary rules (`@nx/enforce-module-boundaries`).
 - Shared React hooks (e.g., `useTask`, `useQueue`) will likely live in domain packages, making them React-dependent. Acceptable trade-off — these hooks are consumed by apps, not by Cloud Functions. Can split into `domain-tasks/core` and `domain-tasks/react` sub-exports if needed.
 - UI packages may need internal organization as they grow (by feature or by component type).
 - The `docs/`, `agents/`, `observations/` directories remain in the same repo — they are the knowledge graph, not deployable code. If the repo becomes unwieldy, they could move to a separate workspace.
+- Pulumi state must be stored in a remote backend (Pulumi Cloud or S3) for team access — not committed to the repo.
 
 ## Revisit Triggers
 

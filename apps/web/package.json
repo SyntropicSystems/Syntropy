@@ -1,0 +1,22 @@
+{
+  "name": "@syntropy/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"Vite dev server — not yet configured\"",
+    "build": "echo \"Vite build — not yet configured\"",
+    "test": "echo \"No tests yet\"",
+    "lint": "echo \"No linter configured yet\""
+  },
+  "dependencies": {
+    "@syntropy/domain-core": "workspace:*",
+    "@syntropy/domain-events": "workspace:*",
+    "@syntropy/firebase": "workspace:*",
+    "@syntropy/shared-types": "workspace:*",
+    "@syntropy/design-tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

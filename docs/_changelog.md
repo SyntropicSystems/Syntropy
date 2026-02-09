@@ -115,3 +115,6 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | updated | decisions-index | Added ADR-004 to decision log | architecture-agent |
 | 2025-02-09 | updated | arch-index | Added ADR-004 to key decisions | architecture-agent |
 | 2025-02-09 | updated | registry | Added ADR-004, updated oq-monorepo-architecture status to resolved | architecture-agent |
+| 2025-02-09 | updated | adr-004 | Added concrete tooling: Nx 20.x, Pulumi 3.x (TypeScript), Node 24 LTS (nvm), pnpm 9.x; added infra/ to structure | architecture-agent |
+| 2025-02-09 | updated | arch-stack | Added toolchain section: Node 24 LTS, pnpm, Nx, Pulumi; added Pulumi to stack | architecture-agent |
+| 2025-02-09 | created | — | Scaffolded monorepo: root config (nx.json, pnpm-workspace.yaml, tsconfig.base.json, .nvmrc, .gitignore), Phase 1 packages (shared-types, domain-events, domain-core, firebase, design-tokens), app stubs (web, mobile, dev-web, functions), infra/ (Pulumi) | architecture-agent |
