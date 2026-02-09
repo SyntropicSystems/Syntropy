@@ -109,3 +109,4 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | updated | dp-product-index | Added DP13 to feature map, updated job count to 11 and use case count to 13 | meta-agent |
 | 2025-02-09 | updated | CLAUDE.md | Added decisions-agent to inheritance tree, record-decision to workflows, updated JTBD count to DJ1–DJ11 | meta-agent |
 | 2025-02-09 | updated | registry | Added DP13, decisions-agent, wf-record-decision, dp-u12, dp-u13 to registry | meta-agent |
+| 2025-02-09 | created | oq-monorepo-architecture | Created open question exploring monorepo architecture options: Flat Package, Domain DDD, Platform-Centric, Hybrid, Multi-Repo — with comparison matrix and current thinking | architecture-agent |

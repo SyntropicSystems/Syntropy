@@ -102,6 +102,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | oq-multi-user | Multi-User / Team Support | draft | product-agent | `docs/open-questions/oq-multi-user.md` |
 | oq-monetization | Monetization Strategy | draft | product-agent | `docs/open-questions/oq-monetization.md` |
 | oq-notification-strategy | Notification Strategy | draft | product-agent | `docs/open-questions/oq-notification-strategy.md` |
+| oq-monorepo-architecture | Monorepo Architecture — Code Organization Strategy | exploring | architecture-agent | `docs/open-questions/oq-monorepo-architecture.md` |
 
 ## Workflows
 
