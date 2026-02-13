@@ -8,14 +8,14 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14]
+  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15]
   related: [jtbd, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
 # Dev Platform — Jobs to Be Done
 
-The twelve core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The thirteen core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 
@@ -64,3 +64,7 @@ The twelve core jobs that the development platform exists to fulfill. Every dev 
 ## DJ12 — Ensure Every Piece of Communicated Knowledge Is Structured for Actual Comprehension
 
 **When** agents and humans produce reviews, reports, change summaries, architecture explanations, and learning materials — and these artifacts are consumed by orchestrators, reviewers, and newcomers who need to genuinely understand what happened, what matters, and what to verify — **I want** a principled methodology system that defines how information should be structured for cognitive effectiveness (progressive disclosure, lossless compression, chunking, contextual framing), with templates that evolve through feedback loops and progressively adapt to how different contributors best absorb information, **so that** the human orchestrator can quickly grasp what changed and why it matters without drowning in details, reviewers know exactly where to focus their attention and what to verify, newcomers can build accurate mental models of subsystems efficiently, the methodology continuously improves based on what actually helps people understand, and over time each contributor receives information structured for how their particular brain works best.
+
+## DJ13 — Ensure Every Work Process Is Designed for the Actor Who Will Execute It
+
+**When** workflows, rules, skills, and agent configurations are created for execution by different actors — humans with varying experience, Claude Opus with deep reasoning, Claude Sonnet with fast structured execution, other AI models with their own capabilities and failure modes — and these processes need to be followed correctly end-to-end without silent failures, missed steps, or degraded quality, **I want** a principled methodology system that defines how work processes should be designed for actor effectiveness (step clarity, checkpoint design, context architecture, rule actionability, scope calibration), with design principles that evolve through measured execution outcomes and feedback loops, and progressively adapt to how different actor types best execute work, **so that** workflows are followed correctly by all target actors (not just the author's mental model), failures are caught at checkpoints rather than discovered after completion, agent configurations load the right amount of context for their task and actor type, rules are specific enough to be followed rather than abstract enough to be ignored, and the system continuously improves its process design based on what actually works for each actor type.

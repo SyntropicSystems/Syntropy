@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [observations-agent, cognitive-engineering-agent, meta-agent, dp12, dp11, dp10, wf-reflect, observations-index]
+  related: [observations-agent, cognitive-engineering-agent, operational-engineering-agent, meta-agent, dp12, dp11, dp10, dp15, wf-reflect, observations-index]
 ---
 
 # Pulse Companion Agent

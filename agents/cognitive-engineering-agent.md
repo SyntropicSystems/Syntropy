@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-13
 updated: 2025-02-13
 refs:
-  related: [meta-agent, pulse-companion-agent, observations-agent, decisions-agent, architecture-agent, dp14, wf-domain-review]
+  related: [meta-agent, operational-engineering-agent, pulse-companion-agent, observations-agent, decisions-agent, architecture-agent, dp14, wf-domain-review]
 ---
 
 # Cognitive Engineering Agent
@@ -122,6 +122,7 @@ This agent is the dedicated resource that others consult when asking: "How shoul
 
 ### Cross-Domain Dependencies
 - All domain agents — consumers of review and report templates during `wf-domain-review`
+- Operational-engineering-agent — sibling: comprehension (output) and execution (input) are complementary methodology domains
 - Pulse-companion-agent — translates methodology into personalized delivery for individuals
 - Observations-agent — captures feedback signals about methodology effectiveness
 - Decisions-agent — decision communication benefits from cognitive engineering (how to present reasoning)
