@@ -37,7 +37,8 @@ _base-traits.md              ← every agent inherits this
   ├── integration-agent.md
   ├── observations-agent.md
   ├── pulse-companion-agent.md
-  └── decisions-agent.md
+  ├── decisions-agent.md
+  └── cognitive-engineering-agent.md
 ```
 
 ## Workflows
@@ -91,7 +92,7 @@ observations/               ← raw signals: frictions, ideas, bugs, thoughts
 
 The development platform (this knowledge graph + agent system) is documented as a product itself:
 
-- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 11 jobs the dev platform fulfills (DJ1–DJ11)
+- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 12 jobs the dev platform fulfills (DJ1–DJ12)
 - **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
 - **Surface**: `surfaces/dev-platform.md` — platform definition and principles
 

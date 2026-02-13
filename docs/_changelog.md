@@ -131,3 +131,17 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-09 | updated | product-index | Added Repo Platform section, fixed Dev Platform counts to 11 JTBD, 13 features, 13 use cases | architecture-agent |
 | 2025-02-09 | updated | CLAUDE.md | Added Repo Platform as Product section, updated repository structure | architecture-agent |
 | 2025-02-09 | updated | arch-stack | Added Repo Platform cross-reference | architecture-agent |
+| 2025-02-13 | created | dp14 | Created DP14 Cognitive Engineering feature spec — methodology for structuring information for comprehension: review templates, learning briefs, knowledge compression, progressive disclosure, cognitive adaptation | meta-agent |
+| 2025-02-13 | created | cognitive-engineering-agent | Created cognitive-engineering-agent manifest — DRI for information architecture for human comprehension, review structures, learning methodologies, knowledge compression, cognitive adaptation | meta-agent |
+| 2025-02-13 | created | dp-u14 | Created use case: Structuring a Code Review for Comprehension | meta-agent |
+| 2025-02-13 | created | dp-u15 | Created use case: Creating a Learning Brief for Architecture Comprehension | meta-agent |
+| 2025-02-13 | updated | jtbd-dev-platform | Added DJ12 — Ensure Every Piece of Communicated Knowledge Is Structured for Actual Comprehension | meta-agent |
+| 2025-02-13 | updated | glossary | Added Cognitive Engineering and Progressive Disclosure terms | meta-agent |
+| 2025-02-13 | updated | dp-stories | Added 7 new user stories (DP-S36–DP-S42) for cognitive engineering — developer, AI agent, and cross-agent stories | meta-agent |
+| 2025-02-13 | updated | meta-agent | Added cognitive-engineering-agent to routing table and domain state | meta-agent |
+| 2025-02-13 | updated | CLAUDE.md | Added cognitive-engineering-agent to inheritance tree, updated JTBD count to DJ1–DJ12 | meta-agent |
+| 2025-02-13 | updated | pulse-companion-agent | Added cognitive-engineering-agent cross-reference and DP14 dependency | meta-agent |
+| 2025-02-13 | updated | observations-agent | Added cognitive-engineering-agent cross-reference and DP14 dependency | meta-agent |
+| 2025-02-13 | updated | registry | Added DP14, cognitive-engineering-agent, dp-u14, dp-u15 to registry; updated dp-stories count to DP-S01–DP-S42 | meta-agent |
+| 2025-02-13 | updated | dp-product-index | Added DP14 to feature map, updated job count to 12, use case count to 15 | meta-agent |
+| 2025-02-13 | updated | product-index | Updated dev platform counts to 12 JTBD, 14 features, 15 use cases, 42 stories | meta-agent |

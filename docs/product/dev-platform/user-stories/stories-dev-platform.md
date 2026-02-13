@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [jtbd-dev-platform]
-  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, stories]
+  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, stories]
 tags: [dev-platform, stories, requirements]
 ---
 
@@ -140,6 +140,30 @@ As a contributor, I want full control over whether my reflections and pulse data
 **Features:** DP12
 **Jobs:** DJ10
 
+### DP-S36 — Understand a Code Review Without Reading Every File
+As a human orchestrator reviewing AI-produced changes, I want the review structured with progressive disclosure — headline, impact summary, focus areas, walkthrough — so I can quickly understand what matters, know where to dive deep, and verify correctness without wading through every file diff.
+
+**Features:** DP14, DP09
+**Jobs:** DJ12, DJ7
+
+### DP-S37 — Know What to Double-Check in a Change
+As a reviewer of agent-produced work, I want the review to explicitly highlight what's risky, what assumptions were made, and what I should specifically verify — so I can focus my limited attention on the things that actually need human judgment rather than rubber-stamping everything.
+
+**Features:** DP14
+**Jobs:** DJ12
+
+### DP-S38 — Learn a Subsystem Quickly Using a Learning Brief
+As a contributor assigned to work in an unfamiliar subsystem, I want a structured learning brief that builds my mental model (context frame, key concepts, critical paths, common misconceptions) — so I can become productive without reverse-engineering the system from raw code and docs.
+
+**Features:** DP14, DP02
+**Jobs:** DJ12, DJ7
+
+### DP-S39 — Continuously Improve How I Present Information
+As a contributor or agent that produces reviews, reports, or summaries, I want the cognitive-engineering-agent to advise me on how to structure my output for my audience — and to explain *why* that structure works — so I get better at communicating knowledge over time, not just at filling in templates.
+
+**Features:** DP14, DP10
+**Jobs:** DJ12, DJ8
+
 ---
 
 ## AI Agent Stories
@@ -215,6 +239,24 @@ As the pulse companion agent, I want to detect recurring themes in a single cont
 
 **Features:** DP12, DP10
 **Jobs:** DJ10, DJ8
+
+### DP-S40 — Consult the Cognitive Engineering Agent for Review Structure
+As a domain DRI agent preparing a domain review, I want to consult the cognitive-engineering-agent for the appropriate template and methodology for my specific change type — so the review I produce is structured for the reviewer's actual comprehension needs rather than just listing what changed.
+
+**Features:** DP14, DP09, DP02
+**Jobs:** DJ12, DJ7
+
+### DP-S41 — Evolve Methodology Based on Feedback Patterns
+As the cognitive-engineering-agent, I want to analyze feedback signals from the observation system about which templates and structures actually helped people understand vs. which created confusion — so I can evolve the methodology based on evidence rather than assumptions about what works.
+
+**Features:** DP14, DP10
+**Jobs:** DJ12, DJ8
+
+### DP-S42 — Advise the Pulse Companion on Information Delivery
+As the cognitive-engineering-agent, I want the pulse companion to consult me when it needs to present complex information to its contributor — providing the appropriate methodology based on the information type and the contributor's cognitive patterns — so that personalized information delivery is grounded in principled methodology, not ad hoc formatting.
+
+**Features:** DP14, DP12
+**Jobs:** DJ12, DJ10
 
 ---
 

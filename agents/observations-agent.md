@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [meta-agent, pulse-companion-agent, dp10, dp11, dp12, wf-capture-observation, wf-audit-observations, wf-reflect, observations-index]
+  related: [meta-agent, pulse-companion-agent, cognitive-engineering-agent, dp10, dp11, dp12, dp14, wf-capture-observation, wf-audit-observations, wf-reflect, observations-index]
 ---
 
 # Observations Agent
@@ -119,8 +119,10 @@ This agent embodies a core Syntropy principle: **the system grows by emergence**
 ### Cross-Domain Dependencies
 - All domain agents consume observation signals tagged to their domain
 - Meta-agent receives promoted observations for routing
+- Cognitive-engineering-agent — consumes feedback signals about methodology effectiveness
 - DP09 (Domain Context Sync) — domain agents should check observations during sync
 - DP04 (Registry & Changelog) — observations tracked, audits logged
+- DP14 (Cognitive Engineering) — observation system captures feedback on methodology
 
 ### Last Synced
 2025-02-09
