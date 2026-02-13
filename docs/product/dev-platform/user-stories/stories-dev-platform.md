@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [jtbd-dev-platform]
-  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, stories]
+  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, stories]
 tags: [dev-platform, stories, requirements]
 ---
 
@@ -164,6 +164,24 @@ As a contributor or agent that produces reviews, reports, or summaries, I want t
 **Features:** DP14, DP10
 **Jobs:** DJ12, DJ8
 
+### DP-S43 — Get Guidance When Designing a New Workflow
+As a contributor creating a new workflow, I want the operational-engineering-agent to advise me on step structure, checkpoint placement, scope calibration, and actor-specific considerations — so the workflow I create is effective for everyone who will execute it, not just my own mental model.
+
+**Features:** DP15, DP03
+**Jobs:** DJ13, DJ2
+
+### DP-S44 — Know Why a Workflow Step Keeps Failing
+As an orchestrator who notices an agent consistently missing or botching a specific step, I want to consult the operational-engineering-agent for a diagnosis — is the step ambiguous? Too context-dependent? Poorly scoped for this actor type? — so I can fix the process design rather than blaming the actor.
+
+**Features:** DP15, DP10
+**Jobs:** DJ13, DJ8
+
+### DP-S45 — Trust That a Workflow Works Across Different Agents
+As a contributor delegating work to multiple AI models, I want workflows that have been designed (or verified) for the specific actor types I'm using — so I can delegate with confidence that the process will be followed correctly regardless of which model executes it.
+
+**Features:** DP15, DP02
+**Jobs:** DJ13, DJ7
+
 ---
 
 ## AI Agent Stories
@@ -257,6 +275,30 @@ As the cognitive-engineering-agent, I want the pulse companion to consult me whe
 
 **Features:** DP14, DP12
 **Jobs:** DJ12, DJ10
+
+### DP-S46 — Audit Existing Workflows for Actor Effectiveness
+As the operational-engineering-agent, I want to systematically analyze execution outcomes across different actor types — identifying which workflows are reliable for all actors, which have actor-specific failure points, and which need redesign — so the system's processes continuously improve based on empirical evidence rather than assumptions.
+
+**Features:** DP15, DP10, DP03
+**Jobs:** DJ13, DJ8
+
+### DP-S47 — Advise on Agent Context Architecture
+As the operational-engineering-agent, I want to analyze agent manifests and advise on context tier design — what belongs in "always" vs. "on demand" vs. "reference," how much context is optimal for different actor types and task complexities — so agent configurations are principled rather than convention-based.
+
+**Features:** DP15, DP02
+**Jobs:** DJ13, DJ7
+
+### DP-S48 — Collaborate with Cognitive Engineering on Actor Support
+As the operational-engineering-agent, I want to consult with the cognitive-engineering-agent on areas where comprehension methodology and execution methodology overlap — such as how to present workflow steps clearly (comprehension) AND how to structure them for reliable execution (operational) — so both sides of actor support are coordinated rather than designed in isolation.
+
+**Features:** DP15, DP14
+**Jobs:** DJ13, DJ12
+
+### DP-S49 — Advise the Pulse Companion on Process Adaptation
+As the operational-engineering-agent, I want the pulse companion to consult me when a contributor's working patterns suggest they need adapted process structures — and to provide the appropriate methodology based on the actor type and their observed execution patterns — so that personalized process adaptation is grounded in principled methodology, not ad hoc adjustments.
+
+**Features:** DP15, DP12
+**Jobs:** DJ13, DJ10
 
 ---
 

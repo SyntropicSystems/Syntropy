@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [meta-agent, pulse-companion-agent, cognitive-engineering-agent, dp10, dp11, dp12, dp14, wf-capture-observation, wf-audit-observations, wf-reflect, observations-index]
+  related: [meta-agent, pulse-companion-agent, cognitive-engineering-agent, operational-engineering-agent, dp10, dp11, dp12, dp14, dp15, wf-capture-observation, wf-audit-observations, wf-reflect, observations-index]
 ---
 
 # Observations Agent

@@ -145,3 +145,18 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-13 | updated | registry | Added DP14, cognitive-engineering-agent, dp-u14, dp-u15 to registry; updated dp-stories count to DP-S01–DP-S42 | meta-agent |
 | 2025-02-13 | updated | dp-product-index | Added DP14 to feature map, updated job count to 12, use case count to 15 | meta-agent |
 | 2025-02-13 | updated | product-index | Updated dev platform counts to 12 JTBD, 14 features, 15 use cases, 42 stories | meta-agent |
+| 2025-02-13 | created | dp15 | Created DP15 Operational Engineering feature spec — methodology for designing effective workflows, rules, skills, context, agent configs for different actor types | meta-agent |
+| 2025-02-13 | created | operational-engineering-agent | Created operational-engineering-agent manifest — DRI for process design methodology, actor-effective workflows, rule design, context architecture | meta-agent |
+| 2025-02-13 | created | dp-u16 | Created use case: Designing an Actor-Effective Workflow | meta-agent |
+| 2025-02-13 | created | dp-u17 | Created use case: Auditing Process Effectiveness Across Actor Types | meta-agent |
+| 2025-02-13 | updated | jtbd-dev-platform | Added DJ13 — Ensure Every Work Process Is Designed for the Actor Who Will Execute It | meta-agent |
+| 2025-02-13 | updated | glossary | Added Actor (dev platform) and Operational Engineering terms | meta-agent |
+| 2025-02-13 | updated | dp-stories | Added 7 new user stories (DP-S43–DP-S49) for operational engineering — developer and AI agent stories | meta-agent |
+| 2025-02-13 | updated | meta-agent | Added operational-engineering-agent to routing table and domain state | meta-agent |
+| 2025-02-13 | updated | CLAUDE.md | Added operational-engineering-agent to inheritance tree, updated JTBD count to DJ1–DJ13 | meta-agent |
+| 2025-02-13 | updated | cognitive-engineering-agent | Added operational-engineering-agent as sibling cross-reference | meta-agent |
+| 2025-02-13 | updated | observations-agent | Added operational-engineering-agent cross-reference and DP15 dependency | meta-agent |
+| 2025-02-13 | updated | pulse-companion-agent | Added operational-engineering-agent cross-reference and DP15 dependency | meta-agent |
+| 2025-02-13 | updated | registry | Added DP15, operational-engineering-agent, dp-u16, dp-u17 to registry; updated dp-stories count to DP-S01–DP-S49 | meta-agent |
+| 2025-02-13 | updated | dp-product-index | Added DP15 to feature map, updated job count to 13, use case count to 17 | meta-agent |
+| 2025-02-13 | updated | product-index | Updated dev platform counts to 13 JTBD, 15 features, 17 use cases, 49 stories | meta-agent |

@@ -19,7 +19,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Jobs to Be Done
 
-12 core jobs → `docs/vision/jtbd-dev-platform.md`
+13 core jobs → `docs/vision/jtbd-dev-platform.md`
 
 ## Feature Map
 
@@ -40,10 +40,11 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 - **DP07** — Prototype System: Interactive React JSX for design exploration → `features/dp07-prototype-system.md`
 - **DP12** — Pulse Companion: Personalized work companion, assisted reflection, continuous pulse → `features/dp12-pulse-companion.md`
 - **DP14** — Cognitive Engineering: Review templates, learning methodologies, knowledge compression, cognitive adaptation → `features/dp14-cognitive-engineering.md`
+- **DP15** — Operational Engineering: Workflow design, rule design, context architecture, actor effectiveness methodology → `features/dp15-operational-engineering.md`
 
 ## Use Cases
 
-15 concrete usage scenarios → `use-cases/`
+17 concrete usage scenarios → `use-cases/`
 
 ## User Stories
 

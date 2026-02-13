@@ -142,6 +142,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | pulse-companion-agent | Pulse Companion Agent | active | Assisted reflection, continuous pulse, work companion | `agents/pulse-companion-agent.md` |
 | decisions-agent | Decisions Agent | active | Decision records, reasoning graph, coherence | `agents/decisions-agent.md` |
 | cognitive-engineering-agent | Cognitive Engineering Agent | active | Information architecture for comprehension | `agents/cognitive-engineering-agent.md` |
+| operational-engineering-agent | Operational Engineering Agent | active | Process design methodology for actor effectiveness | `agents/operational-engineering-agent.md` |
 
 ## Dev Platform — Vision
 
@@ -167,6 +168,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp12 | Pulse Companion | defining | pulse-companion-agent | `docs/product/dev-platform/features/dp12-pulse-companion.md` |
 | dp13 | Decision Records | defining | decisions-agent | `docs/product/dev-platform/features/dp13-decision-records.md` |
 | dp14 | Cognitive Engineering | defining | cognitive-engineering-agent | `docs/product/dev-platform/features/dp14-cognitive-engineering.md` |
+| dp15 | Operational Engineering | defining | operational-engineering-agent | `docs/product/dev-platform/features/dp15-operational-engineering.md` |
 
 ## Dev Platform — Use Cases
 
@@ -187,12 +189,14 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp-u13 | Navigating the Decision Graph to Understand Why | defining | decisions-agent | `docs/product/dev-platform/use-cases/dp-u13-navigating-decision-graph.md` |
 | dp-u14 | Structuring a Code Review for Comprehension | defining | cognitive-engineering-agent | `docs/product/dev-platform/use-cases/dp-u14-structured-code-review.md` |
 | dp-u15 | Creating a Learning Brief for Architecture Comprehension | defining | cognitive-engineering-agent | `docs/product/dev-platform/use-cases/dp-u15-architecture-learning-brief.md` |
+| dp-u16 | Designing an Actor-Effective Workflow | defining | operational-engineering-agent | `docs/product/dev-platform/use-cases/dp-u16-designing-actor-effective-workflow.md` |
+| dp-u17 | Auditing Process Effectiveness Across Actor Types | defining | operational-engineering-agent | `docs/product/dev-platform/use-cases/dp-u17-auditing-process-effectiveness.md` |
 
 ## Dev Platform — User Stories
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| dp-stories | Dev Platform User Stories (DP-S01–DP-S42) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
+| dp-stories | Dev Platform User Stories (DP-S01–DP-S49) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
 
 ## Repo Platform — Vision
 
