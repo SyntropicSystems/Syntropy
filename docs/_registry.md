@@ -95,6 +95,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 *General decision records (dr-NNN) will appear here as they are captured.*
 
+
 ## Open Questions
 
 | ID | Title | Status | Owner | File |
@@ -140,6 +141,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | observations-agent | Observations Agent | active | Observation capture, structuring, patterns | `agents/observations-agent.md` |
 | pulse-companion-agent | Pulse Companion Agent | active | Assisted reflection, continuous pulse, work companion | `agents/pulse-companion-agent.md` |
 | decisions-agent | Decisions Agent | active | Decision records, reasoning graph, coherence | `agents/decisions-agent.md` |
+| cognitive-engineering-agent | Cognitive Engineering Agent | active | Information architecture for comprehension | `agents/cognitive-engineering-agent.md` |
 
 ## Dev Platform — Vision
 
@@ -164,6 +166,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp11 | Reflection Loop | defining | observations-agent | `docs/product/dev-platform/features/dp11-reflection-loop.md` |
 | dp12 | Pulse Companion | defining | pulse-companion-agent | `docs/product/dev-platform/features/dp12-pulse-companion.md` |
 | dp13 | Decision Records | defining | decisions-agent | `docs/product/dev-platform/features/dp13-decision-records.md` |
+| dp14 | Cognitive Engineering | defining | cognitive-engineering-agent | `docs/product/dev-platform/features/dp14-cognitive-engineering.md` |
 
 ## Dev Platform — Use Cases
 
@@ -182,12 +185,14 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp-u11 | Assisted Reflection with Pulse Companion | defining | pulse-companion-agent | `docs/product/dev-platform/use-cases/dp-u11-assisted-reflection.md` |
 | dp-u12 | Recording a Decision During Work | defining | decisions-agent | `docs/product/dev-platform/use-cases/dp-u12-recording-decision.md` |
 | dp-u13 | Navigating the Decision Graph to Understand Why | defining | decisions-agent | `docs/product/dev-platform/use-cases/dp-u13-navigating-decision-graph.md` |
+| dp-u14 | Structuring a Code Review for Comprehension | defining | cognitive-engineering-agent | `docs/product/dev-platform/use-cases/dp-u14-structured-code-review.md` |
+| dp-u15 | Creating a Learning Brief for Architecture Comprehension | defining | cognitive-engineering-agent | `docs/product/dev-platform/use-cases/dp-u15-architecture-learning-brief.md` |
 
 ## Dev Platform — User Stories
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| dp-stories | Dev Platform User Stories (DP-S01–DP-S35) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
+| dp-stories | Dev Platform User Stories (DP-S01–DP-S42) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
 
 ## Repo Platform — Vision
 

@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [observations-agent, meta-agent, dp12, dp11, dp10, wf-reflect, observations-index]
+  related: [observations-agent, cognitive-engineering-agent, meta-agent, dp12, dp11, dp10, wf-reflect, observations-index]
 ---
 
 # Pulse Companion Agent
@@ -117,9 +117,11 @@ The pulse companion works alongside the observations-agent: while the observatio
 
 ### Cross-Domain Dependencies
 - Observations-agent — companion produces observations, collaborates on patterns
+- Cognitive-engineering-agent — provides methodology for how to present information to contributors based on their cognitive patterns
 - All domain agents — companion needs to understand domain context for specific questions
 - DP11 (Reflection Loop) — companion enhances the reflection practice
 - DP10 (Observation System) — companion data flows through observation infrastructure
+- DP14 (Cognitive Engineering) — methodology for personalized information delivery
 
 ### Last Synced
 2025-02-09

@@ -8,14 +8,14 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13]
+  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14]
   related: [jtbd, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
 # Dev Platform — Jobs to Be Done
 
-The eleven core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The twelve core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 
@@ -60,3 +60,7 @@ The eleven core jobs that the development platform exists to fulfill. Every dev 
 ## DJ11 — Build a Reasoning Graph That Makes Every Decision Reproducible and Traceable
 
 **When** decisions are made implicitly in conversations, lost in context switches, repeated because no one remembers why something was decided, or silently contradicted by newer choices, **I want** a system where every decision — from high-stakes architectural choices to everyday methodology picks — is captured as a lightweight record with its problem context, options explored, success metrics, and revisit triggers, organized as a navigable graph with hierarchy, domain scoping, and parent-child relationships, **so that** any contributor can understand the reasoning behind the current state of things, avoid repeating history, make informed decisions about changing what exists, reduce decision fatigue by building on what's already been thought through, and — taken together — the decision graph constitutes a reasoning trail that could reconstruct the system from scratch to its current state, even if the specific details would look different.
+
+## DJ12 — Ensure Every Piece of Communicated Knowledge Is Structured for Actual Comprehension
+
+**When** agents and humans produce reviews, reports, change summaries, architecture explanations, and learning materials — and these artifacts are consumed by orchestrators, reviewers, and newcomers who need to genuinely understand what happened, what matters, and what to verify — **I want** a principled methodology system that defines how information should be structured for cognitive effectiveness (progressive disclosure, lossless compression, chunking, contextual framing), with templates that evolve through feedback loops and progressively adapt to how different contributors best absorb information, **so that** the human orchestrator can quickly grasp what changed and why it matters without drowning in details, reviewers know exactly where to focus their attention and what to verify, newcomers can build accurate mental models of subsystems efficiently, the methodology continuously improves based on what actually helps people understand, and over time each contributor receives information structured for how their particular brain works best.

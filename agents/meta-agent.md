@@ -9,7 +9,7 @@ authority: orchestrator
 created: 2025-02-07
 updated: 2025-02-09
 refs:
-  related: [product-agent, architecture-agent, ux-agent, integration-agent, observations-agent, pulse-companion-agent, decisions-agent, surf-dev-platform]
+  related: [product-agent, architecture-agent, ux-agent, integration-agent, observations-agent, pulse-companion-agent, decisions-agent, cognitive-engineering-agent, surf-dev-platform]
 ---
 
 # Meta Agent
@@ -48,6 +48,7 @@ When work arrives, route to the appropriate agent:
 | Observations, signals, frictions, ideas | `observations-agent` | Capture, structure, pattern detection, upleveling |
 | Assisted reflection, continuous pulse, work companion | `pulse-companion-agent` | Personalized reflection support, pulse sensing |
 | Decision records, reasoning graph, decision coherence | `decisions-agent` | Decision capture, graph integrity, conflict detection |
+| Cognitive engineering, review templates, learning methodologies, knowledge compression | `cognitive-engineering-agent` | Information architecture for comprehension |
 
 ### Routing Rules
 1. Check if work falls clearly within one agent's scope → route directly
@@ -94,7 +95,8 @@ When work arrives, route to the appropriate agent:
 
 ### Current Focus
 - Knowledge graph infrastructure is stable and fully scaffolded
-- Dev platform product documentation (DP01–DP13) is being specified
+- Dev platform product documentation (DP01–DP14) is being specified
+- Cognitive Engineering (DP14) being introduced — methodology for structuring information for comprehension
 - Decision Records (DP13) being introduced — reasoning graph for all decisions, generalizing ADRs
 - Domain Context Sync (DP09) feature being introduced — adds sync protocol to all agents
 - Observation System (DP10) being introduced — zero-barrier signal capture, audit, and pattern detection
