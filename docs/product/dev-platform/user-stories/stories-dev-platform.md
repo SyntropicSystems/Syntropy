@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [jtbd-dev-platform]
-  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, stories]
+  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, stories]
 tags: [dev-platform, stories, requirements]
 ---
 
@@ -164,6 +164,54 @@ As a contributor or agent that produces reviews, reports, or summaries, I want t
 **Features:** DP14, DP10
 **Jobs:** DJ12, DJ8
 
+### DP-S43 — Keep Building While Governance Stays in Sync
+As a developer building a feature, I want governance checks to run silently in the background so I can stay in flow and never be interrupted by compliance concerns — while knowing the system is keeping track of everything for me.
+
+**Features:** DP15
+**Jobs:** DJ13
+
+### DP-S44 — Apply a Governance Fix in Seconds
+As a developer who drifted from a spec, I want the system to show me a small, concrete patch with a one-sentence rationale so I can fix it in seconds without reading decision records, hunting for specs, or figuring out what needs updating.
+
+**Features:** DP15, DP13
+**Jobs:** DJ13, DJ3
+
+### DP-S45 — Answer a Governance Question Without Reading Documents
+As a developer whose code raised a governance question the system can't auto-resolve, I want one crisp prompt with choices and consequences so I can make the decision in 30 seconds without reading 20 documents.
+
+**Features:** DP15, DP13
+**Jobs:** DJ13, DJ14
+
+### DP-S46 — Understand Where Things Went Wrong
+As a developer who accumulated governance debt over several commits, I want a timeline showing exactly when drift started, what was recommended, and how cost grew — so I can trace the root cause and fix it efficiently instead of debugging a complex multi-layer issue.
+
+**Features:** DP15, DP04
+**Jobs:** DJ13, DJ3
+
+### DP-S47 — Finalize My Work Without Last-Minute Surprises
+As a developer ready to open a PR, I want a "Finalize" view that shows what's compliant, what patches remain, and a clean bundle of governance updates — so I can merge with confidence and reviewers see exactly what governance changes were made and why.
+
+**Features:** DP15, DP04, DP09
+**Jobs:** DJ13, DJ6
+
+### DP-S48 — Choose When to Pay Down Governance Debt
+As a developer who sees a yellow HUD, I want the system to hold its patches patiently and keep them current as I work — so I can choose when to engage on my own terms without being nagged or punished for ignoring it temporarily.
+
+**Features:** DP15
+**Jobs:** DJ13
+
+### DP-S49 — Know When Ignoring Drift Gets Expensive
+As a developer focused on shipping, I want the system to escalate from yellow to red only when accumulated drift will genuinely cost significant rework — so I trust the escalation signals and take them seriously rather than ignoring them like noisy CI logs.
+
+**Features:** DP15
+**Jobs:** DJ13, DJ14
+
+### DP-S50 — Review Governance Changes in a PR Clearly
+As a tech lead reviewing a PR, I want governance updates (spec changes, cross-reference updates, changelog entries) clearly bundled and separated from feature code — so I can approve compliance changes quickly and focus my review time on the logic.
+
+**Features:** DP15, DP14
+**Jobs:** DJ13, DJ12
+
 ---
 
 ## AI Agent Stories
@@ -257,6 +305,36 @@ As the cognitive-engineering-agent, I want the pulse companion to consult me whe
 
 **Features:** DP14, DP12
 **Jobs:** DJ12, DJ10
+
+### DP-S51 — Run Reconciliation Without Blocking the Developer
+As the shadow navigator agent, I want to detect file changes, identify affected governance nodes via graph edges, and run micro-workflows asynchronously — so I produce patches and prompts without ever blocking the developer's editor or workflow.
+
+**Features:** DP15, DP03
+**Jobs:** DJ14, DJ13
+
+### DP-S52 — Generate Patches That Stay Current Across Commits
+As the shadow navigator agent, I want to semantically rebase my proposed patches when the developer makes new commits — so the patches remain applicable to the latest state and the developer never sees stale or conflicting suggestions.
+
+**Features:** DP15, DP01
+**Jobs:** DJ14, DJ13
+
+### DP-S53 — Collapse Stale Results Intelligently
+As the shadow navigator agent, I want to classify pending results as "superseded," "still applies," or "needs re-check" when new changes arrive — so the developer's Inbox stays clean and they never see a pile of outdated reports.
+
+**Features:** DP15
+**Jobs:** DJ14
+
+### DP-S54 — Prepare Context for the Developer's Coding Agent
+As the shadow navigator agent, I want to update working-state summaries (constraints, next steps, open prompts) that the developer's coding AI can read — so governance findings flow naturally into the coding agent's context without the developer having to relay information manually.
+
+**Features:** DP15, DP09
+**Jobs:** DJ14, DJ7
+
+### DP-S55 — Detect Recurring Drift Patterns
+As the shadow navigator agent analyzing drift across sessions, I want to notice when the same type of drift keeps occurring (e.g., "spec not updated after API change" happens 6 times) — so I can surface a proposal to create a new rule, spec, or automation that prevents the pattern rather than just patching it each time.
+
+**Features:** DP15, DP10
+**Jobs:** DJ14, DJ8
 
 ---
 

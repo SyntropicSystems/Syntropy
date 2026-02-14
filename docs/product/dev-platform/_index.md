@@ -5,7 +5,7 @@ title: "Dev Platform Product Domain"
 status: active
 owner: meta-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-14
 refs:
   related: [product-index, surf-dev-platform, jtbd-dev-platform]
 tags: [dev-platform, product, index]
@@ -19,7 +19,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Jobs to Be Done
 
-12 core jobs → `docs/vision/jtbd-dev-platform.md`
+14 core jobs → `docs/vision/jtbd-dev-platform.md`
 
 ## Feature Map
 
@@ -34,6 +34,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 - **DP10** — Observation System: Zero-barrier signal capture, audit, pattern detection, upleveling → `features/dp10-observation-system.md`
 - **DP11** — Reflection Loop: Post-work personal reflection feeding the observation system → `features/dp11-reflection-loop.md`
 - **DP13** — Decision Records: Reasoning graph for all decisions, hierarchy, domain scoping, revisit triggers → `features/dp13-decision-records.md`
+- **DP15** — Shadow Navigator: Non-blocking continuous governance reconciliation, executable governance graph, shadow workspace with patches and prompts → `features/dp15-shadow-navigator.md`
 
 ### P1 — High Priority
 - **DP06** — Surface Definitions: Platform delivery specs for each surface → `features/dp06-surface-definitions.md`
@@ -43,7 +44,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Use Cases
 
-15 concrete usage scenarios → `use-cases/`
+20 concrete usage scenarios → `use-cases/`
 
 ## User Stories
 

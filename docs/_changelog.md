@@ -145,3 +145,15 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-13 | updated | registry | Added DP14, cognitive-engineering-agent, dp-u14, dp-u15 to registry; updated dp-stories count to DP-S01–DP-S42 | meta-agent |
 | 2025-02-13 | updated | dp-product-index | Added DP14 to feature map, updated job count to 12, use case count to 15 | meta-agent |
 | 2025-02-13 | updated | product-index | Updated dev platform counts to 12 JTBD, 14 features, 15 use cases, 42 stories | meta-agent |
+| 2026-02-14 | created | dp15 | Created DP15 Shadow Navigator feature spec — non-blocking continuous governance reconciliation, executable governance graph, constitutional stack, shadow workspace with patches and prompts, complexity thermometer, zipper merge | meta-agent |
+| 2026-02-14 | updated | jtbd-dev-platform | Added DJ13 — Keep All Artifacts in Continuous Compliance Without Disrupting Developer Flow; DJ14 — Enable Deterministic Graph-Based Artifact Execution | meta-agent |
+| 2026-02-14 | created | dp-u16 | Created use case: Everyday Building with Shadow Reconciliation | meta-agent |
+| 2026-02-14 | created | dp-u17 | Created use case: Reviewing and Applying a Shadow Patch | meta-agent |
+| 2026-02-14 | created | dp-u18 | Created use case: Resolving a Governance Prompt | meta-agent |
+| 2026-02-14 | created | dp-u19 | Created use case: Time-Traveling to Understand Drift Origin | meta-agent |
+| 2026-02-14 | created | dp-u20 | Created use case: Finalizing Work with Zipper Merge | meta-agent |
+| 2026-02-14 | updated | dp-stories | Added 13 new user stories (DP-S43–DP-S55) for Shadow Navigator — developer, AI agent, and reviewer stories | meta-agent |
+| 2026-02-14 | updated | glossary | Added Shadow Navigator, Constitutional Stack, Executable Governance Graph, Debt Score, Shadow Patch, Zipper Merge terms | meta-agent |
+| 2026-02-14 | updated | registry | Added DP15, dp-u16–dp-u20 to registry; updated dp-stories count to DP-S01–DP-S55 | meta-agent |
+| 2026-02-14 | updated | dp-product-index | Added DP15 to feature map, updated job count to 14, use case count to 20 | meta-agent |
+| 2026-02-14 | updated | product-index | Updated dev platform counts to 14 JTBD, 15 features, 20 use cases, 55 stories | meta-agent |

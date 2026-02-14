@@ -8,14 +8,14 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14]
+  enables: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15]
   related: [jtbd, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
 # Dev Platform — Jobs to Be Done
 
-The twelve core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The fourteen core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 
@@ -64,3 +64,11 @@ The twelve core jobs that the development platform exists to fulfill. Every dev 
 ## DJ12 — Ensure Every Piece of Communicated Knowledge Is Structured for Actual Comprehension
 
 **When** agents and humans produce reviews, reports, change summaries, architecture explanations, and learning materials — and these artifacts are consumed by orchestrators, reviewers, and newcomers who need to genuinely understand what happened, what matters, and what to verify — **I want** a principled methodology system that defines how information should be structured for cognitive effectiveness (progressive disclosure, lossless compression, chunking, contextual framing), with templates that evolve through feedback loops and progressively adapt to how different contributors best absorb information, **so that** the human orchestrator can quickly grasp what changed and why it matters without drowning in details, reviewers know exactly where to focus their attention and what to verify, newcomers can build accurate mental models of subsystems efficiently, the methodology continuously improves based on what actually helps people understand, and over time each contributor receives information structured for how their particular brain works best.
+
+## DJ13 — Keep All Artifacts in Continuous Compliance Without Disrupting Developer Flow
+
+**When** I'm building features and my code, specs, plans, or workflows drift from governing decisions, rules, or architectural constraints — and I don't notice because I'm focused on shipping — **I want** a system that continuously detects drift in the background, proposes concrete fixes as small reviewable patches, and escalates only when the cost of ignoring drift crosses a meaningful threshold, **so that** governance stays current without interrupting my creative flow, I never get surprised at merge time by a wall of compliance failures, I can choose when to pay down governance debt on my own terms, and the system acts as a navigator that updates the map rather than grabbing the steering wheel.
+
+## DJ14 — Enable Deterministic Graph-Based Artifact Execution
+
+**When** any artifact in the system changes — a decision record is revised, a spec is updated, code diverges from a rule — **I want** the system to deterministically identify all affected downstream artifacts through explicit graph edges and automatically trigger the appropriate reconciliation workflows, **so that** compliance propagation is predictable and automatic rather than dependent on human memory, every artifact stays atomic and does exactly one thing, the system can be audited for what was checked and what was skipped, and the whole governance layer operates like an executable graph rather than passive documentation that drifts silently out of sync.
