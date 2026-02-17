@@ -1,0 +1,124 @@
+entity-relationship-diagram
+
+title Personal Productivity System Data Model
+
+users [icon: user, color: blue] {
+  id string pk
+  profile string
+  preferences string
+  aiThresholds string
+}
+
+domains [icon: folder, color: purple] {
+  id string pk
+  userId string fk
+  name string
+  icon string
+  color string
+  description string
+  stats string
+}
+
+info_categories [icon: list, color: purple] {
+  id string pk
+  domainId string fk
+  category string
+  items string
+}
+
+projects [icon: target, color: green] {
+  id string pk
+  userId string fk
+  domainId string fk
+  title string
+  icon string
+  color string
+  status string
+  budget string
+  deadline string
+  taskOrder string
+}
+
+tasks [icon: check-square, color: yellow] {
+  id string pk
+  userId string fk
+  domainId string fk
+  projectId string fk
+  title string
+  body string
+  status string
+  priority string
+  source string
+  sourceRef string
+  dependsOn string
+  creates string
+  aiSuggestion string
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+artifacts [icon: file, color: orange] {
+  id string pk
+  userId string fk
+  title string
+  type string
+  source string
+  date timestamp
+  tags string
+  domainIds string
+  projectIds string
+  taskIds string
+  aiExtraction string
+  userEdits string
+  storagePath string
+  downloadURL string
+  thumbnailURL string
+  sourceRef string
+}
+
+events [icon: activity, color: gray] {
+  id string pk
+  userId string fk
+  timestamp timestamp
+  actor string
+  type string
+  taskId string fk
+  domainId string fk
+  projectId string fk
+  payload string
+  confidence string
+  reasoning string
+}
+
+queue [icon: layers, color: blue] {
+  id string pk
+  userId string fk
+  orderedTaskIds string
+  activeIndex number
+}
+
+integrations [icon: link, color: red] {
+  id string pk
+  userId string fk
+  oauthTokens string
+  syncState string
+}
+
+// Relationships
+domains.userId > users.id
+info_categories.domainId > domains.id
+projects.userId > users.id
+projects.domainId > domains.id
+tasks.userId > users.id
+tasks.domainId > domains.id
+tasks.projectId > projects.id
+artifacts.userId > users.id
+artifacts.domainIds <> domains.id
+artifacts.projectIds <> projects.id
+artifacts.taskIds <> tasks.id
+events.userId > users.id
+events.taskId > tasks.id
+events.domainId > domains.id
+events.projectId > projects.id
+queue.userId - users.id
+integrations.userId > users.id
