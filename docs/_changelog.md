@@ -145,3 +145,5 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-13 | updated | registry | Added DP14, cognitive-engineering-agent, dp-u14, dp-u15 to registry; updated dp-stories count to DP-S01–DP-S42 | meta-agent |
 | 2025-02-13 | updated | dp-product-index | Added DP14 to feature map, updated job count to 12, use case count to 15 | meta-agent |
 | 2025-02-13 | updated | product-index | Updated dev platform counts to 12 JTBD, 14 features, 15 use cases, 42 stories | meta-agent |
+| 2026-02-19 | created | wf-integrate-knowledge | Created universal knowledge intake workflow — handles all input modes (conversational, notes, documents, quick ideas), ensures deduplication before integration, routes to appropriate downstream workflows, validates graph integrity | meta-agent |
+| 2026-02-19 | updated | wf-add-feature, wf-capture-observation, wf-feature-inception, wf-decompose-spec, wf-record-decision, wf-refine-story, wf-resolve-question | Added bidirectional cross-references to wf-integrate-knowledge | meta-agent |

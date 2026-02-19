@@ -7,7 +7,7 @@ owner: decisions-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [wf-make-decision, wf-resolve-question, dp13, decisions-agent]
+  related: [wf-make-decision, wf-resolve-question, dp13, decisions-agent, wf-integrate-knowledge]
 ---
 
 # Workflow: Record a Decision

@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [wf-make-decision, wf-refine-story, wf-create-agent, wf-decompose-spec, wf-feature-inception]
+  related: [wf-make-decision, wf-refine-story, wf-create-agent, wf-decompose-spec, wf-feature-inception, wf-integrate-knowledge]
 ---
 
 # Workflow: Add a New Feature Spec

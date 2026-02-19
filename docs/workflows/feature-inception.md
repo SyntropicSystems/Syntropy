@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [wf-add-feature, wf-create-agent, wf-capture-observation, wf-refine-story]
+  related: [wf-add-feature, wf-create-agent, wf-capture-observation, wf-refine-story, wf-integrate-knowledge]
 ---
 
 # Workflow: Feature Inception

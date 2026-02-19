@@ -124,6 +124,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | wf-audit-observations | Audit Observations | active | observations-agent | `docs/workflows/audit-observations.md` |
 | wf-feature-inception | Feature Inception | active | meta-agent | `docs/workflows/feature-inception.md` |
 | wf-reflect | Reflect After Work | active | observations-agent | `docs/workflows/reflect.md` |
+| wf-integrate-knowledge | Integrate Knowledge | active | meta-agent | `docs/workflows/integrate-knowledge.md` |
 
 ## Agents
 

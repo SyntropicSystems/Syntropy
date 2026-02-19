@@ -7,7 +7,7 @@ owner: product-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [wf-add-feature]
+  related: [wf-add-feature, wf-integrate-knowledge]
 ---
 
 # Workflow: Refine a User Story

@@ -7,7 +7,7 @@ owner: observations-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [wf-audit-observations, dp10, observations-agent]
+  related: [wf-audit-observations, dp10, observations-agent, wf-integrate-knowledge]
 ---
 
 # Workflow: Capture an Observation

@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [wf-add-feature, wf-make-decision]
+  related: [wf-add-feature, wf-make-decision, wf-integrate-knowledge]
 ---
 
 # Workflow: Decompose a Spec Document

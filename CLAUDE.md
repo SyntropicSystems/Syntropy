@@ -58,6 +58,7 @@ Executable process documents — same instructions work for humans and AI:
 - Audit observations: `docs/workflows/audit-observations.md`
 - Feature inception: `docs/workflows/feature-inception.md`
 - Reflect after work: `docs/workflows/reflect.md`
+- Integrate knowledge: `docs/workflows/integrate-knowledge.md`
 
 ## Principles
 

@@ -69,6 +69,7 @@ When work arrives, route to the appropriate agent:
 - `docs/workflows/decompose-spec.md` — breaking monolith docs into graph nodes
 - `docs/workflows/sync-domain-context.md` — auditing and syncing domain agent state
 - `docs/workflows/domain-review.md` — coordinating DRI reviews before merge
+- `docs/workflows/integrate-knowledge.md` — universal knowledge intake and integration
 - All workflows in `docs/workflows/` (meta-agent can execute any workflow)
 
 ## Decision Authority
@@ -103,6 +104,7 @@ When work arrives, route to the appropriate agent:
 - Reflection Loop (DP11) being introduced — post-work personal reflection feeding observation system
 - Pulse Companion (DP12) being introduced — personalized work companion starting as reflection assistant
 - Feature Inception workflow (wf-feature-inception) created — meta-workflow for cross-cutting capabilities
+- Integrate Knowledge workflow (wf-integrate-knowledge) created — universal front door for all knowledge intake
 
 ### Key Decisions in Effect
 - ADR-001: Firebase as backend platform
