@@ -39,7 +39,8 @@ _base-traits.md              ← every agent inherits this
   ├── pulse-companion-agent.md
   ├── decisions-agent.md
   ├── cognitive-engineering-agent.md
-  └── operational-engineering-agent.md
+  ├── operational-engineering-agent.md
+  └── workspace-contracts-agent.md
 ```
 
 ## Workflows
@@ -59,6 +60,7 @@ Executable process documents — same instructions work for humans and AI:
 - Audit observations: `docs/workflows/audit-observations.md`
 - Feature inception: `docs/workflows/feature-inception.md`
 - Reflect after work: `docs/workflows/reflect.md`
+- Design workspace contract: `docs/workflows/design-workspace-contract.md`
 
 ## Principles
 
@@ -78,13 +80,14 @@ docs/                       ← all project knowledge
   product/                  ← WHAT: features, use cases, stories, UX
     dev-platform/            ← dev platform as product (features, use cases, stories)
     repo-platform/           ← repo platform as product (build, containers, CI/CD, IaC)
+    workspace-platform/      ← workspace platform as product (contracts, validation, scaffolding)
   architecture/             ← HOW: technical design, data model, stack
   decisions/                ← Decision records: ADRs + general decisions (reasoning graph)
   open-questions/           ← unresolved explorations
   workflows/                ← executable process documents
 agents/                     ← sub-agent manifests (trait composition)
   feature-agents/           ← per-feature specialized agents
-surfaces/                   ← surface definitions (mobile, web, dev platform, repo platform)
+surfaces/                   ← surface definitions (mobile, web, dev platform, repo platform, workspace platform)
 prototypes/                 ← interactive React JSX design prototypes
 observations/               ← raw signals: frictions, ideas, bugs, thoughts
 ```
@@ -104,6 +107,15 @@ The engineering infrastructure (build, containers, CI/CD, IaC) is documented as 
 - **JTBD**: `docs/vision/jtbd-repo-platform.md` — 10 jobs the repo platform fulfills (RJ1–RJ10)
 - **Product Index**: `docs/product/repo-platform/_index.md` — feature map, use cases, stories
 - **Surface**: `surfaces/repo-platform.md` — platform definition and principles
+
+## Workspace Platform as Product
+
+The workspace contract and tooling layer (contracts, validation, scaffolding, plan/apply) is documented as a product:
+
+- **JTBD**: `docs/vision/jtbd-workspace-platform.md` — 10 jobs the workspace platform fulfills (WJ1–WJ10)
+- **Product Index**: `docs/product/workspace-platform/_index.md` — feature map, use cases, stories
+- **Surface**: `surfaces/workspace-platform.md` — platform definition and principles
+- **Architecture**: `docs/architecture/workspace-contracts.md`, `docs/architecture/plan-apply-engine.md`, `docs/architecture/north-star-layout.md`
 
 ## Current Status
 

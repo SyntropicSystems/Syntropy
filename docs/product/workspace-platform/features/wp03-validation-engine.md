@@ -1,0 +1,96 @@
+---
+id: "wp03"
+type: feature-spec
+title: "Validation Engine"
+status: exploring
+owner: workspace-contracts-agent
+priority: P0
+created: 2026-02-21
+updated: 2026-02-21
+refs:
+  depends-on: [wp01, wp02, wp08]
+  enables: [wp04, wp-u03]
+  related: [wp05, rp10]
+  informed-by: [jtbd-workspace-platform]
+  architecture: [arch-workspace-contracts]
+  open-questions: []
+tags: [workspace-platform, validation, coherence, p0]
+---
+
+# WP03 — Validation Engine
+
+## Summary
+
+The validation engine is `syntropy validate` — a deterministic checker that verifies workspace structural integrity, dependency direction, naming conventions, and contract compliance. It produces a machine-readable `ValidationReport` that can be consumed by CI, editors, agents, and humans.
+
+## Jobs Addressed
+
+- WJ3 — Validate Workspace Coherence Continuously (primary)
+- WJ9 — Enforce Architectural Invariants Automatically (secondary)
+
+## How It Works
+
+### What Gets Validated
+
+The engine checks multiple layers of workspace coherence:
+
+1. **Contract validity**: `syntropy.toml` matches the declared schema version
+2. **Directory structure**: directories declared in the contract exist; no orphan directories
+3. **Naming conventions**: files and directories follow declared naming rules
+4. **Dependency direction**: platform never imports products, enforced by visibility rules
+5. **Component completeness**: every declared service/app has required files (entry point, config, etc.)
+6. **Schema drift**: generated schemas match their source types (if using code-first strategy)
+7. **Checked-in hygiene**: no machine state in version control, no secrets in committed files
+
+### Validation Report Contract
+
+`syntropy validate --json` outputs a structured `ValidationReport`:
+
+```json
+{
+  "schema_version": "v0",
+  "timestamp": "2026-02-21T10:30:00Z",
+  "valid": false,
+  "errors": [
+    {
+      "code": "E001",
+      "severity": "error",
+      "category": "dependency-direction",
+      "message": "platform/crates/syntropy-kernel imports from products/command-center",
+      "location": { "file": "platform/crates/syntropy-kernel/src/lib.rs", "line": 12 },
+      "fix_hint": "Move shared types to platform/crates/"
+    }
+  ],
+  "warnings": [],
+  "summary": { "errors": 1, "warnings": 0, "checked": 47 }
+}
+```
+
+### Integration Points
+
+- **CLI**: `syntropy validate` for on-demand checks
+- **CI**: runs in pipeline, fails on errors
+- **Editor**: LSP/extension shows violations inline
+- **Plan/Apply**: validation runs before apply to prevent broken states
+- **Agent**: agents query validation state before making changes
+
+### Dependency Direction Enforcement
+
+The sacred rule: **platform/ never imports products/**. The validation engine enforces this by:
+- Analyzing import graphs across all declared components
+- Checking visibility rules (e.g., Bazel visibility, Rust module boundaries)
+- Producing clear error messages with fix hints
+
+## Dependencies
+
+- Requires: WP01 (Workspace Contract) — validates against the contract
+- Requires: WP02 (Workspace Instance) — validates the instance structure
+- Requires: WP08 (Contract Schema System) — uses schemas for contract validation
+- Enables: WP04 (Plan/Apply Engine) — validation gates apply operations
+
+## Open Questions
+
+- [ ] Should validation be incremental (only check changed files) or always full-workspace?
+- [ ] What's the error code taxonomy? Flat or hierarchical?
+- [ ] Should there be a `--fix` mode that auto-corrects trivial violations?
+- [ ] How does custom validation plug in (project-specific rules)?
