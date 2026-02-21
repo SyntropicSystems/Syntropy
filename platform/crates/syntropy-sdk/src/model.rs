@@ -86,6 +86,7 @@ pub struct TreeNode {
 pub enum PatchOp {
     Create,
     Update,
+    Delete,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

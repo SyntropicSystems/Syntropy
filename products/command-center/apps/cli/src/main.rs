@@ -57,6 +57,12 @@ enum Command {
 
     /// Validate workspace structure against the selected blueprint.
     Validate,
+
+    /// Manage repo collaboration agents and tool adapters.
+    Agents {
+        #[command(subcommand)]
+        command: AgentsCommand,
+    },
 }
 
 #[derive(Debug, Subcommand)]
@@ -67,6 +73,19 @@ enum GenCommand {
         #[arg(long)]
         dry_run: bool,
     },
+}
+
+#[derive(Debug, Subcommand)]
+enum AgentsCommand {
+    /// Generate/refresh `.claude/**` and `.codex/**` adapters from canonical specs.
+    Sync {
+        /// Print what would change, but do not write.
+        #[arg(long)]
+        dry_run: bool,
+    },
+
+    /// Check that generated adapters are up-to-date (fails on drift).
+    Check,
 }
 
 fn main() -> anyhow::Result<()> {
@@ -223,6 +242,89 @@ fn main() -> anyhow::Result<()> {
             }
 
             if !report.valid {
+                std::process::exit(1);
+            }
+        }
+
+        Command::Agents {
+            command: AgentsCommand::Sync { dry_run },
+        } => {
+            let workspace = Workspace::discover(std::env::current_dir()?)?;
+            let plan = workspace.plan_agent_adapters()?;
+
+            if cli.json {
+                println!(
+                    "{}",
+                    serde_json::to_string_pretty(&serde_json::json!({
+                        "schema_version": "v0",
+                        "patches": plan.patches,
+                        "conflicts": plan.conflicts,
+                        "dry_run": dry_run,
+                    }))?
+                );
+            } else {
+                if plan.patches.is_empty() {
+                    println!("No agent adapter changes.");
+                } else {
+                    println!("Agent adapter changes:");
+                    for patch in &plan.patches {
+                        println!("- {:?} {}", patch.op, patch.path.display());
+                    }
+                }
+
+                if !plan.conflicts.is_empty() {
+                    println!("\nConflicts (non-generated file exists):");
+                    for path in &plan.conflicts {
+                        println!("- {}", path.display());
+                    }
+                }
+            }
+
+            if !plan.conflicts.is_empty() {
+                anyhow::bail!("refusing to write: conflicts exist");
+            }
+
+            if !dry_run {
+                workspace
+                    .apply_patches(&plan.patches)
+                    .context("applying agent adapter patches")?;
+            }
+        }
+
+        Command::Agents {
+            command: AgentsCommand::Check,
+        } => {
+            let workspace = Workspace::discover(std::env::current_dir()?)?;
+            let plan = workspace.plan_agent_adapters()?;
+
+            let ok = plan.patches.is_empty() && plan.conflicts.is_empty();
+
+            if cli.json {
+                println!(
+                    "{}",
+                    serde_json::to_string_pretty(&serde_json::json!({
+                        "schema_version": "v0",
+                        "ok": ok,
+                        "patches": plan.patches,
+                        "conflicts": plan.conflicts,
+                    }))?
+                );
+            } else if ok {
+                println!("OK: agent adapters are up-to-date.");
+            } else {
+                println!("Drift detected:");
+                for patch in &plan.patches {
+                    println!("- {:?} {}", patch.op, patch.path.display());
+                }
+                if !plan.conflicts.is_empty() {
+                    println!("\nConflicts (non-generated file exists):");
+                    for path in &plan.conflicts {
+                        println!("- {}", path.display());
+                    }
+                }
+            }
+
+            if !ok {
                 std::process::exit(1);
             }
         }

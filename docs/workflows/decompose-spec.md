@@ -5,7 +5,7 @@ title: "Decompose a Spec Document"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-21
 refs:
   related: [wf-add-feature, wf-make-decision]
 ---
@@ -90,7 +90,7 @@ After all files exist:
 - [ ] Registry has every new document
 - [ ] Changelog records the decomposition
 - [ ] Source document is archived
-- [ ] A new contributor can navigate from `CLAUDE.md` to any extracted concept in ≤3 hops
+- [ ] A new contributor can navigate from `AGENTS.md` to any extracted concept in ≤3 hops
 
 ## Executor Notes
 

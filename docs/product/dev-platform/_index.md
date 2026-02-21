@@ -5,7 +5,7 @@ title: "Dev Platform Product Domain"
 status: active
 owner: meta-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-21
 refs:
   related: [product-index, surf-dev-platform, jtbd-dev-platform]
 tags: [dev-platform, product, index]
@@ -29,7 +29,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 - **DP03** — Workflow Engine: Executable process documents for humans and AI → `features/dp03-workflow-engine.md`
 - **DP04** — Registry & Changelog: Master index and append-only change log → `features/dp04-registry-changelog.md`
 - **DP05** — Convention System: Templates, naming rules, frontmatter standards → `features/dp05-convention-system.md`
-- **DP08** — Entry Point Routing: CLAUDE.md → meta-agent → domain graph navigation → `features/dp08-entry-point-routing.md`
+- **DP08** — Entry Point Routing: AGENTS.md → router → domain graph navigation → `features/dp08-entry-point-routing.md`
 - **DP09** — Domain Context Sync: Living domain state, drift detection, DRI review → `features/dp09-domain-context-sync.md`
 - **DP10** — Observation System: Zero-barrier signal capture, audit, pattern detection, upleveling → `features/dp10-observation-system.md`
 - **DP11** — Reflection Loop: Post-work personal reflection feeding the observation system → `features/dp11-reflection-loop.md`

@@ -6,7 +6,7 @@ status: defining
 owner: meta-agent
 priority: P0
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-21
 refs:
   depends-on: [dp01, dp05]
   enables: [dp03, dp09, dp-u01, dp-u02, dp-u03, dp-u06, dp-u07]
@@ -19,7 +19,7 @@ tags: [dev-platform, core, agents, p0]
 
 ## Summary
 
-A trait-based composition system where specialized agents own different domains of the product. Every agent inherits shared base traits (context, rules, workflows) and composes its own domain-specific capabilities. Agents can be humans or AI — the manifests define scope, authority, and process regardless of executor.
+A trait-based composition system where specialized agents own different domains of work. Canonical agent specs live in the System of Work under `.syntropy/system-of-work/domains/**`, and tool-specific adapters (Claude/Codex) are generated from that single source of truth.
 
 ## Jobs Addressed
 
@@ -30,7 +30,7 @@ A trait-based composition system where specialized agents own different domains 
 
 ### Trait Inheritance
 
-- `_base-traits.md` defines context, rules, and workflows inherited by every agent
+- `.syntropy/system-of-work/domains/system/_base-traits.md` defines context, rules, and workflows inherited by every agent
 - Domain agents (product, architecture, UX, integration) inherit base traits and add their own
 - Feature agents inherit from both base traits and a parent domain agent, adding deep specialization
 - Inheritance is declared explicitly in each agent's manifest — no implicit behavior
@@ -45,23 +45,42 @@ Each agent manifest defines:
 - **Own workflows**: processes this agent can execute
 - **Decision authority**: what it can decide autonomously vs. what requires escalation
 - **Delegates to / Delegated from**: how work flows between agents
-- **Domain State**: living snapshot of the domain's current understanding (see DP09)
+- **Domain State**: living snapshot of the domain’s current understanding (lives in the domain `CONTEXT.md`; see DP09)
+
+### Canonical vs Generated
+
+- **Canonical source of truth**: `.syntropy/system-of-work/domains/**`
+- **Generated adapters (checked in)**:
+  - `.claude/agents/**` and `.claude/commands/**`
+  - `.codex/**`
+- Regenerate and drift-check:
+  - `cargo run -p syntropy -- agents sync`
+  - `cargo run -p syntropy -- agents check`
 
 ### Routing
 
 - The meta-agent acts as orchestrator — it knows all agents and routes work to the right one
-- Work enters through CLAUDE.md → meta-agent → domain agent → (optionally) feature agent
+- Work enters through AGENTS.md → `.syntropy/system-of-work/ROUTER.md` → domain agent → (optionally) feature agent
 - Agents escalate across domain boundaries; they don't reach into other agents' scope
 
 ### Current Agents
 
 | Agent | Scope |
 |-------|-------|
-| meta-agent | Orchestration, routing, graph infrastructure |
+| meta-agent | Orchestration, routing, SoW integrity |
+| bazel-agent | Build graph + Bazel/module hygiene |
+| devex-agent | Bootstrap + developer experience |
+| tasks-agent | Planning + verification discipline |
 | product-agent | Features, use cases, stories, JTBD |
 | architecture-agent | Stack, data model, event sourcing, AI pipeline |
 | ux-agent | UX patterns, design, prototypes |
 | integration-agent | External integrations (Gmail, Calendar, etc.) |
+| workspace-contracts-agent | Workspace contracts, validation, scaffolding, repo structure |
+| observations-agent | Observation capture, structuring, pattern detection |
+| decisions-agent | Decision records, reasoning graph integrity |
+| cognitive-engineering-agent | Information architecture for comprehension |
+| operational-engineering-agent | Workflow/rule/context design methodology |
+| pulse-companion-agent | Assisted reflection, continuous pulse loop |
 | f04-ai-engine-agent | AI Action Engine deep work |
 | f11-domains-agent | Domains/Spaces deep work |
 | f12-artifact-agent | Artifact Intelligence deep work |

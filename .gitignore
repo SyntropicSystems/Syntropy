@@ -64,3 +64,6 @@ npm-debug.log*
 !.syntropy/state/.gitignore
 .syntropy/logs/
 .syntropy/tmp/
+
+# Claude (local-only)
+.claude/settings.local.json

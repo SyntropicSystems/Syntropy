@@ -1,0 +1,83 @@
+# syntropy:generated
+# Syntropy Codex project configuration
+#
+# This file is generated. Do not edit by hand.
+# To regenerate:
+#   cargo run -p syntropy -- agents sync
+
+[features]
+multi_agent = true
+
+[agents]
+max_threads = 8
+
+# BEGIN GENERATED AGENTS (syntropy agents sync)
+[agents.architecture]
+description = "Technical architecture, data model, tech stack, infrastructure, event sourcing"
+config_file = "agents/architecture.toml"
+
+[agents.bazel]
+description = "Bazel module/build graph, build tooling, visibility, deps hygiene"
+config_file = "agents/bazel.toml"
+
+[agents.cognitive-engineering]
+description = "Information architecture for human comprehension — review structures, learning methodologies, knowledge compression, cognitive adaptation"
+config_file = "agents/cognitive-engineering.toml"
+
+[agents.decisions]
+description = "Decision records, reasoning graph integrity, decision coherence, conflict detection"
+config_file = "agents/decisions.toml"
+
+[agents.devex]
+description = "Bootstrap, local setup, tooling ergonomics, paved roads"
+config_file = "agents/devex.toml"
+
+[agents.f04-ai-engine]
+description = "Feature F04: AI Action Engine — confidence scoring, domain agents, auto-execution"
+config_file = "agents/f04-ai-engine.toml"
+
+[agents.f11-domains]
+description = "Feature F11: Domains/Spaces — persistent life contexts, knowledge base, info management"
+config_file = "agents/f11-domains.toml"
+
+[agents.f12-artifact]
+description = "Feature F12: Artifact Intelligence — upload, extraction, linking, knowledge capture"
+config_file = "agents/f12-artifact.toml"
+
+[agents.integration]
+description = "External integrations — Gmail, Calendar, Slack, GitHub, financial, IoT"
+config_file = "agents/integration.toml"
+
+[agents.observations]
+description = "Observation capture, structuring, pattern detection, contributor upleveling"
+config_file = "agents/observations.toml"
+
+[agents.operational-engineering]
+description = "Methodology for designing effective workflows, rules, skills, context, and agent configurations — the craft of making actors effective at executing work"
+config_file = "agents/operational-engineering.toml"
+
+[agents.product]
+description = "Product specifications, features, use cases, user stories, JTBD"
+config_file = "agents/product.toml"
+
+[agents.pulse-companion]
+description = "Assisted reflection, continuous pulse sensing, personalized work companionship"
+config_file = "agents/pulse-companion.toml"
+
+[agents.system]
+description = "Orchestration, routing, knowledge graph integrity, agent lifecycle"
+config_file = "agents/system.toml"
+
+[agents.tasks]
+description = "Planning, verification discipline, task decomposition and checklists"
+config_file = "agents/tasks.toml"
+
+[agents.ux]
+description = "UX patterns, design decisions, interaction flows, prototypes"
+config_file = "agents/ux.toml"
+
+[agents.workspace-contracts]
+description = "Workspace contracts, validation, scaffolding, migrations, plan/apply, repo structure"
+config_file = "agents/workspace-contracts.toml"
+
+# END GENERATED AGENTS (syntropy agents sync)

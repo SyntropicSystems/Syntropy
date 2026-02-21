@@ -135,21 +135,24 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Scope | File |
 |----|-------|--------|-------|------|
-| base-traits | Base Agent Traits | active | All agents | `agents/_base-traits.md` |
-| meta-agent | Meta Agent | active | Orchestration, routing | `agents/meta-agent.md` |
-| product-agent | Product Agent | active | Product specs, features, stories | `agents/product-agent.md` |
-| architecture-agent | Architecture Agent | active | Technical architecture | `agents/architecture-agent.md` |
-| ux-agent | UX Agent | active | UX patterns, design | `agents/ux-agent.md` |
-| integration-agent | Integration Agent | active | External integrations | `agents/integration-agent.md` |
-| f04-ai-engine-agent | AI Engine Agent | active | Feature F04 | `agents/feature-agents/f04-ai-engine-agent.md` |
-| f11-domains-agent | Domains Agent | active | Feature F11 | `agents/feature-agents/f11-domains-agent.md` |
-| f12-artifact-agent | Artifact Agent | active | Feature F12 | `agents/feature-agents/f12-artifact-agent.md` |
-| observations-agent | Observations Agent | active | Observation capture, structuring, patterns | `agents/observations-agent.md` |
-| pulse-companion-agent | Pulse Companion Agent | active | Assisted reflection, continuous pulse, work companion | `agents/pulse-companion-agent.md` |
-| decisions-agent | Decisions Agent | active | Decision records, reasoning graph, coherence | `agents/decisions-agent.md` |
-| cognitive-engineering-agent | Cognitive Engineering Agent | active | Information architecture for comprehension | `agents/cognitive-engineering-agent.md` |
-| operational-engineering-agent | Operational Engineering Agent | active | Process design methodology for actor effectiveness | `agents/operational-engineering-agent.md` |
-| workspace-contracts-agent | Workspace Contracts Agent | active | Workspace contracts, validation, scaffolding, migrations | `agents/workspace-contracts-agent.md` |
+| base-traits | Base Agent Traits | active | All agents | `.syntropy/system-of-work/domains/system/_base-traits.md` |
+| meta-agent | Meta Agent | active | Orchestration, routing | `.syntropy/system-of-work/domains/system/AGENT.md` |
+| bazel-agent | Bazel Agent | active | Bazel/module/build graph | `.syntropy/system-of-work/domains/bazel/AGENT.md` |
+| devex-agent | DevEx Agent | active | Bootstrap + developer experience | `.syntropy/system-of-work/domains/devex/AGENT.md` |
+| tasks-agent | Tasks Agent | active | Planning + verification discipline | `.syntropy/system-of-work/domains/tasks/AGENT.md` |
+| product-agent | Product Agent | active | Product specs, features, stories | `.syntropy/system-of-work/domains/product/AGENT.md` |
+| architecture-agent | Architecture Agent | active | Technical architecture | `.syntropy/system-of-work/domains/architecture/AGENT.md` |
+| ux-agent | UX Agent | active | UX patterns, design | `.syntropy/system-of-work/domains/ux/AGENT.md` |
+| integration-agent | Integration Agent | active | External integrations | `.syntropy/system-of-work/domains/integration/AGENT.md` |
+| f04-ai-engine-agent | AI Engine Agent | active | Feature F04 | `.syntropy/system-of-work/domains/product/features/f04-ai-engine/AGENT.md` |
+| f11-domains-agent | Domains Agent | active | Feature F11 | `.syntropy/system-of-work/domains/product/features/f11-domains/AGENT.md` |
+| f12-artifact-agent | Artifact Agent | active | Feature F12 | `.syntropy/system-of-work/domains/product/features/f12-artifact/AGENT.md` |
+| observations-agent | Observations Agent | active | Observation capture, structuring, patterns | `.syntropy/system-of-work/domains/observations/AGENT.md` |
+| pulse-companion-agent | Pulse Companion Agent | active | Assisted reflection, continuous pulse, work companion | `.syntropy/system-of-work/domains/pulse-companion/AGENT.md` |
+| decisions-agent | Decisions Agent | active | Decision records, reasoning graph, coherence | `.syntropy/system-of-work/domains/decisions/AGENT.md` |
+| cognitive-engineering-agent | Cognitive Engineering Agent | active | Information architecture for comprehension | `.syntropy/system-of-work/domains/cognitive-engineering/AGENT.md` |
+| operational-engineering-agent | Operational Engineering Agent | active | Process design methodology for actor effectiveness | `.syntropy/system-of-work/domains/operational-engineering/AGENT.md` |
+| workspace-contracts-agent | Workspace Contracts Agent | active | Workspace contracts, validation, scaffolding, migrations | `.syntropy/system-of-work/domains/workspace-contracts/AGENT.md` |
 
 ## Dev Platform — Vision
 

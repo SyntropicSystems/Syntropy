@@ -6,7 +6,7 @@ status: defining
 owner: meta-agent
 priority: P0
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-21
 refs:
   depends-on: [dp01, dp02]
   enables: [dp-u02, dp-u04]
@@ -30,7 +30,7 @@ The navigation pattern that makes the knowledge graph discoverable. Every scope 
 
 ### The Pattern: Entry Point → Router → Graph
 
-1. **Entry point** — a well-known file that serves as the starting location (e.g., `CLAUDE.md` for the repo, an agent manifest for a domain)
+1. **Entry point** — a well-known file that serves as the starting location (e.g., `AGENTS.md` for the repo, an agent manifest for a domain)
 2. **Router** — sections within the entry point that link to relevant subgraphs (context, rules, workflows)
 3. **Graph** — the interconnected nodes reachable from the router's links
 
@@ -38,18 +38,18 @@ The navigation pattern that makes the knowledge graph discoverable. Every scope 
 
 | Scope | Entry Point | Routes To |
 |-------|-------------|-----------|
-| Repository | `CLAUDE.md` | All top-level sections, agents, docs, workflows |
-| Orchestration | `agents/meta-agent.md` | All domain agents, graph infrastructure |
+| Repository | `AGENTS.md` | All top-level sections, agents, docs, workflows |
+| Orchestration | `.syntropy/system-of-work/ROUTER.md` | Domain routing + system-of-work |
 | Product domain | `docs/product/_index.md` | Features, use cases, stories, UX |
 | Architecture domain | `docs/architecture/_index.md` | Stack, data model, ADRs |
 | Dev platform | `docs/product/dev-platform/_index.md` | Dev platform features, use cases, stories |
 | Surfaces | `surfaces/_index.md` | Mobile, web, dev platform surfaces |
-| Feature (deep) | `agents/feature-agents/fNN-*.md` | Feature-specific context, rules, workflows |
+| Feature (deep) | `.syntropy/system-of-work/domains/product/features/*/AGENT.md` | Feature-specific context, rules, workflows |
 
 ### Navigation Invariants
 
-- Every entry point is reachable from `CLAUDE.md` within 2 hops
-- No document should require more than 3 hops from `CLAUDE.md` to reach
+- Every entry point is reachable from `AGENTS.md` within 2 hops
+- No document should require more than 3 hops from `AGENTS.md` to reach
 - Index files (`_index.md`) serve as entry points for their directory scope
 - Agent manifests serve as entry points for their domain scope
 - If you can't find something by following links from an entry point, either the reference is missing or the entry point needs updating

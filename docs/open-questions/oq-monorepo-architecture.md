@@ -5,7 +5,7 @@ title: "Monorepo Architecture — Code Organization Strategy"
 status: resolved
 owner: architecture-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-21
 refs:
   affects: [arch-stack, f08]
   related: [adr-001, arch-data-model, arch-ai-pipeline]
@@ -78,7 +78,7 @@ syntropy/
 │   ├── ui-mobile/                # React Native component library
 │   └── config/                   # Shared ESLint, TS, Prettier config
 ├── docs/                         # Knowledge graph (unchanged)
-├── agents/                       # Agent manifests (unchanged)
+├── .syntropy/                    # Workspace instance (System of Work + state)
 ├── turbo.json
 └── pnpm-workspace.yaml
 ```
@@ -161,7 +161,7 @@ syntropy/
 │   ├── ui-mobile/                # React Native rendering layer
 │   └── config/                   # Shared config
 ├── docs/
-├── agents/
+├── .syntropy/
 └── turbo.json
 ```
 
@@ -224,7 +224,7 @@ syntropy/
 │   ├── functions/                # Cloud Functions (serves both platforms)
 │   └── scripts/                  # Deploy, seed, migrate scripts
 ├── docs/
-├── agents/
+├── .syntropy/
 └── turbo.json
 ```
 
@@ -282,7 +282,7 @@ syntropy/
 │   └── ui-mobile/                # React Native component library
 │
 ├── docs/                         # Knowledge graph (unchanged)
-├── agents/                       # Agent manifests (unchanged)
+├── .syntropy/                    # Workspace instance (System of Work + state)
 ├── surfaces/
 ├── prototypes/
 ├── observations/
@@ -411,7 +411,7 @@ Then split `domain-core/` into `domain-tasks/`, `domain-queue/`, `domain-spaces/
 2. **Where do integration-specific Cloud Functions live?** — In `apps/functions/` importing from `domain-integrations/`? Or colocated in the domain package?
 3. **Shared React hooks** — Should cross-platform hooks (e.g., `useTask`, `useQueue`) live in domain packages (making them React-dependent) or in a separate `hooks/` package?
 4. **Dev platform features reusing product domains** — The Dev Platform's observation system and knowledge graph are unique, but it might also display tasks/projects. How much domain reuse is there?
-5. **Docs and agents cohabitation** — The knowledge graph (docs/, agents/) currently lives in the same repo. Should it stay here or move to its own repo/workspace?
+5. **Docs and system-of-work cohabitation** — The knowledge graph (`docs/`) and the system-of-work (`.syntropy/system-of-work/`) currently live in the same repo. Should they stay here or move to a separate workspace?
 
 ## Resolution Criteria
 

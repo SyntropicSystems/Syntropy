@@ -58,6 +58,12 @@ impl Workspace {
                 return Self::load_from_config_path(direct);
             }
 
+            let in_syntropy = dir.join(".syntropy").join("syntropy.toml");
+            if in_syntropy.is_file() {
+                return Self::load_from_config_path(in_syntropy);
+            }
+
+            // Legacy support.
             let in_work = dir.join(".work").join("syntropy.toml");
             if in_work.is_file() {
                 return Self::load_from_config_path(in_work);
@@ -65,7 +71,7 @@ impl Workspace {
         }
 
         anyhow::bail!(
-            "workspace not found (expected syntropy.toml or .work/syntropy.toml in current or parent directories)"
+            "workspace not found (expected syntropy.toml or .syntropy/syntropy.toml in current or parent directories)"
         )
     }
 
@@ -182,10 +188,19 @@ impl Workspace {
 
     pub fn apply_patches(&self, patches: &[Patch]) -> anyhow::Result<()> {
         for patch in patches {
-            if let Some(parent) = patch.path.parent() {
-                std::fs::create_dir_all(parent)?;
+            match patch.op {
+                crate::model::PatchOp::Create | crate::model::PatchOp::Update => {
+                    if let Some(parent) = patch.path.parent() {
+                        std::fs::create_dir_all(parent)?;
+                    }
+                    write_atomic(&patch.path, patch.content.as_bytes())?;
+                }
+                crate::model::PatchOp::Delete => match std::fs::remove_file(&patch.path) {
+                    Ok(()) => {}
+                    Err(err) if err.kind() == std::io::ErrorKind::NotFound => {}
+                    Err(err) => return Err(err.into()),
+                },
             }
-            write_atomic(&patch.path, patch.content.as_bytes())?;
         }
         Ok(())
     }
@@ -326,7 +341,9 @@ impl Workspace {
         let root = config_path
             .parent()
             .and_then(|p| {
-                if p.file_name().is_some_and(|n| n == ".work") {
+                if p.file_name()
+                    .is_some_and(|n| n == ".syntropy" || n == ".work")
+                {
                     p.parent()
                 } else {
                     Some(p)

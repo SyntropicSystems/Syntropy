@@ -19,12 +19,14 @@ When you want to:
 - Initialize a workspace contract (`syntropy init`)
 - Inspect structure (`syntropy tree`, `syntropy info`)
 - Generate folder README contracts (`syntropy gen readmes`)
+- Sync tool agent adapters (`syntropy agents sync`)
+- Check adapter drift (`syntropy agents check`)
 - Lint workspace structure against a blueprint (`syntropy validate`)
 
 ## Prerequisites
 
 - Rust toolchain available (`cargo`)
-- A workspace contract exists: `syntropy.toml` (repo root) or `.work/syntropy.toml`
+- A workspace contract exists: `syntropy.toml` (repo root) or `.syntropy/syntropy.toml` (legacy: `.work/syntropy.toml`)
 
 ## Quickstart (Cargo)
 
@@ -45,6 +47,10 @@ From the repo root:
 7. Validate the workspace:
    - `cargo run -p syntropy -- validate`
    - `cargo run -p syntropy -- --json validate`
+8. Sync tool adapters (Claude/Codex):
+   - `cargo run -p syntropy -- agents sync`
+9. Check adapter drift:
+   - `cargo run -p syntropy -- agents check`
 
 ## Optional (Bazel)
 
@@ -59,4 +65,3 @@ If Bazel is available:
 - JSON mode is enabled with `--json`
 - All JSON payloads include `schema_version: "v0"`
 - Prefer structured fields (arrays/objects) over free-form strings when extending outputs
-
