@@ -6,7 +6,7 @@ status: accepted
 owner: architecture-agent
 decision-type: type-1
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-21
 refs:
   affects: [arch-stack, f08]
   related: [adr-001, arch-data-model, arch-ai-pipeline, arch-event-sourcing]
@@ -65,7 +65,7 @@ syntropy/
 ├── infra/                        # Pulumi IaC (Firebase + GCP resources)
 │
 ├── docs/                         # Knowledge graph (unchanged)
-├── agents/                       # Agent manifests (unchanged)
+├── .syntropy/                    # Workspace instance (System of Work + state)
 ├── surfaces/
 ├── prototypes/
 ├── observations/
@@ -136,7 +136,7 @@ Firebase and GCP resources are managed via Pulumi TypeScript in `infra/`. Stack 
 - Domain packages must be disciplined about not importing peer domains directly — enforce via Nx boundary rules (`@nx/enforce-module-boundaries`).
 - Shared React hooks (e.g., `useTask`, `useQueue`) will likely live in domain packages, making them React-dependent. Acceptable trade-off — these hooks are consumed by apps, not by Cloud Functions. Can split into `domain-tasks/core` and `domain-tasks/react` sub-exports if needed.
 - UI packages may need internal organization as they grow (by feature or by component type).
-- The `docs/`, `agents/`, `observations/` directories remain in the same repo — they are the knowledge graph, not deployable code. If the repo becomes unwieldy, they could move to a separate workspace.
+- The `docs/`, `.syntropy/system-of-work/`, and `observations/` directories remain in the same repo — they are the knowledge graph and system-of-work, not deployable code. If the repo becomes unwieldy, they could move to a separate workspace.
 - Pulumi state must be stored in a remote backend (Pulumi Cloud or S3) for team access — not committed to the repo.
 
 ## Revisit Triggers

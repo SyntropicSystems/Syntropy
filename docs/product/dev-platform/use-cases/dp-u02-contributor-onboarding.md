@@ -5,7 +5,7 @@ title: "New Contributor Onboarding"
 status: defining
 owner: meta-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-21
 refs:
   depends-on: [dp01, dp08]
   related: [dp02, dp-u04]
@@ -20,11 +20,11 @@ A new contributor (human developer or AI agent) joins the project for the first 
 
 ### Steps
 
-1. Contributor opens `CLAUDE.md` — the root entry point
+1. Contributor opens `AGENTS.md` — the root entry point
 2. Reads the project summary, principles, and repository structure
-3. Follows the link to `agents/meta-agent.md` to understand how work is routed
+3. Follows the link to `.syntropy/system-of-work/ROUTER.md` to understand how work is routed
 4. Identifies which domain is relevant to their task (product, architecture, UX, integration)
-5. Loads the relevant domain agent's manifest to see its context, rules, and workflows
+5. Loads the relevant domain brain (`CONTEXT.md`, `POLICY.md`, `OWNER.md`) and agent spec (`AGENT.md`)
 6. Navigates to `docs/_registry.md` to see all existing documents and their status
 7. Reads the relevant `_index.md` files (product, architecture) to understand what's been specified
 8. Checks `docs/_changelog.md` to see recent activity and understand the project's momentum
@@ -41,13 +41,13 @@ A new contributor (human developer or AI agent) joins the project for the first 
 ## Features Exercised
 
 - DP01 — Knowledge Graph (navigating the graph)
-- DP08 — Entry Point Routing (CLAUDE.md → meta-agent → domain)
+- DP08 — Entry Point Routing (AGENTS.md → router → domain)
 - DP02 — Agent System (understanding agent scopes and ownership)
 - DP04 — Registry & Changelog (finding documents and recent activity)
 
 ## Acceptance Criteria
 
-- [ ] A contributor can navigate from CLAUDE.md to any document in 3 or fewer hops
+- [ ] A contributor can navigate from AGENTS.md to any document in 3 or fewer hops
 - [ ] Every domain has a clear entry point (index file or agent manifest)
 - [ ] The registry lists all documents with status and owner
 - [ ] Conventions are documented clearly enough to follow without additional guidance

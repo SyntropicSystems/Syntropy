@@ -28,7 +28,7 @@ The workspace contract is `syntropy.toml` — the single reviewed configuration 
 The bootstrap slice implements a minimal, strict TOML contract loader in `platform/crates/syntropy-sdk`:
 
 - Contract location: `syntropy.toml` (repo root)
-  - Workspace discovery also supports `.work/syntropy.toml` for compatibility
+  - Workspace discovery also supports `.syntropy/syntropy.toml` for compatibility (legacy: `.work/syntropy.toml`)
 - Strict parsing: unknown keys error (`serde` + `deny_unknown_fields`)
 - Supported sections (v0 bootstrap):
   - `[workspace]`: `name`, `blueprint`

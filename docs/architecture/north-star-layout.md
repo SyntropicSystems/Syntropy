@@ -30,10 +30,27 @@ The north star layout is the canonical repository structure that Syntropy target
 
 If a file doesn't clearly fit one of these, that's an entropy smell.
 
+### Tool Adapters (Generated)
+
+Some coding tools expect repo-local configuration in fixed root-level directories. Syntropy generates these adapters from canonical agent specs under `.syntropy/system-of-work/domains/**`:
+
+- `.claude/**` — Claude Code project agents and slash commands
+- `.codex/**` — OpenAI Codex project config and roles
+
+They are checked in, but treated as build artifacts: do not hand-edit; regenerate with `syntropy agents sync` and drift-check with `syntropy agents check`.
+
 ## Canonical Layout
 
 ```
 syntropy/
+├── AGENTS.md                     # stable human+AI entrypoint
+├── CLAUDE.md                     # shim for Claude users (points to AGENTS.md)
+├── .claude/                      # GENERATED tool adapters (Claude Code)
+│   ├── agents/
+│   └── commands/
+├── .codex/                       # GENERATED tool adapters (OpenAI Codex)
+│   ├── config.toml
+│   └── agents/
 ├── MODULE.bazel
 ├── MODULE.bazel.lock
 ├── BUILD.bazel
@@ -97,10 +114,18 @@ syntropy/
 └── .syntropy/                     # workspace instance
     ├── tasks/
     ├── system-of-work/
-    │   ├── templates/             # project-specific scaffolds
-    │   ├── generators/            # project-specific generators
-    │   ├── workflows/
-    │   └── conventions.toml
+    │   ├── README.md
+    │   ├── EXECUTION_CONTRACT.md
+    │   ├── ROUTER.md
+    │   ├── domains/               # canonical agent specs (source of truth)
+    │   │   └── <domain>/
+    │   │       ├── CONTEXT.md
+    │   │       ├── POLICY.md
+    │   │       ├── OWNER.md
+    │   │       ├── AGENT.md
+    │   │       └── workflows/
+    │   └── scripts/
+    │       └── validate.sh
     ├── signals/
     └── state/                     # gitignored machine state
         ├── index/
@@ -144,6 +169,8 @@ Bazel visibility rules enforce this. The validation engine checks it.
 | `syntropy.toml` | `.syntropy/state/**` |
 | `.syntropy/system-of-work/**` | `.syntropy/logs/**` |
 | `.syntropy/tasks/**` | `.syntropy/tmp/**` |
+| `.claude/**` | `.claude/settings.local.json` |
+| `.codex/**` | |
 | `docs/**` | |
 
 This single choice prevents 80% of future entropy.
@@ -152,8 +179,8 @@ This single choice prevents 80% of future entropy.
 
 For the "10-minute model" that any new engineer needs:
 
-1. **`.syntropy/`** is the workspace instance — human artifacts live here
-2. **`syntropy.toml`** is the workspace contract — the one config file to review
-3. **`plan/apply/validate/migrate`** are the four verbs that keep the workspace coherent
-4. **Platform vs Products vs Tools** is the structural boundary — dependency direction is sacred
-5. **If the platform provides a command for it, use the command** — that's the paved road
+1. **`AGENTS.md`** is the repo entrypoint — start here, then route via `.syntropy/system-of-work/ROUTER.md`
+2. **`.syntropy/`** is the workspace instance — the system-of-work lives under `.syntropy/system-of-work/`
+3. **`.claude/` + `.codex/`** are generated tool adapters — edit `.syntropy/system-of-work/domains/**`, then run `syntropy agents sync` and `syntropy agents check`
+4. **`syntropy.toml`** is the workspace contract — the one config file to review
+5. **`plan/apply/validate/migrate`** are the four verbs that keep the workspace coherent

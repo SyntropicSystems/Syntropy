@@ -191,3 +191,9 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-21 | updated | wp05 | Updated to `building` and documented bootstrap `init` + `gen readmes` behavior | workspace-contracts-agent |
 | 2026-02-21 | updated | wp-u01 | Added bootstrap note for non-interactive `syntropy init` | workspace-contracts-agent |
 | 2026-02-21 | updated | wp-u03 | Added bootstrap note for warning-oriented `syntropy validate` | workspace-contracts-agent |
+| 2026-02-21 | created | AGENTS.md | Added root entrypoint for humans + coding AIs; unified navigation and system-of-work routing | meta-agent |
+| 2026-02-21 | updated | CLAUDE.md | Converted to a shim that points to `AGENTS.md` (canonical entrypoint) | meta-agent |
+| 2026-02-21 | moved | agents | Migrated canonical agent specs into `.syntropy/system-of-work/domains/**`; established “.syntropy = truth, .claude/.codex = generated adapters” model | meta-agent |
+| 2026-02-21 | created | — | Implemented drift-gated tool adapter generation: `syntropy agents sync` + `syntropy agents check` (generates `.claude/**` + `.codex/**`) | workspace-contracts-agent |
+| 2026-02-21 | updated | arch-north-star-layout | Documented generated tool adapters (`.claude/**`, `.codex/**`) and sync/check workflow | workspace-contracts-agent |
+| 2026-02-21 | updated | dp08, dp-u04, wf-* | Standardized entrypoint references to `AGENTS.md` (with `CLAUDE.md` as shim) | meta-agent |

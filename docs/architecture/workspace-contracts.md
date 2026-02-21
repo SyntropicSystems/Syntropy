@@ -24,7 +24,7 @@ The first "bootstrap slice" is implemented to prove the system works end-to-end 
 
 - **SDK**: `platform/crates/syntropy-sdk` — workspace discovery + structured operations
 - **CLI**: `products/command-center/apps/cli` — thin IO wrapper around the SDK (`syntropy` binary)
-- **Workspace contract**: `syntropy.toml` (and discovery support for `.work/syntropy.toml`)
+- **Workspace contract**: `syntropy.toml` (and discovery support for `.syntropy/syntropy.toml`; legacy: `.work/syntropy.toml`)
 - **Blueprint**: built-in `north-star/v0`
 
 Bootstrap commands:
@@ -32,6 +32,8 @@ Bootstrap commands:
 - `syntropy tree` — human tree or JSON (`--json`)
 - `syntropy info` / `syntropy describe` — purpose/rules/boundaries for any path
 - `syntropy gen readmes` — deterministic folder README contracts (with `--dry-run`)
+- `syntropy agents sync` — generate `.claude/**` + `.codex/**` adapters from canonical agent specs
+- `syntropy agents check` — drift gate for generated adapters (fails CI if out of date)
 - `syntropy validate` — blueprint lint (currently warning-oriented)
 
 Contract note: JSON Schema snapshot generation and drift gates are WP08 work; v0 outputs are versioned via `schema_version: "v0"` and kept deterministic.

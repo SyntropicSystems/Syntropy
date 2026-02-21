@@ -5,7 +5,7 @@ title: "Feature Inception"
 status: active
 owner: meta-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-21
 refs:
   related: [wf-add-feature, wf-create-agent, wf-capture-observation, wf-refine-story]
 ---
@@ -22,7 +22,7 @@ Use this instead of `wf-add-feature` when the scope is larger than a single feat
 
 - The capability has been discussed and scoped at a high level
 - It addresses at least one existing Job to Be Done, or a new JTBD needs to be created
-- The implementer has read CLAUDE.md and understands the knowledge graph structure
+- The implementer has read `AGENTS.md` and understands the knowledge graph structure
 
 ## Steps
 
@@ -73,9 +73,9 @@ After all documents are created, wire the graph:
 
 - `docs/_registry.md` — Add entries for every new document
 - `docs/product/_index.md` or `docs/product/dev-platform/_index.md` — Add feature to feature map, update counts
-- `CLAUDE.md` — Update if new workflows, agents, or directories were added
-- Agent routing table in `agents/meta-agent.md` — Update if new agent was created
-- Agent domain state — Update if domain focus or open threads changed
+- `AGENTS.md` — Update if new workflows, agents, or directories were added
+- Routing table in `.syntropy/system-of-work/ROUTER.md` — Update if new domain/agent was created
+- Domain state in `.syntropy/system-of-work/domains/<domain>/CONTEXT.md` — Update if focus or open threads changed
 
 ### Step 5: Log All Changes
 
@@ -94,8 +94,8 @@ Run `wf-reflect` — capture what worked, what was hard, what you'd want next ti
 - [ ] Cross-references are bidirectional across all new and updated documents
 - [ ] Registry has entries for every new document
 - [ ] Product index and/or dev platform index updated with correct counts
-- [ ] CLAUDE.md updated if structure changed (new agents, workflows, directories)
-- [ ] Meta-agent routing table updated if new agent created
+- [ ] `AGENTS.md` updated if structure changed (new agents, workflows, directories)
+- [ ] Routing table updated if new domain/agent created
 - [ ] Changelog entries exist for all changes
 - [ ] All new documents have complete YAML frontmatter
 - [ ] A reflection has been captured (observation or inline notes)

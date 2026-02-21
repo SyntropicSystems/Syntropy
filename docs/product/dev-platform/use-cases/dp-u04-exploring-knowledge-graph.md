@@ -5,7 +5,7 @@ title: "Exploring the Knowledge Graph"
 status: defining
 owner: meta-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-21
 refs:
   depends-on: [dp01, dp04, dp08]
   related: [dp-u02]
@@ -20,7 +20,7 @@ A contributor needs to understand how the product fits together — what feature
 
 ### Steps
 
-1. Contributor starts at a known entry point (`CLAUDE.md`, `docs/product/_index.md`, or `docs/_registry.md`)
+1. Contributor starts at a known entry point (`AGENTS.md`, `docs/product/_index.md`, or `docs/_registry.md`)
 2. Scans the feature map or registry to find a starting concept (e.g., "F04 — AI Action Engine")
 3. Opens the feature spec and reads the Summary and How It Works sections
 4. Follows `refs.depends-on` to see what the feature requires (e.g., F06 — Event Sourcing)

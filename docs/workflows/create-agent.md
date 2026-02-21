@@ -5,7 +5,7 @@ title: "Create a New Agent"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-21
 refs:
   related: [wf-add-feature]
 ---
@@ -29,16 +29,24 @@ A new sub-agent is needed because:
 
 ### Step 1: Determine Agent Type
 
-- **Domain agent** (`agents/*.md`): owns a broad domain (product, architecture, UX, integrations)
-- **Feature agent** (`agents/feature-agents/fNN-*.md`): owns a specific feature's deep specification
+- **Domain agent** (`.syntropy/system-of-work/domains/<domain>/AGENT.md`): owns a broad domain (product, architecture, UX, integrations)
+- **Feature agent** (`.syntropy/system-of-work/domains/product/features/<feature>/AGENT.md`): owns a specific feature's deep specification
 
 ### Step 2: Determine Inheritance
 
-- All agents inherit from `agents/_base-traits.md`
+- All agents inherit from `.syntropy/system-of-work/domains/system/_base-traits.md`
 - Feature agents typically also inherit from their domain agent (e.g., `product-agent`)
 - Document the inheritance chain explicitly: `inherits: [_base-traits, parent-agent]`
 
 ### Step 3: Create the Manifest File
+
+Create a domain folder under `.syntropy/system-of-work/domains/` and add:
+
+- `AGENT.md` (canonical agent spec; keep thin)
+- `CONTEXT.md` (living domain state + load list)
+- `POLICY.md` (rules + decision authority)
+- `OWNER.md` (DRI + escalation)
+- `workflows/` (domain-specific playbooks, as needed)
 
 Create the agent manifest using this structure:
 
@@ -100,7 +108,7 @@ Be explicit about:
 
 ### Step 6: Update Routing
 
-- Add the new agent to the routing table in `agents/meta-agent.md`
+- Add the new agent to the routing table in `.syntropy/system-of-work/ROUTER.md`
 - Update the parent agent's "Delegates To" section
 
 ### Step 7: Update Registry
@@ -110,6 +118,13 @@ Be explicit about:
 ### Step 8: Log the Change
 
 - Add an entry to `docs/_changelog.md`
+
+### Step 9: Regenerate Tool Adapters
+
+If you changed canonical agents under `.syntropy/system-of-work/domains/**`, regenerate and drift-check:
+
+- `cargo run -p syntropy -- agents sync`
+- `cargo run -p syntropy -- agents check`
 
 ## Validation Checklist
 

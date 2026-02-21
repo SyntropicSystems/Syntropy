@@ -5,7 +5,7 @@ title: "Audit Observations"
 status: active
 owner: observations-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-21
 refs:
   related: [wf-capture-observation, dp10, observations-agent, wf-sync-domain-context]
 ---
@@ -19,7 +19,7 @@ Periodically (at least weekly, or on-demand) to process accumulated observations
 ## Prerequisites
 
 - Access to `observations/` directory
-- Knowledge of current domain agents and their scopes (via `agents/meta-agent.md` routing table)
+- Knowledge of current domains and their scopes (via `.syntropy/system-of-work/ROUTER.md`)
 - Familiarity with the observation type system (see `observations/_index.md`)
 
 ## Steps
