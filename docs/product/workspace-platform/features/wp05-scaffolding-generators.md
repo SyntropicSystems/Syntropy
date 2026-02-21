@@ -2,7 +2,7 @@
 id: "wp05"
 type: feature-spec
 title: "Scaffolding & Generators"
-status: exploring
+status: building
 owner: workspace-contracts-agent
 priority: P0
 created: 2026-02-21
@@ -22,6 +22,15 @@ tags: [workspace-platform, scaffolding, generators, blueprints, p0]
 ## Summary
 
 The scaffolding system generates new workspace components (services, apps, crates, libraries) from blueprints — platform-provided templates that produce correct, convention-following code and configuration in the right place. Projects can extend with custom generators for their own patterns.
+
+## Bootstrap Implementation (v0)
+
+The bootstrap slice implements:
+
+- `syntropy init` — creates `syntropy.toml` and `.syntropy/state/.gitignore` (non-interactive)
+- `syntropy gen readmes` — generates deterministic, marked (`<!-- syntropy:generated -->`) README contracts for known blueprint directories
+
+Blueprint-driven component scaffolding (`syntropy add …`) and plan/apply integration are future work (WP04/WP05).
 
 ## Jobs Addressed
 

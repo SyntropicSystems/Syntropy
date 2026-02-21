@@ -18,6 +18,14 @@ tags: [workspace-platform, use-case, validation]
 
 A developer (or CI pipeline) needs to verify that the workspace is structurally sound — no orphan directories, no naming violations, no dependency direction breaches, no contract drift. They run `syntropy validate` and get a deterministic report.
 
+## Bootstrap Implementation (v0)
+
+In the current bootstrap slice, `syntropy validate` is intentionally small:
+
+- Lints unexpected **top-level directories** against the selected blueprint (warning-oriented)
+- Provides a structured JSON report via `--json` with `schema_version: "v0"`
+- Future versions add deeper checks (schema compliance, dependency direction, drift gates)
+
 ### Steps
 
 1. Developer runs `syntropy validate` (or CI runs it as a pipeline step)

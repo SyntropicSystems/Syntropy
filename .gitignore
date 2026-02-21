@@ -1,6 +1,15 @@
 # Dependencies
 node_modules/
 
+# Rust
+target/
+
+# Bazel
+bazel-*
+bazel-bin/
+bazel-out/
+bazel-testlogs/
+
 # Build output
 dist/
 build/
@@ -49,3 +58,9 @@ coverage/
 # Logs
 *.log
 npm-debug.log*
+
+# Workspace instance machine state
+.syntropy/state/**
+!.syntropy/state/.gitignore
+.syntropy/logs/
+.syntropy/tmp/

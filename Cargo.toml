@@ -1,0 +1,7 @@
+[workspace]
+resolver = "2"
+members = [
+  "platform/crates/syntropy-sdk",
+  "products/command-center/apps/cli",
+]
+

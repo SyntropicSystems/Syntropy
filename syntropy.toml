@@ -1,0 +1,28 @@
+# syntropy.toml
+#
+# Workspace contract for Syntropy. Keep this file boring and hard to mess up.
+
+[workspace]
+name = "syntropy"
+blueprint = "north-star/v0"
+
+[output]
+format_default = "human"
+generate_readmes = true
+
+[[override]]
+path = "platform/crates/syntropy-sdk"
+kind = "rust_crate"
+purpose = "Rust SDK: deterministic workspace discovery, tree/info/readmes/validate."
+rules = [
+  "No printing; return structured types only.",
+  "Prefer deterministic outputs and stable JSON keys.",
+]
+
+[[override]]
+path = "products/command-center/apps/cli"
+purpose = "Syntropy CLI: IO wrapper around syntropy-sdk."
+rules = [
+  "All business logic lives in syntropy-sdk.",
+  "Keep output stable (human + JSON).",
+]

@@ -5,7 +5,7 @@ title: "Changelog"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-09
+updated: 2026-02-21
 ---
 
 # Changelog
@@ -178,3 +178,16 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-21 | updated | surfaces-index | Added Workspace Platform to development surfaces | meta-agent |
 | 2026-02-21 | updated | CLAUDE.md | Added workspace-contracts-agent to inheritance tree, workspace platform section, workflow, repo structure | meta-agent |
 | 2026-02-21 | updated | registry | Added all Workspace Platform entries: vision, 8 features, 7 use cases, stories, 3 architecture docs, agent, surface, workflow, product index | meta-agent |
+| 2026-02-21 | created | — | Implemented Workspace Platform bootstrap slice: Rust `syntropy-sdk` + `syntropy` CLI, `syntropy.toml`, Bazel (bzlmod) scaffolding, generated folder README contracts | workspace-contracts-agent |
+| 2026-02-21 | created | wf-run-syntropy-cli | Created workflow for running bootstrap `syntropy` commands (cargo/bazel, `--json` contract mode) | workspace-contracts-agent |
+| 2026-02-21 | created | wf-implement-syntropy-command | Created workflow for adding/changing `syntropy` CLI commands via the SDK-first pattern | workspace-contracts-agent |
+| 2026-02-21 | updated | registry | Added new Workspace Platform workflows to registry | workspace-contracts-agent |
+| 2026-02-21 | updated | CLAUDE.md | Added Workspace Platform Implementation (Bootstrap) section with run commands | workspace-contracts-agent |
+| 2026-02-21 | updated | arch-workspace-contracts | Documented the bootstrap implementation: SDK/CLI locations, commands, blueprint, v0 JSON contract approach | workspace-contracts-agent |
+| 2026-02-21 | updated | wf-design-workspace-contract | Clarified WP08 schema generation is deferred; added bootstrap guidance for v0 `schema_version` outputs | workspace-contracts-agent |
+| 2026-02-21 | updated | workspace-contracts-agent | Added code context + new workflows; updated domain state to reflect bootstrap implementation | workspace-contracts-agent |
+| 2026-02-21 | updated | wp01 | Updated to `building` and documented bootstrap `syntropy.toml` schema + overrides | workspace-contracts-agent |
+| 2026-02-21 | updated | wp03 | Updated to `building` and documented bootstrap `syntropy validate` behavior and JSON contract | workspace-contracts-agent |
+| 2026-02-21 | updated | wp05 | Updated to `building` and documented bootstrap `init` + `gen readmes` behavior | workspace-contracts-agent |
+| 2026-02-21 | updated | wp-u01 | Added bootstrap note for non-interactive `syntropy init` | workspace-contracts-agent |
+| 2026-02-21 | updated | wp-u03 | Added bootstrap note for warning-oriented `syntropy validate` | workspace-contracts-agent |
