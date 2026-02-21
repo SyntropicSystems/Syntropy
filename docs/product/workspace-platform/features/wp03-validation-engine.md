@@ -2,7 +2,7 @@
 id: "wp03"
 type: feature-spec
 title: "Validation Engine"
-status: exploring
+status: building
 owner: workspace-contracts-agent
 priority: P0
 created: 2026-02-21
@@ -22,6 +22,16 @@ tags: [workspace-platform, validation, coherence, p0]
 ## Summary
 
 The validation engine is `syntropy validate` — a deterministic checker that verifies workspace structural integrity, dependency direction, naming conventions, and contract compliance. It produces a machine-readable `ValidationReport` that can be consumed by CI, editors, agents, and humans.
+
+## Bootstrap Implementation (v0)
+
+The bootstrap slice implements a first-pass `syntropy validate` in `platform/crates/syntropy-sdk`:
+
+- Lints the workspace root against the selected blueprint's **allowed top-level directories**
+- Produces warning findings for unexpected directories (ignores common build outputs like `target/`)
+- Outputs are deterministic and JSON is versioned via `schema_version: "v0"` (`syntropy --json validate`)
+
+Dependency-direction checks and richer taxonomy/error codes are future work.
 
 ## Jobs Addressed
 

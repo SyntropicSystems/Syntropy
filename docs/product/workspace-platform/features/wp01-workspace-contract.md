@@ -2,7 +2,7 @@
 id: "wp01"
 type: feature-spec
 title: "Workspace Contract"
-status: exploring
+status: building
 owner: workspace-contracts-agent
 priority: P0
 created: 2026-02-21
@@ -22,6 +22,20 @@ tags: [workspace-platform, contract, config, p0]
 ## Summary
 
 The workspace contract is `syntropy.toml` — the single reviewed configuration file that defines a workspace's structure, services, conventions, and behavior. It is strict (unknown keys error), schema-validated, and versioned. It replaces scattered config files with one canonical source of truth for what the workspace is.
+
+## Bootstrap Implementation (v0)
+
+The bootstrap slice implements a minimal, strict TOML contract loader in `platform/crates/syntropy-sdk`:
+
+- Contract location: `syntropy.toml` (repo root)
+  - Workspace discovery also supports `.work/syntropy.toml` for compatibility
+- Strict parsing: unknown keys error (`serde` + `deny_unknown_fields`)
+- Supported sections (v0 bootstrap):
+  - `[workspace]`: `name`, `blueprint`
+  - `[output]`: `format_default` (`human|json`), `generate_readmes` (bool)
+  - `[[override]]`: per-path overrides for `kind`, `purpose`, `rules`, `boundaries`, `readme_filename`
+
+Schema snapshot generation and drift gates are deferred to WP08.
 
 ## Jobs Addressed
 

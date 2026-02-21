@@ -61,6 +61,8 @@ Executable process documents — same instructions work for humans and AI:
 - Feature inception: `docs/workflows/feature-inception.md`
 - Reflect after work: `docs/workflows/reflect.md`
 - Design workspace contract: `docs/workflows/design-workspace-contract.md`
+- Run the Syntropy CLI (bootstrap): `docs/workflows/run-syntropy-cli.md`
+- Implement a Syntropy CLI command: `docs/workflows/implement-syntropy-command.md`
 
 ## Principles
 
@@ -117,8 +119,25 @@ The workspace contract and tooling layer (contracts, validation, scaffolding, pl
 - **Surface**: `surfaces/workspace-platform.md` — platform definition and principles
 - **Architecture**: `docs/architecture/workspace-contracts.md`, `docs/architecture/plan-apply-engine.md`, `docs/architecture/north-star-layout.md`
 
+## Workspace Platform Implementation (Bootstrap)
+
+The bootstrap slice is implemented in Rust:
+
+- **SDK**: `platform/crates/syntropy-sdk`
+- **CLI**: `products/command-center/apps/cli` (binary: `syntropy`)
+- **Workspace contract**: `syntropy.toml`
+
+Run commands (Cargo):
+
+- `cargo run -p syntropy -- info .`
+- `cargo run -p syntropy -- tree . --depth 3`
+- `cargo run -p syntropy -- gen readmes --dry-run`
+- `cargo run -p syntropy -- gen readmes`
+- `cargo run -p syntropy -- validate`
+- JSON mode: add `--json` (e.g., `cargo run -p syntropy -- --json validate`)
+
 ## Current Status
 
-- **Phase**: Discovery / Specification
-- **Active areas**: Product spec decomposition, architecture decisions, knowledge graph setup
+- **Phase**: Discovery / Specification / Bootstrap implementation
+- **Active areas**: Workspace Platform bootstrap CLI + SDK, plus ongoing product/architecture documentation
 - See `docs/_changelog.md` for recent activity

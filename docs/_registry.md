@@ -5,7 +5,7 @@ title: "Document Registry"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-09
+updated: 2026-02-21
 ---
 
 # Document Registry
@@ -128,6 +128,8 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | wf-feature-inception | Feature Inception | active | meta-agent | `docs/workflows/feature-inception.md` |
 | wf-reflect | Reflect After Work | active | observations-agent | `docs/workflows/reflect.md` |
 | wf-design-workspace-contract | Design a Workspace Contract | active | workspace-contracts-agent | `docs/workflows/design-workspace-contract.md` |
+| wf-run-syntropy-cli | Run the Syntropy CLI (Bootstrap Slice) | active | workspace-contracts-agent | `docs/workflows/run-syntropy-cli.md` |
+| wf-implement-syntropy-command | Implement a Syntropy CLI Command | active | workspace-contracts-agent | `docs/workflows/implement-syntropy-command.md` |
 
 ## Agents
 
@@ -252,11 +254,11 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| wp01 | Workspace Contract | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp01-workspace-contract.md` |
+| wp01 | Workspace Contract | building | workspace-contracts-agent | `docs/product/workspace-platform/features/wp01-workspace-contract.md` |
 | wp02 | Workspace Instance | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp02-workspace-instance.md` |
-| wp03 | Validation Engine | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp03-validation-engine.md` |
+| wp03 | Validation Engine | building | workspace-contracts-agent | `docs/product/workspace-platform/features/wp03-validation-engine.md` |
 | wp04 | Plan/Apply Engine | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp04-plan-apply-engine.md` |
-| wp05 | Scaffolding & Generators | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp05-scaffolding-generators.md` |
+| wp05 | Scaffolding & Generators | building | workspace-contracts-agent | `docs/product/workspace-platform/features/wp05-scaffolding-generators.md` |
 | wp06 | Migrations | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp06-migrations.md` |
 | wp07 | Workspace State & Hydration | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp07-workspace-state.md` |
 | wp08 | Contract Schema System | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp08-contract-schema-system.md` |

@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2026-02-21
 updated: 2026-02-21
 refs:
-  related: [architecture-agent, meta-agent, operational-engineering-agent]
+  related: [architecture-agent, meta-agent, operational-engineering-agent, wf-run-syntropy-cli, wf-implement-syntropy-command]
 ---
 
 # Workspace Contracts Agent
@@ -29,6 +29,9 @@ DRI for the workspace contract system — everything about how Syntropy defines,
 - `docs/architecture/workspace-contracts.md` — workspace contract system architecture
 - `docs/architecture/north-star-layout.md` — canonical repo layout
 - `docs/vision/jtbd-workspace-platform.md` — workspace platform JTBD
+- `syntropy.toml` — current workspace contract (bootstrap v0)
+- `platform/crates/syntropy-sdk/src/lib.rs` — SDK entry point (bootstrap v0)
+- `products/command-center/apps/cli/src/main.rs` — CLI entry point (bootstrap v0)
 
 ### On Demand
 - `docs/product/workspace-platform/features/wp*.md` — feature specs being worked on
@@ -54,6 +57,8 @@ DRI for the workspace contract system — everything about how Syntropy defines,
 ## Own Workflows
 
 - `docs/workflows/design-workspace-contract.md` — designing or extending workspace contracts
+- `docs/workflows/run-syntropy-cli.md` — running the bootstrap CLI commands
+- `docs/workflows/implement-syntropy-command.md` — adding/changing CLI commands safely
 - (inherits) `docs/workflows/make-architecture-decision.md` — for workspace architecture decisions
 - (inherits) `docs/workflows/add-feature-spec.md` — for workspace platform features
 
@@ -88,10 +93,13 @@ DRI for the workspace contract system — everything about how Syntropy defines,
 ## Domain State
 
 ### Current Focus
-- Workspace Platform product documentation being created (WP01–WP08)
-- Architecture docs for workspace contracts, plan/apply, and north star layout
-- 10 JTBD (WJ1–WJ10), 8 features, 7 use cases, 24 user stories defined
-- All in `exploring`/`defining` status — no implementation yet
+- Bootstrap implementation shipped:
+  - Rust SDK: `platform/crates/syntropy-sdk` (workspace discovery, tree/info, README planning/apply, validate)
+  - CLI: `products/command-center/apps/cli` (`syntropy` binary)
+  - Workspace contract: `syntropy.toml` (blueprint selection + overrides)
+  - Deterministic folder README contracts: `syntropy gen readmes`
+  - Blueprint linting: `syntropy validate` (warnings for unexpected top-level dirs)
+- Follow-up work focuses on WP04 plan/apply and WP08 schema generation/drift gates
 
 ### Key Decisions in Effect
 - Code-first schema strategy (Rust types → JSON Schema) for v0
@@ -100,6 +108,7 @@ DRI for the workspace contract system — everything about how Syntropy defines,
 - Plan/apply for all workspace mutations
 - `.syntropy/` as workspace instance directory
 - Dependency direction: platform never imports products
+- Bootstrap blueprint: built-in `north-star/v0` map + per-path overrides in `syntropy.toml`
 
 ### Invariants
 - Every workspace mutation goes through plan/apply
@@ -115,6 +124,7 @@ DRI for the workspace contract system — everything about how Syntropy defines,
 - Validation error code taxonomy (WP03 open question)
 - Migration reversibility policy (WP06 open question)
 - When to upgrade from code-first to schema-first (WP08 open question)
+- When to enforce errors vs warnings for structural drift in non-north-star repos
 
 ### Cross-Domain Dependencies
 - Architecture agent: runtime contract design, stack decisions

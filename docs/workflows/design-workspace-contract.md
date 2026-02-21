@@ -44,14 +44,17 @@ Document:
 Following the code-first strategy:
 1. Define the Rust structs/enums in the appropriate crate
 2. Use `serde` for serialization
-3. Use `schemars` for JSON Schema generation
-4. Ensure all fields have documentation comments
+3. Include an explicit `schema_version` field in JSON outputs (v0 = `"v0"`)
+4. (WP08) Use `schemars` for JSON Schema generation once schema snapshots are wired
+5. Ensure all fields have documentation comments
 
 ### Step 3: Generate the Schema
 
-1. Run the schema generation target: `bazel run //platform/contracts/workspace:generate_schemas`
-2. Review the generated JSON Schema for correctness
-3. Check in the generated schema to `platform/contracts/workspace/v0/`
+Bootstrap note: schema snapshots are not generated yet in the current implementation (WP08). For now:
+
+1. Validate JSON output shape manually using `--json` (e.g., `syntropy --json info .`)
+2. Keep keys stable and prefer typed fields over free-form strings
+3. Track schema generation/drift gates as WP08 work
 
 ### Step 4: Add Validation Rules
 
@@ -78,9 +81,9 @@ If this changes `syntropy.toml`:
 ## Validation Checklist
 
 - [ ] Boundary is explicitly identified (producer, consumer, type)
-- [ ] Rust types are defined with serde + schemars
-- [ ] JSON Schema is generated and checked in
-- [ ] Schema matches Rust types (drift check passes)
+- [ ] Rust types are defined with `serde` and include `schema_version` in outputs
+- [ ] (WP08) JSON Schema is generated and checked in
+- [ ] (WP08) Schema matches Rust types (drift check passes)
 - [ ] Validation rules cover the new contract
 - [ ] Error codes follow the taxonomy
 - [ ] Feature specs updated

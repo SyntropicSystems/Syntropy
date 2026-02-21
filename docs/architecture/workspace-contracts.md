@@ -18,6 +18,24 @@ tags: [architecture, workspace, contracts]
 
 The workspace contract system provides the structural backbone for how Syntropy manages repositories. It defines a contract-first approach where every boundary — between the platform and a repo, between tools and the workspace, between agents and the filesystem — has a machine-checkable schema.
 
+## Bootstrap Implementation (v0)
+
+The first "bootstrap slice" is implemented to prove the system works end-to-end with low surface area:
+
+- **SDK**: `platform/crates/syntropy-sdk` — workspace discovery + structured operations
+- **CLI**: `products/command-center/apps/cli` — thin IO wrapper around the SDK (`syntropy` binary)
+- **Workspace contract**: `syntropy.toml` (and discovery support for `.work/syntropy.toml`)
+- **Blueprint**: built-in `north-star/v0`
+
+Bootstrap commands:
+- `syntropy init` — creates `syntropy.toml` and `.syntropy/state/.gitignore`
+- `syntropy tree` — human tree or JSON (`--json`)
+- `syntropy info` / `syntropy describe` — purpose/rules/boundaries for any path
+- `syntropy gen readmes` — deterministic folder README contracts (with `--dry-run`)
+- `syntropy validate` — blueprint lint (currently warning-oriented)
+
+Contract note: JSON Schema snapshot generation and drift gates are WP08 work; v0 outputs are versioned via `schema_version: "v0"` and kept deterministic.
+
 ## Core Architecture
 
 ### The Contract Boundary
@@ -111,7 +129,10 @@ Each layer produces typed errors with codes, locations, and fix hints. Errors ar
 ## Integration Points
 
 ### CLI
-Primary interface. Commands: `init`, `add`, `validate`, `state`, `plan`, `apply`, `migrate`, `generate`.
+Primary interface.
+
+- Implemented in bootstrap: `init`, `tree`, `info`/`describe`, `gen readmes`, `validate`
+- Planned next: `add`, `state`, `plan`, `apply`, `migrate`, `generate`
 
 ### CI
 Validation runs as pipeline step. Schema drift gates prevent contract decay.

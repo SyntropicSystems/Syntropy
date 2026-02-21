@@ -18,6 +18,15 @@ tags: [workspace-platform, use-case, init]
 
 A developer starts a new project (or adopts Syntropy in an existing repo) and needs to set up the workspace contract and instance. They run `syntropy init`, which creates the foundational structure.
 
+## Bootstrap Implementation (v0)
+
+In the current bootstrap slice:
+
+- `syntropy init` is non-interactive
+- It creates `syntropy.toml` (default blueprint: `north-star/v0`)
+- It creates `.syntropy/state/.gitignore` to ensure machine state stays ignored
+- `--from-existing` and plan/apply preview are future work (WP04/WP05)
+
 ### Steps
 
 1. Developer runs `syntropy init` in the repo root (or `syntropy init --from-existing` for existing repos)
