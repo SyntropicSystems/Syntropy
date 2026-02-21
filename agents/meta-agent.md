@@ -9,7 +9,7 @@ authority: orchestrator
 created: 2025-02-07
 updated: 2025-02-09
 refs:
-  related: [product-agent, architecture-agent, ux-agent, integration-agent, observations-agent, pulse-companion-agent, decisions-agent, cognitive-engineering-agent, operational-engineering-agent, surf-dev-platform]
+  related: [product-agent, architecture-agent, ux-agent, integration-agent, observations-agent, pulse-companion-agent, decisions-agent, cognitive-engineering-agent, operational-engineering-agent, workspace-contracts-agent, surf-dev-platform]
 ---
 
 # Meta Agent
@@ -50,6 +50,7 @@ When work arrives, route to the appropriate agent:
 | Decision records, reasoning graph, decision coherence | `decisions-agent` | Decision capture, graph integrity, conflict detection |
 | Cognitive engineering, review templates, learning methodologies, knowledge compression | `cognitive-engineering-agent` | Information architecture for comprehension |
 | Operational engineering, workflow design, rule design, context architecture, actor effectiveness | `operational-engineering-agent` | Process design methodology for actor effectiveness |
+| Workspace contracts, validation, scaffolding, migrations, plan/apply, repo structure | `workspace-contracts-agent` | Workspace contract system, structural coherence |
 
 ### Routing Rules
 1. Check if work falls clearly within one agent's scope → route directly
@@ -128,6 +129,7 @@ When work arrives, route to the appropriate agent:
 - OQ: Notification strategy (oq-notification-strategy)
 - DP02 open question: When should a feature get its own feature agent?
 - DP02 open question: Should agents have explicit handoff protocols?
+- Workspace Platform (WP01–WP08) in exploring/defining — workspace contracts, validation, plan/apply, scaffolding
 
 ### Cross-Domain Dependencies
 - All domain agents depend on base-traits for shared rules and workflows

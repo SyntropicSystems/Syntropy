@@ -160,3 +160,21 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2025-02-13 | updated | registry | Added DP15, operational-engineering-agent, dp-u16, dp-u17 to registry; updated dp-stories count to DP-S01–DP-S49 | meta-agent |
 | 2025-02-13 | updated | dp-product-index | Added DP15 to feature map, updated job count to 13, use case count to 17 | meta-agent |
 | 2025-02-13 | updated | product-index | Updated dev platform counts to 13 JTBD, 15 features, 17 use cases, 49 stories | meta-agent |
+| 2026-02-21 | created | jtbd-workspace-platform | Created Workspace Platform Jobs to Be Done (WJ1–WJ10) — workspace contracts, validation, scaffolding, plan/apply, migrations, state hydration, schema system | meta-agent |
+| 2026-02-21 | created | wp01–wp08 | Created 8 Workspace Platform feature specs: Workspace Contract, Workspace Instance, Validation Engine, Plan/Apply Engine, Scaffolding & Generators, Migrations, Workspace State & Hydration, Contract Schema System | workspace-contracts-agent |
+| 2026-02-21 | created | wp-u01–wp-u07 | Created 7 Workspace Platform use cases: Init Workspace, Add Service, Validate Workspace, Plan/Apply Change, Migrate Contract, Custom Generator, Agent Hydrate State | workspace-contracts-agent |
+| 2026-02-21 | created | wp-stories | Created 24 Workspace Platform user stories (WP-S01–WP-S24) for developers, AI agents, platform engineers, team leads | workspace-contracts-agent |
+| 2026-02-21 | created | wp-product-index | Created Workspace Platform product index with feature map, use cases, and stories | workspace-contracts-agent |
+| 2026-02-21 | created | arch-workspace-contracts | Created Workspace Contract System architecture doc — contract boundaries, source of truth strategy, validation architecture, four v0 contracts | workspace-contracts-agent |
+| 2026-02-21 | created | arch-plan-apply-engine | Created Plan/Apply Engine architecture doc — transactional mutation system, PatchSet structure, atomicity guarantees | workspace-contracts-agent |
+| 2026-02-21 | created | arch-north-star-layout | Created North Star Repository Layout architecture doc — canonical structure, five-category mental model, dependency direction | workspace-contracts-agent |
+| 2026-02-21 | created | workspace-contracts-agent | Created workspace-contracts-agent manifest — DRI for workspace contracts, validation, scaffolding, migrations, plan/apply | meta-agent |
+| 2026-02-21 | created | surf-workspace-platform | Created Workspace Platform surface definition — contract and tooling layer | workspace-contracts-agent |
+| 2026-02-21 | created | wf-design-workspace-contract | Created workflow for designing and extending workspace contracts | workspace-contracts-agent |
+| 2026-02-21 | updated | glossary | Added 8 terms: Workspace Contract, Workspace Instance, Workspace State, PatchSet, Plan/Apply, Blueprint, Validation Report, North Star Layout | meta-agent |
+| 2026-02-21 | updated | meta-agent | Added workspace-contracts-agent to routing table, refs, and domain state | meta-agent |
+| 2026-02-21 | updated | arch-index | Added Workspace Platform Architecture section with 3 docs | meta-agent |
+| 2026-02-21 | updated | product-index | Added Workspace Platform section with 10 JTBD, 8 features, 7 use cases, 24 stories | meta-agent |
+| 2026-02-21 | updated | surfaces-index | Added Workspace Platform to development surfaces | meta-agent |
+| 2026-02-21 | updated | CLAUDE.md | Added workspace-contracts-agent to inheritance tree, workspace platform section, workflow, repo structure | meta-agent |
+| 2026-02-21 | updated | registry | Added all Workspace Platform entries: vision, 8 features, 7 use cases, stories, 3 architecture docs, agent, surface, workflow, product index | meta-agent |

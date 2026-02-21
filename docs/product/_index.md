@@ -54,3 +54,11 @@ The engineering infrastructure is documented as a product → `repo-platform/_in
 - 10 Feature Specs (RP01–RP10) → `repo-platform/features/`
 - 7 Use Cases (RP-U01–RP-U07) → `repo-platform/use-cases/`
 - 19 User Stories (RP-S01–RP-S19) → `repo-platform/user-stories/stories-repo-platform.md`
+
+## Workspace Platform (as Product)
+
+The workspace contract and tooling layer is documented as a product → `workspace-platform/_index.md`
+- 10 JTBD (WJ1–WJ10) → `docs/vision/jtbd-workspace-platform.md`
+- 8 Feature Specs (WP01–WP08) → `workspace-platform/features/`
+- 7 Use Cases (WP-U01–WP-U07) → `workspace-platform/use-cases/`
+- 24 User Stories (WP-S01–WP-S24) → `workspace-platform/user-stories/stories-workspace-platform.md`

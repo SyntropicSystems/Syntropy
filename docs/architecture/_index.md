@@ -21,6 +21,11 @@ Technical architecture for Syntropy OS. This domain covers how we're building it
 - **Security**: Auth, security rules, data isolation → `security.md`
 - **Integrations**: Integration roadmap (phases 1-6) → `integrations.md`
 
+## Workspace Platform Architecture
+- **Workspace Contract System**: Contract boundaries, source of truth strategy, validation architecture → `workspace-contracts.md`
+- **Plan/Apply Engine**: Transactional mutation system for workspace changes → `plan-apply-engine.md`
+- **North Star Layout**: Canonical repository structure and five-category mental model → `north-star-layout.md`
+
 ## Key Decisions
 - ADR-001: Firebase as Backend Platform → `../decisions/adr-001-firebase-backend.md`
 - ADR-002: Event Sourcing on Firestore → `../decisions/adr-002-event-sourcing-firestore.md`

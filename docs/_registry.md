@@ -82,6 +82,9 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | arch-offline | Offline Strategy | defining | architecture-agent | `docs/architecture/offline-strategy.md` |
 | arch-security | Security | defining | architecture-agent | `docs/architecture/security.md` |
 | arch-integrations | Integration Roadmap | defining | integration-agent | `docs/architecture/integrations.md` |
+| arch-workspace-contracts | Workspace Contract System | defining | workspace-contracts-agent | `docs/architecture/workspace-contracts.md` |
+| arch-plan-apply-engine | Plan/Apply Engine | defining | workspace-contracts-agent | `docs/architecture/plan-apply-engine.md` |
+| arch-north-star-layout | North Star Repository Layout | defining | workspace-contracts-agent | `docs/architecture/north-star-layout.md` |
 
 ## Decisions
 
@@ -124,6 +127,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | wf-audit-observations | Audit Observations | active | observations-agent | `docs/workflows/audit-observations.md` |
 | wf-feature-inception | Feature Inception | active | meta-agent | `docs/workflows/feature-inception.md` |
 | wf-reflect | Reflect After Work | active | observations-agent | `docs/workflows/reflect.md` |
+| wf-design-workspace-contract | Design a Workspace Contract | active | workspace-contracts-agent | `docs/workflows/design-workspace-contract.md` |
 
 ## Agents
 
@@ -143,6 +147,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | decisions-agent | Decisions Agent | active | Decision records, reasoning graph, coherence | `agents/decisions-agent.md` |
 | cognitive-engineering-agent | Cognitive Engineering Agent | active | Information architecture for comprehension | `agents/cognitive-engineering-agent.md` |
 | operational-engineering-agent | Operational Engineering Agent | active | Process design methodology for actor effectiveness | `agents/operational-engineering-agent.md` |
+| workspace-contracts-agent | Workspace Contracts Agent | active | Workspace contracts, validation, scaffolding, migrations | `agents/workspace-contracts-agent.md` |
 
 ## Dev Platform — Vision
 
@@ -237,6 +242,43 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 |----|-------|--------|-------|------|
 | rp-stories | Repo Platform User Stories (RP-S01–RP-S19) | defining | architecture-agent | `docs/product/repo-platform/user-stories/stories-repo-platform.md` |
 
+## Workspace Platform — Vision
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| jtbd-workspace-platform | Workspace Platform JTBD | active | workspace-contracts-agent | `docs/vision/jtbd-workspace-platform.md` |
+
+## Workspace Platform — Features
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| wp01 | Workspace Contract | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp01-workspace-contract.md` |
+| wp02 | Workspace Instance | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp02-workspace-instance.md` |
+| wp03 | Validation Engine | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp03-validation-engine.md` |
+| wp04 | Plan/Apply Engine | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp04-plan-apply-engine.md` |
+| wp05 | Scaffolding & Generators | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp05-scaffolding-generators.md` |
+| wp06 | Migrations | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp06-migrations.md` |
+| wp07 | Workspace State & Hydration | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp07-workspace-state.md` |
+| wp08 | Contract Schema System | exploring | workspace-contracts-agent | `docs/product/workspace-platform/features/wp08-contract-schema-system.md` |
+
+## Workspace Platform — Use Cases
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| wp-u01 | Initializing a New Workspace | defining | workspace-contracts-agent | `docs/product/workspace-platform/use-cases/wp-u01-init-workspace.md` |
+| wp-u02 | Adding a Service to an Existing Workspace | defining | workspace-contracts-agent | `docs/product/workspace-platform/use-cases/wp-u02-add-service.md` |
+| wp-u03 | Validating Workspace Coherence | defining | workspace-contracts-agent | `docs/product/workspace-platform/use-cases/wp-u03-validate-workspace.md` |
+| wp-u04 | Planning and Applying a Structural Change | defining | workspace-contracts-agent | `docs/product/workspace-platform/use-cases/wp-u04-plan-apply-change.md` |
+| wp-u05 | Migrating to a New Contract Version | defining | workspace-contracts-agent | `docs/product/workspace-platform/use-cases/wp-u05-migrate-contract.md` |
+| wp-u06 | Creating a Custom Generator | defining | workspace-contracts-agent | `docs/product/workspace-platform/use-cases/wp-u06-custom-generator.md` |
+| wp-u07 | Agent Hydrating Workspace Context | defining | workspace-contracts-agent | `docs/product/workspace-platform/use-cases/wp-u07-agent-hydrate-state.md` |
+
+## Workspace Platform — User Stories
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| wp-stories | Workspace Platform User Stories (WP-S01–WP-S24) | defining | workspace-contracts-agent | `docs/product/workspace-platform/user-stories/stories-workspace-platform.md` |
+
 ## Surfaces
 
 | ID | Title | Status | Owner | File |
@@ -245,6 +287,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | surf-web | Web Surface | defining | ux-agent | `surfaces/web.md` |
 | surf-dev-platform | Development Platform | active | meta-agent | `surfaces/dev-platform.md` |
 | surf-repo-platform | Repo Platform | active | architecture-agent | `surfaces/repo-platform.md` |
+| surf-workspace-platform | Workspace Platform | active | workspace-contracts-agent | `surfaces/workspace-platform.md` |
 
 ## Index & Meta Files
 
@@ -256,6 +299,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | product-index | Product Domain Index | active | product-agent | `docs/product/_index.md` |
 | dp-product-index | Dev Platform Product Index | active | meta-agent | `docs/product/dev-platform/_index.md` |
 | rp-product-index | Repo Platform Product Index | active | architecture-agent | `docs/product/repo-platform/_index.md` |
+| wp-product-index | Workspace Platform Product Index | active | workspace-contracts-agent | `docs/product/workspace-platform/_index.md` |
 | arch-index | Architecture Domain Index | active | architecture-agent | `docs/architecture/_index.md` |
 | decisions-index | Decisions Index | active | decisions-agent | `docs/decisions/_index.md` |
 | surfaces-index | Surfaces Index | active | ux-agent | `surfaces/_index.md` |
