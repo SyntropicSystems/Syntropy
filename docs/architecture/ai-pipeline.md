@@ -5,9 +5,9 @@ title: "AI Pipeline"
 status: exploring
 owner: architecture-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-22
 refs:
-  related: [f04, f07, f12, arch-stack]
+  related: [f04, f07, f12, arch-stack, arch-agent-architecture]
   decided-by: [adr-003]
 tags: [architecture, ai, pipeline]
 ---
@@ -18,6 +18,8 @@ tags: [architecture, ai, pipeline]
 
 The AI pipeline is the intelligence layer of Syntropy OS. It analyzes every card, generates suggestions, auto-executes high-confidence actions, processes artifacts, and continuously learns from user corrections.
 
+In the [Heterogeneous Agent Architecture](agent-architecture.md), the AI pipeline is primarily a **Probabilistic Agent** orchestration system — it coordinates LLM-based interpretation and classification. Its outputs are always validated by **Deterministic Agents** (confidence scoring, schema validation, business rules) before becoming system truth. **Organic Agents** (users) provide corrections that train the Probabilistic Agents over time.
+
 ## Orchestrator
 
 Cloud Functions + Pub/Sub. Events trigger pipeline stages:
@@ -26,11 +28,13 @@ Cloud Functions + Pub/Sub. Events trigger pipeline stages:
 ingest -> analyze -> decide -> execute -> learn
 ```
 
-- **Ingest**: New data enters the system (email received, note captured, artifact uploaded, task created).
-- **Analyze**: LLM processes the content -- extracts intent, classifies type, identifies entities, generates structured output.
-- **Decide**: Confidence scoring determines the action path: auto-execute (>90%), suggest (60-90%), or present without recommendation (<60%).
-- **Execute**: For auto-execute actions, the system takes the action and logs an `AIAutoExecuted` event. For suggestions, the system presents the recommendation to the user.
-- **Learn**: User responses (accept, reject, modify) are logged as training signals. The preference model updates.
+Each stage maps to a specific agent type in the Heterogeneous Agent Architecture:
+
+- **Ingest**: New data enters the system (email received, note captured, artifact uploaded, task created). **(Deterministic — event routing, schema validation)**
+- **Analyze**: LLM processes the content -- extracts intent, classifies type, identifies entities, generates structured output. **(Probabilistic — LLM interpretation)**
+- **Decide**: Confidence scoring determines the action path: auto-execute (>90%), suggest (60-90%), or present without recommendation (<60%). **(Deterministic — threshold math, the Boundary of Trust)**
+- **Execute**: For auto-execute actions, the system takes the action and logs an `AIAutoExecuted` event. For suggestions, the system presents the recommendation to the user (Organic Agent). **(Deterministic execution + Organic review)**
+- **Learn**: User responses (accept, reject, modify) are logged as training signals. The preference model updates. **(Organic → Deterministic storage → Probabilistic model improvement)**
 
 ## LLM Calls
 

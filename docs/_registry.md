@@ -5,7 +5,7 @@ title: "Document Registry"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-21
+updated: 2026-02-22
 ---
 
 # Document Registry
@@ -75,6 +75,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
+| arch-agent-architecture | Heterogeneous Agent Architecture | defining | architecture-agent | `docs/architecture/agent-architecture.md` |
 | arch-stack | Technology Stack | defining | architecture-agent | `docs/architecture/stack.md` |
 | arch-data-model | Data Model | defining | architecture-agent | `docs/architecture/data-model.md` |
 | arch-event-sourcing | Event Sourcing on Firestore | defining | architecture-agent | `docs/architecture/event-sourcing.md` |

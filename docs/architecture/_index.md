@@ -5,12 +5,15 @@ title: "Architecture Domain"
 status: active
 owner: architecture-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-22
 ---
 
 # Architecture Domain
 
 Technical architecture for Syntropy OS. This domain covers how we're building it.
+
+## Foundational
+- **Heterogeneous Agent Architecture**: Agent taxonomy (Organic, Probabilistic, Deterministic), Decision Profiles, Boundary of Trust, Graceful Degradation → `agent-architecture.md`
 
 ## Components
 - **Stack**: Technology choices and rationale → `stack.md`

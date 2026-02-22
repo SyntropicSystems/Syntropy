@@ -5,7 +5,7 @@ title: "Changelog"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-21
+updated: 2026-02-22
 ---
 
 # Changelog
@@ -191,3 +191,14 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-21 | updated | wp05 | Updated to `building` and documented bootstrap `init` + `gen readmes` behavior | workspace-contracts-agent |
 | 2026-02-21 | updated | wp-u01 | Added bootstrap note for non-interactive `syntropy init` | workspace-contracts-agent |
 | 2026-02-21 | updated | wp-u03 | Added bootstrap note for warning-oriented `syntropy validate` | workspace-contracts-agent |
+| 2026-02-22 | created | arch-agent-architecture | Created Heterogeneous Agent Architecture spec — foundational taxonomy: Organic, Probabilistic, Deterministic agents; Decision Profiles; Boundary of Trust; Graceful Degradation; Universal I/O; system component mapping | architecture-agent |
+| 2026-02-22 | updated | principles | Added Principle #11: The First-Class Citizen Principle — all agent types share equal systemic privileges, defined by Decision Profile not substrate | architecture-agent |
+| 2026-02-22 | updated | manifesto | Added Heterogeneous Agent Architecture as fourth pillar; expanded Human-AI Collaboration with Boundary of Trust | architecture-agent |
+| 2026-02-22 | updated | glossary | Added 7 terms: Heterogeneous Agent Architecture, Organic Agent, Probabilistic Agent, Deterministic Agent, Decision Profile, Boundary of Trust, Graceful Degradation (agent) | architecture-agent |
+| 2026-02-22 | updated | arch-index | Added Foundational section with Heterogeneous Agent Architecture | architecture-agent |
+| 2026-02-22 | updated | arch-ai-pipeline | Added Heterogeneous Agent Architecture context — pipeline stage to agent type mapping | architecture-agent |
+| 2026-02-22 | updated | dp02 | Added arch-agent-architecture cross-reference; connected trait composition to Decision Profiles | architecture-agent |
+| 2026-02-22 | updated | dp15 | Added arch-agent-architecture cross-reference; grounded C4 Actor Capability Modeling in Decision Profiles | architecture-agent |
+| 2026-02-22 | updated | f04 | Added arch-agent-architecture cross-reference; mapped AI Roles/Agents to agent types; connected Confidence-Based Handoff to Boundary of Trust | architecture-agent |
+| 2026-02-22 | updated | f10 | Added arch-agent-architecture cross-reference; connected confidence thresholds to Boundary of Trust mechanism | architecture-agent |
+| 2026-02-22 | updated | registry | Added arch-agent-architecture to Architecture section | architecture-agent |

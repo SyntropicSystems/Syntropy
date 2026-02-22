@@ -6,11 +6,11 @@ status: defining
 owner: meta-agent
 priority: P0
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-22
 refs:
   depends-on: [dp01, dp05]
   enables: [dp03, dp09, dp-u01, dp-u02, dp-u03, dp-u06, dp-u07]
-  related: [dp08, dp09, base-traits, meta-agent]
+  related: [dp08, dp09, base-traits, meta-agent, arch-agent-architecture]
   informed-by: [jtbd-dev-platform]
 tags: [dev-platform, core, agents, p0]
 ---
@@ -20,6 +20,8 @@ tags: [dev-platform, core, agents, p0]
 ## Summary
 
 A trait-based composition system where specialized agents own different domains of the product. Every agent inherits shared base traits (context, rules, workflows) and composes its own domain-specific capabilities. Agents can be humans or AI — the manifests define scope, authority, and process regardless of executor.
+
+This system operates within the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md): human contributors are Organic Agents, AI models are Probabilistic Agents, and validation/enforcement code is Deterministic Agents. The trait-based composition defines *what* an agent owns; the Decision Profile defines *how* it processes logic.
 
 ## Jobs Addressed
 

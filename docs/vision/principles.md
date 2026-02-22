@@ -5,10 +5,10 @@ title: "Design Principles"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-22
 refs:
   depends-on: [manifesto]
-  related: [jtbd, glossary]
+  related: [jtbd, glossary, arch-agent-architecture]
 tags: [vision, principles, foundation]
 ---
 
@@ -55,3 +55,7 @@ Task relationships (blocking, enabling, follow-up) are explicit in the data mode
 ## 10. Corrections as Training Data
 
 Every time a user edits an AI suggestion, rejects a recommendation, or reclassifies an item, that's a training signal. The system doesn't just accept corrections — it learns from them. Disagreement makes the system smarter.
+
+## 11. The First-Class Citizen Principle
+
+Humans, AI models, and hardcoded programs are all Agents — first-class citizens sharing equal systemic privileges. They all observe the environment, process state data, and execute actions through the same interfaces. They are defined not by what they are (biological, neural net, or compiled code), but by their Decision Profile — how they process logic to arrive at a conclusion. This principle drives the Heterogeneous Agent Architecture: Organic Agents (humans) provide authority and judgment, Probabilistic Agents (AI) provide adaptability and interpretation, and Deterministic Agents (code) provide reliability and speed. The architecture respects each type's strengths and constrains each type's weaknesses through the Boundary of Trust.

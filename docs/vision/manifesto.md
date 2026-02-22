@@ -5,10 +5,10 @@ title: "Core Philosophy"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-22
 refs:
   enables: [jtbd, principles]
-  related: [glossary]
+  related: [glossary, arch-agent-architecture]
 tags: [vision, foundation]
 ---
 
@@ -18,11 +18,15 @@ tags: [vision, foundation]
 
 > **Platforms:** React Native (iOS/Android) + Web (React)
 
-Syntropy OS (working name: TaskCard) is built on three pillars:
+Syntropy OS (working name: TaskCard) is built on four pillars:
+
+## Heterogeneous Agent Architecture
+
+All participants in the system — humans, AI models, and hardcoded programs — are Agents: first-class citizens sharing equal systemic privileges. They observe the environment, process state data, and execute actions through the same interfaces. They are classified not by what they are, but by their Decision Profile: **Organic Agents** (humans) provide authority and judgment, **Probabilistic Agents** (AI) provide adaptability and interpretation, **Deterministic Agents** (code) provide reliability and speed. This taxonomy provides the shared vocabulary for every product, architecture, and process decision. See the [Heterogeneous Agent Architecture](../architecture/agent-architecture.md) specification.
 
 ## Human-AI Collaboration
 
-AI acts as a personal assistant, project manager, and domain-specific agent. Where confidence is high, it acts autonomously. Where confidence is low, it hands off to the human for confirmation or input. The human can always override, correct, and train the system.
+AI acts as a personal assistant, project manager, and domain-specific agent. Where confidence is high, it acts autonomously. Where confidence is low, it hands off to the human for confirmation or input. The human can always override, correct, and train the system. The Boundary of Trust formalizes this: Probabilistic Agents are trusted with interpretation but never absolute state changes without Deterministic validation; Organic Agents hold ultimate authority.
 
 ## Event Sourcing & Transparency
 

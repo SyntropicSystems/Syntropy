@@ -6,11 +6,11 @@ status: defining
 owner: operational-engineering-agent
 priority: P1
 created: 2025-02-13
-updated: 2025-02-13
+updated: 2026-02-22
 refs:
   depends-on: [dp02, dp03, dp10]
   enables: [dp-u16, dp-u17]
-  related: [dp14, dp12, dp09]
+  related: [dp14, dp12, dp09, arch-agent-architecture]
   decided-by: []
 tags: [dev-platform, operational-engineering, process-design, actor-effectiveness]
 ---
@@ -66,9 +66,9 @@ Methodology for configuring agent context (manifests, always/on-demand/reference
 
 ### C4 — Actor Capability Modeling
 
-Understanding different actors' strengths, limitations, and optimal instruction patterns:
+Understanding different actors' strengths, limitations, and optimal instruction patterns. Grounded in the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md) taxonomy: Organic Agents (humans), Probabilistic Agents (AI models), and Deterministic Agents (code). The Decision Profile is the formal basis for actor characterization.
 
-- **Actor taxonomy**: Characterizing actor types (Opus, Sonnet, Haiku, different AI providers, human experience levels)
+- **Actor taxonomy**: Characterizing actor types using Decision Profiles — logic engine, latency, reliability envelope, failure mode, adaptability, cost (Opus, Sonnet, Haiku, different AI providers, human experience levels)
 - **Failure mode mapping**: What goes wrong for each actor type (skip-ahead, context loss, rule drift, over-interpretation)
 - **Optimal patterns**: What instruction styles work best for each actor type (explicit vs. inferential, structured vs. flexible)
 - **Adaptation strategies**: When to write actor-specific process variants vs. when a single process can work universally

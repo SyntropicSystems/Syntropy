@@ -6,11 +6,11 @@ status: exploring
 owner: product-agent
 priority: P0
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-22
 refs:
   depends-on: [f06]
   enables: [u01, u03, u05, u07, u08]
-  related: [f03, f05, f07, f09, f10, f11]
+  related: [f03, f05, f07, f09, f10, f11, arch-agent-architecture]
   informed-by: [jtbd, stories]
   decided-by: [adr-003]
   ux-patterns: [ux-ai-suggestion]
@@ -41,16 +41,23 @@ The intelligence layer that analyzes every card and either suggests or auto-exec
 
 ### AI Roles/Agents
 
-- **Personal Assistant:** Scheduling, reminders, follow-ups, routine email management.
-- **Project Manager:** Task prioritization, dependency tracking, deadline management, status rollups.
-- **Domain Agents:** Specialized agents for specific contexts (e.g., financial emails get a "finance agent" that understands invoices, bills, subscriptions).
+In the [Heterogeneous Agent Architecture](../architecture/agent-architecture.md), the AI Action Engine operates as a **Probabilistic Agent** — trusted with interpretation but never absolute state changes without Deterministic validation. All AI outputs pass through Deterministic validation (confidence scoring, schema checks, business rules) before becoming system truth.
+
+- **Personal Assistant:** Scheduling, reminders, follow-ups, routine email management. (Probabilistic)
+- **Project Manager:** Task prioritization, dependency tracking, deadline management, status rollups. (Probabilistic + Deterministic for math)
+- **Domain Agents:** Specialized agents for specific contexts (e.g., financial emails get a "finance agent" that understands invoices, bills, subscriptions). (Probabilistic)
+- **Confidence Scoring & Threshold Enforcement:** Mathematical comparison, rule enforcement. (Deterministic)
+- **Human User:** Sets goals, overrides AI, resolves ambiguity, trains the system. (Organic)
 
 ### Confidence-Based Handoff
 
+The confidence system implements the [Boundary of Trust](../architecture/agent-architecture.md) between agent types:
+
 - The confidence meter is always visible on cards with AI suggestions.
-- Users can see *why* the AI chose an action (explainability).
-- Every AI action (auto or suggested) is logged in the audit trail.
-- User corrections feed back into the learning system to improve future confidence calibration.
+- Users (Organic Agents) can see *why* the AI (Probabilistic Agent) chose an action (explainability).
+- Every AI action (auto or suggested) is logged in the audit trail via Deterministic Agents (event sourcing).
+- User corrections feed back into the learning system to improve Probabilistic Agent calibration over time.
+- When Probabilistic Agents encounter low-confidence scenarios, Graceful Degradation routes the decision to the Organic Agent.
 
 ## Dependencies
 

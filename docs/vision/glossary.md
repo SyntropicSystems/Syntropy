@@ -5,9 +5,9 @@ title: "Glossary"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-09
+updated: 2026-02-22
 refs:
-  related: [manifesto, principles]
+  related: [manifesto, principles, arch-agent-architecture]
 tags: [vision, language, reference]
 ---
 
@@ -51,4 +51,11 @@ Canonical term definitions for Syntropy OS. This is the shared language — use 
 | **Blueprint** | A reusable template that defines the structure, files, and configuration for a new workspace component (service, app, crate). Platform-provided blueprints cover standard patterns; projects can define custom blueprints in `.syntropy/system-of-work/templates/`. |
 | **Validation Report** | The deterministic, machine-readable output of `syntropy validate --json` — a contract that enumerates all structural violations, dependency issues, and convention drift in a workspace. Each violation has an error code, location, and fix hint. |
 | **North Star Layout** | The canonical repository structure that the Syntropy platform targets. Everything in the repo is one of five categories: Platform (reusable foundation), Products (shipped surfaces), Tooling (build/CI/devex), Workspaces (fixtures/templates), and Instance (`.syntropy/`). |
+| **Heterogeneous Agent Architecture** | The foundational architecture that treats all system participants — humans (Organic Agents), AI models (Probabilistic Agents), and hardcoded programs (Deterministic Agents) — as first-class Agents sharing equal systemic privileges. Agents are defined not by what they are, but by their Decision Profile — how they process logic to arrive at a conclusion. |
+| **Organic Agent** | An agent whose logic engine is biological/intuitive (a human). Key strengths: high-level strategy, moral judgment, creative leaps, contextual wisdom. Key constraints: slow latency, unpredictable, subject to fatigue. Trusted with ultimate authority in the system. |
+| **Probabilistic Agent** | An agent whose logic engine is machine learning/AI (LLMs, neural networks). Key strengths: high adaptability, pattern recognition, natural language understanding, dynamic response. Key constraints: black-box reasoning, prone to drift or hallucination. Trusted with interpretation, never absolute state changes without validation. |
+| **Deterministic Agent** | An agent whose logic engine is procedural code/rules (functions, scripts, state machines). Key strengths: 100% reliability, instant execution, mathematically provable correctness. Key constraints: extreme rigidity, fails on unprogrammed edge cases. Trusted with absolute truth. |
+| **Decision Profile** | A characterization of how an agent processes logic to arrive at a conclusion — not what the agent is made of. Captures: logic engine type, latency, reliability envelope, failure mode, adaptability, and cost. Decision Profiles enable principled routing decisions about which agent should handle a task. |
+| **Boundary of Trust** | The formal boundaries defining what each agent type is trusted to do: Deterministic Agents are trusted with absolute truth, Probabilistic Agents with interpretation (validated before state changes), and Organic Agents with ultimate authority (inputs still validated against rules). |
+| **Graceful Degradation** (agent) | The protocol by which agents hand off control when they cannot process a scenario: Probabilistic Agents fall back to Deterministic Agents or escalate to Organic Agents; Deterministic Agents reject with clear errors and escalate; Organic Agent unavailability triggers queuing without blocking the system. |
 | **Trait** | A composable set of context, rules, and workflows that an agent inherits. Agents are composed from base traits + domain-specific traits. |
