@@ -30,7 +30,7 @@ Having a workflow engine (DP03) and an agent system (DP02) gives us the infrastr
 - A workflow that works for an experienced contributor may confuse a newcomer (assumed context, implicit conventions)
 - Agent manifests load context by convention, not by principled architecture (too much context degrades performance; too little creates gaps)
 - Rules are listed but there's no methodology for writing rules that actors actually follow vs. silently ignore
-- When a workflow fails, the diagnosis is ad hoc — no systematic way to identify whether the problem is the process design, the actor's capabilities, or a context gap
+- When a workflow fails, the diagnosis is ad hoc — no systematic way to identify whether the problem is a Workflows gap (process design), a Capabilities/Skills mismatch (wrong actor for the task), a Memory gap (missing background knowledge), or an Internal Context overflow (too much information for the actor's Attributes)
 - Different AI models have different strengths, failure modes, and optimal instruction patterns, but all use the same workflow format
 - No feedback loop exists to measure whether a process design actually works and evolve it based on evidence
 
@@ -57,21 +57,21 @@ Principles for writing rules that are actually followed:
 
 ### C3 — Context Architecture
 
-Methodology for configuring agent context (manifests, always/on-demand/reference tiers) for effectiveness:
+Methodology for configuring agent context — specifically the relationship between an agent's **Memory** (background knowledge), **Internal Context** (active focus), and **Attributes** (capacity limits):
 
-- **Context budget**: How much context is optimal for different actor types and task complexities
-- **Tier design**: What belongs in "always" vs. "on demand" vs. "reference" — principles, not just conventions
-- **Relevance over completeness**: How to select context that enables the task without overwhelming the actor
-- **Cross-domain context**: How much neighboring domain context an agent needs vs. what creates noise
+- **Context budget**: How much Memory to load into Internal Context, given the actor's Attributes. A Probabilistic Agent with a 200K token context window has different Attributes than one with 8K. An Organic Agent has different attention span Attributes in the morning vs. end of day.
+- **Tier design**: What belongs in "always" (Memory that is always loaded into Internal Context) vs. "on demand" (Memory loaded when Skills require it) vs. "reference" (Memory available but not actively loaded) — principles, not just conventions.
+- **Relevance over completeness**: How to select context that enables the task without overflowing the actor's Internal Context beyond its Attributes capacity.
+- **Cross-domain context**: How much neighboring domain Memory an agent needs vs. what creates noise in its Internal Context.
 
 ### C4 — Actor Capability Modeling
 
-Understanding different actors' strengths, limitations, and optimal instruction patterns. Grounded in the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md) taxonomy: Organic Agents (humans), Probabilistic Agents (AI models), and Deterministic Agents (code). The Decision Profile is the formal basis for actor characterization.
+Understanding different actors' strengths, limitations, and optimal instruction patterns. Grounded in the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md) taxonomy and the [9 Internal Components](../../architecture/agent-architecture.md#the-9-internal-components) framework. The Decision Profile provides the summary; the 9 Internal Components provide the detail for actor characterization.
 
-- **Actor taxonomy**: Characterizing actor types using Decision Profiles — logic engine, latency, reliability envelope, failure mode, adaptability, cost (Opus, Sonnet, Haiku, different AI providers, human experience levels)
-- **Failure mode mapping**: What goes wrong for each actor type (skip-ahead, context loss, rule drift, over-interpretation)
-- **Optimal patterns**: What instruction styles work best for each actor type (explicit vs. inferential, structured vs. flexible)
-- **Adaptation strategies**: When to write actor-specific process variants vs. when a single process can work universally
+- **Actor taxonomy**: Characterizing actor types using the 9 Internal Components — specifically, how their Capabilities, Attributes, Skills, and Memory differ. For example: Opus has broader Capabilities but higher Attributes cost than Haiku; a senior contributor has deeper Memory but the same Attributes limits as a junior.
+- **Failure mode mapping by component**: What goes wrong for each actor type, traced to specific components. Skip-ahead = Workflows gap (missing steps). Context loss = Internal Context overflow (Attributes limit). Rule drift = Policies misunderstanding. Over-interpretation = Traits bias amplification. Hallucination = Memory gap + Skills overreach.
+- **Optimal patterns by component**: What instruction styles work best, informed by which components the actor relies on. Actors with deep Memory need less explicit Workflows. Actors with narrow Attributes (limited context window) need compact Internal Context.
+- **Adaptation strategies**: When to write actor-specific process variants vs. when a single process can work universally — decided by comparing which Internal Components differ between actor types for the task at hand.
 
 ### C5 — Process Effectiveness Measurement
 

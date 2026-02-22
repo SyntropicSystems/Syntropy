@@ -22,7 +22,9 @@ tags: [trust, ai, control, p0]
 ## Summary
 User-configurable controls for how much autonomy the AI has. The system provides granular control over AI behavior through global, per-action, and per-source confidence thresholds, plus training and audit modes for onboarding and review.
 
-In the [Heterogeneous Agent Architecture](../architecture/agent-architecture.md), confidence thresholds are the formal mechanism implementing the **Boundary of Trust** between Organic Agents (users) and Probabilistic Agents (AI). They define the calibration point where the system transitions from "suggest to the human" to "act autonomously" — the dynamic boundary between Organic authority and Probabilistic interpretation.
+In the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md), confidence thresholds are the formal mechanism implementing the **Boundary of Trust** between Organic Agents (users) and Probabilistic Agents (AI). They define the calibration point where the system transitions from "suggest to the human" to "act autonomously" — the dynamic boundary between Organic authority and Probabilistic interpretation.
+
+In [Internal Component](../../architecture/agent-architecture.md#the-9-internal-components) terms: confidence thresholds are **Deterministic Agent Skills** (pure math) that gate the flow between the Probabilistic Agent's output and the Organic Agent's **Internal Context**. The threshold values themselves are shaped by the Organic Agent's **Policies** (how much autonomy they want to grant) and refined by the Probabilistic Agent's **Memory** (historical accuracy for this pattern).
 
 ## Jobs Addressed
 - J4 — Maintain Control While Delegating to AI (primary)

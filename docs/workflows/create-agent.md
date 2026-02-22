@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [wf-add-feature]
+  related: [wf-add-feature, arch-agent-architecture, dp02]
 ---
 
 # Workflow: Create a New Agent
@@ -40,7 +40,7 @@ A new sub-agent is needed because:
 
 ### Step 3: Create the Manifest File
 
-Create the agent manifest using this structure:
+Create the agent manifest using this structure. Each section maps to an [Internal Component](../architecture/agent-architecture.md#the-9-internal-components) from the Heterogeneous Agent Architecture — the manifest is how you fill in the 9 components for a dev platform agent:
 
 ```markdown
 ---
@@ -66,14 +66,17 @@ Who is this agent? What does it own? One paragraph.
 → list of inherited manifests with what they provide
 
 ## Own Context (load in addition to inherited)
-### Always — documents always loaded
-### On Demand — documents loaded for specific tasks
-### Reference — documents consulted occasionally
+### Always — documents always loaded          ← populates Memory
+### On Demand — documents loaded for specific tasks  ← extends Memory per-task
+### Reference — documents consulted occasionally     ← available Memory
 
-## Own Rules
+## Own Rules                                        ← defines Policies
 Numbered list of domain-specific rules.
 
-## Decision Authority
+## Own Workflows                                    ← defines Workflows + Skills
+Processes this agent can execute.
+
+## Decision Authority                               ← defines Capabilities boundary
 ### Autonomous — what this agent can decide on its own
 ### Escalate — what requires escalation and to whom
 

@@ -41,23 +41,25 @@ The intelligence layer that analyzes every card and either suggests or auto-exec
 
 ### AI Roles/Agents
 
-In the [Heterogeneous Agent Architecture](../architecture/agent-architecture.md), the AI Action Engine operates as a **Probabilistic Agent** — trusted with interpretation but never absolute state changes without Deterministic validation. All AI outputs pass through Deterministic validation (confidence scoring, schema checks, business rules) before becoming system truth.
+In the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md), the AI Action Engine operates as a **Probabilistic Agent** — trusted with interpretation but never absolute state changes without Deterministic validation. All AI outputs pass through Deterministic validation (confidence scoring, schema checks, business rules) before becoming system truth.
 
-- **Personal Assistant:** Scheduling, reminders, follow-ups, routine email management. (Probabilistic)
-- **Project Manager:** Task prioritization, dependency tracking, deadline management, status rollups. (Probabilistic + Deterministic for math)
-- **Domain Agents:** Specialized agents for specific contexts (e.g., financial emails get a "finance agent" that understands invoices, bills, subscriptions). (Probabilistic)
-- **Confidence Scoring & Threshold Enforcement:** Mathematical comparison, rule enforcement. (Deterministic)
-- **Human User:** Sets goals, overrides AI, resolves ambiguity, trains the system. (Organic)
+Each role is a Probabilistic Agent with distinct [Internal Components](../../architecture/agent-architecture.md#the-9-internal-components):
+
+- **Personal Assistant:** Skills: scheduling, reminders, follow-ups, routine email management. Policies: "reduce cognitive load on daily routines." Memory: user's scheduling patterns, communication preferences. (Probabilistic)
+- **Project Manager:** Skills: task prioritization, dependency tracking, deadline management, status rollups. Policies: "keep projects on track, surface blockers early." Memory: project history, velocity patterns. (Probabilistic Skills + Deterministic Skills for math)
+- **Domain Agents:** Specialized agents whose Traits, Skills, and Memory are tuned for specific contexts (e.g., the Finance Agent's Memory includes invoice patterns; its Skills include expense categorization). (Probabilistic)
+- **Confidence Scoring & Threshold Enforcement:** Deterministic Agent. Skills: mathematical threshold comparison. Workflows: "if score > X then auto-execute; else suggest." Policies: N/A (commands only). (Deterministic)
+- **Human User:** Organic Agent. Policies: personal goals ("clear my inbox," "train the AI"). Skills: judgment, override, correction. Memory: lived experience, domain knowledge. (Organic)
 
 ### Confidence-Based Handoff
 
-The confidence system implements the [Boundary of Trust](../architecture/agent-architecture.md) between agent types:
+The confidence system implements the [Boundary of Trust](../../architecture/agent-architecture.md) between agent types. In [component](../../architecture/agent-architecture.md#the-9-internal-components) terms, this is where Internal Components flow between all three agent types:
 
-- The confidence meter is always visible on cards with AI suggestions.
-- Users (Organic Agents) can see *why* the AI (Probabilistic Agent) chose an action (explainability).
-- Every AI action (auto or suggested) is logged in the audit trail via Deterministic Agents (event sourcing).
-- User corrections feed back into the learning system to improve Probabilistic Agent calibration over time.
-- When Probabilistic Agents encounter low-confidence scenarios, Graceful Degradation routes the decision to the Organic Agent.
+- The confidence meter feeds the Organic Agent's **Internal Context** — making the Probabilistic Agent's reasoning visible so the human can exercise authority.
+- Users (Organic Agents) can see *why* the AI chose an action: the Probabilistic Agent's **Internal Context** (what data it considered) and **Skills** (what logic it applied) are surfaced as explainability.
+- Every AI action (auto or suggested) is stored in **Memory** (the event log) by Deterministic Agent **Skills** (event sourcing).
+- User corrections (Organic Agent **Skills** applied with judgment) feed back into Probabilistic Agent **Memory** to improve calibration over time.
+- When Probabilistic Agent **Internal State** shifts to "low confidence," Graceful Degradation routes the decision to the Organic Agent's **Internal Context** for human judgment.
 
 ## Dependencies
 

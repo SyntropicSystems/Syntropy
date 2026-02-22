@@ -22,7 +22,9 @@ Syntropy OS (working name: TaskCard) is built on four pillars:
 
 ## Heterogeneous Agent Architecture
 
-All participants in the system — humans, AI models, and hardcoded programs — are Agents: first-class citizens sharing equal systemic privileges. They observe the environment, process state data, and execute actions through the same interfaces. They are classified not by what they are, but by their Decision Profile: **Organic Agents** (humans) provide authority and judgment, **Probabilistic Agents** (AI) provide adaptability and interpretation, **Deterministic Agents** (code) provide reliability and speed. This taxonomy provides the shared vocabulary for every product, architecture, and process decision. See the [Heterogeneous Agent Architecture](../architecture/agent-architecture.md) specification.
+All participants in the system — humans, AI models, and hardcoded programs — are Agents: first-class citizens sharing equal systemic privileges. Every agent is composed of the same **9 Internal Components** — Capabilities, Attributes, Skills, Memory, Internal Context, Internal State, Traits, Policies, and Workflows — defined by their job and purpose, never by implementation details. A junior designer and a senior engineer use the same words to describe why any actor behaved the way it did.
+
+Agents are classified not by what they are, but by their Decision Profile: **Organic Agents** (humans) provide authority and judgment, **Probabilistic Agents** (AI) provide adaptability and interpretation, **Deterministic Agents** (code) provide reliability and speed. This taxonomy — the three actor types and the nine components they share — provides the shared vocabulary for every product, architecture, and process decision. See the [Heterogeneous Agent Architecture](../architecture/agent-architecture.md) specification.
 
 ## Human-AI Collaboration
 

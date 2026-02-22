@@ -21,7 +21,7 @@ tags: [dev-platform, core, agents, p0]
 
 A trait-based composition system where specialized agents own different domains of the product. Every agent inherits shared base traits (context, rules, workflows) and composes its own domain-specific capabilities. Agents can be humans or AI — the manifests define scope, authority, and process regardless of executor.
 
-This system operates within the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md): human contributors are Organic Agents, AI models are Probabilistic Agents, and validation/enforcement code is Deterministic Agents. The trait-based composition defines *what* an agent owns; the Decision Profile defines *how* it processes logic.
+This system operates within the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md): human contributors are Organic Agents, AI models are Probabilistic Agents, and validation/enforcement code is Deterministic Agents. Every agent — regardless of type — is composed of the same [9 Internal Components](../../architecture/agent-architecture.md#the-9-internal-components) (Capabilities, Attributes, Skills, Memory, Internal Context, Internal State, Traits, Policies, Workflows). The trait-based composition defines *what* an agent owns; the Decision Profile summarizes *how* its components interact; the 9 Internal Components provide the *detail* of what fills each slot for that specific agent.
 
 ## Jobs Addressed
 
@@ -39,15 +39,16 @@ This system operates within the [Heterogeneous Agent Architecture](../../archite
 
 ### Agent Manifest Structure
 
-Each agent manifest defines:
+Each agent manifest defines the agent's [Internal Components](../../architecture/agent-architecture.md#the-9-internal-components) in dev-platform terms:
+
 - **Identity**: name, scope, what it's the DRI (Directly Responsible Individual) for
-- **Inherited context**: which files to load before doing anything
-- **Own context**: additional files specific to this agent's domain
-- **Own rules**: domain-specific constraints and practices
-- **Own workflows**: processes this agent can execute
-- **Decision authority**: what it can decide autonomously vs. what requires escalation
-- **Delegates to / Delegated from**: how work flows between agents
-- **Domain State**: living snapshot of the domain's current understanding (see DP09)
+- **Inherited context**: files loaded before doing anything → populates the agent's **Memory** (background knowledge)
+- **Own context**: additional domain-specific files → extends **Memory** with specialized knowledge
+- **Own rules**: domain-specific constraints and practices → defines the agent's **Policies** (behavioral guidelines)
+- **Own workflows**: processes this agent can execute → defines the agent's **Workflows** (procedures) and **Skills** (executable actions)
+- **Decision authority**: what it can decide autonomously vs. what requires escalation → maps to the agent's **Boundary of Trust** and **Capabilities** boundary
+- **Delegates to / Delegated from**: how work flows between agents → interaction between agents' **Skills** and **Internal Context**
+- **Domain State**: living snapshot of the domain's current understanding (see DP09) → the agent's active **Internal Context** and **Internal State**
 
 ### Routing
 

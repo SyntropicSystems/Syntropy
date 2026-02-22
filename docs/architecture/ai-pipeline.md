@@ -28,13 +28,13 @@ Cloud Functions + Pub/Sub. Events trigger pipeline stages:
 ingest -> analyze -> decide -> execute -> learn
 ```
 
-Each stage maps to a specific agent type in the Heterogeneous Agent Architecture:
+Each stage maps to a specific agent type and engages specific [Internal Components](agent-architecture.md#the-9-internal-components):
 
-- **Ingest**: New data enters the system (email received, note captured, artifact uploaded, task created). **(Deterministic — event routing, schema validation)**
-- **Analyze**: LLM processes the content -- extracts intent, classifies type, identifies entities, generates structured output. **(Probabilistic — LLM interpretation)**
-- **Decide**: Confidence scoring determines the action path: auto-execute (>90%), suggest (60-90%), or present without recommendation (<60%). **(Deterministic — threshold math, the Boundary of Trust)**
-- **Execute**: For auto-execute actions, the system takes the action and logs an `AIAutoExecuted` event. For suggestions, the system presents the recommendation to the user (Organic Agent). **(Deterministic execution + Organic review)**
-- **Learn**: User responses (accept, reject, modify) are logged as training signals. The preference model updates. **(Organic → Deterministic storage → Probabilistic model improvement)**
+- **Ingest**: New data enters the system (email received, note captured, artifact uploaded, task created). **(Deterministic Agent)** — its Skills (event routing, schema validation) process the raw input. The event becomes part of system Memory (the event log).
+- **Analyze**: LLM processes the content — extracts intent, classifies type, identifies entities, generates structured output. **(Probabilistic Agent)** — its Internal Context is the data slice from Ingest; its Skills (classify, extract, summarize) produce structured output; its Memory (training data + past corrections) informs interpretation.
+- **Decide**: Confidence scoring determines the action path: auto-execute (>90%), suggest (60-90%), or present without recommendation (<60%). **(Deterministic Agent)** — its Skills (threshold math) and Workflows ("if score > X then Y") implement the Boundary of Trust. The confidence score is the bridge between the Probabilistic Agent's output and the next step.
+- **Execute**: For auto-execute actions, the system takes the action and logs an `AIAutoExecuted` event. For suggestions, the system presents the recommendation to the user. **(Deterministic Skills for execution + Organic Internal Context for review)** — the suggestion enters the Organic Agent's Attention, where their Policies (personal goals) and Internal State (current focus level) determine the response.
+- **Learn**: User responses (accept, reject, modify) are logged as training signals. The preference model updates. **(Organic Skills → Deterministic Memory → Probabilistic Memory)** — the Organic Agent's corrections (Skills applied with judgment) are stored by Deterministic Agents and incorporated into the Probabilistic Agent's Memory for future decisions.
 
 ## LLM Calls
 
@@ -45,13 +45,13 @@ Each stage maps to a specific agent type in the Heterogeneous Agent Architecture
 
 ## Domain Agents
 
-Specialized prompt + context strategies per domain. Each agent has domain-specific knowledge and instructions:
+Each domain agent is a Probabilistic Agent with domain-specific [Internal Components](agent-architecture.md#the-9-internal-components). They share the same Capabilities (pattern recognition, language understanding) but differ in their Skills, Memory, Traits, and Policies:
 
-- **Email Agent**: Understands email conventions, thread context, sender relationships, reply patterns. Handles: classify, suggest reply, archive, create project from thread.
-- **Finance Agent**: Understands invoices, bills, subscriptions, payment patterns. Handles: categorize expenses, detect bills, track subscriptions, payment reminders.
-- **Home Agent**: Understands measurements, contractors, maintenance, home improvement. Handles: extract measurements from photos, file contractor communications, track renovation timelines.
-- **Calendar Agent**: Understands scheduling, availability, meeting prep. Handles: schedule-aware prioritization, meeting prep cards, deadline tracking.
-- **Meta Agent**: The router. Determines which domain agent should handle an incoming item based on content classification. Routes to the appropriate specialist.
+- **Email Agent**: Memory includes email conventions, thread context, sender relationships. Skills: classify, suggest reply, archive, create project from thread. Traits tuned for communication patterns.
+- **Finance Agent**: Memory includes invoice patterns, billing cycles, subscription models. Skills: categorize expenses, detect bills, track subscriptions, generate payment reminders. Traits tuned for financial precision.
+- **Home Agent**: Memory includes measurements, contractor relationships, maintenance schedules. Skills: extract measurements from photos, file contractor communications, track renovation timelines. Traits tuned for physical-world context.
+- **Calendar Agent**: Memory includes scheduling patterns, availability history. Skills: schedule-aware prioritization, meeting prep card generation, deadline tracking. Traits tuned for time sensitivity.
+- **Meta Agent**: The router. Its Skills determine which domain agent's Capabilities and Memory best match an incoming item. Routes to the appropriate specialist based on content classification — a routing decision informed by each domain agent's Decision Profile.
 
 ## Artifact Intelligence Pipeline
 
@@ -65,20 +65,20 @@ Upload triggers a multi-stage Cloud Function pipeline:
 
 ## Learning Loop
 
-User corrections are stored as structured training signals:
+The learning loop is where the Internal Components of all three agent types interact most directly. User corrections (Organic Agent Skills applied with judgment) are stored as structured training signals by Deterministic Agents (Memory) and incorporated into Probabilistic Agent Memory:
 
 ```
 {
-  suggested: <what AI proposed>,
-  userChose: <what user actually did>,
-  context: <surrounding context at time of decision>
+  suggested: <what the Probabilistic Agent's Skills proposed>,
+  userChose: <what the Organic Agent's Skills + Policies selected>,
+  context: <the Internal Context both agents were working from>
 }
 ```
 
-- Per-user preference model adjusts confidence scoring over time. If the AI is 80% confident but the user rejects 50% of the time for a given pattern, the model recalibrates downward.
-- BigQuery aggregation for model fine-tuning. Event logs are exported to BigQuery for batch analysis and aggregate pattern detection.
-- Explicit training: Users can create rules ("Always do X when you see Y") that override learned behavior.
-- Users can review what the system has learned and delete/modify learned behaviors.
+- Per-user preference model adjusts confidence scoring over time. If the Probabilistic Agent's Skills produce 80% confidence but the Organic Agent rejects 50% of the time for a given pattern, the model recalibrates downward — the Probabilistic Agent's Memory evolves.
+- BigQuery aggregation for model fine-tuning. Event logs (Deterministic Memory) are exported for batch analysis and aggregate pattern detection.
+- Explicit training: Organic Agents can create rules ("Always do X when you see Y") that become part of the Probabilistic Agent's Policies — overriding learned behavior with direct directives.
+- Organic Agents can review what the system has learned (inspect Probabilistic Memory through their Internal Context) and delete/modify learned behaviors.
 
 ## Cost Control
 
