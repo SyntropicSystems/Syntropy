@@ -21,7 +21,7 @@ tags: [dev-platform, core, agents, p0]
 
 A trait-based composition system where specialized agents own different domains of the product. Every agent inherits shared base traits (context, rules, workflows) and composes its own domain-specific capabilities. Agents can be humans or AI — the manifests define scope, authority, and process regardless of executor.
 
-This system operates within the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md): human contributors are Organic Agents, AI models are Probabilistic Agents, and validation/enforcement code is Deterministic Agents. Every agent — regardless of type — is composed of the same [9 Internal Components](../../architecture/agent-architecture.md#the-9-internal-components) (Capabilities, Attributes, Skills, Memory, Internal Context, Internal State, Traits, Policies, Workflows). The trait-based composition defines *what* an agent owns; the Decision Profile summarizes *how* its components interact; the 9 Internal Components provide the *detail* of what fills each slot for that specific agent.
+This system operates within the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md): human contributors are Organic Actors, AI models are Probabilistic Actors, and validation/enforcement code is Deterministic Actors. Every agent — regardless of type — is described by the same [22-Term Agent Ontology](../../architecture/agent-architecture.md#the-22-term-agent-ontology) and exists within the Entity Hierarchy (Entity → Material → Artifact → Instrument → Actor). The trait-based composition defines *what* an agent owns; the Decision Profile summarizes *how* its ontology terms interact; agent manifests are Artifacts that, when loaded by an Actor, become the Instrument through which work is executed.
 
 ## Jobs Addressed
 
@@ -39,16 +39,16 @@ This system operates within the [Heterogeneous Agent Architecture](../../archite
 
 ### Agent Manifest Structure
 
-Each agent manifest defines the agent's [Internal Components](../../architecture/agent-architecture.md#the-9-internal-components) in dev-platform terms:
+Each agent manifest is an Artifact (shaped markdown with Affordance: Load, Execute) that defines the agent's [ontology terms](../../architecture/agent-architecture.md#the-22-term-agent-ontology) in dev-platform terms:
 
-- **Identity**: name, scope, what it's the DRI (Directly Responsible Individual) for
-- **Inherited context**: files loaded before doing anything → populates the agent's **Memory** (background knowledge)
+- **Identity**: name, scope, what it's the DRI for — defines the agent's **Mission** scope
+- **Inherited context**: files loaded before doing anything → populates **Memory** (background knowledge)
 - **Own context**: additional domain-specific files → extends **Memory** with specialized knowledge
-- **Own rules**: domain-specific constraints and practices → defines the agent's **Policies** (behavioral guidelines)
-- **Own workflows**: processes this agent can execute → defines the agent's **Workflows** (procedures) and **Skills** (executable actions)
-- **Decision authority**: what it can decide autonomously vs. what requires escalation → maps to the agent's **Boundary of Trust** and **Capabilities** boundary
-- **Delegates to / Delegated from**: how work flows between agents → interaction between agents' **Skills** and **Internal Context**
-- **Domain State**: living snapshot of the domain's current understanding (see DP09) → the agent's active **Internal Context** and **Internal State**
+- **Own rules**: domain-specific constraints → defines **Policies** (behavioral guidelines) and **Rules** (enforceable constraints)
+- **Own workflows**: processes this agent can execute → defines **Workflows** (procedures) and **Skills** (executable Actions)
+- **Decision authority**: what it can decide autonomously vs. escalate → maps to **Permissions** (the Boundary of Trust)
+- **Delegates to / Delegated from**: how work flows between agents → defines the **Protocol** for inter-agent coordination
+- **Domain State**: living snapshot of domain understanding (see DP09) → the agent's active **State** (Internal State + local knowledge)
 
 ### Routing
 

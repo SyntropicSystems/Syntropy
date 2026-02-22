@@ -40,7 +40,7 @@ A new sub-agent is needed because:
 
 ### Step 3: Create the Manifest File
 
-Create the agent manifest using this structure. Each section maps to an [Internal Component](../architecture/agent-architecture.md#the-9-internal-components) from the Heterogeneous Agent Architecture — the manifest is how you fill in the 9 components for a dev platform agent:
+Create the agent manifest using this structure. Each section maps to a term from the [22-Term Agent Ontology](../architecture/agent-architecture.md#the-22-term-agent-ontology) — the manifest is an Artifact that defines how the ontology fills in for this specific dev platform agent:
 
 ```markdown
 ---
@@ -66,19 +66,19 @@ Who is this agent? What does it own? One paragraph.
 → list of inherited manifests with what they provide
 
 ## Own Context (load in addition to inherited)
-### Always — documents always loaded          ← populates Memory
+### Always — documents always loaded          ← populates Memory (#14)
 ### On Demand — documents loaded for specific tasks  ← extends Memory per-task
-### Reference — documents consulted occasionally     ← available Memory
+### Reference — documents consulted occasionally     ← Artifacts available as Memory
 
-## Own Rules                                        ← defines Policies
+## Own Rules                                        ← defines Policies (#5) + Rules (#8)
 Numbered list of domain-specific rules.
 
-## Own Workflows                                    ← defines Workflows + Skills
+## Own Workflows                                    ← defines Workflows (#17) + Skills (#18)
 Processes this agent can execute.
 
-## Decision Authority                               ← defines Capabilities boundary
-### Autonomous — what this agent can decide on its own
-### Escalate — what requires escalation and to whom
+## Decision Authority                               ← defines Permissions (#9)
+### Autonomous — what this agent has Permission for
+### Escalate — what requires escalation (Protocol)
 
 ## Delegates To
 Other agents this one can delegate work to.

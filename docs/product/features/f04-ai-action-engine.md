@@ -41,25 +41,25 @@ The intelligence layer that analyzes every card and either suggests or auto-exec
 
 ### AI Roles/Agents
 
-In the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md), the AI Action Engine operates as a **Probabilistic Agent** — trusted with interpretation but never absolute state changes without Deterministic validation. All AI outputs pass through Deterministic validation (confidence scoring, schema checks, business rules) before becoming system truth.
+In the [Heterogeneous Agent Architecture](../../architecture/agent-architecture.md), the AI Action Engine operates as a **Probabilistic Agent** — trusted with interpretation but never having Permission for absolute state changes without Deterministic validation. All AI outputs (Actions → Events) pass through Deterministic Rules enforcement (confidence scoring, schema checks, business Rules) before becoming system truth.
 
-Each role is a Probabilistic Agent with distinct [Internal Components](../../architecture/agent-architecture.md#the-9-internal-components):
+Each role maps to the [22-Term Agent Ontology](../../architecture/agent-architecture.md#the-22-term-agent-ontology):
 
-- **Personal Assistant:** Skills: scheduling, reminders, follow-ups, routine email management. Policies: "reduce cognitive load on daily routines." Memory: user's scheduling patterns, communication preferences. (Probabilistic)
-- **Project Manager:** Skills: task prioritization, dependency tracking, deadline management, status rollups. Policies: "keep projects on track, surface blockers early." Memory: project history, velocity patterns. (Probabilistic Skills + Deterministic Skills for math)
-- **Domain Agents:** Specialized agents whose Traits, Skills, and Memory are tuned for specific contexts (e.g., the Finance Agent's Memory includes invoice patterns; its Skills include expense categorization). (Probabilistic)
-- **Confidence Scoring & Threshold Enforcement:** Deterministic Agent. Skills: mathematical threshold comparison. Workflows: "if score > X then auto-execute; else suggest." Policies: N/A (commands only). (Deterministic)
-- **Human User:** Organic Agent. Policies: personal goals ("clear my inbox," "train the AI"). Skills: judgment, override, correction. Memory: lived experience, domain knowledge. (Organic)
+- **Personal Assistant:** A Probabilistic Actor. Skills: scheduling, reminders, follow-ups, routine email management. Policies: "reduce cognitive load on daily routines." Memory: user's scheduling patterns, communication preferences. Each suggestion is an Action that costs Effort (API tokens) and produces an Event.
+- **Project Manager:** A Probabilistic Actor (with Deterministic Skills for math). Skills: task prioritization, dependency tracking, deadline management, status rollups. Policies: "keep projects on track, surface blockers early." Memory: project history, velocity patterns.
+- **Domain Agents:** Probabilistic Actors whose Traits, Skills, and Memory are tuned for specific domains (e.g., the Finance Agent's Memory includes invoice patterns; its Skills include expense categorization). Each domain agent has its own Policies scoped to its domain.
+- **Confidence Scoring & Threshold Enforcement:** A Deterministic Actor. Skills: mathematical threshold comparison. Workflows: "if score > X then check Permissions; if Permitted, auto-execute Action." Policies: N/A (absolute commands only). This agent enforces the Boundary of Trust.
+- **Human User:** An Organic Actor. Policies: personal goals (Mission: "clear my inbox," "train the AI"). Skills: judgment, override, correction. Memory: lived experience, domain knowledge. Their corrections are Actions that produce Events feeding the learning loop.
 
 ### Confidence-Based Handoff
 
-The confidence system implements the [Boundary of Trust](../../architecture/agent-architecture.md) between agent types. In [component](../../architecture/agent-architecture.md#the-9-internal-components) terms, this is where Internal Components flow between all three agent types:
+The confidence system implements the [Boundary of Trust](../../architecture/agent-architecture.md) — specifically, it is the **Permissions** mechanism that gates the Probabilistic Agent's Actions. In [ontology](../../architecture/agent-architecture.md#the-22-term-agent-ontology) terms, this is a Protocol (multi-agent sequence) where all three agent types participate:
 
-- The confidence meter feeds the Organic Agent's **Internal Context** — making the Probabilistic Agent's reasoning visible so the human can exercise authority.
-- Users (Organic Agents) can see *why* the AI chose an action: the Probabilistic Agent's **Internal Context** (what data it considered) and **Skills** (what logic it applied) are surfaced as explainability.
-- Every AI action (auto or suggested) is stored in **Memory** (the event log) by Deterministic Agent **Skills** (event sourcing).
-- User corrections (Organic Agent **Skills** applied with judgment) feed back into Probabilistic Agent **Memory** to improve calibration over time.
-- When Probabilistic Agent **Internal State** shifts to "low confidence," Graceful Degradation routes the decision to the Organic Agent's **Internal Context** for human judgment.
+- The confidence meter creates an **Observation** for the Organic Agent — making the Probabilistic Agent's reasoning visible so the human can exercise authority from their **Internal Context**.
+- Users can see *why* the AI chose an Action: the Probabilistic Agent's Internal Context (what data it considered) and Skills (what logic it applied) are surfaced. This is Transparency Over Magic in ontology terms.
+- Every AI Action (auto or suggested) produces an **Event** stored in the event log (**Memory**) by Deterministic Agent Skills. Events are immutable (a Mechanic).
+- User corrections are **Actions** that produce **Events** feeding back into Probabilistic Agent **Memory**. Effort is spent (the user's cognitive load) to improve the system.
+- When the Probabilistic Agent's **State** shifts to "low confidence," the Graceful Degradation **Protocol** routes the Task to the Organic Agent for judgment.
 
 ## Dependencies
 

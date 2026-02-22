@@ -9,7 +9,7 @@ updated: 2026-02-22
 refs:
   related: [arch-ai-pipeline, f04, f10, dp02, dp15, principles, manifesto, wf-create-agent]
   decided-by: []
-tags: [architecture, agents, foundational, heterogeneous, internal-components]
+tags: [architecture, agents, foundational, heterogeneous, ontology]
 ---
 
 # Heterogeneous Agent Architecture
@@ -18,7 +18,9 @@ tags: [architecture, agents, foundational, heterogeneous, internal-components]
 
 The Heterogeneous Agent Architecture is a foundational specification for Syntropy OS. It establishes that **all participants in the system — humans, AI models, and hardcoded programs — are Agents**, sharing the same systemic privileges and interacting through a universal interface. Agents are not defined by what they are (biological, neural net, or compiled code), but by their **Decision Profile** — how they process logic to arrive at a conclusion.
 
-This architecture provides the shared vocabulary and formal boundaries that prevent ambiguity when designing, building, and reasoning about the system. It ensures that every component — from a user tapping a button, to an LLM interpreting natural language, to a Cloud Function enforcing business rules — is understood through the same lens.
+This architecture provides a **22-Term Agent Ontology** — the complete shared vocabulary for designing, building, debugging, and reasoning about the system. Every term describes **function and purpose**, never plumbing. A junior designer and a senior engineer read the same words and immediately understand why any actor did what it did.
+
+The ontology is organized into five systems, an entity hierarchy, and a complete execution loop that covers everything from the philosophy of the project down to the physics of a single operation.
 
 ## Core Philosophy: The First-Class Citizen Principle
 
@@ -39,12 +41,12 @@ All three participate in the same system through the same interfaces. The archit
 
 ## The Agent Taxonomy
 
-To avoid the ambiguity of the word "Agent," the platform uses the following modifiers to describe the three pillars of the architecture. Every actor in the system is one of these three types. Each type shares the same [9 Internal Components](#the-9-internal-components) but fills them differently based on its nature.
+To avoid the ambiguity of the word "Agent," the platform uses the following modifiers to describe the three pillars of the architecture. Every actor in the system is one of these three types.
 
 ### Organic Agent
 
-| Attribute | Description |
-|-----------|-------------|
+| Property | Description |
+|----------|-------------|
 | **Logic Engine** | Biological / Intuitive |
 | **Key Strength** | High-level strategy, moral judgment, creative leaps, empathy, contextual wisdom |
 | **Key Constraint** | Slow latency, highly unpredictable, subject to fatigue, limited working memory |
@@ -54,8 +56,8 @@ The human. Organic Agents bring irreplaceable capabilities: moral reasoning, cre
 
 ### Probabilistic Agent
 
-| Attribute | Description |
-|-----------|-------------|
+| Property | Description |
+|----------|-------------|
 | **Logic Engine** | Machine Learning / AI (LLMs, neural networks, statistical models) |
 | **Key Strength** | High adaptability, pattern recognition, natural language understanding, dynamic response to novel situations |
 | **Key Constraint** | Black-box reasoning, prone to drift or hallucination, requires validation for high-stakes decisions |
@@ -65,8 +67,8 @@ The AI. Probabilistic Agents excel at tasks that require flexibility, interpreta
 
 ### Deterministic Agent
 
-| Attribute | Description |
-|-----------|-------------|
+| Property | Description |
+|----------|-------------|
 | **Logic Engine** | Procedural Code / Rules (functions, scripts, rule engines, state machines) |
 | **Key Strength** | 100% reliability, instant execution (zero latency), mathematically provable correctness |
 | **Key Constraint** | Extreme rigidity; fails completely if an unprogrammed edge case occurs |
@@ -74,100 +76,373 @@ The AI. Probabilistic Agents excel at tasks that require flexibility, interpreta
 
 The machine. Deterministic Agents are the bedrock of system reliability. When the answer is knowable and the rules are complete, a Deterministic Agent should handle it — no LLM call needed, no human intervention required. They are the fastest, cheapest, and most reliable agents in the system.
 
-## The 9 Internal Components
+## The Entity Hierarchy
 
-Every agent — regardless of type — is composed of nine internal components. These components are defined by their **job**, not by how they are implemented. A junior designer and a senior engineer can both look at this list and immediately understand why an actor did what it did.
+Before defining what agents *think* and *do*, we must define what **exists** in the system. Everything in the universe of Syntropy OS — from a raw data string to a human user — is an Entity. Entities are arranged in a hierarchy of increasing complexity:
 
-### Universal Job Descriptions
+### Master Hierarchy
 
-Before splitting by actor type, here is what each component means at a conceptual level for **any** entity in the system:
+| Level | Name | Role | Status | What It Is |
+|-------|------|------|--------|------------|
+| 0 | **Entity** | The Root | Exists | Anything that can be assigned a State. The abstract base class of all things. |
+| 1 | **Material** | The Substance | Inert | Raw, unshaped physical or digital stuff. Has State (it is somewhere) and Attributes (it has properties — file size, mass, byte count). |
+| 2 | **Artifact** | The Form | Potential | Material that has been shaped with an Affordance — a potential use. Still static, but it now contains purpose. |
+| 3 | **Instrument** | The Tool | Kinetic | An Artifact that is actively engaged in a process — the moment it is "brought to life" by a Runtime. Provides Skills to the Agent wielding it. |
+| 4 | **Actor** | The Agent | Intentional | A complex system of Materials and Artifacts that has developed Internal Context and Intent. The decision-maker. |
 
-| Component | The Job | One-Line Role |
-|-----------|---------|---------------|
-| **Capabilities** | The Potential | What the actor is fundamentally able to perceive or do |
-| **Attributes** | The Boundaries | The absolute, measurable limits of those capabilities — how fast, how far, how much |
-| **Skills** | The Tools | Specific, actionable tasks the actor knows how to execute to affect the world |
-| **Memory** | The History | The storage of past experiences, knowledge, and rules used to inform future choices |
-| **Internal Context** | The Attention | The immediate, active awareness of the present situation — what the actor is focused on right now |
-| **Internal State** | The Mindset / Posture | The actor's current operating mode or condition, which dictates how it reacts to the context |
-| **Traits** | The Disposition | Innate, persistent biases that flavor decision-making without changing the actual rules |
-| **Policies** | The Mission | The overarching goals or behavioral guidelines the actor is trying to achieve |
-| **Workflows** | The Procedure | The step-by-step logical process used to apply skills to solve a problem |
+### Definitions
 
-These nine components are intentionally free of implementation jargon. They describe **function and purpose**, never plumbing. A "Memory" is not a "RAG pipeline" or a "vector database" — it is the history the actor draws on to make decisions. A "Skill" is not an "API endpoint" — it is a task the actor knows how to do. This vocabulary is designed so that every contributor — product, design, engineering, QA — shares one language when reasoning about any actor in the system.
+**Entity** — The most abstract base class. An Entity is anything that exists in the simulation and can be assigned a State. All Entities have Attributes (size, presence, properties) and are subject to Mechanics (the inviolable rules of the environment). The job of an Entity is simply to *be*.
 
-### Components by Actor Type
+**Material** — The simplest, unshaped form of an Entity. Raw "stuff" with no design. Every Artifact is made of Material, but not all Material is an Artifact. *Examples:* A raw data string. A pool of unformatted log entries. A sequence of unprocessed bits. A blank sheet of paper. They are "there," they have size and state, but they have no design.
 
-#### Organic Agent (The Human)
+**Artifact** — An Entity that has been shaped or composed with an **Affordance** (a potential use). It is Material + Form. This is the first level of "created" existence — something an agent or process has structured for a purpose. An Artifact is still static: it sits in the world waiting to be used. *Examples:* A code file (bits shaped into logic — affords Execute or Edit). A printed map (paper shaped into information — affords Read). A configuration file (bytes shaped into structure — affords Parse). A rifle (metal shaped into a weapon — affords Fire).
 
-**Job:** To provide creative, intuitive, and high-level strategic direction, driven by human motivation.
+**Instrument** — An Artifact that is currently engaged in an active process. It is Artifact + Runtime. The moment an external force (computation, physics, human effort) activates the Artifact's Affordance, it becomes an Instrument. An Instrument provides Skills to the Agent wielding it — the Agent temporarily "inherits" the tool's capabilities. *Examples:* A script while it is being interpreted. A CLI tool while processing a command. A map while a soldier is navigating by it. A rifle while it is firing.
 
-| Component | In Practice |
-|-----------|------------|
-| **Capabilities** | The physical ability to see the screen, hear the audio, and manipulate the input device |
-| **Attributes** | Human physical and mental limits — actual reaction time, susceptibility to fatigue, maximum attention span |
-| **Skills** | Acquired player/user mechanics — the ability to navigate the interface quickly, communicate clearly, make judgment calls |
-| **Memory** | Lived experiences, domain knowledge, recall of past interactions ("This pattern tricked me last time") |
-| **Internal Context** | Whatever specific part of the system the human is actively looking at or focusing on in this exact moment (meaning they might be blind to something right next to them) |
-| **Internal State** | Physiological and emotional condition — panicked, fully focused/in the zone, exhausted, frustrated, calm |
-| **Traits** | Natural interaction style or personality — inherently cautious, a delegator, a micromanager, a power user |
-| **Policies** | Personal motivations for using the system right now — "I want to clear my inbox," "I just want to check one thing," "I'm training the AI" |
-| **Workflows** | Mental routines and practiced tactics — "Check email, triage cards, review AI suggestions, archive done items" |
+**Actor** — The highest level of composition. A complex system of Materials and Artifacts that has developed its own internal lifecycle — Internal Context, Intent, Memory, and the ability to make decisions. This is where the three Agent types live: Organic, Probabilistic, and Deterministic. *Examples:* A human user. An LLM agent. An autonomous validation script with its own Mission.
 
-#### Probabilistic Agent (The AI)
+### The Affordance
 
-**Job:** To dynamically interpret the world, adapt to unpredictable human behavior, and make logical, context-aware decisions.
+An **Affordance** is a "verb" that an object offers to the world. It is the bridge between static Material and useful Artifact. A door handle affords pulling. A code file affords executing. A document affords reading. Affordances are what make an Artifact more than just raw Material — they define its *potential*.
 
-| Component | In Practice |
-|-----------|------------|
-| **Capabilities** | The ability to "read" complex situations, recognize patterns, and generate organic-feeling responses |
-| **Attributes** | The strict limits on how much information it can juggle at one time, and how long it takes to "think" before acting |
-| **Skills** | The specific in-system actions it has been trained to perform — classifying an email, suggesting a priority, generating a summary, identifying a dependency |
-| **Memory** | The accumulated database of past events and training history it references to understand what is happening |
-| **Internal Context** | The exact slice of current situational data it has successfully processed and is using to make its very next decision |
-| **Internal State** | Its current phase of cognitive processing — assessing a situation, formulating a plan, generating output, awaiting validation |
-| **Traits** | Its programmed personality biases — designed to act conservatively, aggressively, or balanced for a given domain |
-| **Policies** | The core directives it is instructed to prioritize above all else — "Reduce the user's cognitive load, even if it means doing more work yourself" |
-| **Workflows** | The logical sequence it follows to evaluate a problem, weigh the options, and decide on an outcome |
+When an Agent encounters an Artifact, it perceives its Affordances through the **Instrumental Interface Sequence**:
 
-#### Deterministic Agent (The Machine)
+1. **Discovery** — The Agent perceives the Artifact in its context. Through Memory (training or experience), it recognizes the Artifact's type and what it affords. A `.py` file affords Execute or Edit. A document affords Read. A validation schema affords Validate.
+2. **Authorization** — Before the Agent can use the Artifact, the system checks Permissions. The Agent may have the Capability to run a script, but lack the Permission. A Probabilistic Agent may see a `delete` action but lack authority to execute it without Organic approval.
+3. **Possession** — The Agent integrates the Artifact into its active State. Digitally: the AI agent loads the code into Internal Context. Physically: the user opens the file. The Agent temporarily inherits the Skills contained within that tool.
+4. **Execution** — The Agent initiates a Workflow that calls upon the tool's Skill. This costs Effort and causes an Event.
 
-**Job:** To flawlessly and instantly enforce the rules of the world, manage the math, and execute absolute commands without deviation.
+### The Code & Document Nuance
 
-| Component | In Practice |
-|-----------|------------|
-| **Capabilities** | The ability to execute precise, rule-based logic and manipulate system math instantly |
-| **Attributes** | The hard limits of the system — how many times per second it updates, max value caps, rate limits |
-| **Skills** | The literal, unbending functions it runs to keep the system working — spawning an event, computing a score, validating a schema, enforcing a security rule |
-| **Memory** | The stored data and variables it references to maintain the system's continuity — event logs, materialized views, configuration |
-| **Internal Context** | The specific set of active variables it is evaluating in this exact millisecond to determine if a rule has been met |
-| **Internal State** | Its literal, programmed condition at any given moment — "Processing," "Waiting," "Error," "Complete" |
-| **Traits** | The static baseline numbers assigned to it — its timeout is 5s, its retry count is 3, its priority weight is 0.8 |
-| **Policies** | N/A — a Deterministic Agent has no goals, motivations, or guidelines to interpret. It only has absolute commands it must blindly follow |
-| **Workflows** | The strict, unchanging sequence of "if this happens, then do that" logic |
+Code and documents can exist at different Entity levels depending on their State:
 
-### Why This Matters
+- **Code as Material**: A `.py` file sitting on disk. It is inert bits. No agency, no activity.
+- **Code as Artifact**: That same file, recognized as having an Affordance (Execute, Edit). It has purpose but is still static.
+- **Code as Instrument**: When an Agent "calls" or "runs" that file. It now provides a Skill (e.g., "sort this list," "validate this schema").
+- **Code as Actor**: When that code is an autonomous bot or agent script that has its own Mission and Internal Context.
 
-By framing every actor through the same nine components, the system achieves three things:
+A document is almost always a Static Entity (Artifact). Its job is to hold information that updates an Agent's Memory or Internal Context. The interaction: an Agent uses their Read Skill (Capability) on the Document (Artifact) to create an Observation, which updates the Agent's Internal Context.
 
-1. **Shared vocabulary across disciplines.** A product designer, a backend engineer, and a QA tester all use the same words to describe why an actor behaved the way it did. No one needs to translate between "technical" and "non-technical" language.
+> **The summary for any team member:** "An Entity is anything with a State. If it can't think, it's a Static (Material or Artifact). If it's a tool in use, it's an Instrument. If it thinks, it's an Actor. We use Instruments to change the State of Statics to achieve our Mission."
 
-2. **Composable reasoning about any interaction.** When two agents collaborate (e.g., a Probabilistic Agent suggests an action and a Deterministic Agent validates it), you can trace the interaction component by component: the Probabilistic Agent's Internal Context informed its Skills, which produced output that became the Deterministic Agent's Internal Context for its Workflows.
+## The 22-Term Agent Ontology
 
-3. **Systematic debugging.** When something goes wrong, you can ask: Was it a Capabilities problem (the actor couldn't perceive the input)? A Memory problem (it lacked the history to make a good call)? An Internal State problem (it was in the wrong mode)? A Policies problem (it was optimizing for the wrong goal)? This framework turns vague "the AI got it wrong" into precise "the Probabilistic Agent's Internal Context lacked the thread history (Memory gap), so its Skills produced a low-confidence classification."
+The ontology is organized into five systems that cover everything from the philosophy of the project down to the physics of a single operation. Every term is defined by its **job** — never by how it is implemented.
+
+### Master Reference
+
+| # | System | Term | The Job | One-Line Definition |
+|---|--------|------|---------|---------------------|
+| 1 | Philosophy & Drive | **First Principles** | The Bedrock | Undeniable foundational realities upon which the system is built |
+| 2 | Philosophy & Drive | **Principles** | The Core Values | Fundamental moral or logical propositions that justify the Mission |
+| 3 | Philosophy & Drive | **Doctrines** | The Codified Strategy | Formalized, overarching playbook of strategies adopted by the organization |
+| 4 | Philosophy & Drive | **Mission** | The Goal | The macro-objective or ultimate victory condition |
+| 5 | Philosophy & Drive | **Policies** | The Guidelines | Soft rules or behavioral guidelines used to achieve the Mission |
+| 6 | Philosophy & Drive | **Tasks** | The Milestones | Specific, measurable units of work with a definitive success/fail state |
+| 7 | Constraints | **Mechanics** | The Physics | Absolute, inviolable, hardcoded reality of the environment |
+| 8 | Constraints | **Rules** | The Regulations | Socially or systemically enforced boundaries of behavior |
+| 9 | Constraints | **Permissions** | The Authority | Systemic rights or access levels granted based on rank, role, or state |
+| 10 | Constraints | **Protocols** | The Shared Scripts | External, established sequences multiple agents follow to resolve a specific Event |
+| 11 | Anatomy | **Capabilities** | The Potential | What the actor is fundamentally able to perceive or do |
+| 12 | Anatomy | **Attributes** | The Hard Limits | Absolute, measurable numerical limits of an agent's Capabilities |
+| 13 | Anatomy | **Traits** | The Disposition | Persistent, inherent biases that flavor decision-making |
+| 14 | Anatomy | **Memory** | The History | Dormant storage of past experiences, training, and knowledge |
+| 15 | Mind | **Internal Context** | The Active Awareness | The exact slice of reality the agent is actively focused on right now |
+| 16 | Mind | **State** | The Snapshot | Sum-total snapshot of the agent at an exact instant — Internal State (mind) + Local Physical State (body/runtime) |
+| 17 | Execution Loop | **Workflows** | The Internal Procedure | Step-by-step logical sequence to string Skills together |
+| 18 | Execution Loop | **Skills** | The Executable Tools | Specific, actionable techniques the agent has been trained to perform |
+| 19 | Execution Loop | **Action** | The Atomic Output | Single, indivisible execution of a Skill |
+| 20 | Execution Loop | **Effort** | The Cost | Measurable toll or drain required to execute Actions |
+| 21 | Execution Loop | **Event** | The Objective Fact | A verifiable occurrence in the external world — a state change |
+| 22 | Execution Loop | **Observation** | The Perception | Successful intake of an Event into the agent's mind |
+
+---
+
+### SYSTEM 1: THE PHILOSOPHY & DRIVE
+
+*Why the system exists and what it is trying to accomplish.*
+
+#### 1. First Principles — The Bedrock
+
+**Definition:** The undeniable, foundational realities upon which the universe and the system are built. First Principles are not chosen; they are facts of existence.
+
+**Relationship & Boundary:** They dictate the Mechanics. First Principles sit beneath everything — they are the "why" beneath the "why." No agent, regardless of authority, can override a First Principle.
+
+**Syntropy OS:** "A human cannot attend to more than one complex decision at a time without degraded quality." "Information decays when stored only in human memory." "An LLM's output is probabilistic, not deterministic." These are the realities that necessitate the entire system.
+
+#### 2. Principles — The Core Values
+
+**Definition:** The fundamental moral or logical propositions that justify the Mission. The philosophical "True North."
+
+**Relationship & Boundary:** Principles generate Policies. They are the "Why" behind the rules. Principles do not change unless First Principles are re-evaluated.
+
+**Syntropy OS:** The [Design Principles](../vision/principles.md): "One Card at a Time," "Confidence-Based Handoff," "Transparency Over Magic," "Event-Sourced Everything," "The First-Class Citizen Principle."
+
+#### 3. Doctrines — The Codified Strategy
+
+**Definition:** A formalized, overarching playbook of strategies and Policies adopted by an entire organization. Sits between Principles and Protocols — it dictates the general approach, but doesn't dictate individual Actions.
+
+**Relationship & Boundary:** Doctrines produce the organization's general posture. They are durable and change slowly. They inform which Protocols are created and how Policies are weighted.
+
+**Syntropy OS:** "Event-Sourced Everything" as an architectural doctrine. "Heterogeneous Agent collaboration" as a process doctrine. "Trait-based agent composition" as a development doctrine. The [Core Philosophy](../vision/manifesto.md) pillars are the system's doctrines.
+
+#### 4. Mission — The Goal
+
+**Definition:** The macro-objective or ultimate victory condition. The highest authority for an active operation.
+
+**Relationship & Boundary:** A Mission necessitates the creation of Tasks. It is the destination, not the journey. Multiple Missions can be active simultaneously (one per Domain/Space).
+
+**Syntropy OS:** At the product level: "Remove mental overhead from the user's life." At the feature level: "Triage all emails in the inbox with >90% accuracy." At the task level: "Classify this specific email."
+
+#### 5. Policies — The Guidelines
+
+**Definition:** Soft rules, behavioral guidelines, or moral alignments used to achieve the Mission. Unlike Rules or Mechanics, a Policy *can* be broken by an agent if their Traits or the Context demands it — though consequences may follow.
+
+**Relationship & Boundary:** Policies guide Workflows. They are the "Rules of Engagement" — they tell the agent *how* to behave, not *what* is physically possible. Policies are scoped to agent type and domain.
+
+**Syntropy OS:**
+- *Organic Agent:* "I want to clear my inbox before lunch." "Never auto-reply to my boss."
+- *Probabilistic Agent:* "Reduce the user's cognitive load, even if it means doing more work." "When confidence is below 60%, always present options rather than a single suggestion."
+- *Deterministic Agent:* N/A — Deterministic Agents have no guidelines to interpret. They only have absolute commands.
+
+#### 6. Tasks — The Milestones
+
+**Definition:** A specific, measurable unit of work with a definitive "success" or "fail" state. Sub-steps of a Mission.
+
+**Relationship & Boundary:** To complete a Task, an agent must execute a Workflow. Tasks decompose Missions into actionable units. In Syntropy OS, a Card is the surface-level representation of a Task.
+
+**Syntropy OS:** "Classify this email." "Generate a summary of this artifact." "Validate this workspace contract." "Review the AI's suggestion for this card."
+
+---
+
+### SYSTEM 2: THE CONSTRAINTS
+
+*The boundaries of reality that no agent can wish away.*
+
+#### 7. Mechanics — The Physics
+
+**Definition:** The absolute, inviolable, hardcoded reality of the environment. Mechanics physically *cannot* be broken. They define the limits of Capabilities.
+
+**Relationship & Boundary:** Mechanics are the enforcement layer of First Principles. They are not chosen, negotiated, or overridden. They are the "Naturgesetz" — the laws of nature for the system.
+
+**Syntropy OS:** "A Firestore document cannot exceed 1MB." "An LLM context window has a token limit." "A network request has non-zero latency." "An event, once appended to the log, is immutable." "A human's working memory holds ~4 chunks simultaneously."
+
+#### 8. Rules — The Regulations
+
+**Definition:** Socially or systemically enforced boundaries of behavior. Rules *can* be broken, but doing so triggers punitive Protocols or system errors.
+
+**Relationship & Boundary:** Rules are distinct from Mechanics (which are impossible to break) and Policies (which are internal guidelines). Rules are external, shared constraints that all agents must respect.
+
+**Syntropy OS:** "Event schemas must be valid according to their version." "Security rules prevent cross-user data access." "Workspace contracts reject unknown keys." "Only the meta-agent can create new agents." The [Convention System](../product/dev-platform/features/dp05-convention-system.md) enforces structural Rules.
+
+#### 9. Permissions — The Authority
+
+**Definition:** Systemic rights or access levels granted based on rank, role, or state. The gatekeeper between Skills and Actions — you might have the Capability to do something, but lack the Permission.
+
+**Relationship & Boundary:** Permissions constrain what an agent can *do* regardless of what it *can* do. They are the formal implementation of the Boundary of Trust.
+
+**Syntropy OS:**
+- A Probabilistic Agent has the Capability to classify an email, but only has Permission to *suggest* an action when confidence is below the threshold — it lacks Permission to auto-execute.
+- A Deterministic Agent has the Capability to delete data, but only has Permission when the security rules authorize the requesting user.
+- An Organic Agent has the Capability to override any AI suggestion, but Deterministic Rules still validate their input against data integrity constraints.
+
+#### 10. Protocols — The Shared Scripts
+
+**Definition:** An external, established sequence of events that multiple agents are expected to follow to resolve a specific Event. Protocols are public, multi-agent scripts.
+
+**Relationship & Boundary:** Protocols dictate what the *team* must do; Workflows dictate how the *individual* agent does it. A Protocol coordinates between agents; a Workflow is internal to one agent.
+
+**Syntropy OS:** The Confidence-Based Handoff is a Protocol: Probabilistic Agent classifies → Deterministic Agent scores confidence → either auto-execute or present to Organic Agent for review. The [Domain DRI Review](../workflows/domain-review.md) is a Protocol. The [Plan/Apply](../architecture/plan-apply-engine.md) pattern is a Protocol (plan → review → apply).
+
+---
+
+### SYSTEM 3: THE ANATOMY
+
+*What the agent is made of — its permanent physical and cognitive structure.*
+
+#### 11. Capabilities — The Potential
+
+**Definition:** The fundamental potential of an agent to perceive or affect the world.
+
+**Relationship & Boundary:** Capabilities dictate which Skills can be learned and which Events can become Observations. Capabilities are bounded by Attributes.
+
+| Actor Type | In Practice |
+|------------|------------|
+| Organic | Physical ability to see the screen, hear audio, manipulate the input device, reason about ambiguity |
+| Probabilistic | Ability to "read" complex situations, recognize patterns, generate organic-feeling responses, process natural language |
+| Deterministic | Ability to execute precise, rule-based logic and manipulate system math instantly |
+
+#### 12. Attributes — The Hard Limits
+
+**Definition:** The absolute, measurable numerical limits of an agent's Capabilities. Determines how much Effort an agent can expend and limits the Internal Context.
+
+**Relationship & Boundary:** Attributes are the quantitative boundaries of Capabilities. When Attributes are depleted (e.g., Effort exhausts them), the agent fails or degrades.
+
+| Actor Type | In Practice |
+|------------|------------|
+| Organic | Reaction time, susceptibility to fatigue, maximum attention span, working memory capacity (~4 chunks) |
+| Probabilistic | Context window size (tokens), inference latency, maximum concurrent requests, cost per invocation |
+| Deterministic | Execution frequency (updates/second), max value caps, rate limits, timeout thresholds |
+
+#### 13. Traits — The Disposition
+
+**Definition:** Persistent, inherent biases that flavor an agent's decision-making. Traits filter how Policies are interpreted — they do not grant new abilities, they weight the math of a Workflow.
+
+**Relationship & Boundary:** A Trait does not change the Rules. A "cautious" agent and an "aggressive" agent follow the same Rules; they just choose different paths within those Rules.
+
+| Actor Type | In Practice |
+|------------|------------|
+| Organic | Natural interaction style — inherently cautious, a delegator, a micromanager, a power user |
+| Probabilistic | Programmed personality biases — conservative, aggressive, or balanced for a given domain |
+| Deterministic | Static baseline numbers — timeout is 5s, retry count is 3, priority weight is 0.8 |
+
+#### 14. Memory — The History
+
+**Definition:** The dormant storage of past experiences, training, and knowledge. Memory sits quietly until recalled into the Internal Context.
+
+**Relationship & Boundary:** Memory is the reservoir; Internal Context is the active working set drawn from it. Memory is bounded by Attributes (how much can be stored/accessed).
+
+| Actor Type | In Practice |
+|------------|------------|
+| Organic | Lived experiences, domain knowledge, recall of past interactions ("This pattern tricked me last time") |
+| Probabilistic | Training data, accumulated event history, learned user preferences, correction logs |
+| Deterministic | Event logs, materialized views, configuration files, stored variables |
+
+---
+
+### SYSTEM 4: THE MIND
+
+*How the agent processes reality — the cognitive workspace.*
+
+#### 15. Internal Context — The Active Awareness
+
+**Definition:** The exact slice of reality the agent is actively focused on right now. A volatile combination of immediate Observations and relevant Memory, constrained tightly by Attributes (attention span / context window).
+
+**Relationship & Boundary:** Internal Context is what the agent is *thinking about right now*. It is the RAM, not the hard drive. It is drawn from Memory and fed by Observations.
+
+| Actor Type | In Practice |
+|------------|------------|
+| Organic | Whatever specific part of the system the human is actively looking at (meaning they may be blind to something right next to them) |
+| Probabilistic | The exact data slice successfully processed and used for the very next decision (the prompt + loaded context) |
+| Deterministic | The specific set of active variables being evaluated this instant to determine if a rule has been met |
+
+#### 16. State — The Snapshot
+
+**Definition:** The absolute, sum-total snapshot of the agent at an exact instant in time. If you paused the universe, dumped this data, and injected it into a blank entity, you would have a perfect, seamless clone. State is divided into two halves:
+
+- **Internal State** (The Mind's Snapshot): The exact configuration of the cognitive workspace — the currently loaded Internal Context, the specific Task being evaluated, the active Workflow node, and the emotional/computational posture.
+- **Local Physical State** (The Body's Snapshot): The mechanical truth of the agent's vessel — its current position in the system, current Attribute values (e.g., remaining budget, session duration), and runtime posture (e.g., active connections, loaded resources).
+
+**Relationship & Boundary:** State is the aggregate reality of the agent at `t = now`. It is heavily influenced by Internal Context but is bound by Mechanics. The Internal and Physical states can become disjointed from the external world (e.g., the Probabilistic Agent's Internal State still references a document that has since been updated).
+
+| Actor Type | Internal State | Local Physical State |
+|------------|---------------|---------------------|
+| Organic | Emotional/cognitive condition — focused, fatigued, frustrated, in the zone, panicked | Current screen, position in the app, physical environment, time of day |
+| Probabilistic | Cognitive processing phase — assessing, formulating, generating, awaiting validation | Loaded context window, model instance, inference session, token usage |
+| Deterministic | Programmed condition — processing, waiting, error, complete | Register values, function call stack, variable bindings, connection state |
+
+State is what dictates which Workflows are currently legal to execute. A "suppressed" Organic Agent cannot execute a "deep analysis" Workflow. A Probabilistic Agent in "error" state must execute a Graceful Degradation Workflow.
+
+---
+
+### SYSTEM 5: THE EXECUTION LOOP
+
+*How the agent changes reality — the action cycle.*
+
+#### 17. Workflows — The Internal Procedure
+
+**Definition:** The step-by-step logical sequence an individual agent uses to string Skills together. The internal plan to complete a Task.
+
+**Relationship & Boundary:** A Workflow does nothing until executed as Actions. Workflows are *internal* to one agent; Protocols are *shared* across agents. Workflows are guided by Policies and constrained by State (certain States make certain Workflows illegal).
+
+| Actor Type | In Practice |
+|------------|------------|
+| Organic | Mental routines and practiced tactics — "Check email, triage cards, review AI suggestions, archive done items" |
+| Probabilistic | Logical evaluation → weigh options → generate output → await validation |
+| Deterministic | Strict, unchanging "if this happens, then do that" logic |
+
+#### 18. Skills — The Executable Tools
+
+**Definition:** Specific, actionable techniques an agent has been trained to perform. Powered by Capabilities and constrained by Permissions.
+
+**Relationship & Boundary:** Skills are the "verbs" an agent can execute. When an agent wields an Instrument, it temporarily inherits the Instrument's Skills. Skills are invoked within Workflows and consume Effort when executed as Actions.
+
+| Actor Type | In Practice |
+|------------|------------|
+| Organic | Navigate the interface, make judgment calls, communicate clearly, correct AI suggestions, set priorities |
+| Probabilistic | Classify, summarize, suggest, generate, extract intent, identify dependencies, score confidence |
+| Deterministic | Validate schemas, compute derived state, enforce security rules, route events, sort queues, append to event log |
+
+#### 19. Action — The Atomic Output
+
+**Definition:** The single, indivisible execution of a Skill. Actions are the smallest unit of interaction with the world.
+
+**Relationship & Boundary:** Actions expend Effort and cause Events. Every Action is the *cause*; every Event is the *effect*. Actions are what Workflows are made of — a Workflow is a sequence of Actions.
+
+**Syntropy OS:** Tapping "approve" on a card. Sending a classification request to the LLM. Appending an event to Firestore. Executing a validation check against a schema. Each is a single, atomic Action.
+
+#### 20. Effort — The Cost
+
+**Definition:** The measurable toll or drain required to execute Actions. Effort depletes Attributes. When Attributes hit zero, the agent fails or degrades.
+
+**Relationship & Boundary:** Effort is the bridge between Actions and Attributes. Every Action has an Effort cost. This is what makes agent routing a real engineering decision — different agent types have different Effort costs for the same Task.
+
+**Syntropy OS:**
+- *Organic:* Cognitive load, decision fatigue, time spent reviewing a card.
+- *Probabilistic:* API tokens consumed, inference latency, compute cost (~$0.02–0.10 per card).
+- *Deterministic:* CPU cycles, Firestore read/write units, Cloud Function execution time.
+
+#### 21. Event — The Objective Fact
+
+**Definition:** A verifiable occurrence in the external world — a state change. Events are governed by Mechanics. They exist independently of the agents — they are the external truth.
+
+**Relationship & Boundary:** Events are what Actions *produce*. An Event is true whether anyone observed it or not. In Syntropy OS, Events are immutable and append-only — they form the canonical history of the system (the event log). Events bridge one agent's output to another agent's input.
+
+**Syntropy OS:** An `EmailClassified` event. A `CardApproved` event. A `ThresholdBreached` event. A `WorkspaceValidated` event. These are objective facts in the event log — the universal truth for all agents.
+
+#### 22. Observation — The Perception
+
+**Definition:** The successful intake of an Event into the agent's mind. The moment an Event passes through a Capability (sensor) and enters the Internal Context, restarting the execution loop.
+
+**Relationship & Boundary:** Not all Events become Observations. An Organic Agent may miss an Event (limited attention). A Probabilistic Agent may not have the Event in its context window. A Deterministic Agent will only observe Events that match its trigger conditions. Observations are the input that drives the entire cycle forward.
+
+**Syntropy OS:** A user seeing the AI's suggestion appear on a card (Organic Observation). The LLM receiving a new email payload in its prompt (Probabilistic Observation). A Cloud Function receiving a Pub/Sub trigger (Deterministic Observation).
+
+---
+
+### The Complete Execution Loop
+
+Here is how all 22 terms flow together in a single Syntropy OS operation:
+
+Driven by the **First Principle** that humans cannot attend to every decision without degraded quality, the system establishes **Principles** of "Confidence-Based Handoff" and "Transparency Over Magic," codified into the **Doctrine** of Heterogeneous Agent collaboration.
+
+The user's **Mission** is to triage their inbox. They set a **Policy** of "auto-archive newsletters, but always ask me about work emails." The system breaks this into **Tasks**: classify each email, determine action, execute or suggest.
+
+The email arrives as an **Event** (objective fact in the event log). The Deterministic Agent's trigger condition **Observes** it (intake into its processing context). Following the Confidence-Based Handoff **Protocol**, it routes to the Probabilistic Agent.
+
+The Probabilistic Agent, whose **Traits** are tuned for email classification, loads relevant **Memory** (past classifications, user correction history) into its **Internal Context** (the active prompt window — bounded by **Attributes**: a 200K token context window). Its **Internal State** shifts to "analyzing." It uses **Mechanics** (the LLM inference engine — the inviolable runtime) to execute its classification **Skill** within its **Workflow** (analyze → score → output). This **Action** costs **Effort** (API tokens).
+
+The classification produces an **Event** (the classification result). The Deterministic Agent **Observes** this event and executes its threshold **Skill** — checking **Permissions** (is auto-execution allowed for this action type?) and applying **Rules** (schema validation, confidence threshold). Its **State** is "processing."
+
+Since this is a newsletter with 95% confidence, the Deterministic Agent has **Permission** to auto-archive. It executes the **Action** (append `EmailAutoArchived` event), which costs **Effort** (Firestore write unit) and produces a new **Event** in the log. The user's **Observation** comes later via the audit trail — they see "AI auto-archived 3 newsletters" in their feed.
+
+The cycle continues with the next email.
+
+---
 
 ## Decision Profile
 
-A Decision Profile characterizes how an agent processes logic, not what the agent is made of. It is the meta-layer that sits *above* the 9 Internal Components — it describes the *pattern* by which those components interact. It captures:
+A Decision Profile characterizes how an agent processes logic, not what the agent is made of. It is the meta-layer that sits *above* the ontology terms — it describes the *pattern* by which an agent's anatomy, mind, and execution loop interact. It captures:
 
 - **Logic engine type**: biological, probabilistic, or deterministic
-- **Latency characteristics**: how fast can this agent respond? (an Attribute boundary)
+- **Latency characteristics**: how fast can this agent respond? (an Attributes boundary)
 - **Reliability envelope**: under what conditions is this agent's output trustworthy? (derived from Capabilities + Skills + Memory)
-- **Failure mode**: how does this agent fail? (fatigue = Organic Internal State; hallucination = Probabilistic Traits; edge case crash = Deterministic Capabilities gap)
+- **Failure mode**: how does this agent fail? (fatigue = Organic State; hallucination = Probabilistic Memory gap + Traits overreach; edge case crash = Deterministic Capabilities gap)
 - **Adaptability**: can this agent handle novel situations outside its training/programming? (a function of Memory depth + Capabilities breadth)
-- **Cost**: what resources does this agent consume per invocation? (an Attribute boundary)
+- **Cost**: what resources does this agent consume per invocation? (an Attributes boundary, measured as Effort per Action)
 
-Decision Profiles enable the system to make principled routing decisions: which agent should handle this task, and what validation should wrap its output? The 9 Internal Components provide the *detail* of what an agent is; the Decision Profile provides the *summary* of how it behaves.
+Decision Profiles enable the system to make principled routing decisions: which agent should handle this Task, and what validation should wrap its output?
 
 ## Boundaries and Rules of Engagement
 
@@ -178,128 +453,119 @@ Because these agents possess completely different cognitive profiles, they must 
 All agents must speak the same underlying system language. A Deterministic Agent's output must be readable by a Probabilistic Agent, and vice versa. No agent gets a "special" hidden API to interact with the system.
 
 In Syntropy OS, this means:
-- **Events** are the universal I/O format — every agent produces and consumes events
-- **Event schemas** are typed, validated, and versioned — any agent can process any event
-- **The event log** is the shared state — agents don't communicate through side channels
+- **Events** are the universal I/O format — every agent produces and consumes Events (term #21)
+- **Event schemas** are typed, validated, and versioned — any agent can process any Event (enforced by Rules, term #8)
+- **The event log** is the shared Memory — agents don't communicate through side channels
 
-This directly extends the [Event-Sourced Everything](../vision/principles.md) principle: events are not just for audit trails, they are the universal language that makes heterogeneous agent collaboration possible.
+This directly extends the [Event-Sourced Everything](../vision/principles.md) principle: Events are not just for audit trails, they are the universal language that makes heterogeneous agent collaboration possible.
 
 ### 2. The Boundary of Trust
 
-Each agent type has a trust boundary defined by its Decision Profile:
+Each agent type has a trust boundary defined by its Decision Profile and enforced by Permissions (term #9):
 
-- **Deterministic Agents** are trusted with **absolute truth**. They enforce invariants, compute derived state, validate schemas, and guarantee mathematical correctness. When a Deterministic Agent says the answer is X, the answer is X.
+- **Deterministic Agents** are trusted with **absolute truth**. They have Permission to mutate system state directly. They enforce invariants, compute derived state, validate schemas, and guarantee mathematical correctness.
 
-- **Probabilistic Agents** are trusted with **interpretation**, but never absolute state changes without validation. They classify, suggest, score confidence, and generate — but their outputs pass through Deterministic validation before becoming system truth. The **confidence threshold** (see [F10](../product/features/f10-confidence-thresholds.md)) is the mechanism that calibrates this trust boundary.
+- **Probabilistic Agents** are trusted with **interpretation**, but never have Permission for absolute state changes without Deterministic validation. Their Actions produce Events that are *suggestions* until Deterministic Workflows validate them. The **confidence threshold** (see [F10](../product/features/f10-confidence-thresholds.md)) is the Permissions mechanism that calibrates this trust boundary.
 
-- **Organic Agents** are trusted with **ultimate authority** — they define goals, resolve ambiguity, and make moral judgments. But their inputs are still validated by Deterministic Agents to prevent rule-breaking (e.g., a human cannot bypass business rules that protect data integrity).
+- **Organic Agents** are trusted with **ultimate authority** — they define goals, resolve ambiguity, and make moral judgments. But their inputs are still validated by Deterministic Rules (term #8) to prevent violations of data integrity Mechanics (term #7).
 
 Trust flows in a specific pattern:
 ```
-Organic Agent (authority) → defines intent
+Organic Agent (authority) → defines intent via Policies
     ↓
-Probabilistic Agent (interpretation) → translates intent to structured action
+Probabilistic Agent (interpretation) → translates intent via Skills, produces Event
     ↓
-Deterministic Agent (execution) → validates and executes with guarantees
+Deterministic Agent (execution) → validates via Rules, checks Permissions, executes Action
     ↓
-Event Log (universal truth) → immutable record for all agents
+Event Log (universal truth) → immutable record, Observed by all agents
 ```
 
 ### 3. Graceful Degradation
 
-The system must handle agent failure without cascading collapse:
+The system must handle agent failure without cascading collapse. Degradation follows the State transitions — when an agent's Internal State shifts to a failure mode, its Workflows hand off via the appropriate Protocol:
 
-- If a **Probabilistic Agent** encounters a scenario it cannot process (low confidence, out-of-distribution input, model failure), it must cleanly hand off to either:
-  - A **Deterministic Agent** (hardcoded fallback loop), or
-  - An **Organic Agent** (human intervention request)
+- If a **Probabilistic Agent** encounters low confidence or model failure → its State shifts, and the Protocol routes to a Deterministic Agent (fallback) or Organic Agent (escalation).
+- If a **Deterministic Agent** encounters an unprogrammed edge case → it rejects with a clear error Event and escalates via Protocol.
+- If an **Organic Agent** is unavailable → the system queues the Task and continues operating within the combined Permissions of Probabilistic and Deterministic agents.
 
-- If a **Deterministic Agent** encounters an unprogrammed edge case, it must:
-  - Reject the input with a clear error (not silently produce wrong output)
-  - Escalate to a Probabilistic or Organic Agent if the situation requires interpretation
-
-- If an **Organic Agent** is unavailable (offline, unresponsive), the system must:
-  - Queue the decision for later
-  - Continue operating on tasks within the combined authority of Probabilistic and Deterministic agents
-  - Never block the entire system on a single human decision
-
-This maps directly to the existing [Confidence-Based Handoff](../vision/principles.md) principle: the degradation path follows the confidence gradient.
-
-## Mapping to Syntropy OS Components
+## Mapping to Syntropy OS
 
 ### Current System Mapping
 
-| System Component | Agent Type | Primary Components at Work | Rationale |
-|-----------------|------------|---------------------------|-----------|
-| Human user | Organic | Policies (goals), Skills (corrections), Memory (past experience) | Sets goals, resolves ambiguity, trains the system |
-| Claude LLM (AI Pipeline) | Probabilistic | Skills (classify, summarize), Internal Context (prompt window), Memory (training data) | Interprets intent, classifies cards, generates suggestions |
-| Domain Agents (Email, Finance, Home) | Probabilistic | Traits (domain personality), Policies (domain directives), Skills (domain-specific actions) | Specialized LLM prompts for domain interpretation |
-| Confidence Scoring | Deterministic | Skills (threshold math), Workflows (if score > X then Y) | Mathematical threshold comparison |
-| Event Sourcing (Firestore) | Deterministic | Memory (the canonical event log), Skills (append, replay) | Append-only log, immutable events, derived state |
-| Security Rules (Firestore) | Deterministic | Workflows (rule enforcement), Attributes (auth boundaries) | Auth enforcement, data isolation |
-| Materialized Views | Deterministic | Skills (projection computation), Memory (derived state cache) | Computed projections from event log |
-| Cloud Function routing | Deterministic | Internal Context (event payload), Workflows (routing rules) | Rule-based event routing, schema validation |
-| Queue ordering | Deterministic | Skills (sort algorithm), Attributes (max queue depth) | Priority algorithm, dependency resolution |
-| Learning Loop | Mixed | Organic Memory (corrections) → Deterministic Skills (storage) → Probabilistic Memory (model update) | Pattern detection + correction storage |
+| System Component | Agent Type | Entity Level | Ontology Terms at Work |
+|-----------------|------------|-------------|----------------------|
+| Human user | Organic Actor | Actor | Policies (goals), Skills (corrections), Memory (experience), Observations (perceiving suggestions) |
+| Claude LLM (AI Pipeline) | Probabilistic Actor | Actor | Skills (classify, summarize), Internal Context (prompt window), Memory (training data), Effort (tokens) |
+| Domain Agents (Email, Finance, Home) | Probabilistic Actor | Actor | Traits (domain personality), Policies (domain directives), Skills (domain actions) |
+| Confidence Scoring | Deterministic Actor | Actor | Skills (threshold math), Workflows ("if score > X then Y"), Permissions (auto-execute gate) |
+| Event Sourcing (Firestore) | Deterministic Actor | Actor | Memory (canonical event log), Skills (append, replay), Mechanics (immutability) |
+| Security Rules (Firestore) | Deterministic Actor | Actor | Rules (auth enforcement), Permissions (data isolation) |
+| Cloud Function routing | Deterministic Actor | Actor | Observations (trigger), Workflows (routing rules), Protocols (handoff sequences) |
+| Code files on disk | — | Artifact | Affordance: Execute, Edit. Becomes Instrument when loaded by a Runtime |
+| Event log entries | — | Artifact | Affordance: Read, Query. Static records of Events |
+| Configuration files | — | Artifact | Affordance: Parse, Validate. Material (bytes) shaped into structure |
+| Raw user input (voice/photo) | — | Material | Unprocessed bits. Becomes Artifact after AI extraction pipeline shapes it |
+| Learning Loop | Mixed | — | Organic Skills (corrections) → Deterministic Memory (storage) → Probabilistic Memory (model update) |
 
 ### Architecture Agent System Mapping
 
 The dev platform's trait-based agent composition (see [DP02](../product/dev-platform/features/dp02-agent-system.md)) maps to this taxonomy:
 
-| Dev Platform Agent | Agent Type | Rationale |
-|-------------------|------------|-----------|
-| Human contributor | Organic | Executes workflows with judgment and creativity |
-| AI model (Opus, Sonnet, Haiku) | Probabilistic | Executes workflows with pattern matching and adaptability |
-| Validation engine (future) | Deterministic | Enforces conventions, schema rules, structural integrity |
-| Workspace contract validation | Deterministic | Validates `syntropy.toml` against schema |
-
-This taxonomy directly informs the Actor Capability Modeling capability in [DP15 Operational Engineering](../product/dev-platform/features/dp15-operational-engineering.md) — the Decision Profile is the formal basis for understanding how different actors process instructions differently.
+| Dev Platform Agent | Agent Type | Entity Level | Rationale |
+|-------------------|------------|-------------|-----------|
+| Human contributor | Organic | Actor | Executes Workflows with judgment and creativity |
+| AI model (Opus, Sonnet, Haiku) | Probabilistic | Actor | Executes Workflows with pattern matching and adaptability |
+| Validation engine (future) | Deterministic | Actor | Enforces Rules, validates schemas |
+| Workspace contract validation | Deterministic | Actor | Validates `syntropy.toml` against Rules |
+| Agent manifest files | — | Artifact | Affordance: Load, Execute. Material (markdown) shaped into agent configuration |
+| Workflow documents | — | Artifact | Affordance: Read, Follow. Defines Workflow steps for any Actor |
 
 ## Design Implications
 
 ### For Product Design
 
-1. **Every feature involves all three agent types.** A feature like Email Triage has: the human setting Policies (Organic), the LLM applying Skills to classify emails (Probabilistic), and the routing Workflows enforcing thresholds (Deterministic). Design for all three, not just the AI.
+1. **Every feature involves all three agent types and the entity hierarchy.** A feature like Email Triage has: the human setting Policies (Organic), the LLM applying Skills to classify emails (Probabilistic), Deterministic Workflows enforcing threshold Rules, and the email itself progressing from Material (raw payload) → Artifact (parsed message) → Event (classification result).
 
-2. **Confidence thresholds are the trust API.** The confidence system is not just a UX feature — it is the formal mechanism by which the system calibrates the Boundary of Trust between Probabilistic and Organic agents. In component terms: the Deterministic Agent's Skills (threshold math) gate the Probabilistic Agent's output before it reaches the Organic Agent's Internal Context.
+2. **Confidence thresholds are Permissions.** The confidence system is not just a UX feature — it is the formal Permissions mechanism that calibrates the Boundary of Trust. Deterministic Skills (threshold math) check Permissions before allowing the Probabilistic Agent's suggestion to become an auto-executed Action.
 
-3. **Transparency serves the First-Class Citizen principle.** When the system shows confidence scores, audit trails, and AI reasoning, it is feeding the Organic Agent's Internal Context — enabling them to exercise their authority role effectively.
+3. **Transparency feeds Organic Observations.** When the system shows confidence scores, audit trails, and AI reasoning, it is creating Observations for the Organic Agent — enabling them to exercise their authority role effectively.
 
-4. **Design features in terms of components, not implementations.** When specifying a feature, describe what Memory, Skills, Policies, and Workflows each agent type uses — not what database or API powers them. This keeps specs accessible to every discipline.
+4. **Design features in ontology terms, not implementations.** When specifying a feature, describe the Mission, Tasks, Policies, Skills, Workflows, Events, and Protocols for each agent type — not what database or API powers them.
 
 ### For Technical Architecture
 
-1. **Events are the universal bus.** Every agent type produces and consumes the same event types. This is non-negotiable — it is what makes heterogeneous collaboration possible. Events are the bridge between one agent's Skills output and another agent's Internal Context input.
+1. **Events are the universal bus.** Every agent produces and consumes Events. Events are what Actions produce and Observations intake. This is the bridge between one agent's Execution Loop and another's.
 
-2. **Deterministic validation wraps Probabilistic output.** Never let a Probabilistic Agent directly mutate system state. Its Skills produce output that passes through Deterministic Workflows (validation) before becoming system Memory (truth).
+2. **Deterministic validation wraps Probabilistic output.** Never let a Probabilistic Agent's Actions directly mutate system state. Its Skills produce Events that pass through Deterministic Workflows (Rules + Permissions) before becoming system truth.
 
-3. **Design for graceful degradation from day one.** Every Probabilistic Agent path must have a Deterministic fallback. Every Deterministic dead-end must have an escalation path. Degradation follows the Internal State transitions: when a Probabilistic Agent's Internal State shifts to "low confidence," its Workflows hand off to the next agent in the chain.
+3. **Entity transitions are explicit.** When raw input (Material) becomes structured data (Artifact), when an Artifact becomes an active tool (Instrument), and when code becomes an autonomous agent (Actor) — each transition should be a documented, observable Event.
 
 ### For Dev Platform / Process Design
 
-1. **Workflows are agent-agnostic by default.** A well-designed workflow should be executable by any agent type — the Decision Profile determines *how* the agent applies its Skills to the workflow steps, not *whether* it can.
+1. **Workflows are agent-agnostic; Protocols coordinate between agents.** A Workflow should be executable by any agent type. When multiple agents need to coordinate, design a Protocol.
 
-2. **Actor-aware design uses the 9 components.** When a workflow needs actor-specific adaptation, reason about *which component* differs between actors. Does the Organic Agent have different Attributes (attention span)? Does the Probabilistic Agent have different Memory (context window)? Does the Deterministic Agent have different Capabilities (can it parse this input type)? The components tell you where to adapt.
+2. **Actor-aware design uses the full ontology.** When a process fails, diagnose by ontology layer: Was it a Capabilities gap? An Attributes overflow? A Memory gap? A Permissions problem? A State issue? A broken Protocol? The 22 terms give you a diagnostic vocabulary.
 
-3. **The meta-agent routes by capability, not by type.** Routing decisions should consider what Decision Profile is best suited for the task — specifically, which agent's Capabilities, Skills, and Attributes best match the task requirements.
+3. **The meta-agent routes by Decision Profile.** Routing decisions should consider which agent's Capabilities, Skills, Attributes, and Permissions best match the Task requirements.
 
 ## Relationship to Existing Principles
 
-This architecture formalizes and extends several existing Syntropy OS principles:
-
-| Existing Principle | How This Architecture Extends It | Components Involved |
-|-------------------|----------------------------------|---------------------|
-| **Confidence-Based Handoff** (#2) | Formalized as the Boundary of Trust between Probabilistic and Organic agents | Probabilistic Skills → Deterministic Skills (scoring) → Organic Internal Context |
-| **Event-Sourced Everything** (#5) | Events become the Universal I/O — the shared language between all agent types | All agents' Memory is grounded in the same event log |
-| **Transparency Over Magic** (#6) | Transparency enables Organic Agents to exercise their authority role in the trust hierarchy | Feeds the Organic Agent's Internal Context with AI reasoning |
-| **Progressive Autonomy** (#7) | Formalized as the trust calibration between Organic and Probabilistic agents over time | Organic Policies shift as Probabilistic Memory improves |
-| **Corrections as Training Data** (#10) | Organic Agent corrections improve Probabilistic Agent Decision Profiles | Organic Skills (corrections) → Probabilistic Memory (learning) |
-| **First-Class Citizen** (#11) | All agent types share equal systemic privileges and the same 9 Internal Components | The component framework itself — one vocabulary for all |
+| Existing Principle | How This Architecture Extends It | Ontology Terms Involved |
+|-------------------|----------------------------------|------------------------|
+| **Confidence-Based Handoff** (#2) | Formalized as a Protocol with Permissions gating | Probabilistic Skills → Deterministic Skills (scoring) → Permissions check → Organic Observation |
+| **Event-Sourced Everything** (#5) | Events (term #21) are the universal I/O — Actions produce them, Observations consume them | Actions → Events → Observations; all agents' Memory grounded in the event log |
+| **Transparency Over Magic** (#6) | Transparency creates Observations for Organic Agents to exercise authority | Events made visible → Organic Observations → informed Policies |
+| **Progressive Autonomy** (#7) | Formalized as Permissions calibration over time | Organic Policies shift → Probabilistic Permissions expand → more Actions auto-execute |
+| **Corrections as Training Data** (#10) | Organic Actions (corrections) become Events that update Probabilistic Memory | Organic Skills → Actions → Events → Probabilistic Memory evolution |
+| **First-Class Citizen** (#11) | All agent types share the same 22-term ontology and entity hierarchy | The ontology itself — one vocabulary for all |
 
 ## Open Questions
 
-- [ ] How should the system handle hybrid agents that combine Probabilistic and Deterministic logic (e.g., an LLM call with post-processing validation)? Which set of 9 components applies — or do they compose?
-- [ ] Should Decision Profiles be versioned as agent capabilities change (e.g., new model version with different Attributes and Skills)?
-- [ ] How does the Boundary of Trust interact with multi-agent collaboration (e.g., two Probabilistic Agents with conflicting Policies)?
-- [ ] What is the formal escalation protocol when Graceful Degradation cascades through all three agent types?
-- [ ] Should the 9 Internal Components be formally schema-defined (e.g., in `syntropy.toml` or a future agent manifest format) so that tooling can reason about component gaps and mismatches?
-- [ ] How should Deterministic Agent "Policies: N/A" be handled in tooling — should it be explicitly absent, or should Deterministic Agents have a degenerate Policies component that is always "execute commands"?
+- [ ] How should the system handle hybrid agents that combine Probabilistic and Deterministic logic (e.g., an LLM call with post-processing validation)? Do they have a composite Decision Profile?
+- [ ] Should Decision Profiles be versioned as agent Capabilities and Attributes change (e.g., new model version)?
+- [ ] How does the Boundary of Trust interact when two Probabilistic Agents have conflicting Policies?
+- [ ] What is the formal escalation Protocol when Graceful Degradation cascades through all three agent types?
+- [ ] Should the 22-term ontology be formally schema-defined (e.g., in `syntropy.toml` or a future agent manifest format) so tooling can reason about term gaps?
+- [ ] How should the Entity Hierarchy be represented in the data model — should Entities have explicit `entity_level` metadata (Material, Artifact, Instrument, Actor)?
+- [ ] Should Protocols be first-class documents in the knowledge graph, distinct from Workflows?
+- [ ] How do Entity level transitions (Material → Artifact → Instrument) map to Events in the event log?

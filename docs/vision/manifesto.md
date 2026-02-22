@@ -22,9 +22,9 @@ Syntropy OS (working name: TaskCard) is built on four pillars:
 
 ## Heterogeneous Agent Architecture
 
-All participants in the system — humans, AI models, and hardcoded programs — are Agents: first-class citizens sharing equal systemic privileges. Every agent is composed of the same **9 Internal Components** — Capabilities, Attributes, Skills, Memory, Internal Context, Internal State, Traits, Policies, and Workflows — defined by their job and purpose, never by implementation details. A junior designer and a senior engineer use the same words to describe why any actor behaved the way it did.
+All participants in the system — humans, AI models, and hardcoded programs — are Agents: first-class citizens sharing equal systemic privileges. Everything in the system exists within an **Entity Hierarchy** (Entity → Material → Artifact → Instrument → Actor), and every agent is described by a **22-Term Agent Ontology** organized in five systems — Philosophy & Drive, Constraints, Anatomy, Mind, and Execution Loop. Every term describes **function and purpose**, never implementation. A junior designer and a senior engineer use the same words to describe why any actor behaved the way it did.
 
-Agents are classified not by what they are, but by their Decision Profile: **Organic Agents** (humans) provide authority and judgment, **Probabilistic Agents** (AI) provide adaptability and interpretation, **Deterministic Agents** (code) provide reliability and speed. This taxonomy — the three actor types and the nine components they share — provides the shared vocabulary for every product, architecture, and process decision. See the [Heterogeneous Agent Architecture](../architecture/agent-architecture.md) specification.
+Agents are classified not by what they are, but by their Decision Profile: **Organic Agents** (humans) provide authority and judgment, **Probabilistic Agents** (AI) provide adaptability and interpretation, **Deterministic Agents** (code) provide reliability and speed. Agents use Instruments (activated Artifacts) to change the State of the world and achieve their Mission. This taxonomy provides the shared vocabulary for every product, architecture, and process decision. See the [Heterogeneous Agent Architecture](../architecture/agent-architecture.md) specification.
 
 ## Human-AI Collaboration
 

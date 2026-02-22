@@ -13,7 +13,7 @@ updated: 2026-02-22
 Technical architecture for Syntropy OS. This domain covers how we're building it.
 
 ## Foundational
-- **Heterogeneous Agent Architecture**: Agent taxonomy (Organic, Probabilistic, Deterministic), 9 Internal Components (Capabilities, Attributes, Skills, Memory, Internal Context, Internal State, Traits, Policies, Workflows), Decision Profiles, Boundary of Trust, Graceful Degradation → `agent-architecture.md`
+- **Heterogeneous Agent Architecture**: Agent taxonomy (Organic, Probabilistic, Deterministic), Entity Hierarchy (Entity → Material → Artifact → Instrument → Actor), 22-Term Agent Ontology (5 Systems: Philosophy & Drive, Constraints, Anatomy, Mind, Execution Loop), Decision Profiles, Boundary of Trust, Graceful Degradation → `agent-architecture.md`
 
 ## Components
 - **Stack**: Technology choices and rationale → `stack.md`
