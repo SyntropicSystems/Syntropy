@@ -6,10 +6,10 @@ status: accepted
 owner: architecture-agent
 decision-type: type-1
 created: 2025-02-09
-updated: 2026-02-21
+updated: 2026-02-23
 refs:
   affects: [arch-stack, f08]
-  related: [adr-001, arch-data-model, arch-ai-pipeline, arch-event-sourcing]
+  related: [adr-001, arch-data-model, arch-ai-pipeline, arch-event-sourcing, arch-north-star-layout, dr-001]
   resolves: [oq-monorepo-architecture]
 tags: [architecture, monorepo, ddd, deployment]
 ---

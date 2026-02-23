@@ -72,6 +72,10 @@ enum GenCommand {
         /// Print what would change, but do not write.
         #[arg(long)]
         dry_run: bool,
+
+        /// Fail if README generation would make changes (drift gate).
+        #[arg(long)]
+        check: bool,
     },
 }
 
@@ -180,26 +184,38 @@ fn main() -> anyhow::Result<()> {
         }
 
         Command::Gen {
-            command: GenCommand::Readmes { dry_run },
+            command: GenCommand::Readmes { dry_run, check },
         } => {
             let workspace = Workspace::discover(std::env::current_dir()?)?;
             let plan = workspace.plan_readmes()?;
+            let ok = plan.patches.is_empty();
 
             if cli.json {
                 println!(
                     "{}",
                     serde_json::to_string_pretty(&serde_json::json!({
                         "schema_version": "v0",
+                        "ok": ok,
                         "patches": plan.patches,
                         "skipped": plan.skipped,
                         "dry_run": dry_run,
+                        "check": check,
                     }))?
                 );
             } else {
-                if plan.patches.is_empty() {
+                if check && ok {
+                    println!("OK: README contracts are up-to-date.");
+                } else if plan.patches.is_empty() {
                     println!("No README changes.");
                 } else {
-                    println!("README changes:");
+                    println!(
+                        "{}:",
+                        if check {
+                            "Drift detected"
+                        } else {
+                            "README changes"
+                        }
+                    );
                     for patch in &plan.patches {
                         println!("- {:?} {}", patch.op, patch.path.display());
                     }
@@ -212,7 +228,11 @@ fn main() -> anyhow::Result<()> {
                 }
             }
 
-            if !dry_run {
+            if check && !ok {
+                std::process::exit(1);
+            }
+
+            if !dry_run && !check {
                 workspace
                     .apply_patches(&plan.patches)
                     .context("applying README patches")?;

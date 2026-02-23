@@ -29,13 +29,12 @@
 
 ### Current Focus
 
-- Bootstrap implementation shipped:
-  - Rust SDK: `platform/crates/syntropy-sdk` (workspace discovery, tree/info, README planning/apply, validate)
-  - CLI: `products/command-center/apps/cli` (`syntropy` binary)
-  - Workspace contract: `syntropy.toml` (blueprint selection + overrides)
-  - Deterministic folder README contracts: `syntropy gen readmes`
-  - Blueprint linting: `syntropy validate` (warnings for unexpected top-level dirs)
-- Follow-up work focuses on WP04 plan/apply and WP08 schema generation/drift gates
+- Repo-structure contract hardening (v0):
+  - Folder contracts are compositional (inheritance for rules/kind/purpose)
+  - README contracts are drift-gated in CI (`syntropy gen readmes --check`)
+  - Blueprint coverage expanded to match actual repo top-level dirs + semantics
+  - Legacy `.work/` support removed (targeted migration error + validation warning)
+- Follow-up work continues on WP04 plan/apply and WP08 schema generation/drift gates
 
 ### Key Decisions in Effect
 
@@ -44,8 +43,10 @@
 - Five-category mental model (Platform, Products, Tooling, Workspaces, Instance)
 - Plan/apply for all workspace mutations
 - `.syntropy/` as workspace instance directory
+- `.work/` is not supported (migration required)
 - Dependency direction: platform never imports products
 - Bootstrap blueprint: built-in `north-star/v0` map + per-path overrides in `syntropy.toml`
+- README contracts are generated views (not canonical) and drift-gated
 
 ### Invariants
 
@@ -54,6 +55,7 @@
 - `syntropy.toml` is the single reviewed config file
 - Dependency direction is enforced by validators
 - Generated schemas must match source types (CI drift check)
+- Generated README contracts must be drift-free (`syntropy gen readmes --check`)
 - No empty future folders
 
 ### Open Threads
@@ -74,4 +76,4 @@
 
 ### Last Synced
 
-2026-02-21
+2026-02-23

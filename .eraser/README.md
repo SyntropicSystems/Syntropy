@@ -1,15 +1,15 @@
 <!-- syntropy:generated -->
-# products
+# .eraser
 
 ## Purpose
 
-Shipped surfaces built on the platform.
+Eraser diagram exports used by docs.
 
 ## Rules
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Products can import platform.
+- Check in exports; avoid treating this as a hand-edited source of truth.
 
 ## Notes
 

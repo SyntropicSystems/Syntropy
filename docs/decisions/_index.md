@@ -5,7 +5,7 @@ title: "Decision Log"
 status: active
 owner: decisions-agent
 created: 2025-02-07
-updated: 2025-02-09
+updated: 2026-02-23
 refs:
   related: [dp13, decisions-agent, wf-record-decision, wf-make-decision]
 ---
@@ -30,5 +30,6 @@ The decision log is the entry point to the **reasoning graph**: the interconnect
 
 | ID | Title | Status | Type | Domain | Date |
 |----|-------|--------|------|--------|------|
+| DR-001 | Repo Structure Contract + Folder Contracts | accepted | Type 1 | workspace-contracts | 2026-02-23 |
 
-*No general decision records yet. Use `wf-record-decision` to capture your first one.*
+Use `wf-record-decision` to capture additional decisions.

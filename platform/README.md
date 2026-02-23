@@ -7,6 +7,8 @@ Reusable foundation: crates, adapters, contracts.
 
 ## Rules
 
+- Keep repo structure coherent and low-entropy.
+- Prefer platform commands over manual restructuring.
 - Platform never imports from products.
 
 ## Boundaries

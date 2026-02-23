@@ -70,6 +70,5 @@ fn should_ignore_top_level_dir(name: &str) -> bool {
             | "bazel-bin"
             | "bazel-out"
             | "bazel-testlogs"
-            | ".work"
     )
 }

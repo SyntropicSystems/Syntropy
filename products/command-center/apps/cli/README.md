@@ -7,8 +7,10 @@ Syntropy CLI: IO wrapper around syntropy-sdk.
 
 ## Rules
 
+- Keep repo structure coherent and low-entropy.
+- Prefer platform commands over manual restructuring.
+- Products can import platform.
 - Keep business logic in syntropy-sdk.
-- All business logic lives in syntropy-sdk.
 - Keep output stable (human + JSON).
 
 ## Notes

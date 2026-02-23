@@ -7,6 +7,8 @@ Workspace instance directory: system-of-work, tasks, signals, and machine state.
 
 ## Rules
 
+- Keep repo structure coherent and low-entropy.
+- Prefer platform commands over manual restructuring.
 - Human artifacts are checked in; machine state is gitignored.
 
 ## Notes

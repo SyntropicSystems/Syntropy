@@ -5,7 +5,7 @@ title: "Changelog"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-21
+updated: 2026-02-23
 ---
 
 # Changelog
@@ -197,3 +197,16 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-21 | created | — | Implemented drift-gated tool adapter generation: `syntropy agents sync` + `syntropy agents check` (generates `.claude/**` + `.codex/**`) | workspace-contracts-agent |
 | 2026-02-21 | updated | arch-north-star-layout | Documented generated tool adapters (`.claude/**`, `.codex/**`) and sync/check workflow | workspace-contracts-agent |
 | 2026-02-21 | updated | dp08, dp-u04, wf-* | Standardized entrypoint references to `AGENTS.md` (with `CLAUDE.md` as shim) | meta-agent |
+| 2026-02-23 | created | dr-001 | Recorded repo structure contract + folder contracts decision; removed legacy `.work/` support | workspace-contracts-agent |
+| 2026-02-23 | updated | arch-north-star-layout | Expanded into the comprehensive repo-structure contract (authority, current repo map, folder contracts, change process) | workspace-contracts-agent |
+| 2026-02-23 | updated | arch-workspace-contracts | Removed legacy `.work/` mention; linked DR-001 | workspace-contracts-agent |
+| 2026-02-23 | updated | wf-run-syntropy-cli | Added README drift gate command; removed legacy `.work/` mention | workspace-contracts-agent |
+| 2026-02-23 | updated | wp01 | Removed legacy `.work/` mention; linked DR-001 | workspace-contracts-agent |
+| 2026-02-23 | updated | wp03 | Linked DR-001 (repo structure + folder contracts invariants) | workspace-contracts-agent |
+| 2026-02-23 | updated | wp05 | Linked DR-001 (repo structure + folder contracts invariants) | workspace-contracts-agent |
+| 2026-02-23 | updated | adr-004 | Added back-references to DR-001 and the repo structure contract | workspace-contracts-agent |
+| 2026-02-23 | updated | decisions-index | Added DR-001 to the decision log | workspace-contracts-agent |
+| 2026-02-23 | updated | registry | Registered DR-001 | workspace-contracts-agent |
+| 2026-02-23 | created | — | Implemented folder contract inheritance, removed `.work` discovery, added `gen readmes --check` drift gate, and generated README contracts for `apps/*` + `packages/*` | workspace-contracts-agent |
+| 2026-02-23 | created | — | Added root README and removed duplicate prototype JSX files from repo root (canonicalized `prototypes/`) | workspace-contracts-agent |
+| 2026-02-23 | updated | workspace-contracts-agent | Updated domain state to reflect repo-structure hardening (inheritance, README drift gate, `.work` removal) | workspace-contracts-agent |

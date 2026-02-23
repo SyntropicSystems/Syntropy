@@ -6,13 +6,14 @@ status: building
 owner: workspace-contracts-agent
 priority: P0
 created: 2026-02-21
-updated: 2026-02-21
+updated: 2026-02-23
 refs:
   depends-on: [wp01, wp02, wp08]
   enables: [wp04, wp-u03]
   related: [wp05, rp10]
   informed-by: [jtbd-workspace-platform]
   architecture: [arch-workspace-contracts]
+  decided-by: [dr-001]
   open-questions: []
 tags: [workspace-platform, validation, coherence, p0]
 ---

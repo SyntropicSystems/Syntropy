@@ -5,7 +5,7 @@ title: "Run the Syntropy CLI (Bootstrap Slice)"
 status: active
 owner: workspace-contracts-agent
 created: 2026-02-21
-updated: 2026-02-21
+updated: 2026-02-23
 refs:
   related: [workspace-contracts-agent]
 tags: [workflow, workspace-platform, cli, bootstrap]
@@ -19,6 +19,7 @@ When you want to:
 - Initialize a workspace contract (`syntropy init`)
 - Inspect structure (`syntropy tree`, `syntropy info`)
 - Generate folder README contracts (`syntropy gen readmes`)
+- Check README drift (`syntropy gen readmes --check`)
 - Sync tool agent adapters (`syntropy agents sync`)
 - Check adapter drift (`syntropy agents check`)
 - Lint workspace structure against a blueprint (`syntropy validate`)
@@ -26,7 +27,7 @@ When you want to:
 ## Prerequisites
 
 - Rust toolchain available (`cargo`)
-- A workspace contract exists: `syntropy.toml` (repo root) or `.syntropy/syntropy.toml` (legacy: `.work/syntropy.toml`)
+- A workspace contract exists: `syntropy.toml` (repo root) or `.syntropy/syntropy.toml`
 
 ## Quickstart (Cargo)
 
@@ -44,12 +45,14 @@ From the repo root:
    - `cargo run -p syntropy -- gen readmes --dry-run`
 6. Apply README generation:
    - `cargo run -p syntropy -- gen readmes`
-7. Validate the workspace:
+7. Drift gate (fail if README generation would change anything):
+   - `cargo run -p syntropy -- gen readmes --check`
+8. Validate the workspace:
    - `cargo run -p syntropy -- validate`
    - `cargo run -p syntropy -- --json validate`
-8. Sync tool adapters (Claude/Codex):
+9. Sync tool adapters (Claude/Codex):
    - `cargo run -p syntropy -- agents sync`
-9. Check adapter drift:
+10. Check adapter drift:
    - `cargo run -p syntropy -- agents check`
 
 ## Optional (Bazel)

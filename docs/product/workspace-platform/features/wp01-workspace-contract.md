@@ -6,13 +6,14 @@ status: building
 owner: workspace-contracts-agent
 priority: P0
 created: 2026-02-21
-updated: 2026-02-21
+updated: 2026-02-23
 refs:
   depends-on: [wp08]
   enables: [wp02, wp03, wp04, wp05, wp06, wp-u01, wp-u02]
   related: [wp07, rp02]
   informed-by: [jtbd-workspace-platform]
   architecture: [arch-workspace-contracts]
+  decided-by: [dr-001]
   open-questions: []
 tags: [workspace-platform, contract, config, p0]
 ---
@@ -28,7 +29,7 @@ The workspace contract is `syntropy.toml` — the single reviewed configuration 
 The bootstrap slice implements a minimal, strict TOML contract loader in `platform/crates/syntropy-sdk`:
 
 - Contract location: `syntropy.toml` (repo root)
-  - Workspace discovery also supports `.syntropy/syntropy.toml` for compatibility (legacy: `.work/syntropy.toml`)
+  - Workspace discovery also supports `.syntropy/syntropy.toml` for compatibility
 - Strict parsing: unknown keys error (`serde` + `deny_unknown_fields`)
 - Supported sections (v0 bootstrap):
   - `[workspace]`: `name`, `blueprint`

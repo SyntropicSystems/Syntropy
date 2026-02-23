@@ -7,6 +7,9 @@ All Rust libraries live here.
 
 ## Rules
 
+- Keep repo structure coherent and low-entropy.
+- Prefer platform commands over manual restructuring.
+- Platform never imports from products.
 - No binaries in platform crates.
 
 ## Notes

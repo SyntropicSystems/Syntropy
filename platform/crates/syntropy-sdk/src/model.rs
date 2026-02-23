@@ -62,6 +62,8 @@ pub struct NodeInfo {
     pub schema_version: String,
     pub workspace_root: String,
     pub path: String,
+    #[serde(default)]
+    pub contract_chain: Vec<String>,
     pub node_type: NodeType,
     pub kind: String,
     pub exists: bool,

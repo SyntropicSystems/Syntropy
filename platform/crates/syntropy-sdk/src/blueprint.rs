@@ -66,6 +66,193 @@ impl Blueprint {
         );
 
         nodes.insert(
+            "apps",
+            NodeDefinition {
+                kind: "apps".to_string(),
+                purpose: Some(
+                    "Application shells for Syntropy OS and the Dev Platform (thin composition over packages/)."
+                        .to_string(),
+                ),
+                rules: vec![
+                    "Keep app shells thin; move shared logic into packages/.".to_string(),
+                    "Apps may depend on packages/; packages must not depend on apps/.".to_string(),
+                ],
+                boundaries: None,
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            "packages",
+            NodeDefinition {
+                kind: "packages".to_string(),
+                purpose: Some(
+                    "TypeScript packages (domain logic, infrastructure, and UI primitives).".to_string(),
+                ),
+                rules: vec![
+                    "Prefer pure packages; keep environment-specific wiring in apps/.".to_string(),
+                    "Avoid accidental coupling: shared code belongs here, not duplicated across apps."
+                        .to_string(),
+                ],
+                boundaries: None,
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            "infra",
+            NodeDefinition {
+                kind: "infra".to_string(),
+                purpose: Some("Infrastructure as code (Pulumi).".to_string()),
+                rules: vec!["Keep secrets out of version control.".to_string()],
+                boundaries: None,
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            "surfaces",
+            NodeDefinition {
+                kind: "surfaces".to_string(),
+                purpose: Some(
+                    "Surface definitions: interfaces through which users (or developers) interact with the system."
+                        .to_string(),
+                ),
+                rules: vec!["Use YAML frontmatter for docs in this tree.".to_string()],
+                boundaries: None,
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            "prototypes",
+            NodeDefinition {
+                kind: "prototypes".to_string(),
+                purpose: Some("Interactive React JSX design prototypes.".to_string()),
+                rules: vec!["Keep prototypes self-contained and powered by mock data.".to_string()],
+                boundaries: None,
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            "observations",
+            NodeDefinition {
+                kind: "observations".to_string(),
+                purpose: Some(
+                    "Raw signals captured over time; see observations/_index.md for workflow and template."
+                        .to_string(),
+                ),
+                rules: vec!["Capture first; structure later (audit with workflows).".to_string()],
+                boundaries: None,
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            "tools",
+            NodeDefinition {
+                kind: "tools".to_string(),
+                purpose: Some("Repo tooling (CI, devex utilities, codegen).".to_string()),
+                rules: vec![
+                    "Tools are not product features; keep product code in products/.".to_string(),
+                ],
+                boundaries: None,
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            "workspaces",
+            NodeDefinition {
+                kind: "workspaces".to_string(),
+                purpose: Some(
+                    "Fixtures and templates used to prove portability across repository shapes."
+                        .to_string(),
+                ),
+                rules: vec!["Keep fixtures minimal and representative.".to_string()],
+                boundaries: None,
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            ".claude",
+            NodeDefinition {
+                kind: "tool_adapter".to_string(),
+                purpose: Some("Generated Claude Code tool adapter.".to_string()),
+                rules: vec!["Do not hand-edit; regenerate with `syntropy agents sync`.".to_string()],
+                boundaries: Some(Boundaries {
+                    allowed_children: vec!["agents".to_string(), "commands".to_string()],
+                    disallowed: vec![],
+                }),
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            ".codex",
+            NodeDefinition {
+                kind: "tool_adapter".to_string(),
+                purpose: Some("Generated OpenAI Codex tool adapter.".to_string()),
+                rules: vec!["Do not hand-edit; regenerate with `syntropy agents sync`.".to_string()],
+                boundaries: Some(Boundaries {
+                    allowed_children: vec!["agents".to_string(), "config.toml".to_string()],
+                    disallowed: vec![],
+                }),
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            ".github",
+            NodeDefinition {
+                kind: "repo_platform".to_string(),
+                purpose: Some("GitHub configuration (workflows, CI).".to_string()),
+                rules: vec![
+                    "Prefer a single CI entrypoint: `.syntropy/system-of-work/scripts/validate.sh`."
+                        .to_string(),
+                ],
+                boundaries: Some(Boundaries {
+                    allowed_children: vec!["workflows".to_string()],
+                    disallowed: vec![],
+                }),
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            ".devcontainer",
+            NodeDefinition {
+                kind: "repo_platform".to_string(),
+                purpose: Some("Dev/build container configuration.".to_string()),
+                rules: vec!["Pin toolchain versions to keep builds deterministic.".to_string()],
+                boundaries: Some(Boundaries {
+                    allowed_children: vec![
+                        "Dockerfile".to_string(),
+                        "devcontainer.json".to_string(),
+                    ],
+                    disallowed: vec![],
+                }),
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
+            ".eraser",
+            NodeDefinition {
+                kind: "repo_platform".to_string(),
+                purpose: Some("Eraser diagram exports used by docs.".to_string()),
+                rules: vec![
+                    "Check in exports; avoid treating this as a hand-edited source of truth."
+                        .to_string(),
+                ],
+                boundaries: None,
+                readme_filename: Some("README.md".to_string()),
+            },
+        );
+
+        nodes.insert(
             "platform",
             NodeDefinition {
                 kind: "platform".to_string(),

@@ -1,15 +1,15 @@
 <!-- syntropy:generated -->
-# products
+# observations
 
 ## Purpose
 
-Shipped surfaces built on the platform.
+Raw signals captured over time; see observations/_index.md for workflow and template.
 
 ## Rules
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Products can import platform.
+- Capture first; structure later (audit with workflows).
 
 ## Notes
 
