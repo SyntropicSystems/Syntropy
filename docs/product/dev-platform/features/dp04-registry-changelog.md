@@ -8,7 +8,7 @@ priority: P0
 created: 2025-02-09
 updated: 2026-02-23
 refs:
-  decided-by: [dr-002]
+  decided-by: [dr-002, dr-003]
   depends-on: [dp01, dp05]
   enables: [dp-u01, dp-u03, dp-u04, dp-u05, dp-u06, dp-u09, dp09, dp10, dp13]
   informed-by: [jtbd-dev-platform]

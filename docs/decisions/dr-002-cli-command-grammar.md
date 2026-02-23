@@ -8,12 +8,12 @@ decision-type: type-2
 created: 2026-02-23
 updated: 2026-02-23
 refs:
-  parent: []
+  affects: [arch-north-star-layout, arch-workspace-contracts, conventions, dp04, wf-add-feature, wf-implement-syntropy-command, wf-record-decision, wf-run-syntropy-cli, wp03, wp05]
   children: []
   domain: [workspace-contracts]
-  affects: [arch-workspace-contracts, arch-north-star-layout, wf-run-syntropy-cli, wf-implement-syntropy-command, wp03, wp05]
+  parent: []
+  related: [dp01, dp05, dr-001, workspace-contracts-agent]
   tensions: []
-  related: [dr-001]
 tags: [cli, grammar, commands, workspace-platform, drift-gates]
 ---
 

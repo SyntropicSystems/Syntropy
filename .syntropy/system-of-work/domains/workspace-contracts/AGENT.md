@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2026-02-21
 updated: 2026-02-21
 refs:
-  related: [architecture-agent, bazel-agent, devex-agent, dr-002, meta-agent, operational-engineering-agent, surf-workspace-platform, wf-implement-syntropy-command, wf-run-syntropy-cli]
+  related: [architecture-agent, bazel-agent, devex-agent, dr-002, dr-003, meta-agent, operational-engineering-agent, surf-workspace-platform, wf-implement-syntropy-command, wf-run-syntropy-cli]
 ---
 
 # Workspace Contracts Agent

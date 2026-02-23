@@ -7,7 +7,7 @@ owner: decisions-agent
 created: 2025-02-09
 updated: 2026-02-23
 refs:
-  decided-by: [dr-002]
+  decided-by: [dr-002, dr-003]
   related: [decisions-agent, decisions-index, dp-u12, dp-u13, dp13, wf-make-decision, wf-resolve-question]
 ---
 

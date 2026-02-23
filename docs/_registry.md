@@ -326,3 +326,4 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | proto-domain-explorer | Domain Explorer | active | ux-agent | `prototypes/domain-explorer.jsx` |
 | proto-product-canvas | Product Canvas | active | ux-agent | `prototypes/product-canvas.jsx` |
 | proto-task-card-queue | Task Card Queue | active | ux-agent | `prototypes/task-card-queue.jsx` |
+

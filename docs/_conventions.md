@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-07
 updated: 2026-02-23
 refs:
-  decided-by: [dr-002]
+  decided-by: [dr-002, dr-003]
   related: [dp05]
 ---
 
