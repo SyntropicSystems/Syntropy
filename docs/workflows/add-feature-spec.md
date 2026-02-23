@@ -5,9 +5,10 @@ title: "Add a New Feature Spec"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-23
 refs:
-  related: [wf-make-decision, wf-refine-story, wf-create-agent, wf-decompose-spec, wf-feature-inception]
+  decided-by: [dr-002, dr-003]
+  related: [dp-u01, wf-create-agent, wf-decompose-spec, wf-feature-inception, wf-make-decision, wf-refine-story]
 ---
 
 # Workflow: Add a New Feature Spec
@@ -47,12 +48,12 @@ A new feature needs to be formally specified and added to the knowledge graph â€
 
 ### Step 4: Update Cross-References
 
-- For every document listed in `refs`, add the reciprocal reference in that document
-- Example: if f13 depends-on f04, add f13 to f04's `enables` list
+- Add your intended `refs` edges in the new feature spec frontmatter.
+- Run `syntropy docs sync` to deterministically add any missing reciprocal refs (backrefs).
 
 ### Step 5: Update the Registry
 
-- Add an entry to the Features table in `docs/_registry.md`
+- Run `syntropy gen registry` (the registry is generated; do not hand-edit `docs/_registry.md`)
 - Add the feature to the appropriate priority section in `docs/product/_index.md`
 
 ### Step 6: Assign Agent Ownership
@@ -70,8 +71,8 @@ A new feature needs to be formally specified and added to the knowledge graph â€
 
 - [ ] Feature file exists with complete frontmatter
 - [ ] At least one JTBD is referenced
-- [ ] Cross-references are bidirectional
-- [ ] Registry (`docs/_registry.md`) is updated
+- [ ] `syntropy docs check` passes (or `syntropy docs sync --check` is clean)
+- [ ] `syntropy gen registry --check` is clean
 - [ ] Product index (`docs/product/_index.md`) is updated
 - [ ] Agent ownership is assigned
 - [ ] Changelog entry exists

@@ -8,12 +8,12 @@ priority: P0
 created: 2026-02-21
 updated: 2026-02-21
 refs:
-  depends-on: []
-  enables: [wp01, wp03, wp06, wp07, wp-u05]
-  related: [rp08]
-  informed-by: [jtbd-workspace-platform]
   architecture: [arch-workspace-contracts]
+  depends-on: []
+  enables: [wp-u05, wp01, wp03, wp06, wp07]
+  informed-by: [jtbd-workspace-platform]
   open-questions: []
+  related: [rp08, surf-workspace-platform, wf-design-workspace-contract, wp-stories]
 tags: [workspace-platform, schema, contracts, versioning, p0]
 ---
 

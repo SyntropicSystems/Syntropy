@@ -8,8 +8,8 @@ created: 2026-02-21
 updated: 2026-02-21
 refs:
   depends-on: [manifesto]
-  enables: [wp01, wp02, wp03, wp04, wp05, wp06, wp07, wp08]
-  related: [jtbd, jtbd-dev-platform, jtbd-repo-platform, principles, surf-workspace-platform]
+  enables: [wp-stories, wp01, wp02, wp03, wp04, wp05, wp06, wp07, wp08]
+  related: [jtbd, jtbd-dev-platform, jtbd-repo-platform, principles, surf-workspace-platform, wp-product-index]
 tags: [vision, motivation, jtbd, workspace-platform, meta]
 ---
 

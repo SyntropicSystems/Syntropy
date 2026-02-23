@@ -8,13 +8,13 @@ priority: P1
 created: 2025-02-07
 updated: 2025-02-07
 refs:
+  architecture: [arch-ai-pipeline, arch-data-model]
+  decided-by: [adr-003]
   depends-on: [f04, f06, f11]
   enables: [u09, u10]
-  related: [f03, f05, f07]
   informed-by: [jtbd, stories]
-  decided-by: [adr-003]
+  related: [f03, f05, f07, f11-domains-agent, f12-artifact-agent]
   ux-patterns: [ux-artifact-flow]
-  architecture: [arch-ai-pipeline, arch-data-model]
 tags: [ai, artifacts, capture, p1]
 ---
 

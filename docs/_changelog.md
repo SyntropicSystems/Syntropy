@@ -6,6 +6,8 @@ status: active
 owner: meta-agent
 created: 2025-02-07
 updated: 2026-02-23
+refs:
+  related: [dp04]
 ---
 
 # Changelog
@@ -224,3 +226,5 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-23 | updated | dr-001 | Linked DR-002 and updated migration to use `syntropy check` | workspace-contracts-agent |
 | 2026-02-23 | created | — | Implemented verb-first CLI grammar: `gen agents`, `gen cli-docs`, `gen all`, and `check`; updated CI entrypoint; fixed validation determinism | workspace-contracts-agent |
 | 2026-02-23 | updated | wf-run-syntropy-cli | Added `gen all` to the bootstrap CLI workflow | workspace-contracts-agent |
+| 2026-02-23 | created | dr-003 | Recorded generated registry + docs sync + Rust-first check gate decision | meta-agent |
+| 2026-02-23 | created | — | Implemented Dev Platform integrity tooling: strict docs graph checks, deterministic backref sync, generated registry drift gate, and `syntropy check` single Rust CI gate | meta-agent |

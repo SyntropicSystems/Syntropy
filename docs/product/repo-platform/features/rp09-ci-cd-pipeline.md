@@ -10,8 +10,8 @@ updated: 2025-02-09
 refs:
   depends-on: [rp03, rp06, rp08]
   enables: [rp-u05]
-  related: [rp10, adr-005]
   informed-by: [jtbd-repo-platform]
+  related: [adr-005, rp-stories, rp10, surf-repo-platform]
 tags: [repo-platform, ci-cd, github-actions, automation, p1]
 ---
 

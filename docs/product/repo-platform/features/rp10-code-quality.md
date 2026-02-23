@@ -10,8 +10,8 @@ updated: 2025-02-09
 refs:
   depends-on: [rp03, rp04]
   enables: [rp-u05]
-  related: [rp09, rp08]
   informed-by: [jtbd-repo-platform]
+  related: [rp-stories, rp08, rp09, surf-repo-platform, wp03]
 tags: [repo-platform, linting, formatting, quality, p1]
 ---
 

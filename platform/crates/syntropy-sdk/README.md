@@ -1,4 +1,6 @@
 <!-- syntropy:generated -->
+<!-- GENERATED — DO NOT EDIT. -->
+<!-- Run: cargo run -p syntropy -- gen readmes -->
 # syntropy-sdk
 
 ## Purpose

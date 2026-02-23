@@ -8,7 +8,7 @@ created: 2025-02-07
 updated: 2025-02-07
 refs:
   depends-on: [f08]
-  related: [surf-mobile]
+  related: [dp06, surf-mobile]
 tags: [surface, web, react, desktop]
 ---
 

@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [rp01, rp02, rp05]
-  related: [rp-u06, rp-u07]
+  related: [rp-u06, rp-u07, wp-u01]
 tags: [repo-platform, use-case, onboarding]
 ---
 

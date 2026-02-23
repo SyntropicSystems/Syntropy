@@ -6,12 +6,12 @@ status: defining
 owner: ux-agent
 priority: P1
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-23
 refs:
   depends-on: [dp01, dp06]
   enables: []
-  related: [proto-task-card-queue, proto-arch-explorer, proto-domain-explorer, proto-product-canvas, proto-artifact-intel]
   informed-by: [jtbd-dev-platform]
+  related: [dp-stories, proto-architecture-explorer, proto-artifact-intelligence, proto-domain-explorer, proto-product-canvas, proto-task-card-queue, surf-dev-platform]
 tags: [dev-platform, prototypes, ux, p1]
 ---
 

@@ -8,7 +8,7 @@ created: 2026-02-21
 updated: 2026-02-21
 refs:
   depends-on: [wp01, wp04, wp05]
-  related: [wp-u01, wp-u04, rp-u02]
+  related: [rp-u02, wp-u01, wp-u04, wp-u06]
 tags: [workspace-platform, use-case, scaffolding, service]
 ---
 

@@ -8,13 +8,13 @@ priority: P0
 created: 2025-02-07
 updated: 2025-02-07
 refs:
+  architecture: [arch-data-model]
   depends-on: [f01, f02, f06]
   enables: [u06, u07, u09]
-  related: [f03, f04, f05, f12]
   informed-by: [jtbd, stories]
-  ux-patterns: [ux-spaces-nav]
-  architecture: [arch-data-model]
   open-questions: [oq-multi-user]
+  related: [f03, f04, f05, f11-domains-agent, f12, f12-artifact-agent]
+  ux-patterns: [ux-spaces-nav]
 tags: [core, mvp, domains, spaces, p0]
 ---
 

@@ -9,9 +9,9 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [rp02]
-  enables: [rp10, rp-u03]
-  related: [rp03, rp08, adr-004]
+  enables: [rp-u02, rp-u03, rp10]
   informed-by: [jtbd-repo-platform]
+  related: [adr-004, arch-stack, rp-stories, rp03, rp08, surf-repo-platform]
 tags: [repo-platform, typescript, compiler, type-safety, p0]
 ---
 

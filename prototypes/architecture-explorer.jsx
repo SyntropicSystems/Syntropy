@@ -1,3 +1,18 @@
+/*
+---
+id: "proto-architecture-explorer"
+type: prototype
+title: "Architecture Explorer"
+status: active
+owner: ux-agent
+created: 2025-02-07
+updated: 2026-02-23
+refs:
+  related: [dp07]
+tags: [prototype]
+---
+*/
+
 import { useState } from "react";
 
 // ─── Architecture Data ───────────────────────────────────────────────────────

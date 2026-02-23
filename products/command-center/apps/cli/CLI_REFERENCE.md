@@ -15,6 +15,7 @@ Commands:
   tree      Render a directory tree (human or JSON)
   info      Describe a path (purpose, rules, boundaries)
   gen       Generate/refresh deterministic workspace artifacts
+  docs      Docs graph checks and maintenance (frontmatter + refs)
   validate  Validate workspace structure against the selected blueprint
   check     Run all drift gates and workspace validation
   help      Print this message or the help of the given subcommand(s)
@@ -39,6 +40,53 @@ Options:
           Print help
 ```
 
+## `syntropy docs`
+
+```text
+Docs graph checks and maintenance (frontmatter + refs)
+
+Usage: syntropy docs <COMMAND>
+
+Commands:
+  check  Validate docs frontmatter and reference graph
+  sync   Sync missing bidirectional references (backrefs)
+  help   Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help
+          Print help
+```
+
+## `syntropy docs check`
+
+```text
+Validate docs frontmatter and reference graph
+
+Usage: syntropy docs check
+
+Options:
+  -h, --help
+          Print help
+```
+
+## `syntropy docs sync`
+
+```text
+Sync missing bidirectional references (backrefs)
+
+Usage: syntropy docs sync [OPTIONS]
+
+Options:
+      --dry-run
+          Print what would change, but do not write
+
+      --check
+          Fail if doc sync would make changes (drift gate)
+
+  -h, --help
+          Print help
+```
+
 ## `syntropy gen`
 
 ```text
@@ -48,6 +96,7 @@ Usage: syntropy gen <COMMAND>
 
 Commands:
   readmes   Generate README.md files for known blueprint directories
+  registry  Generate/refresh the docs registry (`docs/_registry.md`)
   agents    Generate/refresh `.claude/**` and `.codex/**` adapters from canonical specs
   cli-docs  Generate/refresh CLI reference documentation
   all       Run all generators (CLI docs, README contracts, agent adapters)
@@ -125,6 +174,27 @@ Options:
 
       --check
           Fail if README generation would make changes (drift gate)
+
+  -h, --help
+          Print help
+```
+
+## `syntropy gen registry`
+
+```text
+Generate/refresh the docs registry (`docs/_registry.md`)
+
+Usage: syntropy gen registry [OPTIONS]
+
+Options:
+      --dry-run
+          Print what would change, but do not write
+
+      --check
+          Fail if registry generation would make changes (drift gate)
+
+      --force
+          Allow overwriting a non-generated registry file (one-time migration)
 
   -h, --help
           Print help

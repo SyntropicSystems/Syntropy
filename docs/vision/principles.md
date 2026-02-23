@@ -8,7 +8,7 @@ created: 2025-02-07
 updated: 2025-02-07
 refs:
   depends-on: [manifesto]
-  related: [jtbd, glossary]
+  related: [glossary, jtbd, jtbd-dev-platform, jtbd-repo-platform, jtbd-workspace-platform]
 tags: [vision, principles, foundation]
 ---
 

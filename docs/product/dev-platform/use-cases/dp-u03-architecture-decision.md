@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [dp01, dp03, dp04]
-  related: [wf-make-decision, dp02, dp-u01]
+  related: [dp-u01, dp-u05, dp-u12, dp02, wf-make-decision]
 tags: [dev-platform, use-case, decisions]
 ---
 

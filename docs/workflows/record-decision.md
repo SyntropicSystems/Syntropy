@@ -5,9 +5,10 @@ title: "Record a Decision"
 status: active
 owner: decisions-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-23
 refs:
-  related: [wf-make-decision, wf-resolve-question, dp13, decisions-agent]
+  decided-by: [dr-002, dr-003]
+  related: [decisions-agent, decisions-index, dp-u12, dp-u13, dp13, wf-make-decision, wf-resolve-question]
 ---
 
 # Workflow: Record a Decision
@@ -107,11 +108,12 @@ Before finalizing, scan existing decisions for potential conflicts:
 - Update affected documents to add `decided-by: [dr-NNN]` to their refs
 - If this decision has a parent, add `children: [dr-NNN]` to the parent's refs
 - If this supersedes an older decision, update the older decision's status and refs
+- Run `syntropy docs sync` to deterministically add any missing reciprocal refs (backrefs)
 
 ### Step 7: Update Index, Registry, and Changelog
 
 - Add an entry to `docs/decisions/_index.md`
-- Add an entry to `docs/_registry.md`
+- Run `syntropy gen registry` (the registry is generated; do not hand-edit `docs/_registry.md`)
 - Log the change in `docs/_changelog.md`
 
 ## Validation Checklist
@@ -124,7 +126,7 @@ Before finalizing, scan existing decisions for potential conflicts:
 - [ ] `affects` refs point to impacted documents
 - [ ] Affected documents have `decided-by` back-references
 - [ ] Decisions index is updated
-- [ ] Registry entry exists
+- [ ] `syntropy gen registry --check` is clean
 - [ ] Changelog entry exists
 
 ## Superseding a Decision

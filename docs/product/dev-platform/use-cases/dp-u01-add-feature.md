@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [dp01, dp02, dp03, dp04, dp05]
-  related: [wf-add-feature, dp-u03]
+  related: [dp-u03, dp-u07, dp-u16, wf-add-feature]
 tags: [dev-platform, use-case]
 ---
 

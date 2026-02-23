@@ -9,7 +9,7 @@ authority: orchestrator
 created: 2025-02-07
 updated: 2026-02-21
 refs:
-  related: [product-agent, architecture-agent, ux-agent, integration-agent, observations-agent, pulse-companion-agent, decisions-agent, cognitive-engineering-agent, operational-engineering-agent, workspace-contracts-agent, surf-dev-platform]
+  related: [architecture-agent, bazel-agent, cognitive-engineering-agent, decisions-agent, devex-agent, dp02, dp08, integration-agent, observations-agent, operational-engineering-agent, product-agent, pulse-companion-agent, surf-dev-platform, tasks-agent, ux-agent, workspace-contracts-agent]
 ---
 
 # Meta Agent

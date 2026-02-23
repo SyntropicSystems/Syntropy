@@ -8,8 +8,8 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [rp01, rp02, rp03, rp04, rp05, rp06, rp07, rp08, rp09, rp10]
-  related: [jtbd, jtbd-dev-platform, principles, surf-repo-platform]
+  enables: [rp-stories, rp01, rp02, rp03, rp04, rp05, rp06, rp07, rp08, rp09, rp10]
+  related: [jtbd, jtbd-dev-platform, jtbd-workspace-platform, principles, rp-product-index, surf-repo-platform]
 tags: [vision, motivation, jtbd, repo-platform, meta]
 ---
 

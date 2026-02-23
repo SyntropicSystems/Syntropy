@@ -10,8 +10,8 @@ updated: 2025-02-09
 refs:
   depends-on: []
   enables: [rp09]
-  related: [rp02, rp10]
   informed-by: [jtbd-repo-platform]
+  related: [rp-stories, rp02, rp04, rp10, surf-repo-platform, wp08]
 tags: [repo-platform, git, conventions, p1]
 ---
 

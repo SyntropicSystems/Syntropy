@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-07
 updated: 2026-02-21
 refs:
-  related: [product-agent, integration-agent, meta-agent]
+  related: [cognitive-engineering-agent, decisions-agent, integration-agent, meta-agent, product-agent, surf-repo-platform, workspace-contracts-agent]
 ---
 
 # Architecture Agent

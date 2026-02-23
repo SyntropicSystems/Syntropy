@@ -7,8 +7,8 @@ owner: architecture-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [f04, f07, f12, arch-stack]
   decided-by: [adr-003]
+  related: [adr-004, arch-stack, f04, f04-ai-engine-agent, f07, f12, f12-artifact-agent, oq-monorepo-architecture]
 tags: [architecture, ai, pipeline]
 ---
 

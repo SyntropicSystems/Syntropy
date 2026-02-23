@@ -9,9 +9,9 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: []
-  enables: [rp02, rp03, rp05, rp06, rp-u01, rp-u07]
-  related: [rp03, rp05, adr-004]
+  enables: [rp-u01, rp-u07, rp02, rp03, rp05, rp06, rp07]
   informed-by: [jtbd-repo-platform]
+  related: [adr-004, arch-stack, rp-stories, rp03, rp05, surf-repo-platform]
 tags: [repo-platform, runtime, node, pnpm, p0]
 ---
 

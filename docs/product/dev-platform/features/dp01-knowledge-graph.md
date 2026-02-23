@@ -9,9 +9,9 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [dp05]
-  enables: [dp02, dp03, dp04, dp06, dp07, dp08, dp-u01, dp-u02, dp-u04]
-  related: [dp04, dp05]
+  enables: [dp-u01, dp-u02, dp-u03, dp-u04, dp-u05, dp-u12, dp-u13, dp02, dp03, dp04, dp06, dp07, dp08, dp09, dp10, dp13]
   informed-by: [jtbd-dev-platform]
+  related: [dp-stories, dp04, dp05, dr-002, dr-003, surf-dev-platform]
 tags: [dev-platform, core, knowledge-graph, p0]
 ---
 

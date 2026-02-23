@@ -7,7 +7,7 @@ owner: observations-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [dp10, wf-capture-observation, wf-audit-observations, observations-agent]
+  related: [dp10, observations-agent, pulse-companion-agent, wf-audit-observations, wf-capture-observation]
 tags: [observations, index, signals]
 ---
 

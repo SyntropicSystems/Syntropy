@@ -7,8 +7,8 @@ owner: architecture-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [f06, arch-data-model, arch-security]
   decided-by: [adr-002]
+  related: [adr-004, arch-data-model, arch-security, f06]
 tags: [architecture, event-sourcing, firestore]
 ---
 

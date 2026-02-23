@@ -7,7 +7,8 @@ owner: architecture-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  affects: [arch-stack, arch-data-model, f06, f08]
+  affects: [arch-data-model, arch-stack, f06, f08]
+  related: [adr-004, oq-monorepo-architecture, rp-u04, rp07]
 ---
 
 # ADR-001: Firebase as Backend Platform

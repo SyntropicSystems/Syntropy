@@ -9,7 +9,7 @@ created: 2025-02-09
 updated: 2026-02-23
 refs:
   affects: [arch-stack, f08]
-  related: [adr-001, arch-data-model, arch-ai-pipeline, arch-event-sourcing, arch-north-star-layout, dr-001]
+  related: [adr-001, adr-005, arch-ai-pipeline, arch-data-model, arch-event-sourcing, arch-north-star-layout, dr-001, rp-u02, rp01, rp02, rp03, rp04, rp07, surf-repo-platform]
   resolves: [oq-monorepo-architecture]
 tags: [architecture, monorepo, ddd, deployment]
 ---

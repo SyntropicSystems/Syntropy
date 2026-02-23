@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [rp03, rp04]
-  related: [rp-u05]
+  related: [rp-u02, rp-u05]
 tags: [repo-platform, use-case, build]
 ---
 

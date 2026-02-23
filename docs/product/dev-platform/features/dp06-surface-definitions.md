@@ -10,8 +10,8 @@ updated: 2025-02-09
 refs:
   depends-on: [dp01, dp05]
   enables: [dp07]
-  related: [surf-mobile, surf-web, surf-dev-platform]
   informed-by: [jtbd-dev-platform]
+  related: [dp-stories, surf-dev-platform, surf-mobile, surf-web]
 tags: [dev-platform, surfaces, p1]
 ---
 

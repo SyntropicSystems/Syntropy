@@ -7,8 +7,8 @@ owner: observations-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  depends-on: [dp11, dp10, dp03]
-  related: [wf-reflect, dp-u08, dp-u09]
+  depends-on: [dp03, dp10, dp11]
+  related: [dp-u08, dp-u09, dp-u11, wf-reflect]
 tags: [dev-platform, use-case, reflection, observations, learning]
 ---
 

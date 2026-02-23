@@ -9,9 +9,9 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [dp01, dp02]
-  enables: [dp-u01, dp-u03, dp-u05]
-  related: [dp04, dp05]
+  enables: [dp-u01, dp-u03, dp-u05, dp-u07, dp-u08, dp-u10, dp-u16, dp09, dp10, dp11, dp12, dp15]
   informed-by: [jtbd-dev-platform]
+  related: [dp-stories, dp-u17, dp04, dp05, dp13, dp14, operational-engineering-agent, surf-dev-platform]
 tags: [dev-platform, core, workflows, p0]
 ---
 

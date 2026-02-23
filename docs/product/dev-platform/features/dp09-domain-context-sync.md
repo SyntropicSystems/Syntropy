@@ -9,9 +9,9 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [dp01, dp02, dp03, dp04]
-  enables: [dp-u06, dp-u07]
-  related: [dp08, base-traits, wf-sync-domain-context, wf-domain-review]
+  enables: [dp-u06, dp-u07, dp-u14, dp14]
   informed-by: [jtbd-dev-platform]
+  related: [base-traits, dp-stories, dp-u15, dp08, dp10, dp11, dp12, dp13, dp15, wf-domain-review, wf-sync-domain-context]
 tags: [dev-platform, core, agents, sync, context, p0]
 ---
 

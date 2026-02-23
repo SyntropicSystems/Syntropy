@@ -3,11 +3,18 @@ id: "registry"
 type: reference
 title: "Document Registry"
 status: active
+mode: generated
 owner: meta-agent
 created: 2025-02-07
 updated: 2026-02-23
+refs:
+  decided-by: [dr-003]
+  related: [dp04]
 ---
 
+<!-- syntropy:generated -->
+<!-- GENERATED — DO NOT EDIT. -->
+<!-- Run: cargo run -p syntropy -- gen registry -->
 # Document Registry
 
 Master index of all documents in the Syntropy OS knowledge graph. Every document's stable ID maps to its file path, current status, and owning agent.
@@ -16,10 +23,10 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| manifesto | Core Philosophy | active | meta-agent | `docs/vision/manifesto.md` |
-| jtbd | Jobs to Be Done | active | product-agent | `docs/vision/jtbd.md` |
-| principles | Design Principles | active | meta-agent | `docs/vision/principles.md` |
 | glossary | Glossary | active | meta-agent | `docs/vision/glossary.md` |
+| jtbd | Jobs to Be Done | active | product-agent | `docs/vision/jtbd.md` |
+| manifesto | Core Philosophy | active | meta-agent | `docs/vision/manifesto.md` |
+| principles | Design Principles | active | meta-agent | `docs/vision/principles.md` |
 
 ## Features
 
@@ -32,17 +39,17 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | f05 | Quick Capture | defining | product-agent | `docs/product/features/f05-quick-capture.md` |
 | f06 | Event Sourcing & Audit Trail | defining | architecture-agent | `docs/product/features/f06-event-sourcing.md` |
 | f07 | Self-Learning System | exploring | product-agent | `docs/product/features/f07-self-learning.md` |
-| f08 | Cross-Platform | defining | architecture-agent | `docs/product/features/f08-cross-platform.md` |
-| f09 | Follow-Up Tasks & Dependencies | defining | product-agent | `docs/product/features/f09-follow-up-tasks.md` |
-| f10 | Confidence Thresholds & Trust | defining | product-agent | `docs/product/features/f10-confidence-thresholds.md` |
-| f11 | Domains / Spaces | defining | product-agent | `docs/product/features/f11-domains-spaces.md` |
-| f12 | Artifact Intelligence | defining | product-agent | `docs/product/features/f12-artifact-intelligence.md` |
+| f08 | Cross-Platform (React Native + Web) | defining | architecture-agent | `docs/product/features/f08-cross-platform.md` |
+| f09 | Follow-Up Task Creation & Dependency Resolution | defining | product-agent | `docs/product/features/f09-follow-up-tasks.md` |
+| f10 | Confidence Thresholds & Trust Controls | defining | product-agent | `docs/product/features/f10-confidence-thresholds.md` |
+| f11 | Domains / Spaces (Persistent Living Contexts) | defining | product-agent | `docs/product/features/f11-domains-spaces.md` |
+| f12 | Artifact Intelligence (Upload -> Extract -> Link) | defining | product-agent | `docs/product/features/f12-artifact-intelligence.md` |
 
 ## Use Cases
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| u01 | Email Triage | defining | product-agent | `docs/product/use-cases/u01-email-triage.md` |
+| u01 | Email Triage (Daily Driver) | defining | product-agent | `docs/product/use-cases/u01-email-triage.md` |
 | u02 | Voice Capture on the Go | defining | product-agent | `docs/product/use-cases/u02-voice-capture.md` |
 | u03 | AI Auto-Managing Inbox | defining | product-agent | `docs/product/use-cases/u03-ai-auto-inbox.md` |
 | u04 | Project Overview & Epic Drill-Down | defining | product-agent | `docs/product/use-cases/u04-project-overview.md` |
@@ -57,34 +64,34 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| s01–s16 | All User Stories | defining | product-agent | `docs/product/user-stories/stories.md` |
+| stories | User Stories | defining | product-agent | `docs/product/user-stories/stories.md` |
 
 ## UX Patterns
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| ux-card-queue | Card Queue Layout | defining | ux-agent | `docs/product/ux/card-queue-layout.md` |
-| ux-epic-drill-down | Epic Drill-Down Flow | defining | ux-agent | `docs/product/ux/epic-drill-down.md` |
 | ux-ai-suggestion | AI Suggestion Display | defining | ux-agent | `docs/product/ux/ai-suggestion-display.md` |
-| ux-spaces-nav | Spaces Navigation | defining | ux-agent | `docs/product/ux/spaces-navigation.md` |
 | ux-artifact-flow | Artifact Intelligence Flow | defining | ux-agent | `docs/product/ux/artifact-intelligence-flow.md` |
-| ux-follow-up | Follow-Up Task Flow | defining | ux-agent | `docs/product/ux/follow-up-task-flow.md` |
+| ux-card-queue | Card Queue Layout | defining | ux-agent | `docs/product/ux/card-queue-layout.md` |
 | ux-dependency-viz | Dependency Visualization | defining | ux-agent | `docs/product/ux/dependency-visualization.md` |
+| ux-epic-drill-down | Epic Drill-Down Flow | defining | ux-agent | `docs/product/ux/epic-drill-down.md` |
+| ux-follow-up | Follow-Up Task Flow | defining | ux-agent | `docs/product/ux/follow-up-task-flow.md` |
+| ux-spaces-nav | Spaces Navigation | defining | ux-agent | `docs/product/ux/spaces-navigation.md` |
 
 ## Architecture
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| arch-stack | Technology Stack | defining | architecture-agent | `docs/architecture/stack.md` |
+| arch-ai-pipeline | AI Pipeline | exploring | architecture-agent | `docs/architecture/ai-pipeline.md` |
 | arch-data-model | Data Model | defining | architecture-agent | `docs/architecture/data-model.md` |
 | arch-event-sourcing | Event Sourcing on Firestore | defining | architecture-agent | `docs/architecture/event-sourcing.md` |
-| arch-ai-pipeline | AI Pipeline | exploring | architecture-agent | `docs/architecture/ai-pipeline.md` |
-| arch-offline | Offline Strategy | defining | architecture-agent | `docs/architecture/offline-strategy.md` |
-| arch-security | Security | defining | architecture-agent | `docs/architecture/security.md` |
 | arch-integrations | Integration Roadmap | defining | integration-agent | `docs/architecture/integrations.md` |
-| arch-workspace-contracts | Workspace Contract System | defining | workspace-contracts-agent | `docs/architecture/workspace-contracts.md` |
-| arch-plan-apply-engine | Plan/Apply Engine | defining | workspace-contracts-agent | `docs/architecture/plan-apply-engine.md` |
 | arch-north-star-layout | North Star Repository Layout | defining | workspace-contracts-agent | `docs/architecture/north-star-layout.md` |
+| arch-offline | Offline Strategy | defining | architecture-agent | `docs/architecture/offline-strategy.md` |
+| arch-plan-apply-engine | Plan/Apply Engine | defining | workspace-contracts-agent | `docs/architecture/plan-apply-engine.md` |
+| arch-security | Security & Auth | defining | architecture-agent | `docs/architecture/security.md` |
+| arch-stack | Technology Stack | defining | architecture-agent | `docs/architecture/stack.md` |
+| arch-workspace-contracts | Workspace Contract System | defining | workspace-contracts-agent | `docs/architecture/workspace-contracts.md` |
 
 ## Decisions
 
@@ -97,69 +104,68 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | adr-005 | Dev Container and Build Container Strategy | accepted | architecture-agent | `docs/decisions/adr-005-dev-build-containers.md` |
 | dr-001 | Repo Structure Contract + Folder Contracts | accepted | workspace-contracts-agent | `docs/decisions/dr-001-repo-structure-contract.md` |
 | dr-002 | Verb-First CLI Command Grammar | accepted | workspace-contracts-agent | `docs/decisions/dr-002-cli-command-grammar.md` |
-
-*General decision records (dr-NNN) appear here as they are captured.*
+| dr-003 | Generated Registry + Docs Sync + Rust-First Gate | accepted | meta-agent | `docs/decisions/dr-003-generated-registry-and-doc-sync.md` |
 
 ## Open Questions
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| oq-privacy-model | Privacy Model for AI Email Reading | draft | architecture-agent | `docs/open-questions/oq-privacy-model.md` |
-| oq-conflict-resolution | AI Conflict Resolution & Undo | draft | product-agent | `docs/open-questions/oq-conflict-resolution.md` |
-| oq-multi-user | Multi-User / Team Support | draft | product-agent | `docs/open-questions/oq-multi-user.md` |
+| oq-conflict-resolution | AI Conflict Resolution & Undo Mechanisms | draft | product-agent | `docs/open-questions/oq-conflict-resolution.md` |
 | oq-monetization | Monetization Strategy | draft | product-agent | `docs/open-questions/oq-monetization.md` |
-| oq-notification-strategy | Notification Strategy | draft | product-agent | `docs/open-questions/oq-notification-strategy.md` |
 | oq-monorepo-architecture | Monorepo Architecture — Code Organization Strategy | resolved | architecture-agent | `docs/open-questions/oq-monorepo-architecture.md` |
+| oq-multi-user | Multi-User & Team Sharing | draft | product-agent | `docs/open-questions/oq-multi-user.md` |
+| oq-notification-strategy | Notification Strategy | draft | product-agent | `docs/open-questions/oq-notification-strategy.md` |
+| oq-privacy-model | AI Privacy Model & Data Ownership | draft | architecture-agent | `docs/open-questions/oq-privacy-model.md` |
 
 ## Workflows
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| wf-record-decision | Record a Decision | active | decisions-agent | `docs/workflows/record-decision.md` |
 | wf-add-feature | Add a New Feature Spec | active | meta-agent | `docs/workflows/add-feature-spec.md` |
-| wf-make-decision | Make an Architecture Decision | active | meta-agent | `docs/workflows/make-architecture-decision.md` |
-| wf-refine-story | Refine a User Story | active | product-agent | `docs/workflows/refine-user-story.md` |
-| wf-create-agent | Create a New Agent | active | meta-agent | `docs/workflows/create-agent.md` |
-| wf-resolve-question | Resolve an Open Question | active | meta-agent | `docs/workflows/resolve-open-question.md` |
-| wf-decompose-spec | Decompose a Spec Document | active | meta-agent | `docs/workflows/decompose-spec.md` |
-| wf-sync-domain-context | Sync Domain Context | active | meta-agent | `docs/workflows/sync-domain-context.md` |
-| wf-domain-review | Domain DRI Review | active | meta-agent | `docs/workflows/domain-review.md` |
-| wf-capture-observation | Capture an Observation | active | observations-agent | `docs/workflows/capture-observation.md` |
 | wf-audit-observations | Audit Observations | active | observations-agent | `docs/workflows/audit-observations.md` |
-| wf-feature-inception | Feature Inception | active | meta-agent | `docs/workflows/feature-inception.md` |
-| wf-reflect | Reflect After Work | active | observations-agent | `docs/workflows/reflect.md` |
+| wf-capture-observation | Capture an Observation | active | observations-agent | `docs/workflows/capture-observation.md` |
+| wf-create-agent | Create a New Agent | active | meta-agent | `docs/workflows/create-agent.md` |
+| wf-decompose-spec | Decompose a Spec Document | active | meta-agent | `docs/workflows/decompose-spec.md` |
 | wf-design-workspace-contract | Design a Workspace Contract | active | workspace-contracts-agent | `docs/workflows/design-workspace-contract.md` |
-| wf-run-syntropy-cli | Run the Syntropy CLI (Bootstrap Slice) | active | workspace-contracts-agent | `docs/workflows/run-syntropy-cli.md` |
+| wf-domain-review | Domain DRI Review | active | meta-agent | `docs/workflows/domain-review.md` |
+| wf-feature-inception | Feature Inception | active | meta-agent | `docs/workflows/feature-inception.md` |
 | wf-implement-syntropy-command | Implement a Syntropy CLI Command | active | workspace-contracts-agent | `docs/workflows/implement-syntropy-command.md` |
+| wf-make-decision | Make an Architecture Decision | active | meta-agent | `docs/workflows/make-architecture-decision.md` |
+| wf-record-decision | Record a Decision | active | decisions-agent | `docs/workflows/record-decision.md` |
+| wf-refine-story | Refine a User Story | active | product-agent | `docs/workflows/refine-user-story.md` |
+| wf-reflect | Reflect After Work | active | observations-agent | `docs/workflows/reflect.md` |
+| wf-resolve-question | Resolve an Open Question | active | meta-agent | `docs/workflows/resolve-open-question.md` |
+| wf-run-syntropy-cli | Run the Syntropy CLI (Bootstrap Slice) | active | workspace-contracts-agent | `docs/workflows/run-syntropy-cli.md` |
+| wf-sync-domain-context | Sync Domain Context | active | meta-agent | `docs/workflows/sync-domain-context.md` |
 
 ## Agents
 
 | ID | Title | Status | Scope | File |
 |----|-------|--------|-------|------|
+| architecture-agent | Architecture Agent | active | Technical architecture, data model, tech stack, infrastructure, event sourcing | `.syntropy/system-of-work/domains/architecture/AGENT.md` |
 | base-traits | Base Agent Traits | active | All agents | `.syntropy/system-of-work/domains/system/_base-traits.md` |
-| meta-agent | Meta Agent | active | Orchestration, routing | `.syntropy/system-of-work/domains/system/AGENT.md` |
-| bazel-agent | Bazel Agent | active | Bazel/module/build graph | `.syntropy/system-of-work/domains/bazel/AGENT.md` |
-| devex-agent | DevEx Agent | active | Bootstrap + developer experience | `.syntropy/system-of-work/domains/devex/AGENT.md` |
-| tasks-agent | Tasks Agent | active | Planning + verification discipline | `.syntropy/system-of-work/domains/tasks/AGENT.md` |
-| product-agent | Product Agent | active | Product specs, features, stories | `.syntropy/system-of-work/domains/product/AGENT.md` |
-| architecture-agent | Architecture Agent | active | Technical architecture | `.syntropy/system-of-work/domains/architecture/AGENT.md` |
-| ux-agent | UX Agent | active | UX patterns, design | `.syntropy/system-of-work/domains/ux/AGENT.md` |
-| integration-agent | Integration Agent | active | External integrations | `.syntropy/system-of-work/domains/integration/AGENT.md` |
-| f04-ai-engine-agent | AI Engine Agent | active | Feature F04 | `.syntropy/system-of-work/domains/product/features/f04-ai-engine/AGENT.md` |
-| f11-domains-agent | Domains Agent | active | Feature F11 | `.syntropy/system-of-work/domains/product/features/f11-domains/AGENT.md` |
-| f12-artifact-agent | Artifact Agent | active | Feature F12 | `.syntropy/system-of-work/domains/product/features/f12-artifact/AGENT.md` |
-| observations-agent | Observations Agent | active | Observation capture, structuring, patterns | `.syntropy/system-of-work/domains/observations/AGENT.md` |
-| pulse-companion-agent | Pulse Companion Agent | active | Assisted reflection, continuous pulse, work companion | `.syntropy/system-of-work/domains/pulse-companion/AGENT.md` |
-| decisions-agent | Decisions Agent | active | Decision records, reasoning graph, coherence | `.syntropy/system-of-work/domains/decisions/AGENT.md` |
-| cognitive-engineering-agent | Cognitive Engineering Agent | active | Information architecture for comprehension | `.syntropy/system-of-work/domains/cognitive-engineering/AGENT.md` |
-| operational-engineering-agent | Operational Engineering Agent | active | Process design methodology for actor effectiveness | `.syntropy/system-of-work/domains/operational-engineering/AGENT.md` |
-| workspace-contracts-agent | Workspace Contracts Agent | active | Workspace contracts, validation, scaffolding, migrations | `.syntropy/system-of-work/domains/workspace-contracts/AGENT.md` |
+| bazel-agent | Bazel Agent | active | Bazel module/build graph, build tooling, visibility, deps hygiene | `.syntropy/system-of-work/domains/bazel/AGENT.md` |
+| cognitive-engineering-agent | Cognitive Engineering Agent | active | Information architecture for human comprehension — review structures, learning methodologies, knowledge compression, cognitive adaptation | `.syntropy/system-of-work/domains/cognitive-engineering/AGENT.md` |
+| decisions-agent | Decisions Agent | active | Decision records, reasoning graph integrity, decision coherence, conflict detection | `.syntropy/system-of-work/domains/decisions/AGENT.md` |
+| devex-agent | DevEx Agent | active | Bootstrap, local setup, tooling ergonomics, paved roads | `.syntropy/system-of-work/domains/devex/AGENT.md` |
+| f04-ai-engine-agent | AI Engine Agent | active | Feature F04: AI Action Engine — confidence scoring, domain agents, auto-execution | `.syntropy/system-of-work/domains/product/features/f04-ai-engine/AGENT.md` |
+| f11-domains-agent | Domains / Spaces Agent | active | Feature F11: Domains/Spaces — persistent life contexts, knowledge base, info management | `.syntropy/system-of-work/domains/product/features/f11-domains/AGENT.md` |
+| f12-artifact-agent | Artifact Intelligence Agent | active | Feature F12: Artifact Intelligence — upload, extraction, linking, knowledge capture | `.syntropy/system-of-work/domains/product/features/f12-artifact/AGENT.md` |
+| integration-agent | Integration Agent | active | External integrations — Gmail, Calendar, Slack, GitHub, financial, IoT | `.syntropy/system-of-work/domains/integration/AGENT.md` |
+| meta-agent | Meta Agent | active | Orchestration, routing, knowledge graph integrity, agent lifecycle | `.syntropy/system-of-work/domains/system/AGENT.md` |
+| observations-agent | Observations Agent | active | Observation capture, structuring, pattern detection, contributor upleveling | `.syntropy/system-of-work/domains/observations/AGENT.md` |
+| operational-engineering-agent | Operational Engineering Agent | active | Methodology for designing effective workflows, rules, skills, context, and agent configurations — the craft of making actors effective at executing work | `.syntropy/system-of-work/domains/operational-engineering/AGENT.md` |
+| product-agent | Product Agent | active | Product specifications, features, use cases, user stories, JTBD | `.syntropy/system-of-work/domains/product/AGENT.md` |
+| pulse-companion-agent | Pulse Companion Agent | active | Assisted reflection, continuous pulse sensing, personalized work companionship | `.syntropy/system-of-work/domains/pulse-companion/AGENT.md` |
+| tasks-agent | Tasks Agent | active | Planning, verification discipline, task decomposition and checklists | `.syntropy/system-of-work/domains/tasks/AGENT.md` |
+| ux-agent | UX Agent | active | UX patterns, design decisions, interaction flows, prototypes | `.syntropy/system-of-work/domains/ux/AGENT.md` |
+| workspace-contracts-agent | Workspace Contracts Agent | active | Workspace contracts, validation, scaffolding, migrations, plan/apply, repo structure | `.syntropy/system-of-work/domains/workspace-contracts/AGENT.md` |
 
 ## Dev Platform — Vision
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| jtbd-dev-platform | Dev Platform JTBD | active | meta-agent | `docs/vision/jtbd-dev-platform.md` |
+| jtbd-dev-platform | Dev Platform — Jobs to Be Done | active | meta-agent | `docs/vision/jtbd-dev-platform.md` |
 
 ## Dev Platform — Features
 
@@ -193,7 +199,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp-u06 | Syncing Domain Context After Changes | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u06-domain-context-sync.md` |
 | dp-u07 | Domain DRI Review Before Merge | defining | meta-agent | `docs/product/dev-platform/use-cases/dp-u07-domain-review-before-merge.md` |
 | dp-u08 | Capturing an Observation in the Moment | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u08-capturing-observation.md` |
-| dp-u09 | Auditing Observations for Patterns | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u09-auditing-observations.md` |
+| dp-u09 | Auditing Observations for Patterns and Priorities | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u09-auditing-observations.md` |
 | dp-u10 | Reflecting After Completing Work | defining | observations-agent | `docs/product/dev-platform/use-cases/dp-u10-reflecting-after-work.md` |
 | dp-u11 | Assisted Reflection with Pulse Companion | defining | pulse-companion-agent | `docs/product/dev-platform/use-cases/dp-u11-assisted-reflection.md` |
 | dp-u12 | Recording a Decision During Work | defining | decisions-agent | `docs/product/dev-platform/use-cases/dp-u12-recording-decision.md` |
@@ -207,13 +213,13 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| dp-stories | Dev Platform User Stories (DP-S01–DP-S49) | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
+| dp-stories | Dev Platform User Stories | defining | meta-agent | `docs/product/dev-platform/user-stories/stories-dev-platform.md` |
 
 ## Repo Platform — Vision
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| jtbd-repo-platform | Repo Platform JTBD | active | architecture-agent | `docs/vision/jtbd-repo-platform.md` |
+| jtbd-repo-platform | Repo Platform — Jobs to Be Done | active | architecture-agent | `docs/vision/jtbd-repo-platform.md` |
 
 ## Repo Platform — Features
 
@@ -246,13 +252,13 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| rp-stories | Repo Platform User Stories (RP-S01–RP-S19) | defining | architecture-agent | `docs/product/repo-platform/user-stories/stories-repo-platform.md` |
+| rp-stories | Repo Platform User Stories | defining | architecture-agent | `docs/product/repo-platform/user-stories/stories-repo-platform.md` |
 
 ## Workspace Platform — Vision
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| jtbd-workspace-platform | Workspace Platform JTBD | active | workspace-contracts-agent | `docs/vision/jtbd-workspace-platform.md` |
+| jtbd-workspace-platform | Workspace Platform — Jobs to Be Done | active | workspace-contracts-agent | `docs/vision/jtbd-workspace-platform.md` |
 
 ## Workspace Platform — Features
 
@@ -283,40 +289,41 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| wp-stories | Workspace Platform User Stories (WP-S01–WP-S24) | defining | workspace-contracts-agent | `docs/product/workspace-platform/user-stories/stories-workspace-platform.md` |
+| wp-stories | Workspace Platform User Stories | defining | workspace-contracts-agent | `docs/product/workspace-platform/user-stories/stories-workspace-platform.md` |
 
 ## Surfaces
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| surf-mobile | Mobile Surface | defining | ux-agent | `surfaces/mobile.md` |
-| surf-web | Web Surface | defining | ux-agent | `surfaces/web.md` |
 | surf-dev-platform | Development Platform | active | meta-agent | `surfaces/dev-platform.md` |
+| surf-mobile | Mobile Surface (iOS/Android) | defining | ux-agent | `surfaces/mobile.md` |
 | surf-repo-platform | Repo Platform | active | architecture-agent | `surfaces/repo-platform.md` |
+| surf-web | Web Surface (Desktop) | defining | ux-agent | `surfaces/web.md` |
 | surf-workspace-platform | Workspace Platform | active | workspace-contracts-agent | `surfaces/workspace-platform.md` |
 
 ## Index & Meta Files
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| conventions | Document Conventions | active | meta-agent | `docs/_conventions.md` |
+| arch-index | Architecture Domain | active | architecture-agent | `docs/architecture/_index.md` |
 | changelog | Changelog | active | meta-agent | `docs/_changelog.md` |
-| registry | Document Registry | active | meta-agent | `docs/_registry.md` |
-| product-index | Product Domain Index | active | product-agent | `docs/product/_index.md` |
-| dp-product-index | Dev Platform Product Index | active | meta-agent | `docs/product/dev-platform/_index.md` |
-| rp-product-index | Repo Platform Product Index | active | architecture-agent | `docs/product/repo-platform/_index.md` |
-| wp-product-index | Workspace Platform Product Index | active | workspace-contracts-agent | `docs/product/workspace-platform/_index.md` |
-| arch-index | Architecture Domain Index | active | architecture-agent | `docs/architecture/_index.md` |
-| decisions-index | Decisions Index | active | decisions-agent | `docs/decisions/_index.md` |
-| surfaces-index | Surfaces Index | active | ux-agent | `surfaces/_index.md` |
+| conventions | Document Conventions | active | meta-agent | `docs/_conventions.md` |
+| decisions-index | Decision Log | active | decisions-agent | `docs/decisions/_index.md` |
+| dp-product-index | Dev Platform Product Domain | active | meta-agent | `docs/product/dev-platform/_index.md` |
 | observations-index | Observations Index | active | observations-agent | `observations/_index.md` |
+| product-index | Product Domain | active | product-agent | `docs/product/_index.md` |
+| registry | Document Registry | active | meta-agent | `docs/_registry.md` |
+| rp-product-index | Repo Platform Product Domain | active | architecture-agent | `docs/product/repo-platform/_index.md` |
+| surfaces-index | Surfaces | active | meta-agent | `surfaces/_index.md` |
+| wp-product-index | Workspace Platform Product Domain | active | workspace-contracts-agent | `docs/product/workspace-platform/_index.md` |
 
 ## Prototypes
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| proto-arch-explorer | Architecture Explorer | active | ux-agent | `prototypes/architecture-explorer.jsx` |
-| proto-artifact-intel | Artifact Intelligence | active | ux-agent | `prototypes/artifact-intelligence.jsx` |
+| proto-architecture-explorer | Architecture Explorer | active | ux-agent | `prototypes/architecture-explorer.jsx` |
+| proto-artifact-intelligence | Artifact Intelligence | active | ux-agent | `prototypes/artifact-intelligence.jsx` |
 | proto-domain-explorer | Domain Explorer | active | ux-agent | `prototypes/domain-explorer.jsx` |
 | proto-product-canvas | Product Canvas | active | ux-agent | `prototypes/product-canvas.jsx` |
 | proto-task-card-queue | Task Card Queue | active | ux-agent | `prototypes/task-card-queue.jsx` |
+

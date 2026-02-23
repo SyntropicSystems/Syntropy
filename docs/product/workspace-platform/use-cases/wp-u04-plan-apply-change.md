@@ -8,7 +8,7 @@ created: 2026-02-21
 updated: 2026-02-21
 refs:
   depends-on: [wp01, wp03, wp04]
-  related: [wp-u02, wp-u05]
+  related: [wp-u02, wp-u03, wp-u05]
 tags: [workspace-platform, use-case, plan-apply, refactoring]
 ---
 

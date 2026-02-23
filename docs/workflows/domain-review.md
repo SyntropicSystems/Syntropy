@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [dp09, wf-sync-domain-context, base-traits, dp02]
+  related: [base-traits, cognitive-engineering-agent, dp-u07, dp-u14, dp02, dp09, wf-sync-domain-context]
 ---
 
 # Workflow: Domain DRI Review

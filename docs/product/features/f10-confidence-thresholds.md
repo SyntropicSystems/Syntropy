@@ -9,11 +9,11 @@ created: 2025-02-07
 updated: 2025-02-07
 refs:
   depends-on: [f04]
-  enables: [u08, u01, u03]
-  related: [f07, f01, f06]
+  enables: [u01, u03, u08]
   informed-by: [jtbd, stories]
-  ux-patterns: [ux-ai-suggestion]
   open-questions: [oq-conflict-resolution, oq-monetization]
+  related: [f01, f04-ai-engine-agent, f06, f07]
+  ux-patterns: [ux-ai-suggestion]
 tags: [trust, ai, control, p0]
 ---
 

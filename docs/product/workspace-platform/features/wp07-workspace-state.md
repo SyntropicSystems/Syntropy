@@ -8,12 +8,12 @@ priority: P0
 created: 2026-02-21
 updated: 2026-02-21
 refs:
+  architecture: [arch-workspace-contracts]
   depends-on: [wp01, wp02]
   enables: [wp-u07]
-  related: [wp03, wp08]
   informed-by: [jtbd-workspace-platform]
-  architecture: [arch-workspace-contracts]
   open-questions: []
+  related: [surf-workspace-platform, wp-stories, wp03, wp04, wp05, wp08]
 tags: [workspace-platform, state, hydration, agents, p0]
 ---
 

@@ -8,8 +8,8 @@ decision-type: type-1
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  affects: [arch-stack, f08]
-  related: [adr-004, arch-stack]
+  affects: [arch-stack, f08, rp05, rp06]
+  related: [adr-004, arch-stack, rp05, rp06, rp09, surf-repo-platform]
 tags: [architecture, containers, devcontainer, ci-cd, dx]
 ---
 

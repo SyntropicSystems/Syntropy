@@ -8,13 +8,13 @@ priority: P0
 created: 2026-02-21
 updated: 2026-02-23
 refs:
-  depends-on: [wp01, wp04]
-  enables: [wp-u01, wp-u02, wp-u06]
-  related: [wp07, rp-u02]
-  informed-by: [jtbd-workspace-platform]
   architecture: [arch-workspace-contracts]
   decided-by: [dr-001, dr-002]
+  depends-on: [wp01, wp04]
+  enables: [wp-u01, wp-u02, wp-u06]
+  informed-by: [jtbd-workspace-platform]
   open-questions: []
+  related: [arch-north-star-layout, arch-plan-apply-engine, rp-u02, surf-workspace-platform, wp-stories, wp03, wp06, wp07]
 tags: [workspace-platform, scaffolding, generators, blueprints, p0]
 ---
 

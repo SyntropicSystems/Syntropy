@@ -8,10 +8,10 @@ priority: P1
 created: 2025-02-13
 updated: 2025-02-13
 refs:
-  depends-on: [dp02, dp09, dp10]
-  enables: [dp-u14, dp-u15]
-  related: [dp12, dp11, dp13, dp03]
   decided-by: []
+  depends-on: [dp02, dp09, dp10, jtbd-dev-platform]
+  enables: [dp-u14, dp-u15]
+  related: [cognitive-engineering-agent, dp-stories, dp03, dp11, dp12, dp13, dp15, observations-agent]
 tags: [dev-platform, cognitive-engineering, comprehension, information-architecture]
 ---
 
