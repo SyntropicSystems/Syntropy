@@ -5,9 +5,10 @@ title: "Implement a Syntropy CLI Command"
 status: active
 owner: workspace-contracts-agent
 created: 2026-02-21
-updated: 2026-02-21
+updated: 2026-02-23
 refs:
   related: [workspace-contracts-agent]
+  decided-by: [dr-002]
 tags: [workflow, workspace-platform, implementation, cli]
 ---
 
@@ -22,6 +23,8 @@ When adding or changing a `syntropy` command (CLI surface), especially when it h
 - **One engine, many skins**: implement logic in `syntropy-sdk`; keep the CLI as IO glue.
 - **Structured outputs**: JSON keys should be stable, typed, and versioned.
 - **Deterministic behavior**: ordering should be stable; avoid timestamps unless explicitly requested.
+- **Verb-first grammar**: prefer `syntropy <verb> <target>` (e.g., `syntropy gen agents`), not domain-first trees.
+- **Single source of truth for invocation**: clap help output is authoritative; the checked-in CLI reference is a generated projection.
 
 ## Steps
 
@@ -45,6 +48,11 @@ When adding or changing a `syntropy` command (CLI surface), especially when it h
 2. Manually sanity-check:
    - `cargo run -p syntropy -- <command>`
    - `cargo run -p syntropy -- --json <command>`
+3. Refresh CLI reference docs:
+   - `cargo run -p syntropy -- gen cli-docs`
+   - Drift gate: `cargo run -p syntropy -- gen cli-docs --check`
+4. Run the full drift/validation gate:
+   - `cargo run -p syntropy -- check`
 
 ### Step 4: Update Knowledge Graph (Docs)
 
@@ -58,5 +66,7 @@ When adding or changing a `syntropy` command (CLI surface), especially when it h
 - [ ] SDK change is typed + deterministic
 - [ ] CLI is thin and has `--json` support
 - [ ] JSON payload includes `schema_version: "v0"`
+- [ ] clap help text is accurate and discoverable
+- [ ] `syntropy gen cli-docs --check` is clean
+- [ ] `syntropy check` is clean
 - [ ] Docs + changelog updated
-

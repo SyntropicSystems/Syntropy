@@ -8,6 +8,4 @@ set -euo pipefail
 # - CI drift gates
 # - coding AIs following the paved road
 
-cargo run -p syntropy -- gen readmes --check
-cargo run -p syntropy -- agents check
-cargo run -p syntropy -- validate
+cargo run -p syntropy -- check

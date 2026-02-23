@@ -1,5 +1,5 @@
 use anyhow::Context;
-use clap::{Parser, Subcommand};
+use clap::{ColorChoice, CommandFactory, Parser, Subcommand};
 use syntropy_sdk::{InitOptions, Workspace};
 
 #[derive(Debug, Parser)]
@@ -49,7 +49,7 @@ enum Command {
         path: std::path::PathBuf,
     },
 
-    /// Generate/refresh README contracts.
+    /// Generate/refresh deterministic workspace artifacts.
     Gen {
         #[command(subcommand)]
         command: GenCommand,
@@ -58,10 +58,13 @@ enum Command {
     /// Validate workspace structure against the selected blueprint.
     Validate,
 
-    /// Manage repo collaboration agents and tool adapters.
+    /// Run all drift gates and workspace validation.
+    Check,
+
+    #[command(hide = true)]
     Agents {
         #[command(subcommand)]
-        command: AgentsCommand,
+        command: LegacyAgentsCommand,
     },
 }
 
@@ -77,18 +80,49 @@ enum GenCommand {
         #[arg(long)]
         check: bool,
     },
+
+    /// Generate/refresh `.claude/**` and `.codex/**` adapters from canonical specs.
+    Agents {
+        /// Print what would change, but do not write.
+        #[arg(long)]
+        dry_run: bool,
+
+        /// Fail if adapter generation would make changes (drift gate).
+        #[arg(long)]
+        check: bool,
+    },
+
+    /// Generate/refresh CLI reference documentation.
+    #[command(name = "cli-docs")]
+    CliDocs {
+        /// Print what would change, but do not write.
+        #[arg(long)]
+        dry_run: bool,
+
+        /// Fail if CLI doc generation would make changes (drift gate).
+        #[arg(long)]
+        check: bool,
+    },
+
+    /// Run all generators (CLI docs, README contracts, agent adapters).
+    All {
+        /// Print what would change, but do not write.
+        #[arg(long)]
+        dry_run: bool,
+
+        /// Fail if generation would make changes (drift gate).
+        #[arg(long)]
+        check: bool,
+    },
 }
 
 #[derive(Debug, Subcommand)]
-enum AgentsCommand {
-    /// Generate/refresh `.claude/**` and `.codex/**` adapters from canonical specs.
+enum LegacyAgentsCommand {
     Sync {
-        /// Print what would change, but do not write.
         #[arg(long)]
         dry_run: bool,
     },
 
-    /// Check that generated adapters are up-to-date (fails on drift).
     Check,
 }
 
@@ -239,6 +273,27 @@ fn main() -> anyhow::Result<()> {
             }
         }
 
+        Command::Gen {
+            command: GenCommand::Agents { dry_run, check },
+        } => {
+            let workspace = Workspace::discover(std::env::current_dir()?)?;
+            run_gen_agents(&cli, &workspace, dry_run, check)?;
+        }
+
+        Command::Gen {
+            command: GenCommand::CliDocs { dry_run, check },
+        } => {
+            let workspace = Workspace::discover(std::env::current_dir()?)?;
+            run_gen_cli_docs(&cli, &workspace, dry_run, check)?;
+        }
+
+        Command::Gen {
+            command: GenCommand::All { dry_run, check },
+        } => {
+            let workspace = Workspace::discover(std::env::current_dir()?)?;
+            run_gen_all(&cli, &workspace, dry_run, check)?;
+        }
+
         Command::Validate => {
             let workspace = Workspace::discover(std::env::current_dir()?)?;
             let report = workspace.validate()?;
@@ -266,87 +321,23 @@ fn main() -> anyhow::Result<()> {
             }
         }
 
-        Command::Agents {
-            command: AgentsCommand::Sync { dry_run },
-        } => {
+        Command::Check => {
             let workspace = Workspace::discover(std::env::current_dir()?)?;
-            let plan = workspace.plan_agent_adapters()?;
-
-            if cli.json {
-                println!(
-                    "{}",
-                    serde_json::to_string_pretty(&serde_json::json!({
-                        "schema_version": "v0",
-                        "patches": plan.patches,
-                        "conflicts": plan.conflicts,
-                        "dry_run": dry_run,
-                    }))?
-                );
-            } else {
-                if plan.patches.is_empty() {
-                    println!("No agent adapter changes.");
-                } else {
-                    println!("Agent adapter changes:");
-                    for patch in &plan.patches {
-                        println!("- {:?} {}", patch.op, patch.path.display());
-                    }
-                }
-
-                if !plan.conflicts.is_empty() {
-                    println!("\nConflicts (non-generated file exists):");
-                    for path in &plan.conflicts {
-                        println!("- {}", path.display());
-                    }
-                }
-            }
-
-            if !plan.conflicts.is_empty() {
-                anyhow::bail!("refusing to write: conflicts exist");
-            }
-
-            if !dry_run {
-                workspace
-                    .apply_patches(&plan.patches)
-                    .context("applying agent adapter patches")?;
-            }
+            run_check(&cli, &workspace)?;
         }
 
         Command::Agents {
-            command: AgentsCommand::Check,
+            command: LegacyAgentsCommand::Sync { dry_run },
         } => {
             let workspace = Workspace::discover(std::env::current_dir()?)?;
-            let plan = workspace.plan_agent_adapters()?;
+            run_gen_agents(&cli, &workspace, dry_run, false)?;
+        }
 
-            let ok = plan.patches.is_empty() && plan.conflicts.is_empty();
-
-            if cli.json {
-                println!(
-                    "{}",
-                    serde_json::to_string_pretty(&serde_json::json!({
-                        "schema_version": "v0",
-                        "ok": ok,
-                        "patches": plan.patches,
-                        "conflicts": plan.conflicts,
-                    }))?
-                );
-            } else if ok {
-                println!("OK: agent adapters are up-to-date.");
-            } else {
-                println!("Drift detected:");
-                for patch in &plan.patches {
-                    println!("- {:?} {}", patch.op, patch.path.display());
-                }
-                if !plan.conflicts.is_empty() {
-                    println!("\nConflicts (non-generated file exists):");
-                    for path in &plan.conflicts {
-                        println!("- {}", path.display());
-                    }
-                }
-            }
-
-            if !ok {
-                std::process::exit(1);
-            }
+        Command::Agents {
+            command: LegacyAgentsCommand::Check,
+        } => {
+            let workspace = Workspace::discover(std::env::current_dir()?)?;
+            run_gen_agents(&cli, &workspace, true, true)?;
         }
     }
 
@@ -388,4 +379,436 @@ fn resolve_user_path(path: std::path::PathBuf) -> anyhow::Result<std::path::Path
     }
 
     Ok(std::env::current_dir()?.join(path))
+}
+
+fn run_gen_agents(cli: &Cli, workspace: &Workspace, dry_run: bool, check: bool) -> anyhow::Result<()> {
+    let plan = workspace.plan_agent_adapters()?;
+    let ok = plan.patches.is_empty() && plan.conflicts.is_empty();
+
+    if cli.json {
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&serde_json::json!({
+                "schema_version": "v0",
+                "ok": ok,
+                "patches": plan.patches,
+                "conflicts": plan.conflicts,
+                "dry_run": dry_run,
+                "check": check,
+            }))?
+        );
+    } else if ok {
+        if check {
+            println!("OK: agent adapters are up-to-date.");
+        } else {
+            println!("No agent adapter changes.");
+        }
+    } else {
+        println!("{}", if check { "Drift detected:" } else { "Agent adapter changes:" });
+        for patch in &plan.patches {
+            println!("- {:?} {}", patch.op, patch.path.display());
+        }
+
+        if !plan.conflicts.is_empty() {
+            println!("\nConflicts (non-generated file exists):");
+            for path in &plan.conflicts {
+                println!("- {}", path.display());
+            }
+        }
+    }
+
+    if check && !ok {
+        std::process::exit(1);
+    }
+
+    if !dry_run && !check {
+        if !plan.conflicts.is_empty() {
+            anyhow::bail!("refusing to write: conflicts exist");
+        }
+
+        workspace
+            .apply_patches(&plan.patches)
+            .context("applying agent adapter patches")?;
+    }
+
+    Ok(())
+}
+
+fn run_gen_cli_docs(
+    cli: &Cli,
+    workspace: &Workspace,
+    dry_run: bool,
+    check: bool,
+) -> anyhow::Result<()> {
+    let (patches, conflicts) = plan_cli_reference(workspace)?;
+    let ok = patches.is_empty() && conflicts.is_empty();
+
+    if cli.json {
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&serde_json::json!({
+                "schema_version": "v0",
+                "ok": ok,
+                "patches": patches,
+                "conflicts": conflicts,
+                "dry_run": dry_run,
+                "check": check,
+            }))?
+        );
+    } else if ok {
+        if check {
+            println!("OK: CLI reference is up-to-date.");
+        } else {
+            println!("No CLI doc changes.");
+        }
+    } else {
+        println!("{}", if check { "Drift detected:" } else { "CLI doc changes:" });
+        for patch in &patches {
+            println!("- {:?} {}", patch.op, patch.path.display());
+        }
+        if !conflicts.is_empty() {
+            println!("\nConflicts (non-generated file exists):");
+            for path in &conflicts {
+                println!("- {}", path.display());
+            }
+        }
+    }
+
+    if check && !ok {
+        std::process::exit(1);
+    }
+
+    if !dry_run && !check {
+        if !conflicts.is_empty() {
+            anyhow::bail!("refusing to write: conflicts exist");
+        }
+
+        workspace
+            .apply_patches(&patches)
+            .context("applying CLI doc patches")?;
+    }
+
+    Ok(())
+}
+
+fn run_gen_all(cli: &Cli, workspace: &Workspace, dry_run: bool, check: bool) -> anyhow::Result<()> {
+    let (cli_patches, cli_conflicts) = plan_cli_reference(workspace)?;
+    let cli_ok = cli_patches.is_empty() && cli_conflicts.is_empty();
+
+    let readmes_plan = workspace.plan_readmes()?;
+    let readmes_ok = readmes_plan.patches.is_empty();
+
+    let agents_plan = workspace.plan_agent_adapters()?;
+    let agents_ok = agents_plan.patches.is_empty() && agents_plan.conflicts.is_empty();
+
+    let ok = cli_ok && readmes_ok && agents_ok;
+
+    if cli.json {
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&serde_json::json!({
+                "schema_version": "v0",
+                "ok": ok,
+                "dry_run": dry_run,
+                "check": check,
+                "cli_docs": {
+                    "ok": cli_ok,
+                    "patches": cli_patches,
+                    "conflicts": cli_conflicts,
+                },
+                "readmes": {
+                    "ok": readmes_ok,
+                    "patches": readmes_plan.patches,
+                    "skipped": readmes_plan.skipped,
+                },
+                "agents": {
+                    "ok": agents_ok,
+                    "patches": agents_plan.patches,
+                    "conflicts": agents_plan.conflicts,
+                }
+            }))?
+        );
+    } else {
+        println!("Generators:");
+        println!("- cli-docs: {}", if cli_ok { "OK" } else { "drift/conflict" });
+        println!("- readmes: {}", if readmes_ok { "OK" } else { "drift" });
+        println!("- agents: {}", if agents_ok { "OK" } else { "drift/conflict" });
+
+        if !cli_ok {
+            if !cli_patches.is_empty() {
+                println!("\nCLI doc changes:");
+                for patch in &cli_patches {
+                    println!("- {:?} {}", patch.op, patch.path.display());
+                }
+            }
+            if !cli_conflicts.is_empty() {
+                println!("\nCLI doc conflicts (non-generated file exists):");
+                for path in &cli_conflicts {
+                    println!("- {}", path.display());
+                }
+            }
+        }
+
+        if !readmes_ok {
+            println!("\nREADME changes:");
+            for patch in &readmes_plan.patches {
+                println!("- {:?} {}", patch.op, patch.path.display());
+            }
+        }
+        if !readmes_plan.skipped.is_empty() {
+            println!("\nSkipped READMEs (non-generated README exists):");
+            for path in &readmes_plan.skipped {
+                println!("- {}", path.display());
+            }
+        }
+
+        if !agents_ok {
+            if !agents_plan.patches.is_empty() {
+                println!("\nAgent adapter changes:");
+                for patch in &agents_plan.patches {
+                    println!("- {:?} {}", patch.op, patch.path.display());
+                }
+            }
+            if !agents_plan.conflicts.is_empty() {
+                println!("\nAgent adapter conflicts (non-generated file exists):");
+                for path in &agents_plan.conflicts {
+                    println!("- {}", path.display());
+                }
+            }
+        }
+    }
+
+    if check && !ok {
+        std::process::exit(1);
+    }
+
+    if !dry_run && !check {
+        if !cli_conflicts.is_empty() || !agents_plan.conflicts.is_empty() {
+            anyhow::bail!("refusing to write: conflicts exist");
+        }
+
+        let mut patches = Vec::<syntropy_sdk::Patch>::new();
+        patches.extend(cli_patches);
+        patches.extend(readmes_plan.patches);
+        patches.extend(agents_plan.patches);
+
+        if !patches.is_empty() {
+            workspace
+                .apply_patches(&patches)
+                .context("applying generator patches")?;
+        }
+    }
+
+    Ok(())
+}
+
+fn run_check(cli: &Cli, workspace: &Workspace) -> anyhow::Result<()> {
+    let (cli_patches, cli_conflicts) = plan_cli_reference(workspace)?;
+    let cli_ok = cli_patches.is_empty() && cli_conflicts.is_empty();
+
+    let readmes_plan = workspace.plan_readmes()?;
+    let readmes_ok = readmes_plan.patches.is_empty();
+
+    let agents_plan = workspace.plan_agent_adapters()?;
+    let agents_ok = agents_plan.patches.is_empty() && agents_plan.conflicts.is_empty();
+
+    let validation = workspace.validate()?;
+    let validate_ok = validation.valid;
+
+    let ok = cli_ok && readmes_ok && agents_ok && validate_ok;
+
+    if cli.json {
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&serde_json::json!({
+                "schema_version": "v0",
+                "ok": ok,
+                "generators": {
+                    "cli_docs": {
+                        "ok": cli_ok,
+                        "patches": cli_patches,
+                        "conflicts": cli_conflicts,
+                    },
+                    "readmes": {
+                        "ok": readmes_ok,
+                        "patches": readmes_plan.patches,
+                        "skipped": readmes_plan.skipped,
+                    },
+                    "agents": {
+                        "ok": agents_ok,
+                        "patches": agents_plan.patches,
+                        "conflicts": agents_plan.conflicts,
+                    }
+                },
+                "validate": {
+                    "ok": validate_ok,
+                    "report": validation,
+                }
+            }))?
+        );
+    } else {
+        println!("Check:");
+        println!("- gen cli-docs --check: {}", if cli_ok { "OK" } else { "FAIL" });
+        println!("- gen readmes --check: {}", if readmes_ok { "OK" } else { "FAIL" });
+        println!("- gen agents --check: {}", if agents_ok { "OK" } else { "FAIL" });
+        println!("- validate: {}", if validate_ok { "OK" } else { "FAIL" });
+
+        if !cli_ok {
+            if !cli_patches.is_empty() {
+                println!("\nCLI doc drift:");
+                for patch in &cli_patches {
+                    println!("- {:?} {}", patch.op, patch.path.display());
+                }
+            }
+            if !cli_conflicts.is_empty() {
+                println!("\nCLI doc conflicts (non-generated file exists):");
+                for path in &cli_conflicts {
+                    println!("- {}", path.display());
+                }
+            }
+        }
+
+        if !readmes_ok {
+            println!("\nREADME drift:");
+            for patch in &readmes_plan.patches {
+                println!("- {:?} {}", patch.op, patch.path.display());
+            }
+        }
+        if !readmes_plan.skipped.is_empty() {
+            println!("\nSkipped READMEs (non-generated README exists):");
+            for path in &readmes_plan.skipped {
+                println!("- {}", path.display());
+            }
+        }
+
+        if !agents_ok {
+            if !agents_plan.patches.is_empty() {
+                println!("\nAgent adapter drift:");
+                for patch in &agents_plan.patches {
+                    println!("- {:?} {}", patch.op, patch.path.display());
+                }
+            }
+            if !agents_plan.conflicts.is_empty() {
+                println!("\nAgent adapter conflicts (non-generated file exists):");
+                for path in &agents_plan.conflicts {
+                    println!("- {}", path.display());
+                }
+            }
+        }
+
+        if validation.findings.is_empty() {
+            println!("\nWorkspace validation: OK (no findings).");
+        } else {
+            println!(
+                "\nWorkspace validation findings: {} error(s), {} warning(s)",
+                validation.summary.errors, validation.summary.warnings
+            );
+            for finding in &validation.findings {
+                let path = finding.path.as_deref().unwrap_or("-");
+                println!(
+                    "- [{:?}] {} {} ({path})",
+                    finding.severity, finding.code, finding.message
+                );
+            }
+        }
+    }
+
+    if !ok {
+        std::process::exit(1);
+    }
+
+    Ok(())
+}
+
+fn plan_cli_reference(workspace: &Workspace) -> anyhow::Result<(Vec<syntropy_sdk::Patch>, Vec<std::path::PathBuf>)> {
+    let rel = std::path::PathBuf::from("products/command-center/apps/cli/CLI_REFERENCE.md");
+    let abs = workspace.root().join(&rel);
+
+    let expected = render_cli_reference();
+
+    let mut patches = Vec::<syntropy_sdk::Patch>::new();
+    let mut conflicts = Vec::<std::path::PathBuf>::new();
+
+    match std::fs::read_to_string(&abs) {
+        Ok(existing) => {
+            if !existing.contains("<!-- syntropy:generated -->") {
+                conflicts.push(abs);
+            } else if existing != expected {
+                patches.push(syntropy_sdk::Patch {
+                    op: syntropy_sdk::PatchOp::Update,
+                    path: abs,
+                    content: expected,
+                });
+            }
+        }
+        Err(err) if err.kind() == std::io::ErrorKind::NotFound => patches.push(syntropy_sdk::Patch {
+            op: syntropy_sdk::PatchOp::Create,
+            path: abs,
+            content: expected,
+        }),
+        Err(err) => return Err(err.into()),
+    }
+
+    Ok((patches, conflicts))
+}
+
+fn render_cli_reference() -> String {
+    let root = Cli::command()
+        .color(ColorChoice::Never)
+        .term_width(100)
+        .max_term_width(100);
+
+    let mut cmds = Vec::<(Vec<String>, clap::Command)>::new();
+    collect_cli_commands(&root, Vec::new(), &mut cmds);
+
+    let mut out = String::new();
+    out.push_str("<!-- syntropy:generated -->\n");
+    out.push_str("# Syntropy CLI Reference\n\n");
+    out.push_str("Generated by `syntropy gen cli-docs`.\n\n");
+
+    for (path, mut cmd) in cmds {
+        let invocation = if path.is_empty() {
+            "syntropy".to_string()
+        } else {
+            format!("syntropy {}", path.join(" "))
+        };
+
+        cmd = cmd
+            .color(ColorChoice::Never)
+            .term_width(100)
+            .max_term_width(100);
+        cmd.set_bin_name(invocation.clone());
+
+        let help = cmd.render_long_help().to_string();
+
+        out.push_str(&format!("## `{invocation}`\n\n"));
+        out.push_str("```text\n");
+        out.push_str(help.trim_end());
+        out.push_str("\n```\n\n");
+    }
+
+    out
+}
+
+fn collect_cli_commands(cmd: &clap::Command, path: Vec<String>, out: &mut Vec<(Vec<String>, clap::Command)>) {
+    if cmd.get_name() == "help" {
+        return;
+    }
+    if cmd.is_hide_set() && !path.is_empty() {
+        return;
+    }
+
+    out.push((path.clone(), cmd.clone()));
+
+    let mut subs: Vec<clap::Command> = cmd.get_subcommands().cloned().collect();
+    subs.sort_by(|a, b| a.get_name().cmp(b.get_name()));
+
+    for sub in subs {
+        if sub.get_name() == "help" || sub.is_hide_set() {
+            continue;
+        }
+        let mut next_path = path.clone();
+        next_path.push(sub.get_name().to_string());
+        collect_cli_commands(&sub, next_path, out);
+    }
 }

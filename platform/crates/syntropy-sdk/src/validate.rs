@@ -13,8 +13,14 @@ impl Workspace {
             .copied()
             .collect();
 
+        let mut entries = Vec::<std::fs::DirEntry>::new();
         for entry in std::fs::read_dir(&self.root)? {
-            let entry = entry?;
+            entries.push(entry?);
+        }
+
+        entries.sort_by_key(|e| e.file_name());
+
+        for entry in entries {
             let file_type = entry.file_type()?;
             if !file_type.is_dir() {
                 continue;

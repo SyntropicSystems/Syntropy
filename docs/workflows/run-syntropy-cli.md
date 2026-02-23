@@ -8,6 +8,7 @@ created: 2026-02-21
 updated: 2026-02-23
 refs:
   related: [workspace-contracts-agent]
+  decided-by: [dr-002]
 tags: [workflow, workspace-platform, cli, bootstrap]
 ---
 
@@ -20,9 +21,12 @@ When you want to:
 - Inspect structure (`syntropy tree`, `syntropy info`)
 - Generate folder README contracts (`syntropy gen readmes`)
 - Check README drift (`syntropy gen readmes --check`)
-- Sync tool agent adapters (`syntropy agents sync`)
-- Check adapter drift (`syntropy agents check`)
+- Sync tool agent adapters (`syntropy gen agents`)
+- Check adapter drift (`syntropy gen agents --check`)
+- Generate drift-gated CLI reference docs (`syntropy gen cli-docs`)
+- Run all generators (`syntropy gen all`)
 - Lint workspace structure against a blueprint (`syntropy validate`)
+- Run all drift gates + validation (`syntropy check`)
 
 ## Prerequisites
 
@@ -51,9 +55,17 @@ From the repo root:
    - `cargo run -p syntropy -- validate`
    - `cargo run -p syntropy -- --json validate`
 9. Sync tool adapters (Claude/Codex):
-   - `cargo run -p syntropy -- agents sync`
+   - `cargo run -p syntropy -- gen agents`
 10. Check adapter drift:
-   - `cargo run -p syntropy -- agents check`
+   - `cargo run -p syntropy -- gen agents --check`
+11. Generate CLI reference docs:
+   - `cargo run -p syntropy -- gen cli-docs`
+12. Run all generators:
+   - `cargo run -p syntropy -- gen all`
+   - Drift gate: `cargo run -p syntropy -- gen all --check`
+13. Run all drift gates + validation:
+   - `cargo run -p syntropy -- check`
+   - `cargo run -p syntropy -- --json check`
 
 ## Optional (Bazel)
 
@@ -62,6 +74,7 @@ If Bazel is available:
 - `bazel run //products/command-center/apps/cli:syntropy -- tree . --depth 3`
 - `bazel run //products/command-center/apps/cli:syntropy -- --json info .`
 - `bazel run //products/command-center/apps/cli:syntropy -- validate`
+- `bazel run //products/command-center/apps/cli:syntropy -- check`
 
 ## Output Contract Notes
 

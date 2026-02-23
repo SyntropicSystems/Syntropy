@@ -9,7 +9,7 @@ GitHub configuration (workflows, CI).
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Prefer a single CI entrypoint: `.syntropy/system-of-work/scripts/validate.sh`.
+- Prefer a single CI entrypoint: `syntropy check`.
 
 ## Boundaries
 

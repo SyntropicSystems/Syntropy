@@ -96,6 +96,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | adr-004 | Hybrid Domain-Package Monorepo Architecture | accepted | architecture-agent | `docs/decisions/adr-004-hybrid-monorepo.md` |
 | adr-005 | Dev Container and Build Container Strategy | accepted | architecture-agent | `docs/decisions/adr-005-dev-build-containers.md` |
 | dr-001 | Repo Structure Contract + Folder Contracts | accepted | workspace-contracts-agent | `docs/decisions/dr-001-repo-structure-contract.md` |
+| dr-002 | Verb-First CLI Command Grammar | accepted | workspace-contracts-agent | `docs/decisions/dr-002-cli-command-grammar.md` |
 
 *General decision records (dr-NNN) appear here as they are captured.*
 

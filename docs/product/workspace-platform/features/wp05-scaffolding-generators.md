@@ -13,7 +13,7 @@ refs:
   related: [wp07, rp-u02]
   informed-by: [jtbd-workspace-platform]
   architecture: [arch-workspace-contracts]
-  decided-by: [dr-001]
+  decided-by: [dr-001, dr-002]
   open-questions: []
 tags: [workspace-platform, scaffolding, generators, blueprints, p0]
 ---
@@ -30,6 +30,11 @@ The bootstrap slice implements:
 
 - `syntropy init` — creates `syntropy.toml` and `.syntropy/state/.gitignore` (non-interactive)
 - `syntropy gen readmes` — generates deterministic, marked (`<!-- syntropy:generated -->`) README contracts for known blueprint directories
+- `syntropy gen agents` — generates deterministic tool adapters (`.claude/**`, `.codex/**`) from canonical specs
+- `syntropy gen cli-docs` — generates deterministic CLI reference docs (`products/command-center/apps/cli/CLI_REFERENCE.md`)
+- `syntropy gen all` — runs all generators (cli-docs, readmes, agents)
+
+Drift gates follow a consistent pattern: `syntropy gen <target> --check` fails if the generated projection is out of date.
 
 Blueprint-driven component scaffolding (`syntropy add …`) and plan/apply integration are future work (WP04/WP05).
 
