@@ -5,7 +5,7 @@ title: "Create a New Agent"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-21
+updated: 2026-02-23
 refs:
   related: [wf-add-feature]
 ---
@@ -123,8 +123,8 @@ Be explicit about:
 
 If you changed canonical agents under `.syntropy/system-of-work/domains/**`, regenerate and drift-check:
 
-- `cargo run -p syntropy -- agents sync`
-- `cargo run -p syntropy -- agents check`
+- `cargo run -p syntropy -- gen agents`
+- `cargo run -p syntropy -- gen agents --check`
 
 ## Validation Checklist
 

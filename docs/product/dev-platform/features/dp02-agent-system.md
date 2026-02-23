@@ -6,7 +6,7 @@ status: defining
 owner: meta-agent
 priority: P0
 created: 2025-02-09
-updated: 2026-02-21
+updated: 2026-02-23
 refs:
   depends-on: [dp01, dp05]
   enables: [dp03, dp09, dp-u01, dp-u02, dp-u03, dp-u06, dp-u07]
@@ -54,8 +54,8 @@ Each agent manifest defines:
   - `.claude/agents/**` and `.claude/commands/**`
   - `.codex/**`
 - Regenerate and drift-check:
-  - `cargo run -p syntropy -- agents sync`
-  - `cargo run -p syntropy -- agents check`
+  - `cargo run -p syntropy -- gen agents`
+  - `cargo run -p syntropy -- gen agents --check`
 
 ### Routing
 

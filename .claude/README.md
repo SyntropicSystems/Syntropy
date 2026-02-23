@@ -9,7 +9,7 @@ Generated Claude Code tool adapter.
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Do not hand-edit; regenerate with `syntropy agents sync`.
+- Do not hand-edit; regenerate with `syntropy gen agents`.
 
 ## Boundaries
 

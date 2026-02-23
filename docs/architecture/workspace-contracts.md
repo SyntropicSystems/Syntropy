@@ -8,7 +8,7 @@ created: 2026-02-21
 updated: 2026-02-23
 refs:
   related: [arch-plan-apply-engine, arch-north-star-layout, wp01, wp03, wp07, wp08]
-  decided-by: [dr-001]
+  decided-by: [dr-001, dr-002]
 tags: [architecture, workspace, contracts]
 ---
 
@@ -32,9 +32,11 @@ Bootstrap commands:
 - `syntropy tree` — human tree or JSON (`--json`)
 - `syntropy info` / `syntropy describe` — purpose/rules/boundaries for any path
 - `syntropy gen readmes` — deterministic folder README contracts (with `--dry-run`)
-- `syntropy agents sync` — generate `.claude/**` + `.codex/**` adapters from canonical agent specs
-- `syntropy agents check` — drift gate for generated adapters (fails CI if out of date)
+- `syntropy gen agents` — generate `.claude/**` + `.codex/**` adapters from canonical agent specs
+- `syntropy gen cli-docs` — generate drift-gated CLI reference docs
+- `syntropy gen all` — run all generators (cli-docs, readmes, agents)
 - `syntropy validate` — blueprint lint (currently warning-oriented)
+- `syntropy check` — single CI/local entrypoint (drift gates + validation)
 
 Contract note: JSON Schema snapshot generation and drift gates are WP08 work; v0 outputs are versioned via `schema_version: "v0"` and kept deterministic.
 

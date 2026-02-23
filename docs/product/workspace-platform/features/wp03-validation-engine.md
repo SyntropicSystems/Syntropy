@@ -13,7 +13,7 @@ refs:
   related: [wp05, rp10]
   informed-by: [jtbd-workspace-platform]
   architecture: [arch-workspace-contracts]
-  decided-by: [dr-001]
+  decided-by: [dr-001, dr-002]
   open-questions: []
 tags: [workspace-platform, validation, coherence, p0]
 ---
@@ -31,6 +31,8 @@ The bootstrap slice implements a first-pass `syntropy validate` in `platform/cra
 - Lints the workspace root against the selected blueprint's **allowed top-level directories**
 - Produces warning findings for unexpected directories (ignores common build outputs like `target/`)
 - Outputs are deterministic and JSON is versioned via `schema_version: "v0"` (`syntropy --json validate`)
+
+In addition, `syntropy check` is the canonical CI/local gate. It runs drift gates for generated artifacts (CLI reference, README contracts, agent adapters) and then runs workspace validation.
 
 Dependency-direction checks and richer taxonomy/error codes are future work.
 

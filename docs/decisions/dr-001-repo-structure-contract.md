@@ -13,7 +13,7 @@ refs:
   domain: [workspace-contracts]
   affects: [arch-north-star-layout, arch-workspace-contracts, wp01, wp03, wp05]
   tensions: []
-  related: [adr-004]
+  related: [adr-004, dr-002]
 tags: [repo-layout, folder-contracts, workspace-platform]
 ---
 
@@ -79,7 +79,7 @@ If you have legacy `.work/`:
 2. Move `syntropy.toml` to repo root (recommended), or to `.syntropy/syntropy.toml`
 3. Run:
    - `cargo run -p syntropy -- gen readmes`
-   - `bash .syntropy/system-of-work/scripts/validate.sh`
+   - `cargo run -p syntropy -- check`
 
 ## Success Metrics
 

@@ -210,3 +210,17 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-23 | created | — | Implemented folder contract inheritance, removed `.work` discovery, added `gen readmes --check` drift gate, and generated README contracts for `apps/*` + `packages/*` | workspace-contracts-agent |
 | 2026-02-23 | created | — | Added root README and removed duplicate prototype JSX files from repo root (canonicalized `prototypes/`) | workspace-contracts-agent |
 | 2026-02-23 | updated | workspace-contracts-agent | Updated domain state to reflect repo-structure hardening (inheritance, README drift gate, `.work` removal) | workspace-contracts-agent |
+| 2026-02-23 | created | dr-002 | Recorded verb-first CLI command grammar decision | workspace-contracts-agent |
+| 2026-02-23 | updated | decisions-index | Added DR-002 to the decision log | workspace-contracts-agent |
+| 2026-02-23 | updated | registry | Registered DR-002 | workspace-contracts-agent |
+| 2026-02-23 | updated | arch-workspace-contracts | Updated bootstrap command surface to verb-first grammar (`gen …`, `check`) | workspace-contracts-agent |
+| 2026-02-23 | updated | arch-north-star-layout | Updated drift gate and adapter commands to verb-first grammar (`gen agents`, `check`) | workspace-contracts-agent |
+| 2026-02-23 | updated | wf-run-syntropy-cli | Updated workflow examples to verb-first grammar; added `gen cli-docs` and `check` | workspace-contracts-agent |
+| 2026-02-23 | updated | wf-implement-syntropy-command | Added verb-first grammar and CLI reference drift-gate guidance | workspace-contracts-agent |
+| 2026-02-23 | updated | wf-create-agent | Updated adapter regen commands to `gen agents` | workspace-contracts-agent |
+| 2026-02-23 | updated | dp02 | Updated adapter regen commands to `gen agents` | workspace-contracts-agent |
+| 2026-02-23 | updated | wp03 | Documented `syntropy check` as canonical CI/local gate | workspace-contracts-agent |
+| 2026-02-23 | updated | wp05 | Added `gen cli-docs`, `gen all`, and `--check` drift-gate pattern | workspace-contracts-agent |
+| 2026-02-23 | updated | dr-001 | Linked DR-002 and updated migration to use `syntropy check` | workspace-contracts-agent |
+| 2026-02-23 | created | — | Implemented verb-first CLI grammar: `gen agents`, `gen cli-docs`, `gen all`, and `check`; updated CI entrypoint; fixed validation determinism | workspace-contracts-agent |
+| 2026-02-23 | updated | wf-run-syntropy-cli | Added `gen all` to the bootstrap CLI workflow | workspace-contracts-agent |

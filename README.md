@@ -15,9 +15,9 @@ This repo contains:
 ```bash
 cargo run -p syntropy -- info .
 cargo run -p syntropy -- gen readmes
-bash .syntropy/system-of-work/scripts/validate.sh
+cargo run -p syntropy -- check
 ```
 
 ## Notes
 
-- `.claude/**` and `.codex/**` are generated tool adapters. Edit canonical specs under `.syntropy/system-of-work/domains/**`, then run `cargo run -p syntropy -- agents sync`.
+- `.claude/**` and `.codex/**` are generated tool adapters. Edit canonical specs under `.syntropy/system-of-work/domains/**`, then run `cargo run -p syntropy -- gen agents`.

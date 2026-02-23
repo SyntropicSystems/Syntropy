@@ -8,7 +8,7 @@ created: 2026-02-21
 updated: 2026-02-23
 refs:
   related: [arch-workspace-contracts, wp01, wp02, wp05, adr-004]
-  decided-by: [dr-001]
+  decided-by: [dr-001, dr-002]
 tags: [architecture, repo-layout, structure]
 ---
 
@@ -73,7 +73,7 @@ Some coding tools expect repo-local configuration in fixed root-level directorie
 - `.claude/**` — Claude Code project agents and slash commands
 - `.codex/**` — OpenAI Codex project config and roles
 
-They are checked in, but treated as build artifacts: do not hand-edit; regenerate with `syntropy agents sync` and drift-check with `syntropy agents check`.
+They are checked in, but treated as build artifacts: do not hand-edit; regenerate with `syntropy gen agents` and drift-check with `syntropy gen agents --check`.
 
 ## Folder Contracts (How the Repo Describes Itself)
 
@@ -259,9 +259,7 @@ Any structural change (new top-level dir, moving major subtrees, changing invari
 3. **Regenerate deterministic views**:
    - `cargo run -p syntropy -- gen readmes`
 4. **Run drift gates and validation**:
-   - `cargo run -p syntropy -- gen readmes --check`
-   - `cargo run -p syntropy -- agents check`
-   - `cargo run -p syntropy -- validate`
+   - `cargo run -p syntropy -- check`
 5. **Update the knowledge graph bookkeeping** (when docs change):
    - `docs/_registry.md`
    - `docs/_changelog.md`
@@ -272,6 +270,6 @@ For the "10-minute model" that any new engineer needs:
 
 1. **`AGENTS.md`** is the repo entrypoint — start here, then route via `.syntropy/system-of-work/ROUTER.md`
 2. **`.syntropy/`** is the workspace instance — the system-of-work lives under `.syntropy/system-of-work/`
-3. **`.claude/` + `.codex/`** are generated tool adapters — edit `.syntropy/system-of-work/domains/**`, then run `syntropy agents sync` and `syntropy agents check`
+3. **`.claude/` + `.codex/`** are generated tool adapters — edit `.syntropy/system-of-work/domains/**`, then run `syntropy gen agents` and `syntropy gen agents --check`
 4. **`syntropy.toml`** is the workspace contract — the one config file to review
 5. **`plan/apply/validate/migrate`** are the four verbs that keep the workspace coherent

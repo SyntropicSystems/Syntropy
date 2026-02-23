@@ -31,5 +31,6 @@ The decision log is the entry point to the **reasoning graph**: the interconnect
 | ID | Title | Status | Type | Domain | Date |
 |----|-------|--------|------|--------|------|
 | DR-001 | Repo Structure Contract + Folder Contracts | accepted | Type 1 | workspace-contracts | 2026-02-23 |
+| DR-002 | Verb-First CLI Command Grammar | accepted | Type 2 | workspace-contracts | 2026-02-23 |
 
 Use `wf-record-decision` to capture additional decisions.

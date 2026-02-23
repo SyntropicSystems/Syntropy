@@ -181,7 +181,7 @@ impl Blueprint {
             NodeDefinition {
                 kind: "tool_adapter".to_string(),
                 purpose: Some("Generated Claude Code tool adapter.".to_string()),
-                rules: vec!["Do not hand-edit; regenerate with `syntropy agents sync`.".to_string()],
+                rules: vec!["Do not hand-edit; regenerate with `syntropy gen agents`.".to_string()],
                 boundaries: Some(Boundaries {
                     allowed_children: vec!["agents".to_string(), "commands".to_string()],
                     disallowed: vec![],
@@ -195,7 +195,7 @@ impl Blueprint {
             NodeDefinition {
                 kind: "tool_adapter".to_string(),
                 purpose: Some("Generated OpenAI Codex tool adapter.".to_string()),
-                rules: vec!["Do not hand-edit; regenerate with `syntropy agents sync`.".to_string()],
+                rules: vec!["Do not hand-edit; regenerate with `syntropy gen agents`.".to_string()],
                 boundaries: Some(Boundaries {
                     allowed_children: vec!["agents".to_string(), "config.toml".to_string()],
                     disallowed: vec![],
@@ -210,7 +210,7 @@ impl Blueprint {
                 kind: "repo_platform".to_string(),
                 purpose: Some("GitHub configuration (workflows, CI).".to_string()),
                 rules: vec![
-                    "Prefer a single CI entrypoint: `.syntropy/system-of-work/scripts/validate.sh`."
+                    "Prefer a single CI entrypoint: `syntropy check`."
                         .to_string(),
                 ],
                 boundaries: Some(Boundaries {
