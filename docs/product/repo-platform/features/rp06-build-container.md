@@ -8,11 +8,11 @@ priority: P0
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  depends-on: [rp01]
-  enables: [rp05, rp09, rp-u05]
-  related: [rp05, adr-005]
-  informed-by: [jtbd-repo-platform]
   decided-by: [adr-005]
+  depends-on: [rp01]
+  enables: [rp-u05, rp-u07, rp05, rp09]
+  informed-by: [jtbd-repo-platform]
+  related: [adr-005, rp-stories, rp03, rp05, surf-repo-platform]
 tags: [repo-platform, container, ci-cd, docker, p0]
 ---
 

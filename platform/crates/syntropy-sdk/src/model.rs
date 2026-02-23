@@ -40,6 +40,53 @@ pub struct ValidationSummary {
     pub warnings: usize,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct DocsReport {
+    pub schema_version: String,
+    pub valid: bool,
+    pub findings: Vec<DocFinding>,
+    pub summary: DocsSummary,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct DocsSummary {
+    pub errors: usize,
+    pub warnings: usize,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct DocFinding {
+    pub code: String,
+    pub severity: FindingSeverity,
+    pub message: String,
+    pub path: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub doc_id: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub ref_id: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub ref_key: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct CheckReport {
+    pub schema_version: String,
+    pub ok: bool,
+    pub steps: Vec<CheckStepResult>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct CheckStepResult {
+    pub name: String,
+    pub ok: bool,
+    pub errors: usize,
+    pub warnings: usize,
+    pub patches: usize,
+    pub conflicts: usize,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub message: Option<String>,
+}
+
 #[derive(Debug, Clone)]
 pub(crate) struct NodeDefinition {
     pub kind: String,
@@ -81,6 +128,16 @@ pub struct TreeNode {
     pub kind: String,
     #[serde(default)]
     pub children: Vec<TreeNode>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct DocsSyncPlan {
+    pub patches: Vec<Patch>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct GeneratedFilePlan {
+    pub patches: Vec<Patch>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

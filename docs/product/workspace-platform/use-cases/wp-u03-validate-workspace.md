@@ -8,7 +8,7 @@ created: 2026-02-21
 updated: 2026-02-21
 refs:
   depends-on: [wp01, wp03]
-  related: [wp-u04, rp-u05]
+  related: [rp-u05, wp-u04, wp-u07]
 tags: [workspace-platform, use-case, validation]
 ---
 

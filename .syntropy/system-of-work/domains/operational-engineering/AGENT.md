@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-13
 updated: 2026-02-21
 refs:
-  related: [meta-agent, cognitive-engineering-agent, pulse-companion-agent, observations-agent, dp15, dp02, dp03, wf-create-agent]
+  related: [cognitive-engineering-agent, dp02, dp03, dp15, meta-agent, observations-agent, pulse-companion-agent, wf-create-agent, workspace-contracts-agent]
 ---
 
 # Operational Engineering Agent

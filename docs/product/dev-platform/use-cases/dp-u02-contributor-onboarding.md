@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2026-02-21
 refs:
   depends-on: [dp01, dp08]
-  related: [dp02, dp-u04]
+  related: [dp-u04, dp-u06, dp-u08, dp-u15, dp02, wp-u07]
 tags: [dev-platform, use-case, onboarding]
 ---
 

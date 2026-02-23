@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [wf-resolve-question, wf-add-feature, wf-decompose-spec]
+  related: [decisions-agent, decisions-index, dp-u03, dp13, wf-add-feature, wf-decompose-spec, wf-design-workspace-contract, wf-record-decision, wf-resolve-question]
 ---
 
 # Workflow: Make an Architecture Decision

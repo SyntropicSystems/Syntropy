@@ -9,9 +9,9 @@ created: 2025-02-09
 updated: 2026-02-21
 refs:
   depends-on: [dp01, dp02]
-  enables: [dp-u02, dp-u04]
-  related: [meta-agent, base-traits]
+  enables: [dp-u02, dp-u04, dp-u13]
   informed-by: [jtbd-dev-platform]
+  related: [base-traits, dp-stories, dp09, meta-agent, surf-dev-platform]
 tags: [dev-platform, core, navigation, p0]
 ---
 

@@ -250,6 +250,8 @@ impl Workspace {
         let mut out = String::new();
         out.push_str(GENERATED_MARKER);
         out.push('\n');
+        out.push_str("<!-- GENERATED — DO NOT EDIT. -->\n");
+        out.push_str("<!-- Run: cargo run -p syntropy -- gen readmes -->\n");
         out.push_str(&format!("# {title}\n\n"));
 
         if let Some(purpose) = info.purpose.as_ref() {

@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2026-02-21
 refs:
   depends-on: [dp01, dp04, dp08]
-  related: [dp-u02]
+  related: [dp-u02, dp-u13]
 tags: [dev-platform, use-case, navigation]
 ---
 

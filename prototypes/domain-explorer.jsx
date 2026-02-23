@@ -1,3 +1,18 @@
+/*
+---
+id: "proto-domain-explorer"
+type: prototype
+title: "Domain Explorer"
+status: active
+owner: ux-agent
+created: 2025-02-07
+updated: 2026-02-23
+refs:
+  related: [dp07]
+tags: [prototype]
+---
+*/
+
 import { useState, useEffect, useRef } from "react";
 
 // ─── Data ────────────────────────────────────────────────────────────────────

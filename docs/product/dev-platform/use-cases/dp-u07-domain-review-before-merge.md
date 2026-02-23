@@ -7,8 +7,8 @@ owner: meta-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  depends-on: [dp09, dp02, dp03]
-  related: [wf-domain-review, dp-u06, dp-u01]
+  depends-on: [dp02, dp03, dp09]
+  related: [dp-u01, dp-u06, dp-u14, wf-domain-review]
 tags: [dev-platform, use-case, review, quality]
 ---
 

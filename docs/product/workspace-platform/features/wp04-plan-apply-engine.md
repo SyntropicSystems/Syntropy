@@ -8,12 +8,12 @@ priority: P0
 created: 2026-02-21
 updated: 2026-02-21
 refs:
-  depends-on: [wp01, wp03]
-  enables: [wp06, wp-u04]
-  related: [wp05, wp07]
-  informed-by: [jtbd-workspace-platform]
   architecture: [arch-plan-apply-engine]
+  depends-on: [wp01, wp03]
+  enables: [wp-u02, wp-u04, wp-u05, wp06]
+  informed-by: [jtbd-workspace-platform]
   open-questions: []
+  related: [surf-workspace-platform, wp-stories, wp05, wp07]
 tags: [workspace-platform, plan-apply, transactions, p0]
 ---
 

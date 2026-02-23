@@ -7,8 +7,8 @@ owner: workspace-contracts-agent
 created: 2026-02-21
 updated: 2026-02-23
 refs:
-  related: [arch-workspace-contracts, wp01, wp02, wp05, adr-004]
   decided-by: [dr-001, dr-002]
+  related: [adr-004, arch-workspace-contracts, surf-workspace-platform, wp01, wp02, wp05]
 tags: [architecture, repo-layout, structure]
 ---
 

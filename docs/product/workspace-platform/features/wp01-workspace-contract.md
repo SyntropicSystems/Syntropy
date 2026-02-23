@@ -8,13 +8,13 @@ priority: P0
 created: 2026-02-21
 updated: 2026-02-23
 refs:
-  depends-on: [wp08]
-  enables: [wp02, wp03, wp04, wp05, wp06, wp-u01, wp-u02]
-  related: [wp07, rp02]
-  informed-by: [jtbd-workspace-platform]
   architecture: [arch-workspace-contracts]
   decided-by: [dr-001]
+  depends-on: [wp08]
+  enables: [wp-u01, wp-u02, wp-u03, wp-u04, wp-u05, wp-u06, wp-u07, wp02, wp03, wp04, wp05, wp06]
+  informed-by: [jtbd-workspace-platform]
   open-questions: []
+  related: [arch-north-star-layout, rp02, surf-workspace-platform, wf-design-workspace-contract, wp-stories, wp07]
 tags: [workspace-platform, contract, config, p0]
 ---
 

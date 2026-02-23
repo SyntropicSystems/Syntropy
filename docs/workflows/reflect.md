@@ -7,7 +7,7 @@ owner: observations-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [wf-capture-observation, wf-feature-inception, dp11, dp10, dp12, pulse-companion-agent]
+  related: [dp-u10, dp-u11, dp10, dp11, dp12, observations-agent, pulse-companion-agent, wf-capture-observation, wf-feature-inception]
 ---
 
 # Workflow: Reflect After Work

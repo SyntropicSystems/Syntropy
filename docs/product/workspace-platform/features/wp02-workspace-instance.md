@@ -8,12 +8,12 @@ priority: P0
 created: 2026-02-21
 updated: 2026-02-21
 refs:
-  depends-on: [wp01]
-  enables: [wp03, wp-u01]
-  related: [wp06, wp07]
-  informed-by: [jtbd-workspace-platform]
   architecture: [arch-workspace-contracts]
+  depends-on: [wp01]
+  enables: [wp-u01, wp03]
+  informed-by: [jtbd-workspace-platform]
   open-questions: []
+  related: [arch-north-star-layout, surf-workspace-platform, wp-stories, wp06, wp07]
 tags: [workspace-platform, instance, directory, p0]
 ---
 

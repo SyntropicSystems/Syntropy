@@ -10,8 +10,8 @@ updated: 2025-02-07
 refs:
   depends-on: [f01, f04]
   enables: [u02, u10]
-  related: [f11, f12]
   informed-by: [jtbd, stories]
+  related: [f11, f12, f12-artifact-agent]
 tags: [capture, input, p1]
 ---
 

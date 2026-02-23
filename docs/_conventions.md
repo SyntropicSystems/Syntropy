@@ -5,7 +5,10 @@ title: "Document Conventions"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-09
+updated: 2026-02-23
+refs:
+  decided-by: [dr-002]
+  related: [dp05]
 ---
 
 # Document Conventions
@@ -52,6 +55,7 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 | `agent-manifest` | Sub-agent configuration | slug |
 | `observation` | Raw signal, friction, idea, reflection | `obs-` + date + slug |
 | `surface` | Platform surface definition | `surf-` + slug |
+| `prototype` | Interactive prototype artifact (JSX) | `proto-` + slug |
 
 ## Status Lifecycles
 
@@ -81,6 +85,22 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
    - `resolves-to` — open question → ADR
    - `supersedes` / `superseded-by` — versioning
    - `owned-by` — agent ownership
+4. **Tooling enforces coherence** — prefer:
+   - `syntropy docs check` (validate)
+   - `syntropy docs sync` (auto-add missing backrefs)
+5. **`refs.domain` is non-graph** — `refs.domain` may be used for categorization; it is excluded from backref enforcement.
+6. **`refs` is tool-normalized** — `syntropy docs sync` may rewrite only the `refs:` block (sorted + deduped, missing backrefs added). Treat ordering/formatting inside `refs` as tool-managed.
+
+## Generated Artifacts
+
+- `docs/_registry.md` is generated (deterministic projection). Do not hand-edit it.
+  - Update it via `syntropy gen registry`
+  - Drift-gate via `syntropy gen registry --check`
+- Generated frontmatter docs include `mode: generated` (in addition to the content marker) so it’s visible even when only the frontmatter is skimmed.
+- Generated Markdown files include a marker at the top of the generated content:
+  - `<!-- syntropy:generated -->`
+  - `<!-- GENERATED — DO NOT EDIT. -->`
+  - `<!-- Run: cargo run -p syntropy -- <command> -->`
 
 ## Naming Conventions
 
@@ -97,6 +117,29 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 ### Directories
 - Underscore prefix for meta-files: `_registry.md`, `_index.md`, `_conventions.md`
 - No nesting beyond what's shown in the directory structure
+
+## Prototype Frontmatter (JSX)
+
+Prototypes under `prototypes/*.jsx` are first-class nodes in the knowledge graph.
+
+They must start at byte 0 with a `/* ... */` comment containing YAML frontmatter:
+
+```js
+/*
+---
+id: "proto-..."
+type: prototype
+title: "..."
+status: active
+owner: ux-agent
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  related: [dp07]
+tags: [prototype]
+---
+*/
+```
 
 ## Document Templates
 

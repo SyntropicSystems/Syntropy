@@ -8,12 +8,12 @@ priority: P0
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [f01]
-  decided-by: [adr-001]
-  informed-by: [jtbd, stories]
   architecture: [arch-offline]
-  surfaces: [surf-mobile, surf-web]
+  decided-by: [adr-001, adr-004, adr-005, oq-monorepo-architecture]
+  informed-by: [jtbd, stories]
   open-questions: [oq-notification-strategy]
+  related: [f01]
+  surfaces: [surf-mobile, surf-web]
 tags: [platform, mvp, p0]
 ---
 

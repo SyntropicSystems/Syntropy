@@ -8,13 +8,13 @@ priority: P1
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  depends-on: [f06, f04]
-  enables: [u03, u08]
-  related: [f10, f12]
-  informed-by: [jtbd, stories]
-  decided-by: [adr-003]
   architecture: [arch-ai-pipeline]
-  open-questions: [oq-privacy-model, oq-monetization]
+  decided-by: [adr-003]
+  depends-on: [f04, f06]
+  enables: [u03, u08]
+  informed-by: [jtbd, stories]
+  open-questions: [oq-monetization, oq-privacy-model]
+  related: [dp10, dp11, dp12, f04-ai-engine-agent, f10, f12]
 tags: [ai, learning, p1]
 ---
 

@@ -10,8 +10,8 @@ updated: 2025-02-09
 refs:
   depends-on: [rp01, rp02]
   enables: [rp-u04]
-  related: [adr-001, adr-004, arch-stack]
   informed-by: [jtbd-repo-platform]
+  related: [adr-001, adr-004, arch-stack, rp-stories, surf-repo-platform]
 tags: [repo-platform, iac, pulumi, gcp, firebase, p1]
 ---
 

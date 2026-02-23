@@ -55,6 +55,12 @@ enum Command {
         command: GenCommand,
     },
 
+    /// Docs graph checks and maintenance (frontmatter + refs).
+    Docs {
+        #[command(subcommand)]
+        command: DocsCommand,
+    },
+
     /// Validate workspace structure against the selected blueprint.
     Validate,
 
@@ -79,6 +85,21 @@ enum GenCommand {
         /// Fail if README generation would make changes (drift gate).
         #[arg(long)]
         check: bool,
+    },
+
+    /// Generate/refresh the docs registry (`docs/_registry.md`).
+    Registry {
+        /// Print what would change, but do not write.
+        #[arg(long)]
+        dry_run: bool,
+
+        /// Fail if registry generation would make changes (drift gate).
+        #[arg(long)]
+        check: bool,
+
+        /// Allow overwriting a non-generated registry file (one-time migration).
+        #[arg(long)]
+        force: bool,
     },
 
     /// Generate/refresh `.claude/**` and `.codex/**` adapters from canonical specs.
@@ -111,6 +132,23 @@ enum GenCommand {
         dry_run: bool,
 
         /// Fail if generation would make changes (drift gate).
+        #[arg(long)]
+        check: bool,
+    },
+}
+
+#[derive(Debug, Subcommand)]
+enum DocsCommand {
+    /// Validate docs frontmatter and reference graph.
+    Check,
+
+    /// Sync missing bidirectional references (backrefs).
+    Sync {
+        /// Print what would change, but do not write.
+        #[arg(long)]
+        dry_run: bool,
+
+        /// Fail if doc sync would make changes (drift gate).
         #[arg(long)]
         check: bool,
     },
@@ -274,6 +312,57 @@ fn main() -> anyhow::Result<()> {
         }
 
         Command::Gen {
+            command:
+                GenCommand::Registry {
+                    dry_run,
+                    check,
+                    force,
+                },
+        } => {
+            let workspace = Workspace::discover(std::env::current_dir()?)?;
+            let plan = workspace.plan_registry(force)?;
+            let ok = plan.patches.is_empty();
+
+            if cli.json {
+                println!(
+                    "{}",
+                    serde_json::to_string_pretty(&serde_json::json!({
+                        "schema_version": "v0",
+                        "ok": ok,
+                        "patches": plan.patches,
+                        "dry_run": dry_run,
+                        "check": check,
+                        "force": force,
+                    }))?
+                );
+            } else {
+                if check && ok {
+                    println!("OK: docs registry is up-to-date.");
+                } else if ok {
+                    println!("No registry changes.");
+                } else {
+                    println!(
+                        "{}:",
+                        if check { "Drift detected" } else { "Registry changes" }
+                    );
+                    for patch in &plan.patches {
+                        println!("- {:?} {}", patch.op, patch.path.display());
+                    }
+                }
+            }
+
+            if check && !ok {
+                std::process::exit(1);
+            }
+
+            if !dry_run && !check {
+                workspace
+                    .apply_patches(&plan.patches)
+                    .context("applying registry patches")?;
+            }
+        }
+
+        Command::Gen {
             command: GenCommand::Agents { dry_run, check },
         } => {
             let workspace = Workspace::discover(std::env::current_dir()?)?;
@@ -292,6 +381,86 @@ fn main() -> anyhow::Result<()> {
         } => {
             let workspace = Workspace::discover(std::env::current_dir()?)?;
             run_gen_all(&cli, &workspace, dry_run, check)?;
+        }
+
+        Command::Docs {
+            command: DocsCommand::Check,
+        } => {
+            let workspace = Workspace::discover(std::env::current_dir()?)?;
+            let report = workspace.docs_check()?;
+
+            if cli.json {
+                println!("{}", serde_json::to_string_pretty(&report)?);
+            } else if report.findings.is_empty() {
+                println!("OK: docs graph is coherent.");
+            } else {
+                println!(
+                    "Docs findings: {} error(s), {} warning(s)",
+                    report.summary.errors, report.summary.warnings
+                );
+                for finding in &report.findings {
+                    println!(
+                        "- [{:?}] {} {} ({})",
+                        finding.severity, finding.code, finding.message, finding.path
+                    );
+                }
+            }
+
+            if !report.valid {
+                std::process::exit(1);
+            }
+        }
+
+        Command::Docs {
+            command: DocsCommand::Sync { dry_run, check },
+        } => {
+            let workspace = Workspace::discover(std::env::current_dir()?)?;
+            let plan = workspace.plan_docs_sync()?;
+            let ok = plan.patches.is_empty();
+
+            if cli.json {
+                println!(
+                    "{}",
+                    serde_json::to_string_pretty(&serde_json::json!({
+                        "schema_version": "v0",
+                        "ok": ok,
+                        "patches": plan.patches,
+                        "dry_run": dry_run,
+                        "check": check,
+                    }))?
+                );
+            } else {
+                if check && ok {
+                    println!("OK: docs backrefs are up-to-date.");
+                } else if ok {
+                    println!("No doc changes.");
+                } else {
+                    println!(
+                        "{}:",
+                        if check { "Drift detected" } else { "Doc ref sync changes" }
+                    );
+                    for patch in &plan.patches {
+                        println!("- {:?} {}", patch.op, patch.path.display());
+                    }
+                }
+            }
+
+            if check && !ok {
+                std::process::exit(1);
+            }
+
+            if !dry_run && !check && !plan.patches.is_empty() {
+                workspace
+                    .apply_patches(&plan.patches)
+                    .context("applying docs sync patches")?;
+
+                // Ensure no DG006 findings remain after sync.
+                let report = workspace.docs_check()?;
+                let has_backref_errors = report.findings.iter().any(|f| f.code == "DG006");
+                if has_backref_errors {
+                    anyhow::bail!("docs sync applied, but missing backrefs remain");
+                }
+            }
         }
 
         Command::Validate => {
@@ -603,6 +772,16 @@ fn run_gen_all(cli: &Cli, workspace: &Workspace, dry_run: bool, check: bool) -> 
 }
 
 fn run_check(cli: &Cli, workspace: &Workspace) -> anyhow::Result<()> {
+    let (docs_sync_ok, docs_sync_patches, docs_sync_error) = match workspace.plan_docs_sync() {
+        Ok(plan) => (plan.patches.is_empty(), Some(plan.patches), None),
+        Err(err) => (false, None, Some(err.to_string())),
+    };
+
+    let (registry_ok, registry_patches, registry_error) = match workspace.plan_registry(false) {
+        Ok(plan) => (plan.patches.is_empty(), Some(plan.patches), None),
+        Err(err) => (false, None, Some(err.to_string())),
+    };
+
     let (cli_patches, cli_conflicts) = plan_cli_reference(workspace)?;
     let cli_ok = cli_patches.is_empty() && cli_conflicts.is_empty();
 
@@ -615,7 +794,7 @@ fn run_check(cli: &Cli, workspace: &Workspace) -> anyhow::Result<()> {
     let validation = workspace.validate()?;
     let validate_ok = validation.valid;
 
-    let ok = cli_ok && readmes_ok && agents_ok && validate_ok;
+    let ok = docs_sync_ok && registry_ok && cli_ok && readmes_ok && agents_ok && validate_ok;
 
     if cli.json {
         println!(
@@ -623,6 +802,16 @@ fn run_check(cli: &Cli, workspace: &Workspace) -> anyhow::Result<()> {
             serde_json::to_string_pretty(&serde_json::json!({
                 "schema_version": "v0",
                 "ok": ok,
+                "docs_sync": {
+                    "ok": docs_sync_ok,
+                    "patches": docs_sync_patches,
+                    "error": docs_sync_error,
+                },
+                "registry": {
+                    "ok": registry_ok,
+                    "patches": registry_patches,
+                    "error": registry_error,
+                },
                 "generators": {
                     "cli_docs": {
                         "ok": cli_ok,
@@ -648,10 +837,40 @@ fn run_check(cli: &Cli, workspace: &Workspace) -> anyhow::Result<()> {
         );
     } else {
         println!("Check:");
+        println!(
+            "- docs sync --check: {}",
+            if docs_sync_ok { "OK" } else { "FAIL" }
+        );
+        println!(
+            "- gen registry --check: {}",
+            if registry_ok { "OK" } else { "FAIL" }
+        );
         println!("- gen cli-docs --check: {}", if cli_ok { "OK" } else { "FAIL" });
         println!("- gen readmes --check: {}", if readmes_ok { "OK" } else { "FAIL" });
         println!("- gen agents --check: {}", if agents_ok { "OK" } else { "FAIL" });
         println!("- validate: {}", if validate_ok { "OK" } else { "FAIL" });
+
+        if !docs_sync_ok {
+            if let Some(msg) = docs_sync_error.as_ref() {
+                println!("\nDocs sync error:\n{msg}");
+            } else if let Some(patches) = docs_sync_patches.as_ref() {
+                println!("\nDocs sync drift:");
+                for patch in patches {
+                    println!("- {:?} {}", patch.op, patch.path.display());
+                }
+            }
+        }
+
+        if !registry_ok {
+            if let Some(msg) = registry_error.as_ref() {
+                println!("\nRegistry error:\n{msg}");
+            } else if let Some(patches) = registry_patches.as_ref() {
+                println!("\nRegistry drift:");
+                for patch in patches {
+                    println!("- {:?} {}", patch.op, patch.path.display());
+                }
+            }
+        }
 
         if !cli_ok {
             if !cli_patches.is_empty() {
@@ -720,7 +939,9 @@ fn run_check(cli: &Cli, workspace: &Workspace) -> anyhow::Result<()> {
     Ok(())
 }
 
-fn plan_cli_reference(workspace: &Workspace) -> anyhow::Result<(Vec<syntropy_sdk::Patch>, Vec<std::path::PathBuf>)> {
+fn plan_cli_reference(
+    workspace: &Workspace,
+) -> anyhow::Result<(Vec<syntropy_sdk::Patch>, Vec<std::path::PathBuf>)> {
     let rel = std::path::PathBuf::from("products/command-center/apps/cli/CLI_REFERENCE.md");
     let abs = workspace.root().join(&rel);
 
@@ -790,7 +1011,11 @@ fn render_cli_reference() -> String {
     out
 }
 
-fn collect_cli_commands(cmd: &clap::Command, path: Vec<String>, out: &mut Vec<(Vec<String>, clap::Command)>) {
+fn collect_cli_commands(
+    cmd: &clap::Command,
+    path: Vec<String>,
+    out: &mut Vec<(Vec<String>, clap::Command)>,
+) {
     if cmd.get_name() == "help" {
         return;
     }

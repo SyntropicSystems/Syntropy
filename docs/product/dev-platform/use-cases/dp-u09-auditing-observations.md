@@ -7,8 +7,8 @@ owner: observations-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  depends-on: [dp10, dp02, dp04]
-  related: [wf-audit-observations, dp-u08, dp-u06]
+  depends-on: [dp02, dp04, dp10]
+  related: [dp-u06, dp-u08, dp-u10, dp-u17, wf-audit-observations]
 tags: [dev-platform, use-case, observations, audit, patterns]
 ---
 

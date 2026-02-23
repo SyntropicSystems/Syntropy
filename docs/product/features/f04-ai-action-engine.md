@@ -8,14 +8,14 @@ priority: P0
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  depends-on: [f06]
-  enables: [u01, u03, u05, u07, u08]
-  related: [f03, f05, f07, f09, f10, f11]
-  informed-by: [jtbd, stories]
-  decided-by: [adr-003]
-  ux-patterns: [ux-ai-suggestion]
   architecture: [arch-ai-pipeline]
-  open-questions: [oq-privacy-model, oq-conflict-resolution, oq-monetization, oq-notification-strategy]
+  decided-by: [adr-003]
+  depends-on: [f06]
+  enables: [f12, u01, u03, u05, u07, u08]
+  informed-by: [jtbd, stories]
+  open-questions: [oq-conflict-resolution, oq-monetization, oq-notification-strategy, oq-privacy-model]
+  related: [f03, f04-ai-engine-agent, f05, f07, f09, f10, f11]
+  ux-patterns: [ux-ai-suggestion]
 tags: [core, ai, engine, p0]
 ---
 

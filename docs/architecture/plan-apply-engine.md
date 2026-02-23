@@ -7,8 +7,8 @@ owner: workspace-contracts-agent
 created: 2026-02-21
 updated: 2026-02-21
 refs:
-  related: [arch-workspace-contracts, wp04, wp05, wp06]
   decided-by: []
+  related: [arch-workspace-contracts, surf-workspace-platform, wp04, wp05, wp06]
 tags: [architecture, plan-apply, transactions]
 ---
 

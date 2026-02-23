@@ -9,9 +9,9 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [rp01, rp02]
-  enables: [rp09, rp10, rp-u03, rp-u05]
-  related: [rp04, rp06, adr-004]
+  enables: [rp-u02, rp-u03, rp-u05, rp09, rp10]
   informed-by: [jtbd-repo-platform]
+  related: [adr-004, arch-stack, rp-stories, rp04, rp06, surf-repo-platform]
 tags: [repo-platform, build, caching, nx, monorepo, p0]
 ---
 

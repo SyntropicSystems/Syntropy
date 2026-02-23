@@ -8,12 +8,12 @@ priority: P1
 created: 2026-02-21
 updated: 2026-02-21
 refs:
+  architecture: [arch-workspace-contracts]
   depends-on: [wp01, wp04, wp08]
   enables: [wp-u05]
-  related: [wp03, wp05]
   informed-by: [jtbd-workspace-platform]
-  architecture: [arch-workspace-contracts]
   open-questions: []
+  related: [arch-plan-apply-engine, surf-workspace-platform, wp-stories, wp02, wp03, wp05]
 tags: [workspace-platform, migrations, versioning, p1]
 ---
 

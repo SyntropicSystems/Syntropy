@@ -8,10 +8,10 @@ priority: P1
 created: 2025-02-13
 updated: 2025-02-13
 refs:
-  depends-on: [dp02, dp03, dp10]
-  enables: [dp-u16, dp-u17]
-  related: [dp14, dp12, dp09]
   decided-by: []
+  depends-on: [dp02, dp03, dp10, jtbd-dev-platform]
+  enables: [dp-u16, dp-u17]
+  related: [dp-stories, dp09, dp12, dp14, observations-agent, operational-engineering-agent, pulse-companion-agent]
 tags: [dev-platform, operational-engineering, process-design, actor-effectiveness]
 ---
 

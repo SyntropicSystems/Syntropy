@@ -3,9 +3,12 @@ id: "base-traits"
 type: agent-manifest
 title: "Base Agent Traits"
 status: active
+scope: "All agents"
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-21
+updated: 2026-02-23
+refs:
+  related: [dp02, dp08, dp09, surf-dev-platform, wf-domain-review, wf-sync-domain-context]
 ---
 
 # Base Agent Traits

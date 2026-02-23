@@ -8,13 +8,13 @@ priority: P0
 created: 2026-02-21
 updated: 2026-02-23
 refs:
-  depends-on: [wp01, wp02, wp08]
-  enables: [wp04, wp-u03]
-  related: [wp05, rp10]
-  informed-by: [jtbd-workspace-platform]
   architecture: [arch-workspace-contracts]
   decided-by: [dr-001, dr-002]
+  depends-on: [wp01, wp02, wp08]
+  enables: [wp-u03, wp-u04, wp04]
+  informed-by: [jtbd-workspace-platform]
   open-questions: []
+  related: [rp10, surf-workspace-platform, wp-stories, wp05, wp06, wp07]
 tags: [workspace-platform, validation, coherence, p0]
 ---
 

@@ -7,8 +7,8 @@ owner: observations-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  depends-on: [dp10, dp03]
-  related: [wf-capture-observation, dp-u09, dp-u02]
+  depends-on: [dp03, dp10]
+  related: [dp-u02, dp-u09, dp-u10, dp-u11, wf-capture-observation]
 tags: [dev-platform, use-case, observations, capture]
 ---
 

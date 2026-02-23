@@ -8,10 +8,10 @@ priority: P1
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  depends-on: [dp10, dp11, dp02, dp03]
+  depends-on: [dp02, dp03, dp10, dp11]
   enables: [dp-u11]
-  related: [dp09, f07, wf-reflect, wf-capture-observation]
   informed-by: [jtbd-dev-platform]
+  related: [dp-stories, dp09, dp14, dp15, f07, observations-agent, pulse-companion-agent, wf-capture-observation, wf-reflect]
 tags: [dev-platform, companion, reflection, learning, pulse, emergence, p1]
 ---
 

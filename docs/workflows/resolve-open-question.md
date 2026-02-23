@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  related: [wf-make-decision]
+  related: [dp-u05, wf-make-decision, wf-record-decision]
 ---
 
 # Workflow: Resolve an Open Question

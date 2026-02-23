@@ -7,8 +7,8 @@ owner: meta-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  depends-on: [dp09, dp02, dp04]
-  related: [wf-sync-domain-context, dp-u07, dp-u02]
+  depends-on: [dp02, dp04, dp09]
+  related: [dp-u02, dp-u07, dp-u09, wf-sync-domain-context]
 tags: [dev-platform, use-case, sync, context]
 ---
 

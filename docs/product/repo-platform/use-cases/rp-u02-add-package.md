@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [rp02, rp03, rp04]
-  related: [rp-u03, adr-004]
+  related: [adr-004, rp-u03, wp-u02, wp05]
 tags: [repo-platform, use-case, scaffolding]
 ---
 

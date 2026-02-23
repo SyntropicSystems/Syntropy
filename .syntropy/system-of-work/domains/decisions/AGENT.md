@@ -9,7 +9,7 @@ authority: domain-dri
 created: 2025-02-09
 updated: 2026-02-21
 refs:
-  related: [meta-agent, architecture-agent, dp13, wf-record-decision, wf-make-decision, decisions-index]
+  related: [architecture-agent, cognitive-engineering-agent, decisions-index, dp-u12, dp-u13, dp13, meta-agent, wf-make-decision, wf-record-decision]
 ---
 
 # Decisions Agent

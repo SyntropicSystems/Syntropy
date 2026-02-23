@@ -1,3 +1,18 @@
+/*
+---
+id: "proto-task-card-queue"
+type: prototype
+title: "Task Card Queue"
+status: active
+owner: ux-agent
+created: 2025-02-07
+updated: 2026-02-23
+refs:
+  related: [dp07]
+tags: [prototype]
+---
+*/
+
 import { useState, useRef, useEffect, useCallback } from "react";
 
 // ─── Mock Data ───────────────────────────────────────────────────────────────

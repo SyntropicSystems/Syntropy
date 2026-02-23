@@ -6,12 +6,13 @@ status: defining
 owner: meta-agent
 priority: P0
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-23
 refs:
+  decided-by: [dr-002]
   depends-on: [dp01, dp05]
-  enables: [dp-u04]
-  related: [dp03, registry, changelog]
+  enables: [dp-u01, dp-u03, dp-u04, dp-u05, dp-u06, dp-u09, dp09, dp10, dp13]
   informed-by: [jtbd-dev-platform]
+  related: [changelog, dp-stories, dp03, registry, surf-dev-platform, wf-sync-domain-context]
 tags: [dev-platform, core, traceability, p0]
 ---
 
@@ -32,7 +33,8 @@ Two complementary traceability mechanisms. The registry is a master index mappin
 
 - Single file with tables organized by document type (Vision, Features, Use Cases, etc.)
 - Each row maps: ID → Title → Status → Owner → File Path
-- Updated whenever a document is created, moved, or changes status
+- **Generated deterministically from YAML frontmatter** via `syntropy gen registry`
+- Drift-gated in CI via `syntropy gen registry --check`
 - Acts as the "phone book" of the knowledge graph — if you know a concept exists, you can find it here
 - Stable IDs in the registry are the canonical way to reference documents
 
@@ -50,6 +52,9 @@ Two complementary traceability mechanisms. The registry is a master index mappin
 - Every document creation or significant update must have a changelog entry
 - The registry reflects current state; the changelog reflects history
 - Together they make the graph auditable and navigable
+- The docs graph is enforced as a **bidirectional reference graph**:
+  - validate with `syntropy docs check`
+  - auto-fix missing backrefs with `syntropy docs sync`
 
 ## Dependencies
 
@@ -58,6 +63,6 @@ Two complementary traceability mechanisms. The registry is a master index mappin
 
 ## Open Questions
 
-- [ ] Should the registry be auto-generated from frontmatter, or remain manually maintained?
 - [ ] At what scale does a single registry file become unwieldy?
 - [ ] Should the changelog include diffs or just descriptions?
+  - (Out of scope for the current bootstrap slice: changelog automation.)

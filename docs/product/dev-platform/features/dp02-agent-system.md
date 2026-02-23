@@ -9,9 +9,9 @@ created: 2025-02-09
 updated: 2026-02-23
 refs:
   depends-on: [dp01, dp05]
-  enables: [dp03, dp09, dp-u01, dp-u02, dp-u03, dp-u06, dp-u07]
-  related: [dp08, dp09, base-traits, meta-agent]
+  enables: [dp-u01, dp-u02, dp-u03, dp-u06, dp-u07, dp-u09, dp03, dp09, dp10, dp11, dp12, dp14, dp15]
   informed-by: [jtbd-dev-platform]
+  related: [base-traits, dp-stories, dp-u14, dp-u15, dp-u16, dp-u17, dp08, dp09, dp13, meta-agent, operational-engineering-agent, surf-dev-platform, wf-domain-review, wf-sync-domain-context]
 tags: [dev-platform, core, agents, p0]
 ---
 
