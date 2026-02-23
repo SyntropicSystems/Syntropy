@@ -5,10 +5,10 @@ title: "North Star Repository Layout"
 status: defining
 owner: workspace-contracts-agent
 created: 2026-02-21
-updated: 2026-02-21
+updated: 2026-02-23
 refs:
   related: [arch-workspace-contracts, wp01, wp02, wp05, adr-004]
-  decided-by: []
+  decided-by: [dr-001]
 tags: [architecture, repo-layout, structure]
 ---
 
@@ -17,6 +17,42 @@ tags: [architecture, repo-layout, structure]
 ## Overview
 
 The north star layout is the canonical repository structure that Syntropy targets. It provides the mental model that keeps structure self-documenting: everything in the repo is one of five categories, and each has a clear home.
+
+## Authority / Precedence
+
+When artifacts conflict, resolve by this hierarchy:
+
+1. **Code + contract outputs** — what `syntropy` actually does and outputs (SDK/CLI behavior)
+2. **Decision records (ADRs/DRs)** — one-way doors, invariants, and rationale
+3. **Workflows** — the paved road for making changes safely
+4. **Reference docs** — orientation and explanation (including this document)
+
+If reality diverges: fix the canonical artifact first (code/decision/workflow), then update this document.
+
+## Current Repo Map (this repository)
+
+Top-level directories that exist *today*:
+
+| Directory | What it is | Authority |
+|-----------|------------|-----------|
+| `apps/` | Syntropy OS + Dev Platform application shells (ADR-004 monorepo) | ADR-004 + code |
+| `packages/` | Domain/infrastructure/UI TypeScript packages (ADR-004 monorepo) | ADR-004 + code |
+| `infra/` | IaC (Pulumi) | ADR-004 + code |
+| `platform/` | Workspace Platform reusable foundation (Rust crates, future contracts/adapters) | contract + code |
+| `products/` | Workspace Platform shipped surfaces (e.g., `syntropy` CLI) | contract + code |
+| `surfaces/` | Surface definitions (product + platform surfaces) | knowledge graph |
+| `prototypes/` | Interactive JSX prototypes (UX exploration) | knowledge graph |
+| `observations/` | Raw signals captured over time | knowledge graph |
+| `.syntropy/` | Workspace instance directory (system-of-work + state) | workspace contract |
+| `.claude/` | Generated Claude Code adapter | generated output |
+| `.codex/` | Generated OpenAI Codex adapter | generated output |
+| `.github/` | GitHub configuration (CI, etc.) | repo platform |
+| `.devcontainer/` | Dev/build container configuration | repo platform |
+| `.eraser/` | Eraser diagram exports | repo platform |
+
+North star directories that may not exist yet (and should not be created empty):
+- `tools/` — repo tooling (CI/devex/codegen) once needed
+- `workspaces/` — fixtures/templates once portability tests exist
 
 ## The Five Categories
 
@@ -38,6 +74,41 @@ Some coding tools expect repo-local configuration in fixed root-level directorie
 - `.codex/**` — OpenAI Codex project config and roles
 
 They are checked in, but treated as build artifacts: do not hand-edit; regenerate with `syntropy agents sync` and drift-check with `syntropy agents check`.
+
+## Folder Contracts (How the Repo Describes Itself)
+
+Folder contracts are how humans and AIs answer, for any path:
+- What is this for?
+- What rules apply?
+- What is allowed/forbidden here?
+- What is the paved road for working here?
+
+### Canonical Source of Truth
+
+Folder contracts are **schema-backed and code-first**:
+
+1. **Built-in blueprint** (`north-star/v0`) defines baseline meaning for known paths
+2. **Workspace overrides** in `syntropy.toml` refine meaning for repo-specific paths
+
+### Generated Views (Deterministic)
+
+Folder README contracts are a deterministic projection of the effective folder contract:
+
+- Generate/update: `cargo run -p syntropy -- gen readmes`
+- Drift gate: `cargo run -p syntropy -- gen readmes --check`
+
+Generated READMEs are marked with `<!-- syntropy:generated -->`.
+
+### Query Interface (Humans + Tools)
+
+- Human: `cargo run -p syntropy -- info <path>`
+- Machine: `cargo run -p syntropy -- --json info <path>`
+
+### Inheritance Semantics (Policy Scopes)
+
+- **Rules** inherit from ancestors (root → leaf), are deduped, and keep deterministic order.
+- **Purpose** and **kind** resolve to the deepest defined value (fallback to ancestors).
+- **Boundaries** are local-only (apply to the folder itself, not inherited).
 
 ## Canonical Layout
 
@@ -174,6 +245,26 @@ Bazel visibility rules enforce this. The validation engine checks it.
 | `docs/**` | |
 
 This single choice prevents 80% of future entropy.
+
+## How to Change Repo Structure Safely
+
+Any structural change (new top-level dir, moving major subtrees, changing invariants) must follow this flow:
+
+1. **Record the decision** (if it’s a meaningful choice):
+   - DR: `docs/workflows/record-decision.md`
+   - ADR: `docs/workflows/make-architecture-decision.md`
+2. **Update contract sources**:
+   - built-in blueprint (if the north star meaning changes)
+   - `syntropy.toml` overrides (for repo-specific structure)
+3. **Regenerate deterministic views**:
+   - `cargo run -p syntropy -- gen readmes`
+4. **Run drift gates and validation**:
+   - `cargo run -p syntropy -- gen readmes --check`
+   - `cargo run -p syntropy -- agents check`
+   - `cargo run -p syntropy -- validate`
+5. **Update the knowledge graph bookkeeping** (when docs change):
+   - `docs/_registry.md`
+   - `docs/_changelog.md`
 
 ## Mental Model Summary
 

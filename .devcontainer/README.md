@@ -1,15 +1,21 @@
 <!-- syntropy:generated -->
-# products
+# .devcontainer
 
 ## Purpose
 
-Shipped surfaces built on the platform.
+Dev/build container configuration.
 
 ## Rules
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Products can import platform.
+- Pin toolchain versions to keep builds deterministic.
+
+## Boundaries
+
+- Allowed children:
+  - Dockerfile
+  - devcontainer.json
 
 ## Notes
 

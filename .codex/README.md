@@ -1,15 +1,21 @@
 <!-- syntropy:generated -->
-# products
+# .codex
 
 ## Purpose
 
-Shipped surfaces built on the platform.
+Generated OpenAI Codex tool adapter.
 
 ## Rules
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Products can import platform.
+- Do not hand-edit; regenerate with `syntropy agents sync`.
+
+## Boundaries
+
+- Allowed children:
+  - agents
+  - config.toml
 
 ## Notes
 

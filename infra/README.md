@@ -1,15 +1,15 @@
 <!-- syntropy:generated -->
-# products
+# infra
 
 ## Purpose
 
-Shipped surfaces built on the platform.
+Infrastructure as code (Pulumi).
 
 ## Rules
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Products can import platform.
+- Keep secrets out of version control.
 
 ## Notes
 

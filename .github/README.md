@@ -1,15 +1,20 @@
 <!-- syntropy:generated -->
-# products
+# .github
 
 ## Purpose
 
-Shipped surfaces built on the platform.
+GitHub configuration (workflows, CI).
 
 ## Rules
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Products can import platform.
+- Prefer a single CI entrypoint: `.syntropy/system-of-work/scripts/validate.sh`.
+
+## Boundaries
+
+- Allowed children:
+  - workflows
 
 ## Notes
 

@@ -1,15 +1,15 @@
 <!-- syntropy:generated -->
-# products
+# surfaces
 
 ## Purpose
 
-Shipped surfaces built on the platform.
+Surface definitions: interfaces through which users (or developers) interact with the system.
 
 ## Rules
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Products can import platform.
+- Use YAML frontmatter for docs in this tree.
 
 ## Notes
 

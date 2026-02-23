@@ -5,7 +5,7 @@ title: "Document Registry"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-21
+updated: 2026-02-23
 ---
 
 # Document Registry
@@ -95,9 +95,9 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | adr-003 | Claude as Primary LLM | accepted | architecture-agent | `docs/decisions/adr-003-claude-primary-llm.md` |
 | adr-004 | Hybrid Domain-Package Monorepo Architecture | accepted | architecture-agent | `docs/decisions/adr-004-hybrid-monorepo.md` |
 | adr-005 | Dev Container and Build Container Strategy | accepted | architecture-agent | `docs/decisions/adr-005-dev-build-containers.md` |
+| dr-001 | Repo Structure Contract + Folder Contracts | accepted | workspace-contracts-agent | `docs/decisions/dr-001-repo-structure-contract.md` |
 
-*General decision records (dr-NNN) will appear here as they are captured.*
-
+*General decision records (dr-NNN) appear here as they are captured.*
 
 ## Open Questions
 

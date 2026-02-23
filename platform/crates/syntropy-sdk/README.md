@@ -7,6 +7,10 @@ Rust SDK: deterministic workspace discovery, tree/info/readmes/validate.
 
 ## Rules
 
+- Keep repo structure coherent and low-entropy.
+- Prefer platform commands over manual restructuring.
+- Platform never imports from products.
+- No binaries in platform crates.
 - No printing; return structured types only.
 - Prefer deterministic outputs and stable JSON keys.
 

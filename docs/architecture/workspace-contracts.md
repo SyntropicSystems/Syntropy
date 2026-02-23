@@ -5,10 +5,10 @@ title: "Workspace Contract System"
 status: defining
 owner: workspace-contracts-agent
 created: 2026-02-21
-updated: 2026-02-21
+updated: 2026-02-23
 refs:
   related: [arch-plan-apply-engine, arch-north-star-layout, wp01, wp03, wp07, wp08]
-  decided-by: []
+  decided-by: [dr-001]
 tags: [architecture, workspace, contracts]
 ---
 
@@ -24,7 +24,7 @@ The first "bootstrap slice" is implemented to prove the system works end-to-end 
 
 - **SDK**: `platform/crates/syntropy-sdk` — workspace discovery + structured operations
 - **CLI**: `products/command-center/apps/cli` — thin IO wrapper around the SDK (`syntropy` binary)
-- **Workspace contract**: `syntropy.toml` (and discovery support for `.syntropy/syntropy.toml`; legacy: `.work/syntropy.toml`)
+- **Workspace contract**: `syntropy.toml` (and discovery support for `.syntropy/syntropy.toml`)
 - **Blueprint**: built-in `north-star/v0`
 
 Bootstrap commands:

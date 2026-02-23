@@ -63,10 +63,11 @@ impl Workspace {
                 return Self::load_from_config_path(in_syntropy);
             }
 
-            // Legacy support.
             let in_work = dir.join(".work").join("syntropy.toml");
             if in_work.is_file() {
-                return Self::load_from_config_path(in_work);
+                anyhow::bail!(
+                    "legacy workspace location `.work/syntropy.toml` detected; rename `.work/` → `.syntropy/` and move `syntropy.toml` to the repo root (recommended) or `.syntropy/syntropy.toml`"
+                );
             }
         }
 
@@ -145,7 +146,7 @@ impl Workspace {
 
     pub fn info(&self, path: impl AsRef<Path>) -> anyhow::Result<NodeInfo> {
         let resolved = self.resolve_input_path(path.as_ref())?;
-        let definition = self.resolve_definition(&resolved.rel_path);
+        let (definition, chain) = self.effective_definition_and_chain(&resolved.rel_path);
 
         let (node_type, exists) = match std::fs::symlink_metadata(&resolved.abs_path) {
             Ok(meta) => {
@@ -176,6 +177,7 @@ impl Workspace {
             schema_version: "v0".to_string(),
             workspace_root: self.root.display().to_string(),
             path: rel_path_to_output_string(&resolved.rel_path),
+            contract_chain: chain.iter().map(|p| rel_path_to_output_string(p)).collect(),
             node_type,
             kind: definition.kind,
             exists,
@@ -211,6 +213,13 @@ impl Workspace {
         for key in self.blueprint.allowed_top_level_dirs.iter().copied() {
             dirs.push(PathBuf::from(key));
         }
+
+        // Discover leaf work units so README contracts emerge as the repo grows.
+        dirs.extend(discover_immediate_child_dirs(&self.root, Path::new("apps")));
+        dirs.extend(discover_immediate_child_dirs(
+            &self.root,
+            Path::new("packages"),
+        ));
 
         // A small set of blueprint directories we want to have contracts for.
         dirs.push(PathBuf::from("platform/crates"));
@@ -337,13 +346,52 @@ impl Workspace {
         merged
     }
 
+    pub(crate) fn effective_definition_and_chain(
+        &self,
+        rel_path: &Path,
+    ) -> (NodeDefinition, Vec<PathBuf>) {
+        let chain = contract_chain_paths(rel_path);
+
+        let mut kind = "unknown".to_string();
+        let mut purpose: Option<String> = None;
+        let mut rules = Vec::<String>::new();
+        let mut seen = std::collections::BTreeSet::<String>::new();
+
+        for p in chain.iter() {
+            let local = self.resolve_definition(p);
+
+            if local.kind != "unknown" {
+                kind = local.kind;
+            }
+            if local.purpose.is_some() {
+                purpose = local.purpose;
+            }
+            for rule in local.rules {
+                if seen.insert(rule.clone()) {
+                    rules.push(rule);
+                }
+            }
+        }
+
+        let leaf_local = self.resolve_definition(rel_path);
+
+        (
+            NodeDefinition {
+                kind,
+                purpose,
+                rules,
+                boundaries: leaf_local.boundaries,
+                readme_filename: leaf_local.readme_filename,
+            },
+            chain,
+        )
+    }
+
     fn load_from_config_path(config_path: PathBuf) -> anyhow::Result<Self> {
         let root = config_path
             .parent()
             .and_then(|p| {
-                if p.file_name()
-                    .is_some_and(|n| n == ".syntropy" || n == ".work")
-                {
+                if p.file_name().is_some_and(|n| n == ".syntropy") {
                     p.parent()
                 } else {
                     Some(p)
@@ -412,7 +460,7 @@ impl Workspace {
             name,
             node_type: node_type.clone(),
             kind: if matches!(node_type, NodeType::Dir) {
-                self.resolve_definition(rel).kind
+                self.effective_definition_and_chain(rel).0.kind
             } else {
                 "file".to_string()
             },
@@ -546,4 +594,66 @@ fn write_atomic(path: &Path, contents: &[u8]) -> std::io::Result<()> {
     std::fs::write(&tmp, contents)?;
     std::fs::rename(&tmp, path)?;
     Ok(())
+}
+
+fn discover_immediate_child_dirs(root: &Path, rel_parent: &Path) -> Vec<PathBuf> {
+    let abs_parent = root.join(rel_parent);
+    if !abs_parent.is_dir() {
+        return vec![];
+    }
+
+    let Ok(read_dir) = std::fs::read_dir(&abs_parent) else {
+        return vec![];
+    };
+
+    let mut entries = Vec::<std::fs::DirEntry>::new();
+    for entry in read_dir {
+        if let Ok(entry) = entry {
+            entries.push(entry);
+        }
+    }
+
+    entries.sort_by_key(|e| e.file_name());
+
+    let mut out = Vec::<PathBuf>::new();
+    for entry in entries {
+        let Ok(file_type) = entry.file_type() else {
+            continue;
+        };
+        if !file_type.is_dir() {
+            continue;
+        }
+
+        let name = entry.file_name().to_string_lossy().to_string();
+        if name.starts_with('.') {
+            continue;
+        }
+        if matches!(
+            name.as_str(),
+            "node_modules" | "dist" | "build" | ".next" | "out" | "coverage"
+        ) {
+            continue;
+        }
+
+        out.push(rel_parent.join(name));
+    }
+
+    out
+}
+
+fn contract_chain_paths(rel_path: &Path) -> Vec<PathBuf> {
+    let mut out = Vec::<PathBuf>::new();
+    out.push(PathBuf::from("."));
+
+    if rel_path.as_os_str().is_empty() || rel_path == Path::new(".") {
+        return out;
+    }
+
+    let mut current = PathBuf::new();
+    for component in rel_path.components() {
+        current.push(component.as_os_str());
+        out.push(current.clone());
+    }
+
+    out
 }

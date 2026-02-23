@@ -1,15 +1,21 @@
 <!-- syntropy:generated -->
-# products
+# .claude
 
 ## Purpose
 
-Shipped surfaces built on the platform.
+Generated Claude Code tool adapter.
 
 ## Rules
 
 - Keep repo structure coherent and low-entropy.
 - Prefer platform commands over manual restructuring.
-- Products can import platform.
+- Do not hand-edit; regenerate with `syntropy agents sync`.
+
+## Boundaries
+
+- Allowed children:
+  - agents
+  - commands
 
 ## Notes
 
