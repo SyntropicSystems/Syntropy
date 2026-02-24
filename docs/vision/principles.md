@@ -8,7 +8,7 @@ created: 2025-02-07
 updated: 2025-02-07
 refs:
   depends-on: [manifesto]
-  related: [experience-layer, glossary, jtbd, jtbd-dev-platform, jtbd-repo-platform, jtbd-workspace-platform]
+  related: [experience-layer, glossary, jtbd, jtbd-dev-platform, jtbd-repo-platform, jtbd-workspace-platform, personality-layer]
 tags: [vision, principles, foundation]
 ---
 

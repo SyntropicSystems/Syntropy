@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [dp-stories, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16]
+  enables: [dp-stories, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16, dp17]
   related: [dp-product-index, experience-layer, jtbd, jtbd-repo-platform, jtbd-workspace-platform, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
