@@ -6,9 +6,9 @@ status: active
 scope: "All agents"
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-23
+updated: 2026-02-24
 refs:
-  related: [dp02, dp08, dp09, surf-dev-platform, wf-domain-review, wf-sync-domain-context]
+  related: [dp02, dp08, dp09, surf-dev-platform, wf-domain-review, wf-sync-domain-context, wf-update-document, wf-maintain-glossary, wf-validate-knowledge-graph, wf-sync-generated-artifacts]
 ---
 
 # Base Agent Traits
@@ -41,13 +41,25 @@ These documents form the shared foundation every agent operates from:
 
 Every agent can execute these workflows:
 
+### Core (decisions, observations, review)
+
 - `docs/workflows/record-decision.md` — when any decision needs to be captured
 - `docs/workflows/make-architecture-decision.md` — when an architecture-specific decision needs to be made
 - `docs/workflows/resolve-open-question.md` — when exploring and resolving an open question
-- `docs/workflows/sync-domain-context.md` — when catching up on changes or auditing domain coherence
-- `docs/workflows/domain-review.md` — when reviewing changes that touch a domain before merge
 - `docs/workflows/capture-observation.md` — when capturing a friction, idea, question, or any signal
 - `docs/workflows/reflect.md` — after completing work, to notice and capture your experience
+
+### Knowledge graph maintenance
+
+- `docs/workflows/update-document.md` — when modifying any existing document (update frontmatter, maintain cross-refs, log changes)
+- `docs/workflows/maintain-glossary.md` — when adding or revising canonical terms
+- `docs/workflows/validate-knowledge-graph.md` — when checking integrity (cross-refs, conventions, indexes)
+- `docs/workflows/sync-generated-artifacts.md` — when canonical sources change and adapters/registry need regeneration
+
+### Domain hygiene
+
+- `docs/workflows/sync-domain-context.md` — when catching up on changes or auditing domain coherence
+- `docs/workflows/domain-review.md` — when reviewing changes that touch a domain before merge
 
 ## Escalation Protocol
 

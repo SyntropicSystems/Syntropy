@@ -15,7 +15,7 @@ tags: [vision, motivation, jtbd, dev-platform, meta]
 
 # Dev Platform — Jobs to Be Done
 
-The thirteen core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The fourteen core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 

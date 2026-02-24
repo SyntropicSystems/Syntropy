@@ -46,19 +46,42 @@ Regenerate adapters:
 
 Executable process documents — same instructions work for humans and AI:
 
+### Building the Knowledge Graph
+
 - Add a feature: `docs/workflows/add-feature-spec.md`
+- Add a knowledge document (vision, architecture, module): `docs/workflows/add-knowledge-document.md`
+- Feature inception (full cross-cutting scope): `docs/workflows/feature-inception.md`
+- Decompose a spec: `docs/workflows/decompose-spec.md`
+- Refine a story: `docs/workflows/refine-user-story.md`
+
+### Maintaining the Knowledge Graph
+
+- Update any document: `docs/workflows/update-document.md`
+- Maintain the glossary: `docs/workflows/maintain-glossary.md`
+- Validate integrity: `docs/workflows/validate-knowledge-graph.md`
+- Sync generated artifacts: `docs/workflows/sync-generated-artifacts.md`
+- Evolve conventions: `docs/workflows/evolve-conventions.md`
+
+### Decisions & Questions
+
 - Record a decision: `docs/workflows/record-decision.md`
 - Architecture decision: `docs/workflows/make-architecture-decision.md`
-- Refine a story: `docs/workflows/refine-user-story.md`
-- Create an agent: `docs/workflows/create-agent.md`
 - Resolve a question: `docs/workflows/resolve-open-question.md`
-- Decompose a spec: `docs/workflows/decompose-spec.md`
+
+### Agents & Domains
+
+- Create an agent: `docs/workflows/create-agent.md`
 - Sync domain context: `docs/workflows/sync-domain-context.md`
 - Domain DRI review: `docs/workflows/domain-review.md`
+
+### Observations & Reflection
+
 - Capture observation: `docs/workflows/capture-observation.md`
 - Audit observations: `docs/workflows/audit-observations.md`
-- Feature inception: `docs/workflows/feature-inception.md`
 - Reflect after work: `docs/workflows/reflect.md`
+
+### Workspace Platform
+
 - Design workspace contract: `docs/workflows/design-workspace-contract.md`
 - Run the Syntropy CLI (bootstrap): `docs/workflows/run-syntropy-cli.md`
 - Implement a Syntropy CLI command: `docs/workflows/implement-syntropy-command.md`
@@ -109,7 +132,7 @@ products/                   ← shipped surfaces built on the platform
 
 The development platform (this knowledge graph + system-of-work) is documented as a product itself:
 
-- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 13 jobs the dev platform fulfills (DJ1–DJ13)
+- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 14 jobs the dev platform fulfills (DJ1–DJ14)
 - **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
 - **Surface**: `surfaces/dev-platform.md` — platform definition and principles
 
