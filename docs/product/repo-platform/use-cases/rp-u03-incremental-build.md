@@ -5,7 +5,7 @@ title: "Running an Incremental Build After Code Changes"
 status: defining
 owner: architecture-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: [rp03, rp04]
   related: [rp-u02, rp-u05]
@@ -16,31 +16,29 @@ tags: [repo-platform, use-case, build]
 
 ## Scenario
 
-A developer modifies code in `packages/domain-core/` and wants to verify the build. They run `pnpm build` (or `nx affected -t build`) and expect only the affected packages to rebuild — not the entire monorepo.
+A developer modifies code in `platform/crates/syntropy-sdk/` and wants to verify the build. They run `cargo build` and/or the relevant Bazel target and expect only the affected crates/actions to rebuild — not the entire world.
 
 ### Steps
 
-1. Developer edits a file in `packages/domain-core/src/`
-2. Runs `pnpm build` (or `nx affected -t build` for branch-aware builds)
-3. The build orchestrator computes content hashes for all packages
-4. Packages with unchanged hashes are restored from cache (instant)
-5. `domain-core` and its downstream consumers rebuild
-6. Developer sees build output in seconds, not minutes
+1. Developer edits a file in `platform/crates/syntropy-sdk/src/`
+2. Runs `cargo build` (and optionally `cargo test`)
+3. Cargo rebuilds only the affected crate(s) and dependents (incremental compilation)
+4. (Optional) Runs `bazel build //products/command-center/apps/cli:syntropy`
+5. Bazel rebuilds only affected actions (content-addressed cache)
+6. Developer sees build output quickly and deterministically
 
 ### Outcome
 
-- Only changed packages and their dependents rebuild
-- Cached packages show `[local cache]` in the build output
+- Only changed crates and their dependents rebuild
 - Total build time scales with the change, not the repo size
-- TypeScript incremental compilation (`tsbuildinfo`) further speeds up individual package builds
+- Bazel builds are cacheable and reproducible
 
 ## Features Exercised
 
 - RP03 — Build Orchestration (content-hash caching, dependency-aware ordering)
-- RP04 — TypeScript Project Configuration (incremental compilation, project references)
+- RP04 — Project Configuration (workspace boundaries and tooling)
 
 ## Acceptance Criteria
 
-- [ ] Changing one file in `domain-core` does not rebuild `shared-types` or `design-tokens`
-- [ ] Second consecutive `pnpm build` with no changes completes in under 2 seconds
-- [ ] Build output clearly shows which packages were cached vs. rebuilt
+- [ ] Second consecutive `cargo build` with no changes completes quickly (incremental/no-op)
+- [ ] `bazel build //products/command-center/apps/cli:syntropy` reuses cache when inputs are unchanged

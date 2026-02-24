@@ -2,16 +2,19 @@
 id: "adr-001"
 type: adr
 title: "Firebase as Backend Platform"
-status: accepted
+status: superseded
 owner: architecture-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-24
 refs:
+  superseded-by: [adr-006]
   affects: [arch-data-model, arch-stack, f06, f08]
   related: [adr-004, oq-monorepo-architecture, rp-u04, rp07]
 ---
 
 # ADR-001: Firebase as Backend Platform
+
+> **Status:** Superseded by ADR-006 (backend/app stack intentionally deferred).
 
 ## Context
 

@@ -5,15 +5,18 @@ title: "Monorepo Architecture — Code Organization Strategy"
 status: resolved
 owner: architecture-agent
 created: 2025-02-09
-updated: 2026-02-21
+updated: 2026-02-24
 refs:
   affects: [arch-stack, f08]
   related: [adr-001, arch-data-model, arch-ai-pipeline]
   resolves-to: [adr-004]
+  superseded-by: [adr-006]
 tags: [architecture, monorepo, deployment, ddd]
 ---
 
 # OQ: Monorepo Architecture — Code Organization Strategy
+
+> **Note:** The ADR that resolved this question (ADR-004) is now superseded by ADR-006. The app/backend stack is intentionally deferred; this question is preserved for historical context.
 
 ## Question
 

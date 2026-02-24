@@ -6,8 +6,9 @@ status: exploring
 owner: architecture-agent
 priority: P1
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
+  decided-by: [adr-006]
   depends-on: [rp03, rp04]
   enables: [rp-u05]
   informed-by: [jtbd-repo-platform]
@@ -27,54 +28,48 @@ Automated code quality enforcement across all packages — linting for correctne
 
 ## How It Works
 
-### Linting (Planned)
+### Linting
 
 Static analysis to catch bugs, enforce patterns, and flag anti-patterns.
 
-**Planned:** ESLint with TypeScript parser. Shared config in `packages/config/` consumed by all packages. Rules should enforce:
-- TypeScript best practices
-- Import ordering
-- No unused variables/imports
-- Framework-specific rules (React, React Native)
+**Currently (Rust):** `cargo clippy` (toolchain pinned via `rust-toolchain.toml`).
 
-### Formatting (Planned)
+### Formatting
 
 Automatic code formatting for consistent style.
 
-**Planned:** Prettier with shared config. Format on save in editors, format check in CI.
+**Currently (Rust):** `cargo fmt` (toolchain pinned via `rust-toolchain.toml`).
 
 ### Type Checking
 
-TypeScript compiler in strict mode catches type errors across all packages.
+The Rust compiler provides type checking across the workspace.
 
-**Currently:** `tsc --build` in each package. Strict mode enabled in `tsconfig.base.json`.
+**Currently:** `cargo build` / `cargo test` across the workspace.
 
 ### Module Boundary Enforcement (Planned)
 
-Rules that prevent packages from importing outside their allowed dependency graph. E.g., domain packages cannot import UI packages; UI packages cannot write to stores.
+Rules that prevent crates/modules from importing outside their allowed dependency graph (e.g., `platform/` must not depend on `products/`).
 
-**Planned:** Nx `@nx/enforce-module-boundaries` ESLint rule. Tags on each package define which dependency edges are allowed.
+**Planned:** Dedicated validators in the Workspace Platform (contract + validation rules), plus optional build-system enforcement.
 
 ### Pre-Commit Hooks (Planned)
 
 Run linting and formatting on staged files before each commit to catch issues early.
 
-**Planned:** `lint-staged` + `husky` (or `lefthook`) for pre-commit hooks.
+**Planned:** Lightweight git hooks (tool TBD) to run `cargo fmt` and `cargo clippy` on changed crates.
 
 ### Editor Integration
 
 Quality tools integrated into editors via extensions for real-time feedback.
 
-**Currently:** Devcontainer installs ESLint and Prettier VS Code extensions. Config files not yet created.
+**Currently:** Rust Analyzer provides inline diagnostics; devcontainer recommends Rust + Bazel extensions.
 
 ## Dependencies
 
 - Requires: RP03 (Build Orchestration) — lint/format tasks orchestrated by the build tool
-- Requires: RP04 (TypeScript Project Configuration) — type checking uses the shared tsconfig
+- Requires: RP04 (Project Configuration)
 
 ## Open Questions
 
-- [ ] ESLint flat config (eslint.config.js) or legacy (.eslintrc)?
-- [ ] Shared config package (`packages/config/`) or root-level configs?
-- [ ] Biome as an ESLint + Prettier alternative?
-- [ ] Which pre-commit hook tool: husky, lefthook, or simple-git-hooks?
+- [ ] Should CI require `cargo fmt --check` and `cargo clippy`?
+- [ ] Do we want dependency/license/security gates (e.g., `cargo deny`, `cargo audit`)?

@@ -1,24 +1,18 @@
 {
   "name": "Syntropy Dev",
   "build": {
-    "dockerfile": "Dockerfile",
+    "dockerfile": ".devcontainer/Dockerfile",
+    "context": "..",
     "target": "devcontainer"
-  },
-
-  // Dev-only tools added as composable, cached layers.
-  // Each Feature is independently versioned and OCI-distributed.
-  "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
 
   // IDE settings — applied by VS Code, Cursor, and Codespaces.
   "customizations": {
     "vscode": {
       "extensions": [
-        "nrwl.angular-console",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
+        "bazelbuild.vscode-bazel",
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash"
@@ -26,17 +20,9 @@
     }
   },
 
-  // Install workspace dependencies on first create.
-  "postCreateCommand": "pnpm install",
+  // Paved road: drift gates + validation.
+  "postCreateCommand": "cargo run -p syntropy -- check",
 
-  // Run as the non-root node user (uid 1000).
-  "remoteUser": "node",
-
-  // Common dev server ports — auto-detected and labeled.
-  "forwardPorts": [3000, 4200, 5173],
-  "portsAttributes": {
-    "3000": { "label": "Web App" },
-    "4200": { "label": "Dev Web" },
-    "5173": { "label": "Vite" }
-  }
+  // Run as a non-root user.
+  "remoteUser": "dev"
 }

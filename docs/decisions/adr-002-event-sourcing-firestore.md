@@ -2,15 +2,18 @@
 id: "adr-002"
 type: adr
 title: "Event Sourcing on Firestore"
-status: accepted
+status: superseded
 owner: architecture-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-24
 refs:
   affects: [f06, arch-event-sourcing, arch-data-model]
+  superseded-by: [adr-006]
 ---
 
 # ADR-002: Event Sourcing on Firestore
+
+> **Status:** Superseded by ADR-006 (storage/backend stack intentionally deferred).
 
 ## Context
 

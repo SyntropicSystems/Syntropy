@@ -5,7 +5,7 @@ title: "Glossary"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   related: [manifesto, principles]
 tags: [vision, language, reference]
@@ -24,11 +24,11 @@ Canonical term definitions for Syntropy OS. This is the shared language — use 
 | **Dependency** | A relationship where Task B cannot be actioned until Task A is complete. |
 | **Confidence** | AI's self-assessed probability that its suggested action is correct (0–100%). |
 | **Threshold** | User-configurable confidence level above which AI auto-executes without asking. |
-| **Event** | An immutable record of any action taken in the system. Append-only in Firestore. |
+| **Event** | An immutable record of any action taken in the system. Append-only in the event log (storage backend TBD). |
 | **Audit Trail** | The browsable, filterable log of all events. |
 | **Agent** | A specialized AI prompt + context strategy for a specific domain (Email Agent, Finance Agent, Home Agent). |
 | **Quick Capture** | The multimodal input system (voice, text, photo) for rapid task creation. |
-| **Materialized View** | A precomputed document (e.g., queue order, project stats) derived from the event log by Cloud Functions. |
+| **Materialized View** | A precomputed view (e.g., queue order, project stats) derived from the event log by projection workers/triggers (implementation TBD). |
 | **Artifact** | Any uploaded or captured file (photo, PDF, voice memo, document) that has been processed by the AI extraction pipeline and linked to domains/projects/tasks. |
 | **Surface** | A platform or interface through which users interact with the system (mobile app, web app, development platform). |
 | **Decision Record** | A structured capture of any decision — the problem it solves, the options explored, what was decided, how to know it's working, and when to revisit. Decision records form a reasoning graph: they have hierarchy (parent/child), domain scope, and relationships to other decisions. Generalizes the ADR (Architecture Decision Record) pattern to all decision types: product, process, methodology, convention, principle. Classified as Type 1 (hard to reverse) or Type 2 (easily reversible). |

@@ -5,7 +5,7 @@ title: "Integration Roadmap"
 status: defining
 owner: integration-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-24
 refs:
   related: [f03]
   enables: []
@@ -22,7 +22,7 @@ Syntropy OS becomes more powerful as it connects to more data sources. Each inte
 
 | Phase | Integration | What It Enables |
 |-------|------------|----------------|
-| **Phase 1** | Gmail / Google Workspace | Email -> cards, reply, archive, project creation. This is the primary integration and daily driver. Every email becomes a task card with intelligent action suggestions. OAuth connection via Firebase Auth. |
+| **Phase 1** | Gmail / Google Workspace | Email -> cards, reply, archive, project creation. This is the primary integration and daily driver. Every email becomes a task card with intelligent action suggestions. OAuth connection via the chosen auth provider (TBD). |
 | **Phase 2** | Google Calendar | Schedule-aware prioritization, meeting prep cards. The AI can factor in calendar context when prioritizing the queue -- e.g., prep tasks surface before meetings. Calendar events can generate cards. |
 | **Phase 3** | Slack / Teams | Messages -> cards, channel monitoring, auto-responses. Important messages from monitored channels become task cards. The AI can draft responses and flag items needing attention. |
 | **Phase 4** | GitHub / Linear | Issues -> cards, PR reviews, deployment tasks. Development workflow items become task cards. PR review requests, assigned issues, and deployment notifications surface in the queue. |
@@ -43,7 +43,7 @@ Each integration follows a common pattern:
 
 Phase 1 is the most detailed because it is the first and primary integration:
 
-- OAuth connection to Gmail/Google Workspace via Firebase Auth Google sign-in
+- OAuth connection to Gmail/Google Workspace via the chosen auth provider (TBD)
 - Each email becomes a task card with metadata: sender, subject, snippet, thread context, attachments
 - Standard actions: Reply, Archive, Snooze, Delete, Mark Read, Unsubscribe
 - AI generates contextual actions based on email content (e.g., "Create project from this thread," "Schedule meeting with sender," "Forward to [person]")

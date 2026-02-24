@@ -5,7 +5,7 @@ title: "Domain DRI Review Before Merge"
 status: defining
 owner: meta-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: [dp02, dp03, dp09]
   related: [dp-u01, dp-u06, dp-u14, wf-domain-review]
@@ -34,7 +34,7 @@ An implementer has completed a significant piece of work: a new feature spec (F1
 3. **Architecture domain (delegated review):**
    - Implementer spins up architecture-agent (or hands off to a colleague with architecture expertise)
    - Architecture reviewer loads manifest + Domain State
-   - Checks: data model changes consider Firestore patterns? Decision recorded as ADR? No duplication?
+   - Checks: data model changes remain storage-agnostic if the backend is deferred (ADR-006)? If a stack choice is introduced, is it captured as an ADR? No duplication?
    - Finds: the new data model section should reference an existing ADR — requests change
    - Implementer fixes, architecture reviewer approves
 

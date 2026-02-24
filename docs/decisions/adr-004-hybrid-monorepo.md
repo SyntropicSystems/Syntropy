@@ -2,19 +2,22 @@
 id: "adr-004"
 type: adr
 title: "Hybrid Domain-Package Monorepo Architecture"
-status: accepted
+status: superseded
 owner: architecture-agent
 decision-type: type-1
 created: 2025-02-09
-updated: 2026-02-23
+updated: 2026-02-24
 refs:
   affects: [arch-stack, f08]
   related: [adr-001, adr-005, arch-ai-pipeline, arch-data-model, arch-event-sourcing, arch-north-star-layout, dr-001, rp-u02, rp01, rp02, rp03, rp04, rp07, surf-repo-platform]
   resolves: [oq-monorepo-architecture]
+  superseded-by: [adr-006]
 tags: [architecture, monorepo, ddd, deployment]
 ---
 
 # ADR-004: Hybrid Domain-Package Monorepo Architecture
+
+> **Status:** Superseded by ADR-006 (app/backend stack deferred; repo refocused on Rust-first Workspace Platform).
 
 ## Context
 

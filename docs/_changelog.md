@@ -5,7 +5,7 @@ title: "Changelog"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-23
+updated: 2026-02-24
 refs:
   related: [dp04]
 ---
@@ -228,3 +228,12 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-23 | updated | wf-run-syntropy-cli | Added `gen all` to the bootstrap CLI workflow | workspace-contracts-agent |
 | 2026-02-23 | created | dr-003 | Recorded generated registry + docs sync + Rust-first check gate decision | meta-agent |
 | 2026-02-23 | created | — | Implemented Dev Platform integrity tooling: strict docs graph checks, deterministic backref sync, generated registry drift gate, and `syntropy check` single Rust CI gate | meta-agent |
+| 2026-02-24 | created | adr-006 | Recorded Rust-first repository foundation; deferred app/backend stack; keep Bazel but pin toolchains | architecture-agent |
+| 2026-02-24 | updated | adr-001, adr-002, adr-004, adr-005 | Marked as superseded by ADR-006; added bidirectional references | architecture-agent |
+| 2026-02-24 | updated | arch-index, arch-stack, arch-event-sourcing, arch-data-model, arch-offline, arch-security, arch-integrations, arch-ai-pipeline, arch-north-star-layout | Rewrote architecture docs to be backend/storage-agnostic and aligned to ADR-006 | architecture-agent |
+| 2026-02-24 | updated | jtbd-repo-platform, rp01–rp10, rp-u01–rp-u07, rp-stories | Rewrote Repo Platform docs for Rust+Bazel foundation; marked infra/app orchestration as deferred where needed | architecture-agent |
+| 2026-02-24 | updated | dp-u07, dp-u13 | Updated Dev Platform use cases to reflect superseded decisions and backend deferral | meta-agent |
+| 2026-02-24 | updated | registry | Updated registry entries for ADR-006, superseded ADR statuses, and updated architecture/repo-platform titles | meta-agent |
+| 2026-02-24 | removed | — | Removed Node/Nx/TypeScript/Pulumi scaffolding (apps/, packages/, infra/ and root config) and deleted archived root monolith spec file | workspace-contracts-agent |
+| 2026-02-24 | updated | AGENTS.md, EXECUTION_CONTRACT | Updated adapter regeneration instructions to use `syntropy gen agents` (+ `--check`) | meta-agent |
+| 2026-02-24 | updated | glossary | Removed Firestore/Cloud Functions assumptions from core definitions (event log + projections are storage-agnostic) | meta-agent |

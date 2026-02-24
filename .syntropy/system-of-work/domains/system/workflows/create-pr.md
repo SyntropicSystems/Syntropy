@@ -9,8 +9,8 @@ Turn local changes into a reviewable pull request with a descriptive commit and 
 1. Create/switch to a feature branch:
    - `git checkout -b codex/<short-slug>`
 2. If you touched the System of Work or agent specs, regenerate and drift-check tool adapters:
-   - `cargo run -p syntropy -- agents sync`
-   - `cargo run -p syntropy -- agents check`
+   - `cargo run -p syntropy -- gen agents`
+   - `cargo run -p syntropy -- gen agents --check`
 3. Run relevant verification:
    - Rust changes: `cargo test` (or at least `cargo check`)
    - Workspace/blueprint changes: `cargo run -p syntropy -- validate`
@@ -31,5 +31,5 @@ Turn local changes into a reviewable pull request with a descriptive commit and 
 
 ## Notes
 
-- Do not hand-edit `.claude/**` or `.codex/**`; regenerate via `syntropy agents sync`.
+- Do not hand-edit `.claude/**` or `.codex/**`; regenerate via `syntropy gen agents`.
 - If `gh` is not authenticated, run `gh auth login`.

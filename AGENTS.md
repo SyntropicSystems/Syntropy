@@ -28,8 +28,8 @@ Generated tool adapters (checked in; do not edit by hand):
 
 Regenerate adapters:
 
-- `cargo run -p syntropy -- agents sync`
-- drift check: `cargo run -p syntropy -- agents check`
+- `cargo run -p syntropy -- gen agents`
+- drift check: `cargo run -p syntropy -- gen agents --check`
 
 ### Before working on any task
 
@@ -145,8 +145,8 @@ Run commands (Cargo):
 - `cargo run -p syntropy -- gen readmes --dry-run`
 - `cargo run -p syntropy -- gen readmes`
 - `cargo run -p syntropy -- validate`
-- `cargo run -p syntropy -- agents sync`
-- `cargo run -p syntropy -- agents check`
+- `cargo run -p syntropy -- gen agents`
+- `cargo run -p syntropy -- gen agents --check`
 - JSON mode: add `--json` (e.g., `cargo run -p syntropy -- --json validate`)
 
 ## Current Status
@@ -154,4 +154,3 @@ Run commands (Cargo):
 - **Phase**: Discovery / Specification / Bootstrap implementation
 - **Active areas**: Workspace Platform CLI + SDK, plus ongoing product/architecture documentation
 - See `docs/_changelog.md` for recent activity
-

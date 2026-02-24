@@ -65,14 +65,7 @@ fn should_ignore_top_level_dir(name: &str) -> bool {
     matches!(
         name,
         ".git"
-            | "node_modules"
             | "target"
-            | ".nx"
-            | "dist"
-            | "build"
-            | ".next"
-            | "out"
-            | "coverage"
             | "bazel-bin"
             | "bazel-out"
             | "bazel-testlogs"

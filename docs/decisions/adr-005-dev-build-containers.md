@@ -2,18 +2,21 @@
 id: "adr-005"
 type: adr
 title: "Dev Container and Build Container Strategy"
-status: accepted
+status: superseded
 owner: architecture-agent
 decision-type: type-1
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   affects: [arch-stack, f08, rp05, rp06]
   related: [adr-004, arch-stack, rp05, rp06, rp09, surf-repo-platform]
+  superseded-by: [adr-006]
 tags: [architecture, containers, devcontainer, ci-cd, dx]
 ---
 
 # ADR-005: Dev Container and Build Container Strategy
+
+> **Status:** Superseded by ADR-006 (repo is Rust-first; dev/build container strategy updated accordingly).
 
 ## Context
 

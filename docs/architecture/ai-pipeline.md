@@ -5,7 +5,7 @@ title: "AI Pipeline"
 status: exploring
 owner: architecture-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-24
 refs:
   decided-by: [adr-003]
   related: [adr-004, arch-stack, f04, f04-ai-engine-agent, f07, f12, f12-artifact-agent, oq-monorepo-architecture]
@@ -20,11 +20,13 @@ The AI pipeline is the intelligence layer of Syntropy OS. It analyzes every card
 
 ## Orchestrator
 
-Cloud Functions + Pub/Sub. Events trigger pipeline stages:
+The AI pipeline is event-driven. Events trigger pipeline stages:
 
 ```
 ingest -> analyze -> decide -> execute -> learn
 ```
+
+- Candidate implementations (not decided): Cloud Functions + Pub/Sub, durable job queues (e.g., Temporal), or a dedicated worker service.
 
 - **Ingest**: New data enters the system (email received, note captured, artifact uploaded, task created).
 - **Analyze**: LLM processes the content -- extracts intent, classifies type, identifies entities, generates structured output.
@@ -34,7 +36,7 @@ ingest -> analyze -> decide -> execute -> learn
 
 ## LLM Calls
 
-- Claude API via Cloud Functions (primary LLM).
+- Claude API via server-side execution (primary LLM).
 - OpenAI as fallback.
 - **Structured output** (JSON mode) for reliable parsing. Every LLM call returns typed JSON that can be validated and processed programmatically.
 - **Prompt templates** per task type. Each card type (email, note, voice capture, artifact) has a specialized prompt template that includes relevant context and instructions.
@@ -51,7 +53,7 @@ Specialized prompt + context strategies per domain. Each agent has domain-specif
 
 ## Artifact Intelligence Pipeline
 
-Upload triggers a multi-stage Cloud Function pipeline:
+Upload triggers a multi-stage pipeline:
 
 1. **Content extraction**: OCR for images/photos, speech-to-text for voice recordings, text parsing for documents/PDFs. Raw content is extracted from the uploaded file.
 2. **LLM analysis**: The extracted content is sent to the LLM for: summary generation, key facts extraction (measurements, costs, dates, contacts, deadlines, specs as typed key-value pairs), type classification, and confidence scoring per extraction.
@@ -72,7 +74,7 @@ User corrections are stored as structured training signals:
 ```
 
 - Per-user preference model adjusts confidence scoring over time. If the AI is 80% confident but the user rejects 50% of the time for a given pattern, the model recalibrates downward.
-- BigQuery aggregation for model fine-tuning. Event logs are exported to BigQuery for batch analysis and aggregate pattern detection.
+- Batch aggregation for model fine-tuning (storage/warehouse TBD). Event logs may be exported for offline analysis and aggregate pattern detection.
 - Explicit training: Users can create rules ("Always do X when you see Y") that override learned behavior.
 - Users can review what the system has learned and delete/modify learned behaviors.
 

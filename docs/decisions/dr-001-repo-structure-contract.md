@@ -8,12 +8,13 @@ decision-type: type-1
 created: 2026-02-23
 updated: 2026-02-23
 refs:
-  parent: []
-  children: []
-  domain: [workspace-contracts]
   affects: [arch-north-star-layout, arch-workspace-contracts, wp01, wp03, wp05]
-  tensions: []
+  children: []
+  decided-by: [adr-006]
+  domain: [workspace-contracts]
+  parent: []
   related: [adr-004, dr-002]
+  tensions: []
 tags: [repo-layout, folder-contracts, workspace-platform]
 ---
 

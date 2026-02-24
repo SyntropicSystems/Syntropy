@@ -5,10 +5,10 @@ title: "Deploying Infrastructure Changes"
 status: defining
 owner: architecture-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: [rp07]
-  related: [rp-u05, adr-001]
+  related: [adr-001, adr-006, rp-u05]
 tags: [repo-platform, use-case, infrastructure]
 ---
 
@@ -16,30 +16,30 @@ tags: [repo-platform, use-case, infrastructure]
 
 ## Scenario
 
-A developer needs to add a new Firestore collection, update security rules, or provision a new GCP resource. They modify the Pulumi code, preview the changes, and deploy to a stack.
+A developer needs to deploy infrastructure changes. This use case is **deferred** until the backend/app stack and IaC tool are decided (ADR-006).
 
 ### Steps
 
-1. Edit `infra/index.ts` to define or modify resources
-2. Run `pnpm --filter infra preview` to see a diff of planned changes
-3. Review the diff — which resources will be created, updated, or destroyed
-4. Run `pnpm --filter infra up` to apply changes to the target stack
-5. Verify the resources are correctly provisioned in the GCP console or via Pulumi output
+1. Choose backend/app stack + IaC tool (new ADR)
+2. Define or modify infrastructure in the chosen IaC codebase
+3. Preview changes (diff of planned resources)
+4. Apply changes to the target environment/stack
+5. Verify provisioned resources and access controls
 
 ### Outcome
 
-- Infrastructure changes are expressed as TypeScript code, reviewable in PRs
+- Infrastructure changes are expressed as reviewable code
 - Preview mode shows exact changes before applying
-- Stack state tracks all provisioned resources
-- Changes are reversible via `pulumi destroy` or by reverting the code
+- State tracks all provisioned resources
+- Changes are reversible via tool-supported rollback or code revert
 
 ## Features Exercised
 
-- RP07 — Infrastructure as Code (Pulumi TypeScript, stack management, preview/apply)
+- RP07 — Infrastructure as Code (deferred)
 
 ## Acceptance Criteria
 
-- [ ] `pnpm --filter infra preview` shows accurate diff of changes
-- [ ] `pnpm --filter infra up` successfully provisions/modifies resources
-- [ ] Infrastructure code passes TypeScript type checking
-- [ ] Changes to `infra/` are reviewable in pull requests like any other code
+- [ ] A stack + IaC tool choice is captured as an ADR before implementation
+- [ ] Preview shows an accurate diff of changes
+- [ ] Apply successfully provisions/modifies resources
+- [ ] Infrastructure changes are reviewable in pull requests like any other code

@@ -36,9 +36,9 @@ You own and may update (as needed):
 
 - `.syntropy/system-of-work/domains/devex/**`
 - `.devcontainer/**`
-- `package.json`
-- `pnpm-workspace.yaml`
 - `Cargo.toml`
+- `Cargo.lock`
+- `rust-toolchain.toml`
 
 ## 4) What You Do Not Own
 
@@ -55,8 +55,8 @@ You do **not** own other domains’ canonical files. If asked to do work outside
 
 ## 6) Validation & Verification
 
-- `pnpm -w lint (if available)`
-- `pnpm -w test (if available)`
+- `cargo run -p syntropy -- check`
+- `bazel build //products/command-center/apps/cli:syntropy`
 
 ## 7) Delegation
 
