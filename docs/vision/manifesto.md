@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-07
 updated: 2025-02-07
 refs:
-  enables: [jtbd, jtbd-dev-platform, jtbd-repo-platform, jtbd-workspace-platform, principles]
+  enables: [experience-layer, jtbd, jtbd-dev-platform, jtbd-repo-platform, jtbd-workspace-platform, principles]
   related: [glossary]
 tags: [vision, foundation]
 ---

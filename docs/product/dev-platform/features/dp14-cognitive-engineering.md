@@ -11,7 +11,7 @@ refs:
   decided-by: []
   depends-on: [dp02, dp09, dp10, jtbd-dev-platform]
   enables: [dp-u14, dp-u15]
-  related: [cognitive-engineering-agent, dp-stories, dp03, dp11, dp12, dp13, dp15, observations-agent]
+  related: [cognitive-engineering-agent, dp-stories, dp03, dp11, dp12, dp13, dp15, dp16, observations-agent]
 tags: [dev-platform, cognitive-engineering, comprehension, information-architecture]
 ---
 
