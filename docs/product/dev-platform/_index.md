@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-09
 updated: 2026-02-21
 refs:
-  related: [product-index, surf-dev-platform, jtbd-dev-platform, experience-layer]
+  related: [product-index, surf-dev-platform, jtbd-dev-platform, experience-layer, personality-layer-index]
 tags: [dev-platform, product, index]
 ---
 
@@ -45,6 +45,10 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
   - Module deep-dives → `experience-layer/` (11 modules with derivable features framework)
   - Vision & Philosophy → `docs/vision/experience-layer.md`
   - Architecture → `docs/architecture/experience-layer.md`
+- **DP17** — Personality Layer: Procedural agent character — personality stack, role archetypes, voice sheets, flavor pools, memory/moments → `features/dp17-personality-layer.md`
+  - Module deep-dives → `personality-layer/` (9 modules with derivable features framework)
+  - Vision & Philosophy → `docs/vision/personality-layer.md`
+  - Architecture → `docs/architecture/personality-layer.md`
 
 ## Use Cases
 

@@ -11,7 +11,7 @@ refs:
   depends-on: [dp02, dp03, dp09, dp10, dp11, dp12, dp14, dp15, jtbd-dev-platform]
   enables: []
   informed-by: [experience-layer, jtbd-dev-platform]
-  related: [dp-stories, dp01, dp13, cognitive-engineering-agent, operational-engineering-agent, pulse-companion-agent, observations-agent]
+  related: [dp-stories, dp01, dp13, dp17, cognitive-engineering-agent, operational-engineering-agent, pulse-companion-agent, observations-agent]
 tags: [dev-platform, experience-layer, game-design, satisfaction-architecture, progression, companion, social, p1]
 ---
 
