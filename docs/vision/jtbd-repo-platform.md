@@ -5,7 +5,7 @@ title: "Repo Platform — Jobs to Be Done"
 status: active
 owner: architecture-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: [manifesto]
   enables: [rp-stories, rp01, rp02, rp03, rp04, rp05, rp06, rp07, rp08, rp09, rp10]
@@ -27,7 +27,7 @@ The Repo Platform is the engineering infrastructure that makes Syntropy buildabl
 
 ## RJ3 — Consistent Runtime Versions Everywhere
 
-**When** a new contributor joins, a CI runner starts, or a Codespace opens, **I want** the exact same Node.js, package manager, and TypeScript versions to be used **so that** "works on my machine" never happens.
+**When** a new contributor joins, a CI runner starts, or a Codespace opens, **I want** the exact same Rust toolchain and build tooling versions to be used **so that** "works on my machine" never happens.
 
 ## RJ4 — Declarative Infrastructure Management
 

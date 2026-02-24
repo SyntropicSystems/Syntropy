@@ -6,12 +6,12 @@ status: exploring
 owner: architecture-agent
 priority: P1
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: [rp03, rp06, rp08]
   enables: [rp-u05]
   informed-by: [jtbd-repo-platform]
-  related: [adr-005, rp-stories, rp10, surf-repo-platform]
+  related: [adr-006, adr-005, rp-stories, rp10, surf-repo-platform]
 tags: [repo-platform, ci-cd, github-actions, automation, p1]
 ---
 
@@ -27,43 +27,36 @@ Automated pipelines that run on pull requests and merges to validate code qualit
 
 ## How It Works
 
-### PR Validation Pipeline (Planned)
+### PR Validation Pipeline
 
 On every pull request:
-1. Build the `build` container stage (or pull cached image)
-2. Install dependencies (`pnpm install --frozen-lockfile`)
-3. Run affected linting (`nx affected -t lint`)
-4. Run affected type checking (`nx affected -t typecheck`)
-5. Run affected tests (`nx affected -t test`)
-6. Run affected builds (`nx affected -t build`)
+1. Run `cargo run -p syntropy -- check` (drift gates + workspace validation)
+2. Run `bazel build //products/command-center/apps/cli:syntropy` (keeps Bazel green)
 
-### Merge Pipeline (Planned)
+### Merge Pipeline
 
 On merge to `main`:
-1. Run full build/test/lint (not just affected)
-2. Deploy infrastructure changes (if `infra/` changed)
-3. Deploy affected apps (if configured for continuous deployment)
+1. Run the same validation steps as PRs
+2. (Future) Add deployment jobs once the backend/app stack is decided
 
 ### Container-Based Execution
 
-All CI commands run inside the `build` stage of the multi-stage Dockerfile, ensuring the CI environment is identical to the build layer of the devcontainer.
+CI may run inside the build container (RP06) for stricter environment parity. Today, CI uses GitHub-hosted runners with pinned toolchains; containerized CI is an optional future hardening step.
 
 **Approach options:**
 - Direct: `docker build --target build` then run commands inside
 - `devcontainers/ci` GitHub Action: builds and runs the devcontainer
-- GitHub-hosted runners with `.nvmrc`/corepack: lighter but less reproducible
+- GitHub-hosted runners with pinned toolchains (current)
 
 ### Caching Strategy (Planned)
 
 - **Docker layer caching** — cache the base and build stages between runs
-- **Nx task caching** — Nx Replay (remote cache) shares task outputs across CI runs
-- **pnpm store caching** — cache the pnpm content-addressable store between runs
+- **Cargo cache** — cache Rust build artifacts where safe
+- **Bazel cache** — cache Bazel outputs (local and/or remote)
 
 ### Deployment (Planned)
 
-- Firebase Functions: `nx run functions:deploy`
-- Web apps: build output → hosting platform
-- Infrastructure: `pulumi up` with stack selection
+- Deferred until the backend/app stack is decided (ADR-006).
 
 ## Dependencies
 

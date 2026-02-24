@@ -5,9 +5,10 @@ title: "Offline Strategy"
 status: defining
 owner: architecture-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-24
 refs:
-  related: [f08, arch-data-model]
+  decided-by: [adr-006]
+  related: [arch-data-model, f08]
 tags: [architecture, offline, sync]
 ---
 
@@ -17,19 +18,24 @@ tags: [architecture, offline, sync]
 
 Syntropy OS is offline-first. The system must work seamlessly when the user has no connectivity (e.g., triaging cards on the subway) and sync gracefully when connectivity returns.
 
-## Firestore Offline Persistence
+The specific backend/sync implementation is intentionally **undecided** (ADR-006). This document captures the offline requirements and behavior independent of any particular storage technology.
 
-Firestore's built-in offline persistence caches all read data locally on the device. When the app reads documents, Firestore automatically keeps a local copy. Subsequent reads hit the local cache first, making the app feel fast regardless of network conditions.
+## Local First
+
+The client maintains a local representation of:
+- the event log (or a cache of recent events),
+- derived/materialized views needed for UX (queue state, active card, etc.),
+- any pending actions not yet synced.
 
 ## Write Queue
 
-Write actions queue locally when offline. Firestore's SDK handles this transparently:
+Write actions queue locally when offline:
 
 - User takes an action on a card (complete, archive, snooze, etc.)
-- The action is written to the local Firestore cache immediately
+- The action is recorded locally immediately (as an event)
 - The UI updates optimistically -- the user sees the result instantly
 - When connectivity returns, queued writes sync to the server automatically
-- Cloud Function triggers fire on the server-side write, updating materialized views
+- Server-side processing (projections, AI triggers, integration actions) runs after the event is accepted
 
 ## Optimistic UI
 
@@ -49,3 +55,10 @@ AI features degrade gracefully when offline:
 - **Last-write-wins** for simple fields (task title, status, priority). If two devices edit the same field offline, the last write to reach the server wins.
 - **Merge for arrays** (tags, linked IDs). Array operations (add/remove) are merged rather than overwritten, reducing data loss from concurrent edits.
 - Since this is a single-user system, conflicts are rare -- they only occur when the same user edits on two devices while both are offline. The last-write-wins + array merge strategy is sufficient for this use case.
+
+## Candidate Implementations
+
+Examples (not decided):
+- **Firestore offline persistence** — strong baseline if Firebase is chosen later
+- **SQLite + sync** — explicit control of local cache + background synchronization
+- **CRDT-based models** — if multi-device conflict semantics become central

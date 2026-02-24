@@ -1,14 +1,15 @@
 # Syntropy
 
 This repo contains:
-- **Syntropy OS** application code (`apps/`, `packages/`, `infra/`)
 - **Syntropy Workspace Platform** bootstrap implementation (`platform/`, `products/`, `.syntropy/`)
+- **Knowledge graph + system-of-work** (`docs/`, `surfaces/`, `prototypes/`, `observations/`)
 
 ## Start here
 
 - `AGENTS.md` — canonical entry point (humans + coding AIs)
 - `docs/architecture/north-star-layout.md` — repo structure contract (why + boundaries)
 - `syntropy.toml` — workspace contract (single reviewed config)
+ - `docs/decisions/adr-006-rust-first-foundation.md` — current direction (Rust-first; app/backend stack deferred)
 
 ## Quick commands
 

@@ -5,7 +5,7 @@ title: "Decision Log"
 status: active
 owner: decisions-agent
 created: 2025-02-07
-updated: 2026-02-23
+updated: 2026-02-24
 refs:
   related: [dp13, decisions-agent, wf-record-decision, wf-make-decision]
 ---
@@ -20,11 +20,12 @@ The decision log is the entry point to the **reasoning graph**: the interconnect
 
 | ID | Title | Status | Type | Date |
 |----|-------|--------|------|------|
-| ADR-001 | Firebase as Backend Platform | accepted | Type 1 | 2025-02-07 |
-| ADR-002 | Event Sourcing on Firestore | accepted | Type 1 | 2025-02-07 |
+| ADR-001 | Firebase as Backend Platform | superseded | Type 1 | 2025-02-07 |
+| ADR-002 | Event Sourcing on Firestore | superseded | Type 1 | 2025-02-07 |
 | ADR-003 | Claude as Primary LLM | accepted | Type 1 | 2025-02-07 |
-| ADR-004 | Hybrid Domain-Package Monorepo Architecture | accepted | Type 1 | 2025-02-09 |
-| ADR-005 | Dev Container and Build Container Strategy | accepted | Type 1 | 2025-02-09 |
+| ADR-004 | Hybrid Domain-Package Monorepo Architecture | superseded | Type 1 | 2025-02-09 |
+| ADR-005 | Dev Container and Build Container Strategy | superseded | Type 1 | 2025-02-09 |
+| ADR-006 | Rust-First Repository Foundation; App/Backend Stack Deferred | accepted | Type 1 | 2026-02-24 |
 
 ## General Decision Records (DRs)
 

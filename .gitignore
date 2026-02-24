@@ -1,6 +1,3 @@
-# Dependencies
-node_modules/
-
 # Rust
 target/
 
@@ -9,18 +6,6 @@ bazel-*
 bazel-bin/
 bazel-out/
 bazel-testlogs/
-
-# Build output
-dist/
-build/
-.next/
-out/
-
-# Nx
-.nx/
-
-# TypeScript
-*.tsbuildinfo
 
 # IDE
 .idea/
@@ -37,27 +22,8 @@ Thumbs.db
 .env.local
 .env.*.local
 
-# Firebase
-.firebase/
-
-# Pulumi
-infra/.pulumi/
-
-# Expo
-.expo/
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-
-# Test coverage
-coverage/
-
 # Logs
 *.log
-npm-debug.log*
 
 # Workspace instance machine state
 .syntropy/state/**

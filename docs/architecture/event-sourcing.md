@@ -1,28 +1,28 @@
 ---
 id: "arch-event-sourcing"
 type: architecture
-title: "Event Sourcing on Firestore"
+title: "Event Sourcing (Storage-Agnostic)"
 status: defining
 owner: architecture-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-24
 refs:
-  decided-by: [adr-002]
+  decided-by: [adr-002, adr-006]
   related: [adr-004, arch-data-model, arch-security, f06]
-tags: [architecture, event-sourcing, firestore]
+tags: [architecture, event-sourcing]
 ---
 
-# Event Sourcing on Firestore
+# Event Sourcing (Storage-Agnostic)
 
 ## Overview
 
-All state in Syntropy OS is derived from an append-only event log stored in `users/{uid}/events/`. This is the foundational architectural pattern -- events are the source of truth, and all other state is derived from them.
+Event sourcing is a core architectural pattern for Syntropy OS: **events are the source of truth**, and all derived state is computed from an append-only log. The specific storage backend is intentionally **undecided** (ADR-006).
 
 ## Event Log
 
-- All state is derived from an append-only event log stored in `users/{uid}/events/`.
-- **Security Rules enforce immutability** -- events can be created but never updated or deleted, even by the user.
-- Historical state can be reconstructed at any point by replaying the event log.
+- The event log is append-only.
+- Events are immutable (no in-place edits; corrections are new events).
+- Historical state can be reconstructed by replaying events (optionally from snapshots).
 
 ## Event Types
 
@@ -44,27 +44,23 @@ Each event records: `id`, `timestamp`, `actor` ("user" or "ai:agent_name"), `typ
 
 ## Materialized Views
 
-Materialized views (queue order, project progress, domain stats) are separate documents updated by Cloud Function triggers on event writes. These are precomputed for performance:
+Materialized views (queue order, project progress, domain stats) are derived state updated from events. These are precomputed for performance:
 
-- **Queue state** (`users/{uid}/queue`) -- contains `orderedTaskIds[]` and `activeIndex`. Updated when tasks are created, completed, or reordered.
+- **Queue state** — contains `orderedTaskIds[]` and `activeIndex`. Updated when tasks are created, completed, or reordered.
 - **Project progress** -- task counts, completion percentages, blocked task counts. Updated when task statuses change.
 - **Domain stats** -- active project counts, total items, last activity time. Updated on any event tagged with a domain ID.
 
-Clients read materialized views for display. The event log is the source of truth; materialized views are derived and can be rebuilt by replaying events.
+Clients read materialized views for display. Materialized views can always be rebuilt by replaying the event log.
 
 ## Immutability Enforcement
 
-Firestore Security Rules enforce that events can only be created, never updated or deleted:
+Immutability can be enforced in different ways depending on the chosen backend:
 
-```
-match /users/{uid}/events/{eventId} {
-  allow create: if request.auth.uid == uid;
-  allow update: if false;
-  allow delete: if false;
-}
-```
+- database-level rules/ACLs (ideal),
+- application-level write constraints (fallback),
+- append-only storage primitives (log-structured backends).
 
-This guarantees a complete, tamper-proof audit trail. Even the user cannot modify history -- they can only append new events (e.g., a `UserCorrected` event to amend a previous action).
+The specific Firestore-based approach is preserved as historical context in ADR-002 (now superseded).
 
 ## Event Replay
 
@@ -74,3 +70,10 @@ Historical state can be reconstructed at any point by replaying the event log fr
 - **Audit** -- complete accountability for all actions (human and AI)
 - **Learning** -- the AI training pipeline reads the event log to extract patterns and improve confidence calibration
 - **Recovery** -- if materialized views become inconsistent, they can be rebuilt from events
+
+## Candidate Implementations
+
+Examples of viable backends (not decided):
+- **Firestore** (historical candidate) — see ADR-002 for the previous Firestore-specific decision and rationale
+- **PostgreSQL** — events table + projection workers + client sync strategy
+- **SQLite-first local + sync** — local event log with background sync to a server log

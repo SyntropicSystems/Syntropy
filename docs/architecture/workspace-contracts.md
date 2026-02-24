@@ -8,7 +8,7 @@ created: 2026-02-21
 updated: 2026-02-23
 refs:
   decided-by: [dr-001, dr-002]
-  related: [arch-north-star-layout, arch-plan-apply-engine, surf-workspace-platform, wf-design-workspace-contract, wp01, wp02, wp03, wp05, wp06, wp07, wp08]
+  related: [adr-006, arch-north-star-layout, arch-plan-apply-engine, surf-workspace-platform, wf-design-workspace-contract, wp01, wp02, wp03, wp05, wp06, wp07, wp08]
 tags: [architecture, workspace, contracts]
 ---
 

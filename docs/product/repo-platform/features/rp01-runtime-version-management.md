@@ -1,25 +1,25 @@
 ---
 id: "rp01"
 type: feature-spec
-title: "Runtime Version Management"
+title: "Toolchain Version Management"
 status: defining
 owner: architecture-agent
 priority: P0
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: []
   enables: [rp-u01, rp-u07, rp02, rp03, rp05, rp06, rp07]
   informed-by: [jtbd-repo-platform]
-  related: [adr-004, arch-stack, rp-stories, rp03, rp05, surf-repo-platform]
-tags: [repo-platform, runtime, node, pnpm, p0]
+  related: [adr-004, adr-006, arch-stack, rp-stories, rp03, rp05, surf-repo-platform]
+tags: [repo-platform, toolchain, rust, bazel, p0]
 ---
 
-# RP01 — Runtime Version Management
+# RP01 — Toolchain Version Management
 
 ## Summary
 
-Pins the exact Node.js and pnpm versions used across all environments — local development, containers, and CI — so that runtime behavior is identical everywhere. A single version change propagates automatically to all consumers.
+Pins the exact Rust toolchain and Bazel version used across all environments — local development, containers, and CI — so that builds and outputs are deterministic. A single version change propagates to all consumers.
 
 ## Jobs Addressed
 
@@ -28,27 +28,29 @@ Pins the exact Node.js and pnpm versions used across all environments — local 
 
 ## How It Works
 
-### Node.js Version Pinning
+### Rust Toolchain Pinning
 
-A `.nvmrc` file at the repo root specifies the Node.js major version. Any tool that reads `.nvmrc` (nvm, fnm, devcontainers) automatically uses the correct version.
+A `rust-toolchain.toml` file at the repo root pins the Rust toolchain version. Tools using `rustup` will automatically install/use the pinned toolchain.
 
-**Currently:** `.nvmrc` → `24` (Node.js 24.x LTS "Krypton")
+**Currently:** `rust-toolchain.toml` → `channel = "1.93.1"`
 
-### Package Manager Version Pinning
+### Cargo Dependency Pinning
 
-The `packageManager` field in the root `package.json` specifies the exact pnpm version. Node.js corepack reads this field and auto-activates the correct pnpm binary — no global install required.
+`Cargo.lock` pins transitive dependency versions for reproducible builds.
 
-**Currently:** `package.json` → `"packageManager": "pnpm@9.15.4"`
+**Currently:** `Cargo.lock` is checked in at repo root.
 
-### Engine Constraints
+### Bazel Version Pinning
 
-The `engines` field in the root `package.json` sets minimum version requirements. pnpm validates these on install and fails fast if the runtime doesn't match.
+`.bazelversion` pins the Bazel version used by Bazelisk (locally and in CI).
 
-**Currently:** `package.json` → `"engines": { "node": ">=24.0.0" }`
+**Currently:** `.bazelversion` → `9.0.0`
 
-### Container Propagation
+### Bazel Rust Toolchain Pinning
 
-The Dockerfile reads the same version pins: `FROM node:24-slim` mirrors `.nvmrc`, and `corepack prepare pnpm@9.15.4` mirrors `packageManager`. A version bump in one place should be reflected in the other.
+`MODULE.bazel` pins the Rust toolchain version used by Bazel `rules_rust`. This must stay aligned with `rust-toolchain.toml`.
+
+**Currently:** `MODULE.bazel` → `versions = ["1.93.1"]`
 
 ## Dependencies
 
@@ -57,5 +59,5 @@ The Dockerfile reads the same version pins: `FROM node:24-slim` mirrors `.nvmrc`
 
 ## Open Questions
 
-- [ ] Should we automate Dockerfile version sync from .nvmrc and package.json (e.g., via build args)?
-- [ ] Evaluate fnm as an nvm alternative for faster shell startup
+- [ ] Should we add a drift gate to ensure `rust-toolchain.toml` matches `MODULE.bazel`?
+- [ ] Should CI also run `rustfmt`/`clippy` as required checks (see RP10)?

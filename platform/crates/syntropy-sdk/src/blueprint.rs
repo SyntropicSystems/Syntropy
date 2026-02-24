@@ -41,9 +41,6 @@ impl Blueprint {
                 ],
                 boundaries: Some(Boundaries {
                     allowed_children: vec![
-                        "apps".to_string(),
-                        "packages".to_string(),
-                        "infra".to_string(),
                         "platform".to_string(),
                         "products".to_string(),
                         "surfaces".to_string(),
@@ -61,51 +58,6 @@ impl Blueprint {
                     ],
                     disallowed: vec![],
                 }),
-                readme_filename: Some("README.md".to_string()),
-            },
-        );
-
-        nodes.insert(
-            "apps",
-            NodeDefinition {
-                kind: "apps".to_string(),
-                purpose: Some(
-                    "Application shells for Syntropy OS and the Dev Platform (thin composition over packages/)."
-                        .to_string(),
-                ),
-                rules: vec![
-                    "Keep app shells thin; move shared logic into packages/.".to_string(),
-                    "Apps may depend on packages/; packages must not depend on apps/.".to_string(),
-                ],
-                boundaries: None,
-                readme_filename: Some("README.md".to_string()),
-            },
-        );
-
-        nodes.insert(
-            "packages",
-            NodeDefinition {
-                kind: "packages".to_string(),
-                purpose: Some(
-                    "TypeScript packages (domain logic, infrastructure, and UI primitives).".to_string(),
-                ),
-                rules: vec![
-                    "Prefer pure packages; keep environment-specific wiring in apps/.".to_string(),
-                    "Avoid accidental coupling: shared code belongs here, not duplicated across apps."
-                        .to_string(),
-                ],
-                boundaries: None,
-                readme_filename: Some("README.md".to_string()),
-            },
-        );
-
-        nodes.insert(
-            "infra",
-            NodeDefinition {
-                kind: "infra".to_string(),
-                purpose: Some("Infrastructure as code (Pulumi).".to_string()),
-                rules: vec!["Keep secrets out of version control.".to_string()],
-                boundaries: None,
                 readme_filename: Some("README.md".to_string()),
             },
         );
@@ -369,9 +321,6 @@ impl Blueprint {
             id: NORTH_STAR_V0.to_string(),
             nodes,
             allowed_top_level_dirs: vec![
-                "apps",
-                "packages",
-                "infra",
                 "platform",
                 "products",
                 "surfaces",

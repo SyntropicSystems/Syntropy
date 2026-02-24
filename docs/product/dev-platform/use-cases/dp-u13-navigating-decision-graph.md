@@ -5,7 +5,7 @@ title: "Navigating the Decision Graph to Understand Why"
 status: defining
 owner: decisions-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: [dp13, dp01, dp08]
   related: [dp-u04, wf-record-decision, decisions-agent]
@@ -20,13 +20,11 @@ A contributor — new to the project or returning after a context switch — enc
 
 **Example flow:**
 
-1. A new contributor sees that the system uses pure event sourcing on Firestore (not a hybrid approach) and wonders why.
-2. They open `docs/decisions/_index.md` and find ADR-002: "Event Sourcing on Firestore."
-3. The ADR explains the context (Firestore's strengths/limitations), the decision, the rationale, and the alternatives that were considered (hybrid was explored but rejected for complexity reasons).
-4. They see `refs.parent` pointing to ADR-001 (Firebase as Backend Platform) — this decision was downstream of choosing Firebase.
-5. They check the revisit triggers: "Reconsider if Firestore's 1MB document limit becomes a bottleneck for event-heavy entities." This tells them the decision is sound now but has known limits.
-6. They also see a child decision (a hypothetical DR about materialized view strategy) that implements a specific aspect of the event sourcing choice.
-7. In 5 minutes, they understand not just *what* was decided, but *why*, *what else was considered*, *when to worry about it*, and *how it connects to bigger choices*.
+1. A contributor sees older docs that mention Firebase/Firestore, but newer docs describe the backend as “undecided” and the repo as Rust-first. They wonder: *what is current?*
+2. They open `docs/decisions/_index.md` and find ADR-006: "Rust-First Repository Foundation; App/Backend Stack Deferred."
+3. ADR-006 explains the intent: remove placeholder Node/Nx/Pulumi scaffolding, keep the repo focused on the Rust Workspace Platform, and explicitly defer the backend/app stack.
+4. ADR-006 also points to superseded ADRs (ADR-001/ADR-002/ADR-004/ADR-005). The contributor opens them to understand historical rationale, but sees they are clearly marked `superseded-by: [adr-006]`.
+5. In minutes, they understand not just *what is true now*, but *what used to be assumed*, *why that was reasonable at the time*, and *what would trigger revisiting the decision*.
 
 **Another example — finding a conflict:**
 

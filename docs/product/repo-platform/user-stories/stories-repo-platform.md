@@ -5,10 +5,10 @@ title: "Repo Platform User Stories"
 status: defining
 owner: architecture-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: [jtbd-repo-platform]
-  related: [rp01, rp02, rp03, rp04, rp05, rp06, rp07, rp08, rp09, rp10]
+  related: [rp01, rp02, rp03, rp04, rp05, rp06, rp07, rp08, rp09, rp10, adr-006]
 tags: [repo-platform, stories, requirements]
 ---
 
@@ -21,7 +21,7 @@ User stories for the engineering infrastructure layer. Organized by persona: dev
 ## Developer Stories
 
 ### RP-S01 — Clone-to-Build in One Command
-As a developer, I want to clone the repo and run a single command to get a working environment so I spend zero time on setup.
+As a developer, I want to clone the repo and run a single paved-road command to verify the workspace so I spend zero time on setup.
 
 **Features:** RP01, RP02, RP05
 **Jobs:** RJ1, RJ9
@@ -33,25 +33,25 @@ As a developer, I want my IDE to have the same linters, formatters, and extensio
 **Jobs:** RJ7, RJ9
 
 ### RP-S03 — Fast Feedback After Changes
-As a developer, I want to see only the packages affected by my changes rebuild so I get fast feedback even as the monorepo grows.
+As a developer, I want to rebuild only what changed so I get fast feedback even as the repo grows.
 
 **Features:** RP03, RP04
 **Jobs:** RJ2
 
 ### RP-S04 — Cross-Package Type Safety in Editor
-As a developer, I want type errors across package boundaries to appear in my editor so I catch integration bugs before running builds.
+As a developer, I want cross-crate type errors to show up in my editor so I catch integration bugs before running builds.
 
 **Features:** RP04
 **Jobs:** RJ8
 
 ### RP-S05 — Standardized Package Scaffolding
-As a developer, I want to add a new domain package using a standard template so I don't have to figure out the boilerplate each time.
+As a developer, I want to add a new Rust crate or app using a standard template so I don't have to figure out the boilerplate each time.
 
 **Features:** RP02, RP04
 **Jobs:** RJ10
 
 ### RP-S06 — Infrastructure Preview Before Deploy
-As a developer, I want to preview infrastructure changes before deploying so I don't accidentally break production resources.
+As a developer, I want to preview infrastructure changes before deploying so I don't accidentally break production resources (even if the IaC tool is undecided).
 
 **Features:** RP07
 **Jobs:** RJ4
@@ -63,7 +63,7 @@ As a developer, I want to open the project in GitHub Codespaces and have the ful
 **Jobs:** RJ1, RJ9
 
 ### RP-S08 — Single Source of Version Truth
-As a developer, I want a single version file to control Node.js across local dev, containers, and CI so versions never drift between environments.
+As a developer, I want a single source of truth to pin toolchain versions (Rust + Bazel) across local dev, containers, and CI so versions never drift.
 
 **Features:** RP01, RP05, RP06
 **Jobs:** RJ3
@@ -101,7 +101,7 @@ As a CI pipeline, I want to build in the same container image that developers us
 ## Platform Engineer Stories
 
 ### RP-S13 — Infrastructure as Reviewable Code
-As a platform engineer, I want infrastructure defined as TypeScript code in the monorepo so infra changes go through the same review process as application code.
+As a platform engineer, I want infrastructure defined as reviewable code (tooling/language TBD) so infra changes go through the same review process as application code.
 
 **Features:** RP07
 **Jobs:** RJ4
@@ -119,7 +119,7 @@ As a platform engineer, I want module boundary rules enforced automatically so d
 **Jobs:** RJ5, RJ7
 
 ### RP-S16 — Single-Place Version Upgrade
-As a platform engineer, I want to upgrade Node.js or pnpm in one place and have it propagate to all environments and containers so upgrades are atomic and auditable.
+As a platform engineer, I want to upgrade Rust/Bazel in one place and have it propagate to all environments and containers so upgrades are atomic and auditable.
 
 **Features:** RP01, RP05, RP06
 **Jobs:** RJ3
@@ -129,13 +129,13 @@ As a platform engineer, I want to upgrade Node.js or pnpm in one place and have 
 ## Future Tooling Stories
 
 ### RP-S17 — Package Generator CLI
-As a contributor, I want a CLI command that generates a new package with all required boilerplate (package.json, tsconfig.json, src/index.ts, path alias) so I follow conventions automatically.
+As a contributor, I want a CLI command that generates a new crate/app with required boilerplate (Cargo manifest, module skeleton, workspace wiring) so I follow conventions automatically.
 
 **Features:** RP02, RP04
 **Jobs:** RJ10
 
 ### RP-S18 — Repo Health Check
-As a contributor, I want a health check command that validates the repo structure, dependency graph, TypeScript configuration, and version consistency so I catch drift before it causes problems.
+As a contributor, I want a health check command that validates repo structure, dependency graph, and toolchain pinning so I catch drift before it causes problems.
 
 **Features:** RP01, RP02, RP03, RP04
 **Jobs:** RJ3, RJ10

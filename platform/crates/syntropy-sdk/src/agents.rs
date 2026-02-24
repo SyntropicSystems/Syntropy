@@ -437,9 +437,9 @@ fn owned_paths_for(agent: &CanonicalAgent) -> Vec<&'static str> {
         "bazel" => vec!["MODULE.bazel", "BUILD.bazel", ".bazelrc", "**/BUILD.bazel"],
         "devex" => vec![
             ".devcontainer/**",
-            "package.json",
-            "pnpm-workspace.yaml",
             "Cargo.toml",
+            "Cargo.lock",
+            "rust-toolchain.toml",
         ],
         "tasks" => vec!["docs/workflows/**"],
         "observations" => vec![
@@ -476,7 +476,10 @@ fn verification_commands_for(agent: &CanonicalAgent) -> Vec<&'static str> {
         ],
         "workspace-contracts" => vec!["cargo test", "cargo run -p syntropy -- validate"],
         "bazel" => vec!["bazel test //... (if available)"],
-        "devex" => vec!["pnpm -w lint (if available)", "pnpm -w test (if available)"],
+        "devex" => vec![
+            "cargo run -p syntropy -- check",
+            "bazel build //products/command-center/apps/cli:syntropy",
+        ],
         _ => vec![],
     }
 }

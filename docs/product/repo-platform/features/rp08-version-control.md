@@ -6,7 +6,7 @@ status: defining
 owner: architecture-agent
 priority: P1
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: []
   enables: [rp09]
@@ -32,17 +32,13 @@ Git configuration and conventions that keep the repository clean, protect agains
 A comprehensive `.gitignore` excludes generated files, build output, secrets, caches, and editor state from version control.
 
 **Currently:** `.gitignore` covers:
-- **Dependencies:** `node_modules/`
-- **Build output:** `dist/`, `build/`, `.next/`, `out/`
-- **Caches:** `.nx/`, `*.tsbuildinfo`
+- **Rust build output:** `target/`
+- **Bazel output:** `bazel-*`, `bazel-bin/`, `bazel-out/`, `bazel-testlogs/`
 - **IDE state:** `.idea/`, `.vscode/`, `*.swp`
 - **OS files:** `.DS_Store`, `Thumbs.db`
 - **Secrets:** `.env`, `.env.local`, `.env.*.local`
-- **Firebase:** `.firebase/`
-- **Pulumi:** `infra/.pulumi/`
-- **Expo:** `.expo/`, signing keys, provisioning profiles
-- **Test output:** `coverage/`
-- **Logs:** `*.log`, `npm-debug.log*`
+- **Workspace instance machine state:** `.syntropy/state/**` (except `.gitignore`)
+- **Logs:** `*.log`
 
 ### Branch Conventions (Planned)
 

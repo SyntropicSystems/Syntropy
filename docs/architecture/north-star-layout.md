@@ -5,10 +5,10 @@ title: "North Star Repository Layout"
 status: defining
 owner: workspace-contracts-agent
 created: 2026-02-21
-updated: 2026-02-23
+updated: 2026-02-24
 refs:
   decided-by: [dr-001, dr-002]
-  related: [adr-004, arch-workspace-contracts, surf-workspace-platform, wp01, wp02, wp05]
+  related: [adr-006, adr-004, arch-workspace-contracts, surf-workspace-platform, wp01, wp02, wp05]
 tags: [architecture, repo-layout, structure]
 ---
 
@@ -35,11 +35,9 @@ Top-level directories that exist *today*:
 
 | Directory | What it is | Authority |
 |-----------|------------|-----------|
-| `apps/` | Syntropy OS + Dev Platform application shells (ADR-004 monorepo) | ADR-004 + code |
-| `packages/` | Domain/infrastructure/UI TypeScript packages (ADR-004 monorepo) | ADR-004 + code |
-| `infra/` | IaC (Pulumi) | ADR-004 + code |
 | `platform/` | Workspace Platform reusable foundation (Rust crates, future contracts/adapters) | contract + code |
 | `products/` | Workspace Platform shipped surfaces (e.g., `syntropy` CLI) | contract + code |
+| `docs/` | Knowledge graph (vision/product/architecture/workflows) | knowledge graph |
 | `surfaces/` | Surface definitions (product + platform surfaces) | knowledge graph |
 | `prototypes/` | Interactive JSX prototypes (UX exploration) | knowledge graph |
 | `observations/` | Raw signals captured over time | knowledge graph |
@@ -126,7 +124,12 @@ syntropy/
 ├── MODULE.bazel.lock
 ├── BUILD.bazel
 ├── .bazelrc
+├── .bazelversion
+├── rust-toolchain.toml
 ├── syntropy.toml                  # the workspace contract
+├── .github/
+├── .devcontainer/
+├── .eraser/
 │
 ├── platform/
 │   ├── contracts/
@@ -181,6 +184,10 @@ syntropy/
 │   ├── architecture/
 │   ├── adr/
 │   └── reference/
+│
+├── surfaces/
+├── prototypes/
+├── observations/
 │
 └── .syntropy/                     # workspace instance
     ├── tasks/

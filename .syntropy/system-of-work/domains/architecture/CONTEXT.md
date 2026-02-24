@@ -20,29 +20,29 @@
 
 ### Current Focus
 
-- Architecture documents in defining/exploring status
-- ADRs accepted (Firebase, event sourcing, Claude LLM)
-- AI pipeline architecture still in `exploring` — needs deeper specification
+- Align architecture docs and decision graph to the current bootstrap reality (ADR-006)
+- Keep the architecture storage/backend-agnostic until the app/backend stack is re-decided
+- AI pipeline architecture remains in `exploring` — needs deeper specification once product surfaces exist
 
 ### Key Decisions in Effect
 
-- ADR-001: Firebase backend (Firestore, Auth, Functions, Storage, Hosting)
-- ADR-002: Pure event sourcing on Firestore (not hybrid CRUD + events)
-- ADR-003: Claude as primary LLM
-- Offline-first with Firestore offline persistence
+- ADR-006: Rust-First Repository Foundation; App/Backend Stack Deferred
+- ADR-003: Claude as Primary LLM
+- DR-001: Repo Structure Contract + Folder Contracts (architecture docs follow the north-star layout contract)
 
 ### Invariants
 
 - Every significant technical decision is an ADR (not inline)
 - Architecture docs describe design; ADRs explain why
-- Data model changes must consider: Firestore query patterns, offline behavior, event sourcing compatibility
+- Data model changes must consider: storage query patterns, offline behavior, event sourcing compatibility
 - Alternatives must always be documented, even for obvious choices
 
 ### Open Threads
 
+- App/backend stack selection is deferred (storage, sync, auth, IaC) — requires new ADR(s) when re-opened
 - AI pipeline architecture in `exploring` — needs detailed design
 - Privacy model for AI reading external data (oq-privacy-model)
-- Event sourcing implementation details (pure ES on Firestore)
+- Concrete storage mapping for the data model (arch-data-model) once a backend is chosen
 
 ### Cross-Domain Dependencies
 
@@ -53,4 +53,4 @@
 
 ### Last Synced
 
-2025-02-09
+2026-02-24

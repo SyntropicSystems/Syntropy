@@ -6,7 +6,7 @@ status: active
 mode: generated
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-23
+updated: 2026-02-24
 refs:
   decided-by: [dr-003]
   related: [dp04]
@@ -83,8 +83,8 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
 | arch-ai-pipeline | AI Pipeline | exploring | architecture-agent | `docs/architecture/ai-pipeline.md` |
-| arch-data-model | Data Model | defining | architecture-agent | `docs/architecture/data-model.md` |
-| arch-event-sourcing | Event Sourcing on Firestore | defining | architecture-agent | `docs/architecture/event-sourcing.md` |
+| arch-data-model | Data Model (Storage-Agnostic) | defining | architecture-agent | `docs/architecture/data-model.md` |
+| arch-event-sourcing | Event Sourcing (Storage-Agnostic) | defining | architecture-agent | `docs/architecture/event-sourcing.md` |
 | arch-integrations | Integration Roadmap | defining | integration-agent | `docs/architecture/integrations.md` |
 | arch-north-star-layout | North Star Repository Layout | defining | workspace-contracts-agent | `docs/architecture/north-star-layout.md` |
 | arch-offline | Offline Strategy | defining | architecture-agent | `docs/architecture/offline-strategy.md` |
@@ -97,11 +97,12 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| adr-001 | Firebase as Backend Platform | accepted | architecture-agent | `docs/decisions/adr-001-firebase-backend.md` |
-| adr-002 | Event Sourcing on Firestore | accepted | architecture-agent | `docs/decisions/adr-002-event-sourcing-firestore.md` |
+| adr-001 | Firebase as Backend Platform | superseded | architecture-agent | `docs/decisions/adr-001-firebase-backend.md` |
+| adr-002 | Event Sourcing on Firestore | superseded | architecture-agent | `docs/decisions/adr-002-event-sourcing-firestore.md` |
 | adr-003 | Claude as Primary LLM | accepted | architecture-agent | `docs/decisions/adr-003-claude-primary-llm.md` |
-| adr-004 | Hybrid Domain-Package Monorepo Architecture | accepted | architecture-agent | `docs/decisions/adr-004-hybrid-monorepo.md` |
-| adr-005 | Dev Container and Build Container Strategy | accepted | architecture-agent | `docs/decisions/adr-005-dev-build-containers.md` |
+| adr-004 | Hybrid Domain-Package Monorepo Architecture | superseded | architecture-agent | `docs/decisions/adr-004-hybrid-monorepo.md` |
+| adr-005 | Dev Container and Build Container Strategy | superseded | architecture-agent | `docs/decisions/adr-005-dev-build-containers.md` |
+| adr-006 | Rust-First Repository Foundation; App/Backend Stack Deferred | accepted | architecture-agent | `docs/decisions/adr-006-rust-first-foundation.md` |
 | dr-001 | Repo Structure Contract + Folder Contracts | accepted | workspace-contracts-agent | `docs/decisions/dr-001-repo-structure-contract.md` |
 | dr-002 | Verb-First CLI Command Grammar | accepted | workspace-contracts-agent | `docs/decisions/dr-002-cli-command-grammar.md` |
 | dr-003 | Generated Registry + Docs Sync + Rust-First Gate | accepted | meta-agent | `docs/decisions/dr-003-generated-registry-and-doc-sync.md` |
@@ -225,13 +226,13 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
-| rp01 | Runtime Version Management | defining | architecture-agent | `docs/product/repo-platform/features/rp01-runtime-version-management.md` |
-| rp02 | Workspace & Package Management | defining | architecture-agent | `docs/product/repo-platform/features/rp02-workspace-management.md` |
+| rp01 | Toolchain Version Management | defining | architecture-agent | `docs/product/repo-platform/features/rp01-runtime-version-management.md` |
+| rp02 | Workspace & Module Management | defining | architecture-agent | `docs/product/repo-platform/features/rp02-workspace-management.md` |
 | rp03 | Build Orchestration & Caching | defining | architecture-agent | `docs/product/repo-platform/features/rp03-build-orchestration.md` |
-| rp04 | TypeScript Project Configuration | defining | architecture-agent | `docs/product/repo-platform/features/rp04-typescript-project-config.md` |
+| rp04 | Project Configuration | defining | architecture-agent | `docs/product/repo-platform/features/rp04-typescript-project-config.md` |
 | rp05 | Development Container | defining | architecture-agent | `docs/product/repo-platform/features/rp05-dev-container.md` |
 | rp06 | Build Container | defining | architecture-agent | `docs/product/repo-platform/features/rp06-build-container.md` |
-| rp07 | Infrastructure as Code | defining | architecture-agent | `docs/product/repo-platform/features/rp07-infrastructure-as-code.md` |
+| rp07 | Infrastructure as Code | exploring | architecture-agent | `docs/product/repo-platform/features/rp07-infrastructure-as-code.md` |
 | rp08 | Version Control & Conventions | defining | architecture-agent | `docs/product/repo-platform/features/rp08-version-control.md` |
 | rp09 | CI/CD Pipeline | exploring | architecture-agent | `docs/product/repo-platform/features/rp09-ci-cd-pipeline.md` |
 | rp10 | Code Quality Automation | exploring | architecture-agent | `docs/product/repo-platform/features/rp10-code-quality.md` |
@@ -241,7 +242,7 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
 | rp-u01 | Setting Up Local Development | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u01-setup-local-dev.md` |
-| rp-u02 | Adding a New Package to the Monorepo | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u02-add-package.md` |
+| rp-u02 | Adding a New Build Unit | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u02-add-package.md` |
 | rp-u03 | Running an Incremental Build After Code Changes | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u03-incremental-build.md` |
 | rp-u04 | Deploying Infrastructure Changes | defining | architecture-agent | `docs/product/repo-platform/use-cases/rp-u04-deploy-infrastructure.md` |
 | rp-u05 | Running CI/CD on a Pull Request | exploring | architecture-agent | `docs/product/repo-platform/use-cases/rp-u05-ci-cd-pull-request.md` |

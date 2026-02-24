@@ -16,11 +16,11 @@ These directories are generated output and should not be edited by hand:
 
 Regenerate them after any canonical change:
 
-- `cargo run -p syntropy -- agents sync`
+- `cargo run -p syntropy -- gen agents`
 
 CI should enforce no drift:
 
-- `cargo run -p syntropy -- agents check`
+- `cargo run -p syntropy -- gen agents --check`
 
 ## Local-Only Configuration
 
@@ -39,9 +39,8 @@ Local, machine-specific configuration must remain untracked:
 ## Change Flow (Agents / Workflows)
 
 1. Edit canonical files under `.syntropy/system-of-work/domains/**`
-2. Run `cargo run -p syntropy -- agents sync`
+2. Run `cargo run -p syntropy -- gen agents`
 3. Validate:
-   - `cargo run -p syntropy -- agents check`
+   - `cargo run -p syntropy -- gen agents --check`
    - `cargo run -p syntropy -- validate`
 4. Update knowledge graph if needed (`docs/_registry.md`, `docs/_changelog.md`)
-

@@ -33,6 +33,7 @@
   - Folder contracts are compositional (inheritance for rules/kind/purpose)
   - README contracts are drift-gated in CI (`syntropy gen readmes --check`)
   - Blueprint coverage expanded to match actual repo top-level dirs + semantics
+  - Placeholder Node/Nx scaffolding removed from the north-star blueprint and validators (ADR-006)
   - Legacy `.work/` support removed (targeted migration error + validation warning)
 - Follow-up work continues on WP04 plan/apply and WP08 schema generation/drift gates
 
@@ -76,4 +77,4 @@
 
 ### Last Synced
 
-2026-02-23
+2026-02-24

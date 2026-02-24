@@ -214,13 +214,6 @@ impl Workspace {
             dirs.push(PathBuf::from(key));
         }
 
-        // Discover leaf work units so README contracts emerge as the repo grows.
-        dirs.extend(discover_immediate_child_dirs(&self.root, Path::new("apps")));
-        dirs.extend(discover_immediate_child_dirs(
-            &self.root,
-            Path::new("packages"),
-        ));
-
         // A small set of blueprint directories we want to have contracts for.
         dirs.push(PathBuf::from("platform/crates"));
         dirs.push(PathBuf::from("platform/contracts"));
@@ -526,17 +519,17 @@ struct ResolvedPath {
 }
 
 fn should_ignore_tree_entry(name: &str) -> bool {
+    if name.starts_with("bazel-") {
+        return true;
+    }
+
     matches!(
         name,
         ".git"
-            | "node_modules"
             | "target"
-            | ".nx"
-            | "dist"
-            | "build"
-            | ".next"
-            | "out"
-            | "coverage"
+            | "bazel-bin"
+            | "bazel-out"
+            | "bazel-testlogs"
             | ".DS_Store"
     )
 }
@@ -596,51 +589,6 @@ fn write_atomic(path: &Path, contents: &[u8]) -> std::io::Result<()> {
     std::fs::write(&tmp, contents)?;
     std::fs::rename(&tmp, path)?;
     Ok(())
-}
-
-fn discover_immediate_child_dirs(root: &Path, rel_parent: &Path) -> Vec<PathBuf> {
-    let abs_parent = root.join(rel_parent);
-    if !abs_parent.is_dir() {
-        return vec![];
-    }
-
-    let Ok(read_dir) = std::fs::read_dir(&abs_parent) else {
-        return vec![];
-    };
-
-    let mut entries = Vec::<std::fs::DirEntry>::new();
-    for entry in read_dir {
-        if let Ok(entry) = entry {
-            entries.push(entry);
-        }
-    }
-
-    entries.sort_by_key(|e| e.file_name());
-
-    let mut out = Vec::<PathBuf>::new();
-    for entry in entries {
-        let Ok(file_type) = entry.file_type() else {
-            continue;
-        };
-        if !file_type.is_dir() {
-            continue;
-        }
-
-        let name = entry.file_name().to_string_lossy().to_string();
-        if name.starts_with('.') {
-            continue;
-        }
-        if matches!(
-            name.as_str(),
-            "node_modules" | "dist" | "build" | ".next" | "out" | "coverage"
-        ) {
-            continue;
-        }
-
-        out.push(rel_parent.join(name));
-    }
-
-    out
 }
 
 fn contract_chain_paths(rel_path: &Path) -> Vec<PathBuf> {

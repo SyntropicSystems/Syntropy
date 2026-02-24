@@ -1,25 +1,25 @@
 ---
 id: "rp02"
 type: feature-spec
-title: "Workspace & Package Management"
+title: "Workspace & Module Management"
 status: defining
 owner: architecture-agent
 priority: P0
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
   depends-on: [rp01]
   enables: [rp-u01, rp-u02, rp03, rp04, rp07]
+  related: [adr-006, adr-004, arch-stack, rp-stories, rp05, rp08, surf-repo-platform, wp01]
   informed-by: [jtbd-repo-platform]
-  related: [adr-004, arch-stack, rp-stories, rp05, rp08, surf-repo-platform, wp01]
-tags: [repo-platform, workspace, pnpm, monorepo, p0]
+tags: [repo-platform, workspace, cargo, bazel, p0]
 ---
 
-# RP02 — Workspace & Package Management
+# RP02 — Workspace & Module Management
 
 ## Summary
 
-Manages multiple packages within a single repository using workspace-aware package management. Internal packages are linked locally without publishing to a registry, and dependency resolution is centralized.
+Manages multiple build units within a single repository using workspace/module definitions. Internal crates/modules are linked locally, dependency resolution is centralized, and boundaries stay explicit as the repo grows.
 
 ## Jobs Addressed
 
@@ -30,46 +30,28 @@ Manages multiple packages within a single repository using workspace-aware packa
 
 ### Workspace Definition
 
-A workspace configuration file declares which directories contain packages. The package manager discovers and links them automatically.
+A workspace configuration file declares which directories contain build units. Tools discover and link them automatically.
 
-**Currently:** `pnpm-workspace.yaml` defines three workspace roots:
-- `apps/*` — deployable application shells
-- `packages/*` — shared libraries (domain, infrastructure, UI)
-- `infra` — infrastructure as code
+**Currently (Rust):** `Cargo.toml` defines the Cargo workspace members (SDK + CLI).
+**Currently (Bazel):** `MODULE.bazel` defines Bazel dependencies and Rust toolchains via `rules_rust`.
 
-### Internal Dependency Protocol
+### Internal Dependencies
 
-Packages reference each other using a workspace protocol instead of version numbers. The package manager resolves these to local symlinks, ensuring changes are immediately visible without publishing.
+Crates/modules reference each other locally so changes are immediately visible without publishing.
 
-**Currently:** pnpm workspace protocol — `"@syntropy/shared-types": "workspace:*"`
+**Currently:** Cargo workspace path dependencies and Bazel `//...` labels.
 
-### Package Isolation
+### Boundary Clarity
 
-All packages are marked private to prevent accidental publication to public registries.
-
-**Currently:** Every `package.json` sets `"private": true`
-
-### Scoped Package Naming
-
-All packages use a consistent namespace to avoid naming collisions and make imports self-documenting.
-
-**Currently:** `@syntropy/*` scope — e.g., `@syntropy/domain-core`, `@syntropy/shared-types`
-
-### Workspace Structure
-
-The workspace is organized into tiers following the hybrid domain-package architecture (ADR-004):
-
-1. **Domain packages** (`packages/domain-*`) — pure TypeScript business logic
-2. **Infrastructure packages** (`packages/firebase`, `packages/shared-types`) — shared plumbing
-3. **UI packages** (`packages/design-tokens`, `packages/ui-*`) — rendering layer
-4. **Apps** (`apps/*`) — thin composition shells
-5. **Infra** (`infra/`) — infrastructure as code
+The repository layout and workspace contracts ensure new build units have obvious homes:
+- Rust libraries live in `platform/crates/`
+- Rust binaries live in `products/**/apps/**`
 
 ## Dependencies
 
-- Requires: RP01 (Runtime Version Management) — workspace tooling requires the correct Node.js and pnpm versions
-- Enables: RP03 (Build Orchestration), RP04 (TypeScript Project Configuration)
+- Requires: RP01 (Toolchain Version Management)
+- Enables: RP03 (Build Orchestration), RP04 (Project Configuration)
 
 ## Open Questions
 
-- [ ] Should we add a `tools/` workspace root for internal CLI tools or generators?
+- [ ] Should we automatically discover and generate README contracts for crates under `platform/crates/*`?

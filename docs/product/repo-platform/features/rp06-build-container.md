@@ -6,13 +6,13 @@ status: defining
 owner: architecture-agent
 priority: P0
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-24
 refs:
-  decided-by: [adr-005]
+  decided-by: [adr-006]
   depends-on: [rp01]
   enables: [rp-u05, rp-u07, rp05, rp09]
+  related: [adr-006, adr-005, rp-stories, rp03, rp05, surf-repo-platform]
   informed-by: [jtbd-repo-platform]
-  related: [adr-005, rp-stories, rp03, rp05, surf-repo-platform]
 tags: [repo-platform, container, ci-cd, docker, p0]
 ---
 
@@ -31,13 +31,14 @@ A lean container image with only the tools required to install dependencies, bui
 
 ### Multi-Stage Dockerfile (build stage)
 
-The `build` stage extends the `base` stage (Node.js + pnpm) and adds only what CI strictly needs beyond the runtime:
-- `git` — required by Nx for affected detection (comparing branches)
-- `ca-certificates` — required for HTTPS operations (registry fetches, remote cache)
+The `build` stage extends the `base` stage and includes only what CI strictly needs beyond the OS:
+- pinned Rust toolchain (from `rust-toolchain.toml`)
+- Bazelisk (reads `.bazelversion`)
+- minimal system packages for builds (git, ca-certs, build essentials)
 
 **Currently:** `.devcontainer/Dockerfile` stages:
-1. `base` — `node:24-slim` + corepack-enabled pnpm 9.15.4
-2. `build` — base + git + ca-certificates
+1. `base` — Debian + Rust toolchain + Bazelisk
+2. `build` — base (lean CI stage)
 
 ### Strict Subset Guarantee
 
@@ -47,15 +48,7 @@ The build container is a strict subset of the devcontainer (RP05). The relations
 
 CI pipelines target the `build` stage directly:
 ```bash
-docker build --target build -t syntropy-build .devcontainer/
-```
-
-Or use the `devcontainers/ci` GitHub Action for exact devcontainer parity:
-```yaml
-- uses: devcontainers/ci@v0.3
-  with:
-    imageName: ghcr.io/syntropicsystems/syntropy-devcontainer
-    runCmd: pnpm install --frozen-lockfile && pnpm build && pnpm test
+docker build --target build -f .devcontainer/Dockerfile -t syntropy-build .
 ```
 
 ### Self-Hosted Runner Ready
@@ -64,11 +57,11 @@ The `build` stage can serve directly as a self-hosted GitHub Actions runner imag
 
 ## Dependencies
 
-- Requires: RP01 (Runtime Version Management) — inherits Node.js and pnpm from the base stage
+- Requires: RP01 (Toolchain Version Management)
 - Enables: RP05 (Development Container) — devcontainer extends this stage
 - Enables: RP09 (CI/CD Pipeline) — CI runs inside this container
 
 ## Open Questions
 
 - [ ] Should we publish the build image to GHCR for CI pull-based usage?
-- [ ] Add a `.dockerignore` to exclude docs/, prototypes/, observations/ from the build context?
+- [ ] Add a `.dockerignore` to exclude large, non-build inputs from the build context if image builds become slow?
