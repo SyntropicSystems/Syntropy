@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-09
 updated: 2026-02-21
 refs:
-  related: [product-index, surf-dev-platform, jtbd-dev-platform]
+  related: [product-index, surf-dev-platform, jtbd-dev-platform, experience-layer]
 tags: [dev-platform, product, index]
 ---
 
@@ -19,7 +19,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Jobs to Be Done
 
-13 core jobs → `docs/vision/jtbd-dev-platform.md`
+14 core jobs → `docs/vision/jtbd-dev-platform.md`
 
 ## Feature Map
 
@@ -41,6 +41,10 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 - **DP12** — Pulse Companion: Personalized work companion, assisted reflection, continuous pulse → `features/dp12-pulse-companion.md`
 - **DP14** — Cognitive Engineering: Review templates, learning methodologies, knowledge compression, cognitive adaptation → `features/dp14-cognitive-engineering.md`
 - **DP15** — Operational Engineering: Workflow design, rule design, context architecture, actor effectiveness methodology → `features/dp15-operational-engineering.md`
+- **DP16** — Experience Layer: Satisfaction architecture — core loops, progression, companion evolution, social layer, world map, narrative, expression → `features/dp16-experience-layer.md`
+  - Module deep-dives → `experience-layer/` (11 modules with derivable features framework)
+  - Vision & Philosophy → `docs/vision/experience-layer.md`
+  - Architecture → `docs/architecture/experience-layer.md`
 
 ## Use Cases
 

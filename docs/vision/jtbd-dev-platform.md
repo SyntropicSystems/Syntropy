@@ -8,8 +8,8 @@ created: 2025-02-09
 updated: 2025-02-09
 refs:
   depends-on: [manifesto]
-  enables: [dp-stories, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15]
-  related: [dp-product-index, jtbd, jtbd-repo-platform, jtbd-workspace-platform, principles, surf-dev-platform]
+  enables: [dp-stories, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16]
+  related: [dp-product-index, experience-layer, jtbd, jtbd-repo-platform, jtbd-workspace-platform, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
@@ -68,3 +68,7 @@ The thirteen core jobs that the development platform exists to fulfill. Every de
 ## DJ13 — Ensure Every Work Process Is Designed for the Actor Who Will Execute It
 
 **When** workflows, rules, skills, and agent configurations are created for execution by different actors — humans with varying experience, Claude Opus with deep reasoning, Claude Sonnet with fast structured execution, other AI models with their own capabilities and failure modes — and these processes need to be followed correctly end-to-end without silent failures, missed steps, or degraded quality, **I want** a principled methodology system that defines how work processes should be designed for actor effectiveness (step clarity, checkpoint design, context architecture, rule actionability, scope calibration), with design principles that evolve through measured execution outcomes and feedback loops, and progressively adapt to how different actor types best execute work, **so that** workflows are followed correctly by all target actors (not just the author's mental model), failures are caught at checkpoints rather than discovered after completion, agent configurations load the right amount of context for their task and actor type, rules are specific enough to be followed rather than abstract enough to be ignored, and the system continuously improves its process design based on what actually works for each actor type.
+
+## DJ14 — Make the Experience of Building Things Together Intrinsically Satisfying
+
+**When** contributors interact with the platform daily — writing code, reviewing PRs, exploring domains, making decisions, learning new areas, collaborating with others — and these interactions are currently designed for throughput (correct, consistent, reliable) but not for experience (satisfying, growth-inducing, connection-forming), **I want** an experience architecture that applies game design principles (not gamification mechanics) to make every interaction intrinsically rewarding through genuine agency, mastery, discovery, expression, belonging, and purposeful progress, with nested feedback loops that provide satisfaction at every timescale (moment, session, adventure), a progression system that mirrors growth without scoring it, a companion system that routes humans toward each other, an explorable world with fog of war and environmental storytelling, and narrative structure that acknowledges the stories already embedded in the work, **so that** contributors feel their work matters and their growth is visible, AI interactions build understanding rather than dependency (the apprenticeship principle), the platform rewards exploration and curiosity as naturally as it rewards execution, social connection happens through AI-mediated routing rather than despite the tools, and the full experience of building things together — the collaboration, the discovery, the growth, the belonging — is worth having for its own sake.
