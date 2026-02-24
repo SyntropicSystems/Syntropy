@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-07
 updated: 2026-02-24
 refs:
-  related: [manifesto, principles, experience-layer, personality-layer]
+  related: [manifesto, principles, experience-layer, personality-layer, wf-maintain-glossary]
 tags: [vision, language, reference]
 ---
 

@@ -237,3 +237,23 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-24 | removed | — | Removed Node/Nx/TypeScript/Pulumi scaffolding (apps/, packages/, infra/ and root config) and deleted archived root monolith spec file | workspace-contracts-agent |
 | 2026-02-24 | updated | AGENTS.md, EXECUTION_CONTRACT | Updated adapter regeneration instructions to use `syntropy gen agents` (+ `--check`) | meta-agent |
 | 2026-02-24 | updated | glossary | Removed Firestore/Cloud Functions assumptions from core definitions (event log + projections are storage-agnostic) | meta-agent |
+| 2026-02-24 | created | dp16, experience-layer, arch-experience-layer | Documented Experience Layer: vision, feature spec, architecture, 11 module deep-dives (el-core-loops, el-apprenticeship, el-progression, el-companion, el-social, el-world-map, el-narrative, el-expression-crafting, el-anti-patterns, el-phasing, el-feature-derivation) | pulse-companion-agent |
+| 2026-02-24 | created | dp17, personality-layer, arch-personality-layer | Documented Personality Layer: vision, feature spec, architecture, 9 module deep-dives (pl-personality-stack, pl-design-pillars, pl-role-archetypes, pl-voice-sheets, pl-procedural-engine, pl-memory-moments, pl-governance, pl-implementation, pl-feature-derivation) | pulse-companion-agent |
+| 2026-02-24 | updated | glossary | Added 21 new terms: Experience Layer, Pattern Journal, Emergent Archetype, Collaboration Manual, Learning Residue, Fog of War, Loot, Guild, Core Loop, Discovery Engine, Companion Evolution, Personality Layer, Personality Stack, Role Archetype, Voice Sheet, Flavor Pool, Design Pillar, Pattern Breakage Budget, Novelty System, Moment | meta-agent |
+| 2026-02-24 | updated | jtbd-dev-platform | Added DJ14 (Make the Experience of Building Things Together Intrinsically Satisfying); updated job count to 14; added dp16, dp17 to enables | meta-agent |
+| 2026-02-24 | updated | dp-product-index | Added DP16 and DP17 to feature map with module deep-dive links | meta-agent |
+| 2026-02-24 | updated | manifesto, principles, dp02, dp12, dp16 | Added bidirectional cross-references for experience-layer and personality-layer | meta-agent |
+| 2026-02-24 | created | wf-update-document | New workflow: generic document update process (frontmatter, cross-refs, changelog) | meta-agent |
+| 2026-02-24 | created | wf-maintain-glossary | New workflow: add/revise canonical glossary terms | meta-agent |
+| 2026-02-24 | created | wf-add-knowledge-document | New workflow: add vision, architecture, or module documents | meta-agent |
+| 2026-02-24 | created | wf-validate-knowledge-graph | New workflow: run integrity checks (cross-refs, conventions, indexes) | meta-agent |
+| 2026-02-24 | created | wf-sync-generated-artifacts | New workflow: sync tool adapters, registry, READMEs after canonical changes | meta-agent |
+| 2026-02-24 | created | wf-evolve-conventions | New workflow: propose and apply convention changes with impact assessment | meta-agent |
+| 2026-02-24 | updated | conventions | Added module document type, layer module prefixes (el-*, pl-*), platform-scoped ID prefixes, and templates for vision/architecture/module documents | meta-agent |
+| 2026-02-24 | updated | base-traits | Expanded inherited workflows: added update-document, maintain-glossary, validate-knowledge-graph, sync-generated-artifacts; organized into semantic categories | meta-agent |
+| 2026-02-24 | updated | AGENTS.md | Fixed DJ count (13→14), reorganized workflow section into semantic categories (Building, Maintaining, Decisions, Agents, Observations, Workspace), added 6 new workflows | meta-agent |
+| 2026-02-24 | updated | system CONTEXT.md | Domain state sync: documented new workflows, convention updates, base-traits expansion | meta-agent |
+| 2026-02-24 | updated | product CONTEXT.md | Domain state sync: documented DP16/DP17, module deep-dives, 3 platforms, 14 JTBD | meta-agent |
+| 2026-02-24 | updated | pulse-companion CONTEXT.md | Domain state sync: added Experience/Personality Layer awareness, updated on-demand/reference files, new open threads | meta-agent |
+| 2026-02-24 | updated | wf-feature-inception, wf-add-feature, wf-sync-domain-context | Added cross-references to new maintenance workflows | meta-agent |
+| 2026-02-24 | updated | dp01, dp05 | Added cross-references to new knowledge graph and convention workflows | meta-agent |

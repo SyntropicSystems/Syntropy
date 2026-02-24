@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-09
 updated: 2025-02-09
 refs:
-  related: [base-traits, dp-u06, dp02, dp04, dp09, wf-audit-observations, wf-domain-review]
+  related: [base-traits, dp-u06, dp02, dp04, dp09, wf-audit-observations, wf-domain-review, wf-update-document, wf-validate-knowledge-graph]
 ---
 
 # Workflow: Sync Domain Context

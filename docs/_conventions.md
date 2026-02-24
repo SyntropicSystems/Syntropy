@@ -5,10 +5,10 @@ title: "Document Conventions"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-23
+updated: 2026-02-24
 refs:
   decided-by: [dr-002, dr-003]
-  related: [dp05]
+  related: [dp05, wf-add-knowledge-document, wf-evolve-conventions, wf-maintain-glossary, wf-update-document, wf-validate-knowledge-graph]
 ---
 
 # Document Conventions
@@ -44,10 +44,11 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 |------|-------------|-----------|
 | `vision` | Philosophy, motivation, language | — |
 | `feature-spec` | Feature specification | `f` + zero-padded number |
+| `module` | Deep-dive module within a feature or layer | `{layer-prefix}-` + slug |
 | `use-case` | Concrete usage scenario | `u` + zero-padded number |
 | `user-story` | User story | `s` + zero-padded number |
 | `ux-pattern` | UX pattern or design decision | `ux-` + slug |
-| `architecture` | Technical architecture document | — |
+| `architecture` | Technical architecture document | `arch-` + slug |
 | `adr` | Architecture Decision Record | `adr-` + zero-padded number |
 | `decision-record` | General Decision Record | `dr-` + zero-padded number |
 | `open-question` | Unresolved exploration | `oq-` + slug |
@@ -56,6 +57,29 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 | `observation` | Raw signal, friction, idea, reflection | `obs-` + date + slug |
 | `surface` | Platform surface definition | `surf-` + slug |
 | `prototype` | Interactive prototype artifact (JSX) | `proto-` + slug |
+| `reference` | Index, navigation, or reference document | — |
+
+### Platform-Scoped ID Prefixes
+
+Features and modules use platform-scoped prefixes:
+
+| Platform | Feature Prefix | Module Prefix | Example |
+|----------|---------------|---------------|---------|
+| Application | `f` + zero-padded | — | `f01`, `f12` |
+| Dev Platform | `dp` + zero-padded | per-layer | `dp01`, `dp17` |
+| Repo Platform | `rp` + zero-padded | — | `rp01`, `rp10` |
+| Workspace Platform | `wp` + zero-padded | — | `wp01`, `wp08` |
+
+### Layer Module Prefixes
+
+When a feature has module deep-dives, each module uses a layer prefix:
+
+| Layer | Prefix | Example |
+|-------|--------|---------|
+| Experience Layer | `el-` | `el-core-loops`, `el-progression` |
+| Personality Layer | `pl-` | `pl-personality-stack`, `pl-voice-sheets` |
+
+New layers follow the pattern: two-letter abbreviation + hyphen + slug.
 
 ## Status Lifecycles
 
@@ -106,13 +130,16 @@ tags: [core, mvp, queue]     # Freeform tags for filtering
 
 ### Files
 - Lowercase, hyphen-separated: `f01-task-card-system.md`
-- Feature specs: `fNN-slug.md`
+- Feature specs: `fNN-slug.md` (or `dpNN-slug.md`, `rpNN-slug.md`, `wpNN-slug.md` for platform features)
 - Use cases: `uNN-slug.md`
 - ADRs: `adr-NNN-slug.md`
 - Decision records: `dr-NNN-slug.md`
 - Open questions: `oq-slug.md`
 - Observations: `YYYY-MM-DD-slug.md` (in observations directory)
 - Workflows: `slug.md` (in workflows directory)
+- Module deep-dives: `slug.md` (in their layer directory, e.g., `experience-layer/core-loops.md`)
+- Vision documents: `slug.md` (in `docs/vision/`)
+- Architecture documents: `slug.md` (in `docs/architecture/`)
 
 ### Directories
 - Underscore prefix for meta-files: `_registry.md`, `_index.md`, `_conventions.md`
@@ -142,6 +169,113 @@ tags: [prototype]
 ```
 
 ## Document Templates
+
+### Vision Document
+
+```markdown
+---
+id: "slug"
+type: vision
+title: "Vision Document Title"
+status: active
+owner: meta-agent
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  enables: []
+  related: []
+tags: [vision]
+---
+
+# Vision Document Title
+
+## Core Insight
+The fundamental idea or philosophy this document captures.
+
+## Why This Matters
+How this connects to the broader system.
+
+## Key Concepts
+Detailed exploration of the concepts.
+
+## Module Index
+(If this vision has associated deep-dive modules)
+
+| Module | Description | ID |
+|--------|-------------|-----|
+| ... | ... | ... |
+```
+
+### Architecture Document
+
+```markdown
+---
+id: "arch-slug"
+type: architecture
+title: "Architecture Document Title"
+status: defining
+owner: architecture-agent
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  depends-on: []
+  related: []
+tags: [architecture]
+---
+
+# Architecture Document Title
+
+## Overview
+What this architecture covers and why.
+
+## Data Model
+Key entities, relationships, and state.
+
+## Integration Points
+How this connects to other system components.
+
+## Performance Considerations
+Constraints and budgets.
+
+## Open Questions
+- [ ] ...
+```
+
+### Module Deep-Dive
+
+```markdown
+---
+id: "XX-slug"
+type: module
+title: "Layer Name — Module Name"
+status: exploring
+owner: relevant-agent
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  depends-on: [parent-feature-id, parent-vision-id]
+  related: [sibling-module-ids]
+tags: [layer-name, module-topic, module]
+---
+
+# Module Name
+
+One-paragraph summary of what this module covers and why it exists.
+
+## Core Concepts
+Detailed exploration of the module's design.
+
+## Examples
+Concrete examples showing the concepts in action.
+
+## Derivable Features
+| Feature | Phase | Complexity | Notes |
+|---------|-------|------------|-------|
+| ... | ... | ... | ... |
+
+## Open Questions
+- [ ] ...
+```
 
 ### Feature Spec
 
