@@ -6,12 +6,12 @@ status: defining
 owner: meta-agent
 priority: P0
 created: 2025-02-09
-updated: 2026-02-23
+updated: 2026-02-25
 refs:
   depends-on: [dp01, dp05]
-  enables: [dp-u01, dp-u02, dp-u03, dp-u06, dp-u07, dp-u09, dp03, dp09, dp10, dp11, dp12, dp14, dp15]
+  enables: [dp-u01, dp-u02, dp-u03, dp-u06, dp-u07, dp-u09, dp03, dp09, dp10, dp11, dp12, dp14, dp15, dp16]
   informed-by: [jtbd-dev-platform]
-  related: [base-traits, dp-stories, dp-u14, dp-u15, dp-u16, dp-u17, dp08, dp09, dp13, dp17, meta-agent, operational-engineering-agent, surf-dev-platform, wf-domain-review, wf-sync-domain-context]
+  related: [arch-personality-layer, base-traits, dp-stories, dp-u14, dp-u15, dp-u16, dp-u17, dp08, dp09, dp13, dp17, el-companion, meta-agent, operational-engineering-agent, personality-layer, personality-layer-index, pl-role-archetypes, surf-dev-platform, wf-domain-review, wf-sync-domain-context]
 tags: [dev-platform, core, agents, p0]
 ---
 

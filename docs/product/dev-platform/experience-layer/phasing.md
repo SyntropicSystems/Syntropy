@@ -1,14 +1,14 @@
 ---
 id: "el-phasing"
-type: feature-spec
+type: module
 title: "Experience Layer — Implementation Phasing"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp16, experience-layer]
-  related: [el-core-loops, el-progression, el-companion, el-social, el-world-map, el-narrative, el-expression-crafting]
+  related: [el-companion, el-core-loops, el-expression-crafting, el-feature-derivation, el-narrative, el-progression, el-social, el-world-map]
 tags: [experience-layer, phasing, implementation, roadmap, module]
 ---
 

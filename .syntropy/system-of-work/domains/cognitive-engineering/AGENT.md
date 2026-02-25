@@ -7,9 +7,9 @@ inherits: [_base-traits]
 scope: "Information architecture for human comprehension — review structures, learning methodologies, knowledge compression, cognitive adaptation"
 authority: domain-dri
 created: 2025-02-13
-updated: 2026-02-21
+updated: 2026-02-25
 refs:
-  related: [meta-agent, operational-engineering-agent, pulse-companion-agent, observations-agent, decisions-agent, architecture-agent, dp14, wf-domain-review]
+  related: [architecture-agent, decisions-agent, dp14, dp16, meta-agent, observations-agent, operational-engineering-agent, pulse-companion-agent, wf-domain-review]
 ---
 
 # Cognitive Engineering Agent

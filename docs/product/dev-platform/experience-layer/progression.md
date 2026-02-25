@@ -1,14 +1,14 @@
 ---
 id: "el-progression"
-type: feature-spec
+type: module
 title: "Experience Layer — Progression System"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp16, experience-layer]
-  related: [dp10, dp11, dp12, el-core-loops, el-apprenticeship, el-companion, el-narrative]
+  related: [dp10, dp11, dp12, el-anti-patterns, el-apprenticeship, el-companion, el-core-loops, el-expression-crafting, el-narrative, el-phasing, el-social, el-world-map, pl-memory-moments]
 tags: [experience-layer, progression, pattern-journal, archetypes, loot, achievements, module]
 ---
 

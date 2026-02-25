@@ -5,7 +5,7 @@ title: "Dev Platform — Jobs to Be Done"
 status: active
 owner: meta-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-25
 refs:
   depends-on: [manifesto]
   enables: [dp-stories, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16, dp17]

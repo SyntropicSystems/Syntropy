@@ -5,10 +5,10 @@ title: "Experience Layer Module Index"
 status: active
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp16, experience-layer]
-  related: [dp-product-index, dp12, dp14, dp15]
+  related: [dp-product-index, dp12, dp14, dp15, personality-layer-index]
 tags: [dev-platform, experience-layer, index]
 ---
 
@@ -61,7 +61,7 @@ The Experience Layer is documented as a modular system. Each module is a self-co
 To add a new module:
 
 1. Create a new markdown file in this directory following the naming convention: `kebab-case-name.md`
-2. Add standard frontmatter with `type: feature-spec` or `type: reference`
+2. Add standard frontmatter with `type: module`
 3. Reference `dp16` and `experience-layer` in the `refs` block
 4. Add a row to the appropriate table in this index
 5. Update `docs/vision/experience-layer.md` module table

@@ -5,9 +5,9 @@ title: "Update an Existing Document"
 status: active
 owner: meta-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
-  related: [conventions, wf-add-feature, wf-add-knowledge-document, wf-evolve-conventions, wf-maintain-glossary, wf-sync-domain-context, wf-validate-knowledge-graph]
+  related: [base-traits, conventions, dp01, wf-add-feature, wf-add-knowledge-document, wf-evolve-conventions, wf-maintain-glossary, wf-sync-domain-context, wf-validate-knowledge-graph]
 ---
 
 # Workflow: Update an Existing Document

@@ -5,10 +5,10 @@ title: "Add a New Feature Spec"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-23
+updated: 2026-02-25
 refs:
   decided-by: [dr-002, dr-003]
-  related: [dp-u01, wf-add-knowledge-document, wf-create-agent, wf-decompose-spec, wf-feature-inception, wf-make-decision, wf-refine-story, wf-update-document]
+  related: [dp-u01, el-feature-derivation, wf-add-knowledge-document, wf-create-agent, wf-decompose-spec, wf-feature-inception, wf-make-decision, wf-refine-story, wf-update-document]
 ---
 
 # Workflow: Add a New Feature Spec

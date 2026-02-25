@@ -1,14 +1,14 @@
 ---
 id: "pl-governance"
-type: feature-spec
+type: module
 title: "Personality Layer — Governance"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp17, personality-layer]
-  related: [pl-design-pillars, pl-role-archetypes, pl-voice-sheets, pl-procedural-engine, principles]
+  related: [pl-design-pillars, pl-feature-derivation, pl-memory-moments, pl-procedural-engine, pl-role-archetypes, pl-voice-sheets, principles]
 tags: [personality-layer, governance, evolution, contribution, anti-patterns, quality, module]
 ---
 

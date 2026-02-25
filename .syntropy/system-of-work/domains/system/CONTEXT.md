@@ -27,6 +27,7 @@ This domain owns the repo’s **System of Work** integrity: routing, conventions
 - 22 workflows codified in `docs/workflows/` (6 new knowledge graph maintenance workflows added 2026-02-24)
 - Conventions expanded: `module` document type, layer module prefixes (`el-*`, `pl-*`), vision/architecture/module templates
 - Base traits expanded: agents inherit knowledge graph maintenance workflows (update-document, maintain-glossary, validate-knowledge-graph, sync-generated-artifacts)
+- Docs tooling updated: `docs sync` bumps `updated`, registry groups Dev Platform layer modules (2026-02-25)
 - AGENTS.md workflow section reorganized into semantic categories
 
 ### Key Decisions in Effect
@@ -48,8 +49,7 @@ This domain owns the repo’s **System of Work** integrity: routing, conventions
 
 ### Open Threads
 
-- Generated adapters need regeneration after base-traits update (run `cargo run -p syntropy -- gen agents`)
-- Registry needs regeneration after new workflow files added (run `cargo run -p syntropy -- gen registry`)
+- None currently (last drift check: 2026-02-25)
 
 ### Cross-Domain Dependencies
 
@@ -59,4 +59,4 @@ This domain owns the repo’s **System of Work** integrity: routing, conventions
 
 ### Last Synced
 
-2026-02-24
+2026-02-25

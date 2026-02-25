@@ -5,10 +5,10 @@ title: "Event Sourcing (Storage-Agnostic)"
 status: defining
 owner: architecture-agent
 created: 2025-02-07
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   decided-by: [adr-002, adr-006]
-  related: [adr-004, arch-data-model, arch-security, f06]
+  related: [adr-004, arch-data-model, arch-experience-layer, arch-security, f06]
 tags: [architecture, event-sourcing]
 ---
 

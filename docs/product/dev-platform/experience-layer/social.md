@@ -1,14 +1,14 @@
 ---
 id: "el-social"
-type: feature-spec
+type: module
 title: "Experience Layer — Social Layer"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
-  depends-on: [dp16, experience-layer, el-companion]
-  related: [dp10, dp12, el-progression, el-world-map, el-narrative]
+  depends-on: [dp16, el-companion, experience-layer]
+  related: [dp10, dp12, el-anti-patterns, el-narrative, el-phasing, el-progression, el-world-map]
 tags: [experience-layer, social, guilds, contribution-economy, community, module]
 ---
 

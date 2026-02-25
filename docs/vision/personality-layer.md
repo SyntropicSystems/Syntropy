@@ -5,11 +5,11 @@ title: "The Personality Layer: A System Design for Agent Character"
 status: active
 owner: meta-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [manifesto, principles]
-  enables: [dp17, experience-layer]
-  related: [glossary, dp02, dp12, dp16]
+  enables: [arch-personality-layer, dp17, experience-layer, personality-layer-index, pl-design-pillars, pl-feature-derivation, pl-governance, pl-implementation, pl-memory-moments, pl-personality-stack, pl-procedural-engine, pl-role-archetypes, pl-voice-sheets]
+  related: [dp02, dp12, dp16, glossary]
 tags: [vision, personality-layer, agent-character, game-design, borderlands, foundation]
 ---
 

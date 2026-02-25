@@ -7,9 +7,9 @@ inherits: [_base-traits]
 scope: "Observation capture, structuring, pattern detection, contributor upleveling"
 authority: domain-dri
 created: 2025-02-09
-updated: 2026-02-21
+updated: 2026-02-25
 refs:
-  related: [meta-agent, pulse-companion-agent, cognitive-engineering-agent, operational-engineering-agent, dp10, dp11, dp12, dp14, dp15, wf-capture-observation, wf-audit-observations, wf-reflect, observations-index]
+  related: [cognitive-engineering-agent, dp10, dp11, dp12, dp14, dp15, dp16, dp17, meta-agent, observations-index, operational-engineering-agent, pulse-companion-agent, wf-audit-observations, wf-capture-observation, wf-reflect]
 ---
 
 # Observations Agent

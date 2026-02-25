@@ -5,10 +5,10 @@ title: "Experience Layer Architecture"
 status: exploring
 owner: architecture-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp16, experience-layer]
-  related: [arch-data-model, arch-event-sourcing, dp12, dp14, dp15]
+  related: [arch-data-model, arch-event-sourcing, arch-personality-layer, dp12, dp14, dp15]
 tags: [architecture, experience-layer, data-model, integration]
 ---
 

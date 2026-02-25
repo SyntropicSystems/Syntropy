@@ -6,12 +6,12 @@ status: defining
 owner: operational-engineering-agent
 priority: P1
 created: 2025-02-13
-updated: 2025-02-13
+updated: 2026-02-25
 refs:
   decided-by: []
   depends-on: [dp02, dp03, dp10, jtbd-dev-platform]
   enables: [dp-u16, dp-u17]
-  related: [dp-stories, dp09, dp12, dp14, dp16, observations-agent, operational-engineering-agent, pulse-companion-agent]
+  related: [arch-experience-layer, dp-stories, dp09, dp12, dp14, dp16, dp17, experience-layer, experience-layer-index, observations-agent, operational-engineering-agent, pulse-companion-agent]
 tags: [dev-platform, operational-engineering, process-design, actor-effectiveness]
 ---
 

@@ -6,12 +6,12 @@ status: exploring
 owner: pulse-companion-agent
 priority: P1
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp02, dp03, dp09, dp10, dp11, dp12, dp14, dp15, jtbd-dev-platform]
-  enables: []
+  enables: [arch-experience-layer, el-anti-patterns, el-apprenticeship, el-companion, el-core-loops, el-expression-crafting, el-feature-derivation, el-narrative, el-phasing, el-progression, el-social, el-world-map, experience-layer-index]
   informed-by: [experience-layer, jtbd-dev-platform]
-  related: [dp-stories, dp01, dp13, dp17, cognitive-engineering-agent, operational-engineering-agent, pulse-companion-agent, observations-agent]
+  related: [cognitive-engineering-agent, dp-stories, dp01, dp13, dp17, observations-agent, operational-engineering-agent, personality-layer, personality-layer-index, pulse-companion-agent]
 tags: [dev-platform, experience-layer, game-design, satisfaction-architecture, progression, companion, social, p1]
 ---
 

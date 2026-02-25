@@ -1,14 +1,14 @@
 ---
 id: "pl-memory-moments"
-type: feature-spec
+type: module
 title: "Personality Layer — Memory & Moments"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp17, personality-layer]
-  related: [pl-personality-stack, pl-procedural-engine, pl-governance, arch-personality-layer, el-progression]
+  related: [arch-personality-layer, el-progression, pl-feature-derivation, pl-governance, pl-personality-stack, pl-procedural-engine]
 tags: [personality-layer, memory, moments, milestones, callbacks, statistics, module]
 ---
 

@@ -1,14 +1,14 @@
 ---
 id: "pl-implementation"
-type: feature-spec
+type: module
 title: "Personality Layer — Implementation"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp17, personality-layer]
-  related: [pl-personality-stack, pl-procedural-engine, pl-voice-sheets, arch-personality-layer]
+  related: [arch-personality-layer, pl-feature-derivation, pl-personality-stack, pl-procedural-engine, pl-voice-sheets]
 tags: [personality-layer, implementation, integration, configuration, file-structure, module]
 ---
 

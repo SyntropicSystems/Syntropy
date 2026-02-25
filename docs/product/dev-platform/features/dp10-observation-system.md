@@ -6,12 +6,12 @@ status: defining
 owner: observations-agent
 priority: P0
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-25
 refs:
   depends-on: [dp01, dp02, dp03, dp04, dp05]
-  enables: [dp-u08, dp-u09, dp-u10, dp-u11, dp-u17, dp11, dp12, dp14, dp15]
+  enables: [dp-u08, dp-u09, dp-u10, dp-u11, dp-u17, dp11, dp12, dp14, dp15, dp16]
   informed-by: [jtbd-dev-platform]
-  related: [dp-stories, dp09, f07, observations-agent, observations-index, pulse-companion-agent, wf-audit-observations, wf-capture-observation, wf-reflect]
+  related: [dp-stories, dp09, el-progression, el-social, el-world-map, f07, observations-agent, observations-index, pulse-companion-agent, wf-audit-observations, wf-capture-observation, wf-reflect]
 tags: [dev-platform, core, observations, signals, emergence, p0]
 ---
 

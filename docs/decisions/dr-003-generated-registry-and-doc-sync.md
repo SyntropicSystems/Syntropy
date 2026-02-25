@@ -6,7 +6,7 @@ status: accepted
 owner: meta-agent
 decision-type: type-1
 created: 2026-02-23
-updated: 2026-02-23
+updated: 2026-02-25
 refs:
   parent: []
   children: []

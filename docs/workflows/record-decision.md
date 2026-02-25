@@ -5,7 +5,7 @@ title: "Record a Decision"
 status: active
 owner: decisions-agent
 created: 2025-02-09
-updated: 2026-02-23
+updated: 2026-02-25
 refs:
   decided-by: [dr-002, dr-003]
   related: [decisions-agent, decisions-index, dp-u12, dp-u13, dp13, wf-evolve-conventions, wf-make-decision, wf-resolve-question]

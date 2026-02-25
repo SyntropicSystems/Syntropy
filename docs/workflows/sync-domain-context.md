@@ -5,7 +5,7 @@ title: "Sync Domain Context"
 status: active
 owner: meta-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-25
 refs:
   related: [base-traits, dp-u06, dp02, dp04, dp09, wf-audit-observations, wf-domain-review, wf-update-document, wf-validate-knowledge-graph]
 ---

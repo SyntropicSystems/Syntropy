@@ -1,14 +1,14 @@
 ---
 id: "el-narrative"
-type: feature-spec
+type: module
 title: "Experience Layer — Narrative Layer"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp16, experience-layer]
-  related: [dp13, el-core-loops, el-progression, el-world-map]
+  related: [dp13, el-core-loops, el-phasing, el-progression, el-social, el-world-map]
 tags: [experience-layer, narrative, quests, lore, storytelling, module]
 ---
 

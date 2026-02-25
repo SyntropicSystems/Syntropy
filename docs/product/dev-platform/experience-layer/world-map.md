@@ -1,14 +1,14 @@
 ---
 id: "el-world-map"
-type: feature-spec
+type: module
 title: "Experience Layer — World Map & Exploration"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
-  depends-on: [dp16, experience-layer, dp09]
-  related: [dp01, dp10, el-core-loops, el-progression, el-narrative]
+  depends-on: [dp09, dp16, experience-layer]
+  related: [dp01, dp10, el-core-loops, el-expression-crafting, el-narrative, el-phasing, el-progression, el-social]
 tags: [experience-layer, world-map, exploration, fog-of-war, discovery, environmental-storytelling, module]
 ---
 

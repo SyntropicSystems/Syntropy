@@ -5,7 +5,7 @@ title: "Changelog"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   related: [dp04]
 ---
@@ -259,3 +259,4 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-24 | updated | dp01, dp05 | Added cross-references to new knowledge graph and convention workflows | meta-agent |
 | 2026-02-25 | updated | wf-update-document, wf-create-agent, conventions, dr-003, wf-record-decision | Fixed 5 missing bidirectional cross-references for new workflows | meta-agent |
 | 2026-02-25 | updated | conventions | Added 5 missing document templates: user-story, ux-pattern, observation, surface, agent-manifest | meta-agent |
+| 2026-02-25 | updated | docs sync, registry, conventions, dp05, manifesto, jtbd-dev-platform, dr-003 | Cleared drift and normalized metadata: synced bidirectional refs, bumped stale `updated` frontmatter, standardized layer deep-dives to `type: module`, and grouped modules in the registry | meta-agent |

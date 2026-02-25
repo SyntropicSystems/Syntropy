@@ -5,9 +5,9 @@ title: "Dev Platform Product Domain"
 status: active
 owner: meta-agent
 created: 2025-02-09
-updated: 2026-02-21
+updated: 2026-02-25
 refs:
-  related: [product-index, surf-dev-platform, jtbd-dev-platform, experience-layer, personality-layer-index]
+  related: [el-feature-derivation, experience-layer, experience-layer-index, jtbd-dev-platform, personality-layer-index, product-index, surf-dev-platform]
 tags: [dev-platform, product, index]
 ---
 

@@ -1,14 +1,14 @@
 ---
 id: "el-companion"
-type: feature-spec
+type: module
 title: "Experience Layer — Companion System"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
-  depends-on: [dp16, experience-layer, dp12]
-  related: [dp02, dp14, el-social, el-progression, el-core-loops]
+  depends-on: [dp12, dp16, experience-layer]
+  related: [dp02, dp14, el-anti-patterns, el-apprenticeship, el-core-loops, el-expression-crafting, el-phasing, el-progression, el-social, pl-voice-sheets]
 tags: [experience-layer, companion, translation-layer, social-routing, agent-to-agent, module]
 ---
 
