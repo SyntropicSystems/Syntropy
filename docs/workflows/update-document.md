@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2026-02-24
 updated: 2026-02-24
 refs:
-  related: [wf-add-feature, wf-maintain-glossary, wf-sync-domain-context, wf-validate-knowledge-graph, conventions]
+  related: [conventions, wf-add-feature, wf-add-knowledge-document, wf-evolve-conventions, wf-maintain-glossary, wf-sync-domain-context, wf-validate-knowledge-graph]
 ---
 
 # Workflow: Update an Existing Document

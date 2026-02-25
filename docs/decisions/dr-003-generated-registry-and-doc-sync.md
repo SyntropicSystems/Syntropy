@@ -13,7 +13,7 @@ refs:
   domain: [dev-platform, workspace-contracts]
   affects: [registry, dp04, conventions, wf-add-feature, wf-record-decision]
   tensions: []
-  related: [dp01, dp05, workspace-contracts-agent]
+  related: [dp01, dp05, wf-sync-generated-artifacts, workspace-contracts-agent]
 tags: [dev-platform, docs-graph, registry, drift-gates]
 ---
 

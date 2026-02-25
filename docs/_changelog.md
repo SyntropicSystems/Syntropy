@@ -257,3 +257,5 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-24 | updated | pulse-companion CONTEXT.md | Domain state sync: added Experience/Personality Layer awareness, updated on-demand/reference files, new open threads | meta-agent |
 | 2026-02-24 | updated | wf-feature-inception, wf-add-feature, wf-sync-domain-context | Added cross-references to new maintenance workflows | meta-agent |
 | 2026-02-24 | updated | dp01, dp05 | Added cross-references to new knowledge graph and convention workflows | meta-agent |
+| 2026-02-25 | updated | wf-update-document, wf-create-agent, conventions, dr-003, wf-record-decision | Fixed 5 missing bidirectional cross-references for new workflows | meta-agent |
+| 2026-02-25 | updated | conventions | Added 5 missing document templates: user-story, ux-pattern, observation, surface, agent-manifest | meta-agent |

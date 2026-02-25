@@ -8,7 +8,7 @@ created: 2025-02-07
 updated: 2026-02-24
 refs:
   decided-by: [dr-002, dr-003]
-  related: [dp05, wf-add-knowledge-document, wf-evolve-conventions, wf-maintain-glossary, wf-update-document, wf-validate-knowledge-graph]
+  related: [dp05, wf-add-knowledge-document, wf-evolve-conventions, wf-maintain-glossary, wf-sync-generated-artifacts, wf-update-document, wf-validate-knowledge-graph]
 ---
 
 # Document Conventions
@@ -494,6 +494,174 @@ How will we know this is working?
 
 ## Revisit Triggers
 Under what conditions should we reconsider?
+```
+
+### User Story
+
+```markdown
+---
+id: "sNN"
+type: user-story
+title: "User Story Name"
+status: defining
+owner: product-agent
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  depends-on: []
+  related: []
+tags: []
+---
+
+# SNN — User Story Name
+
+**As a** [user type],
+**I want** [goal/action],
+**so that** [benefit/reason].
+
+## Acceptance Criteria
+- [ ] ...
+
+## Features Exercised
+- F1 — ...
+
+## Notes
+Additional context or constraints.
+```
+
+### UX Pattern
+
+```markdown
+---
+id: "ux-slug"
+type: ux-pattern
+title: "Pattern Name"
+status: defining
+owner: ux-agent
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  depends-on: []
+  related: []
+tags: [ux]
+---
+
+# UX: Pattern Name
+
+## Problem
+What user experience problem does this pattern solve?
+
+## Solution
+How the pattern works — interaction, layout, behavior.
+
+## When to Use
+Contexts where this pattern applies.
+
+## Examples
+Concrete instances of the pattern.
+
+## Features Using This Pattern
+- F1 — ...
+```
+
+### Observation
+
+```markdown
+---
+id: "obs-YYYY-MM-DD-slug"
+type: observation
+title: "Observation Title"
+status: raw
+owner: contributor-name
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  related: []
+tags: []
+---
+
+# Observation Title
+
+## Signal
+What did you notice? (1-3 sentences)
+
+## Context
+When/where did this happen?
+
+## Type
+friction | idea | question | bug | reflection
+
+## Potential Impact
+Why might this matter?
+```
+
+### Surface
+
+```markdown
+---
+id: "surf-slug"
+type: surface
+title: "Surface Name"
+status: active
+owner: relevant-agent
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  related: []
+tags: [surface]
+---
+
+# Surface Name
+
+## Definition
+What this surface is and who it serves.
+
+## Principles
+Design principles specific to this surface.
+
+## Features Delivered
+Which features this surface exposes.
+
+## Technology
+Stack and implementation approach.
+```
+
+### Agent Manifest
+
+```markdown
+---
+id: "agent-slug"
+type: agent-manifest
+title: "Agent Name"
+status: active
+scope: "What this agent owns"
+authority: domain-dri
+owner: meta-agent
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+refs:
+  related: []
+---
+
+# Agent Name
+
+## Identity
+What this agent is and why it exists.
+
+## Scope
+Precise boundaries of what this agent owns and doesn't own.
+
+## Load Order
+Files to read in order when activating this agent.
+
+## Inherits
+Base traits and parent agents.
+
+## Delegates To
+Sub-agents and when to hand off.
+
+## Delegated From
+Who delegates to this agent and when.
 ```
 
 ## Changelog Entry Format
