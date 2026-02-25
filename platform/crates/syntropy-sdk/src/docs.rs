@@ -911,6 +911,7 @@ fn rewrite_markdown_refs(contents: &str, new_refs: &BTreeMap<String, Vec<String>
     let mut fm_lines = spans.frontmatter_lines.clone();
 
     rewrite_refs_block(&mut fm_lines, new_refs);
+    rewrite_updated_field(&mut fm_lines, &today_utc_iso_date());
 
     let fm = fm_lines.join("\n");
     let body = &contents[spans.body_start..];
@@ -922,6 +923,7 @@ fn rewrite_prototype_refs(contents: &str, new_refs: &BTreeMap<String, Vec<String
     let mut fm_lines = spans.frontmatter_lines.clone();
 
     rewrite_refs_block(&mut fm_lines, new_refs);
+    rewrite_updated_field(&mut fm_lines, &today_utc_iso_date());
 
     let fm = fm_lines.join("\n");
     let rest = &contents[spans.comment_end + 2..]; // after */
@@ -976,6 +978,56 @@ fn rewrite_refs_block(fm_lines: &mut Vec<String>, new_refs: &BTreeMap<String, Ve
         }
     }
     fm_lines.splice(insert_at..insert_at, new_block);
+}
+
+fn rewrite_updated_field(fm_lines: &mut Vec<String>, updated: &str) {
+    for line in fm_lines.iter_mut() {
+        if is_top_level_key(line, "updated") {
+            *line = format!("updated: {updated}");
+            return;
+        }
+    }
+
+    // Insert after `created:` if present; else append.
+    let mut insert_at = fm_lines.len();
+    for (idx, line) in fm_lines.iter().enumerate() {
+        if is_top_level_key(line, "created") {
+            insert_at = idx + 1;
+            break;
+        }
+    }
+    fm_lines.insert(insert_at, format!("updated: {updated}"));
+}
+
+fn today_utc_iso_date() -> String {
+    // Convert UNIX epoch seconds to a UTC calendar date (YYYY-MM-DD).
+    // This avoids extra dependencies while keeping the output stable and ISO-comparable.
+    const SECS_PER_DAY: u64 = 86_400;
+
+    let secs = match std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH) {
+        Ok(d) => d.as_secs(),
+        Err(_) => 0,
+    };
+    let days = (secs / SECS_PER_DAY) as i64;
+
+    let (year, month, day) = civil_from_days(days);
+    format!("{year:04}-{month:02}-{day:02}")
+}
+
+fn civil_from_days(days_since_unix_epoch: i64) -> (i32, u32, u32) {
+    // Howard Hinnant's algorithm: https://howardhinnant.github.io/date_algorithms.html
+    // Input: days since 1970-01-01. Output: (year, month, day) in the proleptic Gregorian calendar.
+    let z = days_since_unix_epoch + 719_468;
+    let era = if z >= 0 { z } else { z - 146_096 } / 146_097;
+    let doe = (z - era * 146_097) as u32; // [0, 146096]
+    let yoe = (doe - doe / 1_460 + doe / 36_524 - doe / 146_096) / 365; // [0, 399]
+    let y = yoe as i32 + era as i32 * 400;
+    let doy = doe - (365 * yoe + yoe / 4 - yoe / 100); // [0, 365]
+    let mp = (5 * doy + 2) / 153; // [0, 11]
+    let d = doy - (153 * mp + 2) / 5 + 1; // [1, 31]
+    let m = mp as i32 + if mp < 10 { 3 } else { -9 }; // [1, 12]
+    let year = y + if m <= 2 { 1 } else { 0 };
+    (year, m as u32, d)
 }
 
 fn render_yaml_list_literal(ids: &[String]) -> String {
@@ -1181,6 +1233,7 @@ const REGISTRY_SECTION_ORDER: &[&str] = &[
     "Agents",
     "Dev Platform — Vision",
     "Dev Platform — Features",
+    "Dev Platform — Modules",
     "Dev Platform — Use Cases",
     "Dev Platform — User Stories",
     "Repo Platform — Vision",
@@ -1234,6 +1287,12 @@ fn registry_section_for(node: &ParsedDoc) -> &'static str {
     let path = path_to_slash_string(&node.rel_path);
 
     // Bucket by path prefix.
+    if path.starts_with("docs/product/dev-platform/experience-layer/")
+        || path.starts_with("docs/product/dev-platform/personality-layer/")
+    {
+        return "Dev Platform — Modules";
+    }
+
     if path.starts_with("docs/product/dev-platform/features/") {
         return "Dev Platform — Features";
     }
