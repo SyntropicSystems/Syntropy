@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-09
 updated: 2026-02-25
 refs:
-  related: [coherence-engine, el-feature-derivation, experience-layer, experience-layer-index, jtbd-dev-platform, personality-layer-index, product-index, surf-dev-platform]
+  related: [coherence-engine, delivery-flow, el-feature-derivation, experience-layer, experience-layer-index, jtbd-dev-platform, personality-layer-index, product-index, surf-dev-platform]
 tags: [dev-platform, product, index]
 ---
 
@@ -19,7 +19,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Jobs to Be Done
 
-21 core jobs → `docs/vision/jtbd-dev-platform.md`
+24 core jobs → `docs/vision/jtbd-dev-platform.md`
 
 ## Feature Map
 
@@ -37,6 +37,8 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 - **DP18** — Coherence Engine: Semantic drift detection, insight integration, session management — the system that keeps the knowledge graph semantically coherent → `features/dp18-coherence-engine.md`
   - Vision & Philosophy → `docs/vision/coherence-engine.md`
   - Decision → `docs/decisions/dr-004-coherence-engine-approach.md`
+- **DP19** — Delivery Flow: Nine-phase structured process from vision to verified delivery — discovery, distillation, challenge, research, architecture, planning, implementation, verification, reflection → `features/dp19-delivery-flow.md`
+  - Vision & Philosophy → `docs/vision/delivery-flow.md`
 
 ### P1 — High Priority
 - **DP06** — Surface Definitions: Platform delivery specs for each surface → `features/dp06-surface-definitions.md`
@@ -55,7 +57,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Use Cases
 
-17 concrete usage scenarios → `use-cases/`
+19 concrete usage scenarios → `use-cases/`
 
 ## User Stories
 

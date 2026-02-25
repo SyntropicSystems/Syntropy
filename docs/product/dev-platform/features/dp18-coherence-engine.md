@@ -11,7 +11,7 @@ refs:
   depends-on: [dp01, dp02, dp03, dp04, dp09, dp10, dp11, dp13]
   enables: []
   informed-by: [coherence-engine, jtbd-dev-platform]
-  related: [dp-stories, dp05, dp08, dp12, dp14, dp15, dp16]
+  related: [dp-stories, dp05, dp08, dp12, dp14, dp15, dp16, dp19]
 tags: [dev-platform, coherence, semantic-drift, session-management, integration, p0]
 ---
 

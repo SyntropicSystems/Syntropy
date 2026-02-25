@@ -270,3 +270,14 @@ Append-only log of all knowledge graph changes. Every document creation, update,
 | 2026-02-25 | updated | manifesto, principles, experience-layer | Added bidirectional cross-references for coherence-engine | meta-agent |
 | 2026-02-25 | updated | dp01, dp02, dp03, dp04, dp05, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16 | Added bidirectional cross-references for dp18 (Coherence Engine) | meta-agent |
 | 2026-02-25 | updated | product-index, AGENTS.md | Updated dev platform JTBD count (14→21) and feature count (17→18) | meta-agent |
+| 2026-02-25 | created | delivery-flow | Created Delivery Flow vision document — nine-phase structured process from discovery through reflection, philosophy of structured delivery, relationship to existing platform capabilities, evolution rules | meta-agent |
+| 2026-02-25 | updated | jtbd-dev-platform | Added DJ22–DJ24 (Delivery Axis): follow structured path from vision to delivery, ensure research-informed design, maintain living context across phases; updated job count from 21 to 24 | meta-agent |
+| 2026-02-25 | created | dp19 | Created DP19 Delivery Flow feature spec — nine-phase process (discovery, distillation, challenge, research, architecture, planning, implementation, verification, reflection), living documents, backward information flow, phase gate discipline, watch-for pattern library | meta-agent |
+| 2026-02-25 | created | dp-u18 | Created use case: Running a New Feature Through the Delivery Flow — end-to-end scenario across all nine phases | meta-agent |
+| 2026-02-25 | created | dp-u19 | Created use case: Returning to an Earlier Phase When New Information Surfaces — backward information flow in practice | meta-agent |
+| 2026-02-25 | updated | dp-stories | Added 9 Delivery Flow user stories (DP-S50–DP-S58): initiate flow, distill effort document, challenge with external perspectives, decompose research briefs, route backward information, verify phase exits, reflect after phases, AI agent execution, evolve the flow | meta-agent |
+| 2026-02-25 | updated | glossary | Added 7 terms: Delivery Flow, Effort Document, Phase Gate, Watch-For Item, Backward Information Flow, Research Brief, Cross-Pollination | meta-agent |
+| 2026-02-25 | updated | dp-product-index | Added DP19 to feature map (P0), updated job count to 24, use case count to 19 | meta-agent |
+| 2026-02-25 | updated | product-index, AGENTS.md | Updated dev platform JTBD count (21→24), feature count (18→19), use case count (17→19), story count (49→58) | meta-agent |
+| 2026-02-25 | updated | manifesto, principles, coherence-engine, glossary | Added bidirectional cross-references for delivery-flow | meta-agent |
+| 2026-02-25 | updated | dp01, dp03, dp04, dp05, dp09, dp10, dp11, dp13, dp14, dp15, dp18 | Added bidirectional cross-references for dp19 (Delivery Flow) | meta-agent |

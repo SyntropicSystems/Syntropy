@@ -44,10 +44,10 @@ Overview of the Syntropy OS product specification. This domain covers what we're
 ## Dev Platform (as Product)
 
 The development platform itself is documented as a product → `dev-platform/_index.md`
-- 21 JTBD (DJ1–DJ21) → `docs/vision/jtbd-dev-platform.md`
-- 18 Feature Specs (DP01–DP18) → `dev-platform/features/`
-- 17 Use Cases (DP-U01–DP-U17) → `dev-platform/use-cases/`
-- 49 User Stories (DP-S01–DP-S49) → `dev-platform/user-stories/stories-dev-platform.md`
+- 24 JTBD (DJ1–DJ24) → `docs/vision/jtbd-dev-platform.md`
+- 19 Feature Specs (DP01–DP19) → `dev-platform/features/`
+- 19 Use Cases (DP-U01–DP-U19) → `dev-platform/use-cases/`
+- 58 User Stories (DP-S01–DP-S58) → `dev-platform/user-stories/stories-dev-platform.md`
 
 ## Repo Platform (as Product)
 

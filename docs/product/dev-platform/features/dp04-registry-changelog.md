@@ -12,7 +12,7 @@ refs:
   depends-on: [dp01, dp05]
   enables: [dp-u01, dp-u03, dp-u04, dp-u05, dp-u06, dp-u09, dp09, dp10, dp13, dp18]
   informed-by: [jtbd-dev-platform]
-  related: [changelog, dp-stories, dp03, registry, surf-dev-platform, wf-sync-domain-context]
+  related: [changelog, dp-stories, dp03, dp19, registry, surf-dev-platform, wf-sync-domain-context]
 tags: [dev-platform, core, traceability, p0]
 ---
 

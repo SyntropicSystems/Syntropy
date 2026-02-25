@@ -8,7 +8,7 @@ created: 2025-02-09
 updated: 2026-02-25
 refs:
   depends-on: [jtbd-dev-platform]
-  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16, dp17, stories]
+  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16, dp17, dp18, dp19, stories]
 tags: [dev-platform, stories, requirements]
 ---
 
@@ -299,6 +299,64 @@ As the operational-engineering-agent, I want the pulse companion to consult me w
 
 **Features:** DP15, DP12
 **Jobs:** DJ13, DJ10
+
+---
+
+## Delivery Flow Stories
+
+### DP-S50 — Initiate a Delivery Flow for a New Feature
+As a developer, I want to initiate a structured Delivery Flow when starting a significant new feature — beginning with unfiltered discovery of the problem space — so that I capture the full scope of what needs to be solved before jumping to solutions, and no important constraints or perspectives are missed.
+
+**Features:** DP19, DP10
+**Jobs:** DJ22
+
+### DP-S51 — Distill Raw Discovery into a Solution-Agnostic Effort Document
+As a developer, I want to transform raw discovery notes into a structured effort document that describes the problem, constraints, jobs-to-be-done, and open questions without implying any particular solution — so that the effort document serves as unbiased shared context for all downstream phases and any contributor can understand what we're building and why.
+
+**Features:** DP19, DP01
+**Jobs:** DJ22, DJ24
+
+### DP-S52 — Challenge an Effort Document with External Perspectives
+As a developer, I want to deliberately expose my effort document to external perspectives (other AI agents, domain experts, competitive analysis) and evaluate each finding rigorously — so that the document improves through genuine challenge rather than confirmation bias, and the most valuable input (often the thing I didn't think to include) gets incorporated.
+
+**Features:** DP19, DP14
+**Jobs:** DJ22, DJ23
+
+### DP-S53 — Decompose Research into Bounded Briefs with Cross-Pollination
+As a developer, I want to decompose the research needs of an effort into independent, bounded briefs — each with cross-pollination directions (look beyond the immediate domain) and anti-pattern investigation — so that research goes deep rather than shallow, and architectural decisions are informed by what exists and what fails in adjacent domains, not just what I already know.
+
+**Features:** DP19
+**Jobs:** DJ23
+
+### DP-S54 — Route New Learnings Backward to Earlier Phase Artifacts
+As a developer implementing a feature, I want a clear mechanism for routing new information back to earlier phase artifacts — updating the effort document when the problem understanding changes, revising ADRs when assumptions are invalidated, adjusting the plan when sequencing needs to change — so that the effort's artifacts always reflect current understanding rather than becoming frozen and increasingly inaccurate.
+
+**Features:** DP19, DP01, DP13
+**Jobs:** DJ24, DJ22
+
+### DP-S55 — Verify Phase Exit Criteria Before Proceeding
+As a developer, I want explicit exit criteria at each phase boundary — substantive quality checks, not bureaucratic gates — so that I don't skip phases under pressure and catch problems at the phase boundary rather than discovering them during implementation.
+
+**Features:** DP19, DP03
+**Jobs:** DJ22
+
+### DP-S56 — Reflect After Completing a Delivery Phase
+As a developer, I want a lightweight reflection practice after completing each delivery phase (or the full effort) — reviewing what happened vs. what was planned, identifying surprises, and capturing process improvements — so that every effort produces both working software and compound learnings that improve future efforts.
+
+**Features:** DP19, DP11
+**Jobs:** DJ22, DJ9
+
+### DP-S57 — Follow the Delivery Flow as an AI Agent
+As an AI agent executing a significant effort autonomously, I want the Delivery Flow phases to be structured as executable steps with clear inputs, outputs, and verification criteria at each boundary — so that I can follow the same structured process as a human contributor, produce the same quality of artifacts, and route new information backward when it surfaces during later phases.
+
+**Features:** DP19, DP03, DP15
+**Jobs:** DJ22, DJ2, DJ13
+
+### DP-S58 — Evolve the Delivery Flow Based on Observed Patterns
+As a contributor who has completed a significant effort through the Delivery Flow, I want Phase 9 (Reflection) to produce atomic updates to the flow itself when patterns have been observed across multiple efforts — adding watch-for items, removing ones that never proved relevant, and tightening phase criteria where failure modes are severe — so that the Delivery Flow improves through its own principles rather than through speculative process design.
+
+**Features:** DP19, DP11, DP10
+**Jobs:** DJ21, DJ22
 
 ---
 

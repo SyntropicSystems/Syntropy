@@ -11,7 +11,7 @@ refs:
   decided-by: []
   depends-on: [dp02, dp09, dp10, jtbd-dev-platform]
   enables: [dp-u14, dp-u15]
-  related: [arch-experience-layer, cognitive-engineering-agent, dp-stories, dp03, dp11, dp12, dp13, dp15, dp16, dp17, dp18, el-apprenticeship, el-companion, experience-layer, experience-layer-index, observations-agent]
+  related: [arch-experience-layer, cognitive-engineering-agent, dp-stories, dp03, dp11, dp12, dp13, dp15, dp16, dp17, dp18, dp19, el-apprenticeship, el-companion, experience-layer, experience-layer-index, observations-agent]
 tags: [dev-platform, cognitive-engineering, comprehension, information-architecture]
 ---
 

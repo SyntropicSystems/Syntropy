@@ -1,21 +1,21 @@
 ---
 id: "jtbd-dev-platform"
 type: vision
-title: "Dev Platform — Jobs to Be Done"
+title: "Dev Platform — Jobs to Be Done (DJ1–DJ24)"
 status: active
 owner: meta-agent
 created: 2025-02-09
 updated: 2026-02-25
 refs:
   depends-on: [manifesto]
-  enables: [dp-stories, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16, dp17, dp18]
-  related: [coherence-engine, dp-product-index, experience-layer, jtbd, jtbd-repo-platform, jtbd-workspace-platform, principles, surf-dev-platform]
+  enables: [dp-stories, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16, dp17, dp18, dp19]
+  related: [coherence-engine, delivery-flow, dp-product-index, experience-layer, jtbd, jtbd-repo-platform, jtbd-workspace-platform, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
 # Dev Platform — Jobs to Be Done
 
-The twenty-one core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The twenty-four core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 
@@ -106,3 +106,21 @@ The following seven jobs describe a new axis: what keeps the *system itself* coh
 ## DJ21 — Ensure the System of Work Itself Evolves Through Its Own Principles
 
 **When** the system of work — the workflows, conventions, agent designs, domain structures — needs to evolve based on experience, **I want** the evolution to follow the same principles the system teaches: captured as decisions, traced to principles, validated for coherence, reflected upon, and integrated without restructuring, **so that** the system practices what it preaches, evolution is safe and traceable, and the meta-system (how we work on the system of work) is as well-designed as the system itself.
+
+---
+
+## Delivery Axis (DJ22–DJ24)
+
+The following three jobs describe what ensures significant efforts move from initial vision through to delivered, verified, integrated work — without losing signal, skipping phases, or building the wrong thing. Where DJ1–DJ14 describe what the platforms do for contributors and DJ15–DJ21 describe the coherence axis, DJ22–DJ24 describe the structured delivery process that connects vision to working software. See `docs/vision/delivery-flow.md` for the full philosophy.
+
+## DJ22 — Follow a Structured Path from Vision to Verified Delivery
+
+**When** a significant effort begins — a new feature, a platform capability, a cross-cutting change — and the path from "we have a vision" to "it's built, verified, and integrated" is long enough that signal will be lost, assumptions will go unchallenged, and implementation will drift from intent without a structured process, **I want** a repeatable, phase-based flow that sequences the work from raw discovery through distillation, challenge, research, architecture, planning, implementation, verification, and reflection — with clear entry/exit criteria at each phase boundary and explicit mechanisms for later phases to feed information back to earlier ones, **so that** no phase is skipped under pressure, the problem is fully understood before solutions are designed, decisions are informed by real research rather than assumptions, implementation matches intent, and every effort produces both working software and captured learnings.
+
+## DJ23 — Ensure Solution Design Is Informed by Research, Not Assumptions
+
+**When** architectural and design decisions need to be made for a significant effort — choosing patterns, selecting approaches, defining interfaces — and the temptation is to design from what the team already knows rather than investigating what exists, what works, what fails, and what adjacent domains have already solved, **I want** a structured research phase that decomposes the investigation into bounded briefs, requires cross-pollination beyond the immediate domain, includes anti-pattern investigation, and produces findings with honest maturity assessments and trade-off analysis, **so that** every significant design decision is informed by the best available understanding of the landscape, not limited by the designer's existing knowledge, and the research artifacts persist as snapshots that future efforts can reference.
+
+## DJ24 — Maintain Living Context Across All Phases of an Effort
+
+**When** a significant effort spans multiple phases, sessions, and contributors — and the effort document, research findings, architectural decisions, and implementation learnings form an evolving body of context that must stay coherent as the effort progresses, **I want** the effort's artifacts to be living documents that get updated at every phase (not frozen artifacts that drift from reality), with each phase's outputs explicitly feeding into the next phase's inputs and new learnings flowing backward to update earlier artifacts when assumptions are invalidated, **so that** any contributor can join the effort at any phase and have accurate, current context, the effort document reflects what we actually learned (not just what we initially assumed), and the gap between "what we decided" and "what we know now" is continuously closed.

@@ -9,7 +9,7 @@ updated: 2026-02-25
 refs:
   depends-on: [manifesto, principles]
   enables: [dp18]
-  related: [dp09, dp13, dp16, experience-layer, glossary, jtbd-dev-platform]
+  related: [delivery-flow, dp09, dp13, dp16, experience-layer, glossary, jtbd-dev-platform]
 tags: [vision, philosophy, coherence, meta]
 ---
 

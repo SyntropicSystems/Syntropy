@@ -11,7 +11,7 @@ refs:
   depends-on: [dp01, dp02, dp03, dp04]
   enables: [dp-u06, dp-u07, dp-u14, dp14, dp16, dp17, dp18, el-world-map]
   informed-by: [jtbd-dev-platform]
-  related: [base-traits, dp-stories, dp-u15, dp08, dp10, dp11, dp12, dp13, dp15, wf-domain-review, wf-sync-domain-context]
+  related: [base-traits, dp-stories, dp-u15, dp08, dp10, dp11, dp12, dp13, dp15, dp19, wf-domain-review, wf-sync-domain-context]
 tags: [dev-platform, core, agents, sync, context, p0]
 ---
 
