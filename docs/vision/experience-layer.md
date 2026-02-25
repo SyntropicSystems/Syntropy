@@ -9,7 +9,7 @@ updated: 2026-02-25
 refs:
   depends-on: [manifesto, personality-layer, principles]
   enables: [arch-experience-layer, dp16, el-anti-patterns, el-apprenticeship, el-companion, el-core-loops, el-expression-crafting, el-feature-derivation, el-narrative, el-phasing, el-progression, el-social, el-world-map, experience-layer-index, jtbd-dev-platform]
-  related: [dp-product-index, dp12, dp14, dp15, glossary]
+  related: [coherence-engine, dp-product-index, dp12, dp14, dp15, glossary]
 tags: [vision, experience-layer, game-design, satisfaction-architecture, foundation]
 ---
 

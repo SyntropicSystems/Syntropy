@@ -5,7 +5,7 @@ title: "Decision Log"
 status: active
 owner: decisions-agent
 created: 2025-02-07
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   related: [dp13, decisions-agent, wf-record-decision, wf-make-decision]
 ---
@@ -34,5 +34,6 @@ The decision log is the entry point to the **reasoning graph**: the interconnect
 | DR-001 | Repo Structure Contract + Folder Contracts | accepted | Type 1 | workspace-contracts | 2026-02-23 |
 | DR-002 | Verb-First CLI Command Grammar | accepted | Type 2 | workspace-contracts | 2026-02-23 |
 | DR-003 | Generated Registry + Docs Sync + Rust-First Gate | accepted | Type 1 | dev-platform | 2026-02-23 |
+| DR-004 | Coherence Engine: Three-Mode Architecture with Phased Implementation | accepted | Type 2 | system | 2026-02-25 |
 
 Use `wf-record-decision` to capture additional decisions.

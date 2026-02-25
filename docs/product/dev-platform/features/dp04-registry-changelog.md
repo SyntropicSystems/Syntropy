@@ -10,7 +10,7 @@ updated: 2026-02-23
 refs:
   decided-by: [dr-002, dr-003]
   depends-on: [dp01, dp05]
-  enables: [dp-u01, dp-u03, dp-u04, dp-u05, dp-u06, dp-u09, dp09, dp10, dp13]
+  enables: [dp-u01, dp-u03, dp-u04, dp-u05, dp-u06, dp-u09, dp09, dp10, dp13, dp18]
   informed-by: [jtbd-dev-platform]
   related: [changelog, dp-stories, dp03, registry, surf-dev-platform, wf-sync-domain-context]
 tags: [dev-platform, core, traceability, p0]

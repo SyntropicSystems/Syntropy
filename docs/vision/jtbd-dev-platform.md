@@ -8,14 +8,14 @@ created: 2025-02-09
 updated: 2026-02-25
 refs:
   depends-on: [manifesto]
-  enables: [dp-stories, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16, dp17]
-  related: [dp-product-index, experience-layer, jtbd, jtbd-repo-platform, jtbd-workspace-platform, principles, surf-dev-platform]
+  enables: [dp-stories, dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16, dp17, dp18]
+  related: [coherence-engine, dp-product-index, experience-layer, jtbd, jtbd-repo-platform, jtbd-workspace-platform, principles, surf-dev-platform]
 tags: [vision, motivation, jtbd, dev-platform, meta]
 ---
 
 # Dev Platform — Jobs to Be Done
 
-The fourteen core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
+The twenty-one core jobs that the development platform exists to fulfill. Every dev platform feature must trace back to at least one job. These are parallel to the application's J1–J7 but serve the builders instead of end users.
 
 ## DJ1 — Maintain a Single Source of Truth for All Product Knowledge
 
@@ -72,3 +72,37 @@ The fourteen core jobs that the development platform exists to fulfill. Every de
 ## DJ14 — Make the Experience of Building Things Together Intrinsically Satisfying
 
 **When** contributors interact with the platform daily — writing code, reviewing PRs, exploring domains, making decisions, learning new areas, collaborating with others — and these interactions are currently designed for throughput (correct, consistent, reliable) but not for experience (satisfying, growth-inducing, connection-forming), **I want** an experience architecture that applies game design principles (not gamification mechanics) to make every interaction intrinsically rewarding through genuine agency, mastery, discovery, expression, belonging, and purposeful progress, with nested feedback loops that provide satisfaction at every timescale (moment, session, adventure), a progression system that mirrors growth without scoring it, a companion system that routes humans toward each other, an explorable world with fog of war and environmental storytelling, and narrative structure that acknowledges the stories already embedded in the work, **so that** contributors feel their work matters and their growth is visible, AI interactions build understanding rather than dependency (the apprenticeship principle), the platform rewards exploration and curiosity as naturally as it rewards execution, social connection happens through AI-mediated routing rather than despite the tools, and the full experience of building things together — the collaboration, the discovery, the growth, the belonging — is worth having for its own sake.
+
+---
+
+## Coherence Axis (DJ15–DJ21)
+
+The following seven jobs describe a new axis: what keeps the *system itself* coherent as it grows. Where DJ1–DJ14 describe what the platforms do for contributors, DJ15–DJ21 describe the immune system, nervous system, and circulatory system that prevent entropy from outpacing growth. See `docs/vision/coherence-engine.md` for the full philosophy.
+
+## DJ15 — Integrate Insights from Any Source into the Knowledge Graph Automatically
+
+**When** a breakthrough happens in any context — a Claude conversation, a code review, a shower thought, an overnight agent run, a user feedback session — and that insight has implications across multiple documents, domains, and cross-references, **I want** to describe the insight once (in natural language, as rough as needed) and have the system identify every document, domain context, glossary entry, feature spec, and cross-reference that needs updating, generate a structured changeset with the proposed updates, and present it for my review before applying, **so that** the translation from "insight occurred" to "insight is integrated" is near-automatic, nothing is missed, and I spend my time reviewing integration quality rather than manually hunting for every place something needs to change.
+
+## DJ16 — Detect and Surface Semantic Drift Across the Knowledge Graph
+
+**When** a principle, philosophy, or design decision changes — and that change has implications for how agents behave, how domains are structured, what invariants hold, and what workflows do — **I want** the system to trace the semantic implications of the change through the dependency graph, identify documents whose *content* (not just structure) may now be inconsistent with the new direction, and surface those inconsistencies as a prioritized review list with specific passages that may need attention, **so that** I can evolve the philosophy freely knowing the system will catch drift before it compounds, and every part of the system stays aligned with current intent rather than historical assumptions.
+
+## DJ17 — Provide Instant Context Recovery at Every Session Boundary
+
+**When** I start a work session — whether it's Tuesday morning, after a 2-hour break, or after a week away — and my brain has partially stale context from the last session mixed with new context from life, **I want** the system to show me: what changed since I was last here (commits, PRs, agent activity, new observations, resolved questions), where each of my active threads paused and what the next step is, what agents did autonomously and what decisions are waiting for me, and a recommended focus for this session based on priority and momentum, **so that** I go from "opening the laptop" to "productive and oriented" in under 2 minutes, context switching costs approach zero, and I never lose momentum because I forgot where I was.
+
+## DJ18 — Make Every Decision Traceable from Principle to Implementation
+
+**When** decisions are made at any level — from "we believe AI should route toward humans" (philosophy) to "the companion evolution stages are Interface → Translator → Navigator → Spirit Animal" (design) to "the pulse-companion agent never evaluates contributors" (policy) — **I want** every decision to be captured with its reasoning and explicitly linked to the principles that govern it, so that there's a traceable chain from first principles → design philosophy → domain policy → agent behavior → workflow step, **so that** anyone can understand *why* anything is the way it is by following the chain upward, no decision is orphaned from its rationale, and when a principle evolves, I can trace downward to find everything that needs to evolve with it.
+
+## DJ19 — Enable Any Actor to Operate with Correct Judgment, Not Just Correct Instructions
+
+**When** a new contributor (human or AI agent) needs to work in the system — making decisions, handling ambiguity, choosing between valid approaches — **I want** the system to provide not just *what to do* (workflows, templates) and *what's true* (contexts, decisions) but *how to think* (principles operationalized per domain, decision-making heuristics, calibration examples showing "here's a situation and here's what we'd decide and why"), **so that** contributors can reason from principles rather than just follow instructions, their judgment aligns with the system's intent 90%+ of the time without asking me, and the system scales through shared understanding rather than centralized decision-making.
+
+## DJ20 — Maintain a Real-Time Bird's Eye View of System State
+
+**When** the system is growing — new domains, new features, new agents, new decisions, parallel threads of work — and I need to understand the overall state without reading every file, **I want** a live dashboard view that shows: which domains are active and their health, which threads are in flight and their status, where semantic drift has been detected, which decisions are pending, what agents have done recently, and where the system's coherence is strong vs. fragile, **so that** I can make meta-level decisions ("this area needs attention," "that can run autonomously," "these two threads are converging") from a single view rather than assembling the picture manually.
+
+## DJ21 — Ensure the System of Work Itself Evolves Through Its Own Principles
+
+**When** the system of work — the workflows, conventions, agent designs, domain structures — needs to evolve based on experience, **I want** the evolution to follow the same principles the system teaches: captured as decisions, traced to principles, validated for coherence, reflected upon, and integrated without restructuring, **so that** the system practices what it preaches, evolution is safe and traceable, and the meta-system (how we work on the system of work) is as well-designed as the system itself.

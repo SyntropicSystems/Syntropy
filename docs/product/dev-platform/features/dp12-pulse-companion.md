@@ -11,7 +11,7 @@ refs:
   depends-on: [dp02, dp03, dp10, dp11]
   enables: [dp-u11, el-companion]
   informed-by: [jtbd-dev-platform]
-  related: [arch-experience-layer, arch-personality-layer, dp-stories, dp09, dp14, dp15, dp16, dp17, el-apprenticeship, el-core-loops, el-expression-crafting, el-progression, el-social, experience-layer, experience-layer-index, f07, observations-agent, personality-layer, personality-layer-index, pulse-companion-agent, wf-capture-observation, wf-reflect]
+  related: [arch-experience-layer, arch-personality-layer, dp-stories, dp09, dp14, dp15, dp16, dp17, dp18, el-apprenticeship, el-core-loops, el-expression-crafting, el-progression, el-social, experience-layer, experience-layer-index, f07, observations-agent, personality-layer, personality-layer-index, pulse-companion-agent, wf-capture-observation, wf-reflect]
 tags: [dev-platform, companion, reflection, learning, pulse, emergence, p1]
 ---
 
