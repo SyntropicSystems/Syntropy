@@ -11,7 +11,7 @@ refs:
   depends-on: []
   enables: [dp-u01, dp01, dp02, dp03, dp04, dp10, dp13]
   informed-by: [jtbd-dev-platform]
-  related: [conventions, dp-stories, dp06, dr-002, dr-003, surf-dev-platform, wf-evolve-conventions, wf-validate-knowledge-graph]
+  related: [conventions, dp-stories, dp06, dp18, dr-002, dr-003, surf-dev-platform, wf-evolve-conventions, wf-validate-knowledge-graph]
 tags: [dev-platform, core, conventions, p0]
 ---
 

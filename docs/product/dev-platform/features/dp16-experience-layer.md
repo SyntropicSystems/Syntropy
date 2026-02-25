@@ -11,7 +11,7 @@ refs:
   depends-on: [dp02, dp03, dp09, dp10, dp11, dp12, dp14, dp15, jtbd-dev-platform]
   enables: [arch-experience-layer, el-anti-patterns, el-apprenticeship, el-companion, el-core-loops, el-expression-crafting, el-feature-derivation, el-narrative, el-phasing, el-progression, el-social, el-world-map, experience-layer-index]
   informed-by: [experience-layer, jtbd-dev-platform]
-  related: [cognitive-engineering-agent, dp-stories, dp01, dp13, dp17, observations-agent, operational-engineering-agent, personality-layer, personality-layer-index, pulse-companion-agent]
+  related: [cognitive-engineering-agent, dp-stories, dp01, dp13, dp17, dp18, observations-agent, operational-engineering-agent, personality-layer, personality-layer-index, pulse-companion-agent]
 tags: [dev-platform, experience-layer, game-design, satisfaction-architecture, progression, companion, social, p1]
 ---
 

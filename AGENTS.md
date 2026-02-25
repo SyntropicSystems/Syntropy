@@ -132,7 +132,7 @@ products/                   ← shipped surfaces built on the platform
 
 The development platform (this knowledge graph + system-of-work) is documented as a product itself:
 
-- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 14 jobs the dev platform fulfills (DJ1–DJ14)
+- **JTBD**: `docs/vision/jtbd-dev-platform.md` — 21 jobs the dev platform fulfills (DJ1–DJ21)
 - **Product Index**: `docs/product/dev-platform/_index.md` — feature map, use cases, stories
 - **Surface**: `surfaces/dev-platform.md` — platform definition and principles
 

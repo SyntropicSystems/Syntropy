@@ -11,7 +11,7 @@ refs:
   depends-on: [dp01, dp02]
   enables: [dp-u02, dp-u04, dp-u13]
   informed-by: [jtbd-dev-platform]
-  related: [base-traits, dp-stories, dp09, meta-agent, surf-dev-platform]
+  related: [base-traits, dp-stories, dp09, dp18, meta-agent, surf-dev-platform]
 tags: [dev-platform, core, navigation, p0]
 ---
 

@@ -5,7 +5,7 @@ title: "Product Domain"
 status: active
 owner: product-agent
 created: 2025-02-07
-updated: 2025-02-09
+updated: 2026-02-25
 refs:
   related: [dp-product-index, rp-product-index, wp-product-index]
 ---
@@ -44,8 +44,8 @@ Overview of the Syntropy OS product specification. This domain covers what we're
 ## Dev Platform (as Product)
 
 The development platform itself is documented as a product → `dev-platform/_index.md`
-- 13 JTBD (DJ1–DJ13) → `docs/vision/jtbd-dev-platform.md`
-- 15 Feature Specs (DP01–DP15) → `dev-platform/features/`
+- 21 JTBD (DJ1–DJ21) → `docs/vision/jtbd-dev-platform.md`
+- 18 Feature Specs (DP01–DP18) → `dev-platform/features/`
 - 17 Use Cases (DP-U01–DP-U17) → `dev-platform/use-cases/`
 - 49 User Stories (DP-S01–DP-S49) → `dev-platform/user-stories/stories-dev-platform.md`
 

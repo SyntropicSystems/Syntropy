@@ -7,7 +7,7 @@ owner: meta-agent
 created: 2025-02-09
 updated: 2026-02-25
 refs:
-  related: [el-feature-derivation, experience-layer, experience-layer-index, jtbd-dev-platform, personality-layer-index, product-index, surf-dev-platform]
+  related: [coherence-engine, el-feature-derivation, experience-layer, experience-layer-index, jtbd-dev-platform, personality-layer-index, product-index, surf-dev-platform]
 tags: [dev-platform, product, index]
 ---
 
@@ -19,7 +19,7 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 
 ## Jobs to Be Done
 
-14 core jobs → `docs/vision/jtbd-dev-platform.md`
+21 core jobs → `docs/vision/jtbd-dev-platform.md`
 
 ## Feature Map
 
@@ -34,6 +34,9 @@ The dev platform is the knowledge graph and agent system used to build Syntropy 
 - **DP10** — Observation System: Zero-barrier signal capture, audit, pattern detection, upleveling → `features/dp10-observation-system.md`
 - **DP11** — Reflection Loop: Post-work personal reflection feeding the observation system → `features/dp11-reflection-loop.md`
 - **DP13** — Decision Records: Reasoning graph for all decisions, hierarchy, domain scoping, revisit triggers → `features/dp13-decision-records.md`
+- **DP18** — Coherence Engine: Semantic drift detection, insight integration, session management — the system that keeps the knowledge graph semantically coherent → `features/dp18-coherence-engine.md`
+  - Vision & Philosophy → `docs/vision/coherence-engine.md`
+  - Decision → `docs/decisions/dr-004-coherence-engine-approach.md`
 
 ### P1 — High Priority
 - **DP06** — Surface Definitions: Platform delivery specs for each surface → `features/dp06-surface-definitions.md`

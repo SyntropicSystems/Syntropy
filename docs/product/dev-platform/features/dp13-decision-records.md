@@ -11,7 +11,7 @@ refs:
   depends-on: [dp01, dp04, dp05]
   enables: [dp-u12, dp-u13]
   informed-by: [jtbd-dev-platform]
-  related: [decisions-agent, decisions-index, dp-stories, dp02, dp03, dp09, dp14, dp16, el-narrative, wf-make-decision, wf-record-decision]
+  related: [decisions-agent, decisions-index, dp-stories, dp02, dp03, dp09, dp14, dp16, dp18, el-narrative, wf-make-decision, wf-record-decision]
 tags: [dev-platform, core, decisions, reasoning-graph, traceability, p0]
 ---
 
