@@ -1,6 +1,6 @@
 ---
 id: "el-anti-patterns"
-type: feature-spec
+type: module
 title: "Experience Layer — Anti-Patterns & Hard Rules"
 status: exploring
 owner: pulse-companion-agent

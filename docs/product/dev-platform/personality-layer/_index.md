@@ -64,7 +64,7 @@ The Personality Layer is documented as a modular system. Each module is a self-c
 To add a new module:
 
 1. Create a markdown file in this directory: `kebab-case-name.md`
-2. Add standard frontmatter referencing `dp17` and `personality-layer`
+2. Add standard frontmatter with `type: module` referencing `dp17` and `personality-layer`
 3. Add a row to the appropriate table in this index
 4. Update `docs/vision/personality-layer.md` module table
 5. If introducing new concepts, update `docs/vision/glossary.md`

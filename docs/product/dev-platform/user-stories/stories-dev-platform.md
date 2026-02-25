@@ -5,10 +5,10 @@ title: "Dev Platform User Stories"
 status: defining
 owner: meta-agent
 created: 2025-02-09
-updated: 2025-02-09
+updated: 2026-02-25
 refs:
   depends-on: [jtbd-dev-platform]
-  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, stories]
+  related: [dp01, dp02, dp03, dp04, dp05, dp06, dp07, dp08, dp09, dp10, dp11, dp12, dp13, dp14, dp15, dp16, dp17, stories]
 tags: [dev-platform, stories, requirements]
 ---
 

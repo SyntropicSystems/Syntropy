@@ -6,12 +6,12 @@ status: exploring
 owner: pulse-companion-agent
 priority: P1
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp02, dp03, dp09, jtbd-dev-platform]
-  enables: [dp16]
-  informed-by: [personality-layer, jtbd-dev-platform]
-  related: [dp-stories, dp12, dp14, dp15, pulse-companion-agent, observations-agent]
+  enables: [arch-personality-layer, dp16, personality-layer-index, pl-design-pillars, pl-feature-derivation, pl-governance, pl-implementation, pl-memory-moments, pl-personality-stack, pl-procedural-engine, pl-role-archetypes, pl-voice-sheets]
+  informed-by: [jtbd-dev-platform, personality-layer]
+  related: [dp-stories, dp12, dp14, dp15, observations-agent, pulse-companion-agent]
 tags: [dev-platform, personality-layer, agent-character, procedural-generation, flavor, p1]
 ---
 

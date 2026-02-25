@@ -1,6 +1,6 @@
 ---
 id: "el-apprenticeship"
-type: feature-spec
+type: module
 title: "Experience Layer — Apprenticeship System"
 status: exploring
 owner: pulse-companion-agent

@@ -5,9 +5,9 @@ title: "Add a Knowledge Document"
 status: active
 owner: meta-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
-  related: [wf-add-feature, wf-feature-inception, wf-update-document, wf-maintain-glossary, conventions]
+  related: [conventions, dp01, wf-add-feature, wf-feature-inception, wf-maintain-glossary, wf-update-document]
 ---
 
 # Workflow: Add a Knowledge Document

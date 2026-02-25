@@ -7,9 +7,9 @@ inherits: [_base-traits]
 scope: "Methodology for designing effective workflows, rules, skills, context, and agent configurations — the craft of making actors effective at executing work"
 authority: domain-dri
 created: 2025-02-13
-updated: 2026-02-21
+updated: 2026-02-25
 refs:
-  related: [cognitive-engineering-agent, dp02, dp03, dp15, meta-agent, observations-agent, pulse-companion-agent, wf-create-agent, workspace-contracts-agent]
+  related: [cognitive-engineering-agent, dp02, dp03, dp15, dp16, meta-agent, observations-agent, pulse-companion-agent, wf-create-agent, workspace-contracts-agent]
 ---
 
 # Operational Engineering Agent

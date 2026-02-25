@@ -1,14 +1,14 @@
 ---
 id: "pl-role-archetypes"
-type: feature-spec
+type: module
 title: "Personality Layer — Role Archetypes"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp17, personality-layer]
-  related: [dp02, pl-personality-stack, pl-voice-sheets, pl-procedural-engine]
+  related: [dp02, pl-feature-derivation, pl-governance, pl-personality-stack, pl-procedural-engine, pl-voice-sheets]
 tags: [personality-layer, role-archetypes, navigator, artisan, scout, sentinel, custodian, module]
 ---
 

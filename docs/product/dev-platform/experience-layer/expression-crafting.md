@@ -1,14 +1,14 @@
 ---
 id: "el-expression-crafting"
-type: feature-spec
+type: module
 title: "Experience Layer — Expression & Crafting"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp16, experience-layer]
-  related: [dp03, dp12, el-companion, el-progression, el-world-map]
+  related: [dp03, dp12, el-companion, el-phasing, el-progression, el-world-map]
 tags: [experience-layer, expression, crafting, customization, blueprints, module]
 ---
 

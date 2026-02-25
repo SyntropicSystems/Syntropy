@@ -1,14 +1,14 @@
 ---
 id: "pl-voice-sheets"
-type: feature-spec
+type: module
 title: "Personality Layer — Voice Sheets"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp17, personality-layer]
-  related: [pl-personality-stack, pl-role-archetypes, pl-procedural-engine, pl-governance, el-companion]
+  related: [el-companion, pl-feature-derivation, pl-governance, pl-implementation, pl-personality-stack, pl-procedural-engine, pl-role-archetypes]
 tags: [personality-layer, voice-sheets, character, vocabulary, quirks, relationships, module]
 ---
 

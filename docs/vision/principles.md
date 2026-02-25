@@ -5,10 +5,10 @@ title: "Design Principles"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2026-02-25
 refs:
   depends-on: [manifesto]
-  related: [experience-layer, glossary, jtbd, jtbd-dev-platform, jtbd-repo-platform, jtbd-workspace-platform, personality-layer]
+  related: [el-anti-patterns, experience-layer, glossary, jtbd, jtbd-dev-platform, jtbd-repo-platform, jtbd-workspace-platform, personality-layer, pl-design-pillars, pl-governance]
 tags: [vision, principles, foundation]
 ---
 

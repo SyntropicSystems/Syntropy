@@ -5,10 +5,10 @@ title: "Personality Layer Architecture"
 status: exploring
 owner: architecture-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp17, personality-layer]
-  related: [arch-experience-layer, arch-data-model, dp02, dp12]
+  related: [arch-data-model, arch-experience-layer, dp02, dp12, pl-implementation, pl-memory-moments, pl-procedural-engine]
 tags: [architecture, personality-layer, procedural-generation, agent-character]
 ---
 

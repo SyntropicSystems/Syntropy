@@ -6,7 +6,7 @@ status: active
 mode: generated
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   decided-by: [dr-003]
   related: [dp04]
@@ -23,9 +23,11 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
+| experience-layer | The Experience Layer: Work as Adventure | active | meta-agent | `docs/vision/experience-layer.md` |
 | glossary | Glossary | active | meta-agent | `docs/vision/glossary.md` |
 | jtbd | Jobs to Be Done | active | product-agent | `docs/vision/jtbd.md` |
 | manifesto | Core Philosophy | active | meta-agent | `docs/vision/manifesto.md` |
+| personality-layer | The Personality Layer: A System Design for Agent Character | active | meta-agent | `docs/vision/personality-layer.md` |
 | principles | Design Principles | active | meta-agent | `docs/vision/principles.md` |
 
 ## Features
@@ -85,9 +87,11 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | arch-ai-pipeline | AI Pipeline | exploring | architecture-agent | `docs/architecture/ai-pipeline.md` |
 | arch-data-model | Data Model (Storage-Agnostic) | defining | architecture-agent | `docs/architecture/data-model.md` |
 | arch-event-sourcing | Event Sourcing (Storage-Agnostic) | defining | architecture-agent | `docs/architecture/event-sourcing.md` |
+| arch-experience-layer | Experience Layer Architecture | exploring | architecture-agent | `docs/architecture/experience-layer.md` |
 | arch-integrations | Integration Roadmap | defining | integration-agent | `docs/architecture/integrations.md` |
 | arch-north-star-layout | North Star Repository Layout | defining | workspace-contracts-agent | `docs/architecture/north-star-layout.md` |
 | arch-offline | Offline Strategy | defining | architecture-agent | `docs/architecture/offline-strategy.md` |
+| arch-personality-layer | Personality Layer Architecture | exploring | architecture-agent | `docs/architecture/personality-layer.md` |
 | arch-plan-apply-engine | Plan/Apply Engine | defining | workspace-contracts-agent | `docs/architecture/plan-apply-engine.md` |
 | arch-security | Security & Auth | defining | architecture-agent | `docs/architecture/security.md` |
 | arch-stack | Technology Stack | defining | architecture-agent | `docs/architecture/stack.md` |
@@ -123,14 +127,17 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | ID | Title | Status | Owner | File |
 |----|-------|--------|-------|------|
 | wf-add-feature | Add a New Feature Spec | active | meta-agent | `docs/workflows/add-feature-spec.md` |
+| wf-add-knowledge-document | Add a Knowledge Document | active | meta-agent | `docs/workflows/add-knowledge-document.md` |
 | wf-audit-observations | Audit Observations | active | observations-agent | `docs/workflows/audit-observations.md` |
 | wf-capture-observation | Capture an Observation | active | observations-agent | `docs/workflows/capture-observation.md` |
 | wf-create-agent | Create a New Agent | active | meta-agent | `docs/workflows/create-agent.md` |
 | wf-decompose-spec | Decompose a Spec Document | active | meta-agent | `docs/workflows/decompose-spec.md` |
 | wf-design-workspace-contract | Design a Workspace Contract | active | workspace-contracts-agent | `docs/workflows/design-workspace-contract.md` |
 | wf-domain-review | Domain DRI Review | active | meta-agent | `docs/workflows/domain-review.md` |
+| wf-evolve-conventions | Evolve Conventions | active | meta-agent | `docs/workflows/evolve-conventions.md` |
 | wf-feature-inception | Feature Inception | active | meta-agent | `docs/workflows/feature-inception.md` |
 | wf-implement-syntropy-command | Implement a Syntropy CLI Command | active | workspace-contracts-agent | `docs/workflows/implement-syntropy-command.md` |
+| wf-maintain-glossary | Maintain the Glossary | active | meta-agent | `docs/workflows/maintain-glossary.md` |
 | wf-make-decision | Make an Architecture Decision | active | meta-agent | `docs/workflows/make-architecture-decision.md` |
 | wf-record-decision | Record a Decision | active | decisions-agent | `docs/workflows/record-decision.md` |
 | wf-refine-story | Refine a User Story | active | product-agent | `docs/workflows/refine-user-story.md` |
@@ -138,6 +145,9 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | wf-resolve-question | Resolve an Open Question | active | meta-agent | `docs/workflows/resolve-open-question.md` |
 | wf-run-syntropy-cli | Run the Syntropy CLI (Bootstrap Slice) | active | workspace-contracts-agent | `docs/workflows/run-syntropy-cli.md` |
 | wf-sync-domain-context | Sync Domain Context | active | meta-agent | `docs/workflows/sync-domain-context.md` |
+| wf-sync-generated-artifacts | Sync Generated Artifacts | active | meta-agent | `docs/workflows/sync-generated-artifacts.md` |
+| wf-update-document | Update an Existing Document | active | meta-agent | `docs/workflows/update-document.md` |
+| wf-validate-knowledge-graph | Validate the Knowledge Graph | active | meta-agent | `docs/workflows/validate-knowledge-graph.md` |
 
 ## Agents
 
@@ -187,6 +197,35 @@ Master index of all documents in the Syntropy OS knowledge graph. Every document
 | dp13 | Decision Records | defining | decisions-agent | `docs/product/dev-platform/features/dp13-decision-records.md` |
 | dp14 | Cognitive Engineering | defining | cognitive-engineering-agent | `docs/product/dev-platform/features/dp14-cognitive-engineering.md` |
 | dp15 | Operational Engineering | defining | operational-engineering-agent | `docs/product/dev-platform/features/dp15-operational-engineering.md` |
+| dp16 | Experience Layer | exploring | pulse-companion-agent | `docs/product/dev-platform/features/dp16-experience-layer.md` |
+| dp17 | Personality Layer | exploring | pulse-companion-agent | `docs/product/dev-platform/features/dp17-personality-layer.md` |
+
+## Dev Platform — Modules
+
+| ID | Title | Status | Owner | File |
+|----|-------|--------|-------|------|
+| el-anti-patterns | Experience Layer — Anti-Patterns & Hard Rules | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/anti-patterns.md` |
+| el-apprenticeship | Experience Layer — Apprenticeship System | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/apprenticeship.md` |
+| el-companion | Experience Layer — Companion System | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/companion.md` |
+| el-core-loops | Experience Layer — Core Loops | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/core-loops.md` |
+| el-expression-crafting | Experience Layer — Expression & Crafting | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/expression-crafting.md` |
+| el-feature-derivation | Experience Layer — Feature Derivation Framework | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/feature-derivation.md` |
+| el-narrative | Experience Layer — Narrative Layer | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/narrative.md` |
+| el-phasing | Experience Layer — Implementation Phasing | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/phasing.md` |
+| el-progression | Experience Layer — Progression System | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/progression.md` |
+| el-social | Experience Layer — Social Layer | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/social.md` |
+| el-world-map | Experience Layer — World Map & Exploration | exploring | pulse-companion-agent | `docs/product/dev-platform/experience-layer/world-map.md` |
+| experience-layer-index | Experience Layer Module Index | active | pulse-companion-agent | `docs/product/dev-platform/experience-layer/_index.md` |
+| personality-layer-index | Personality Layer Module Index | active | pulse-companion-agent | `docs/product/dev-platform/personality-layer/_index.md` |
+| pl-design-pillars | Personality Layer — Design Pillars | exploring | pulse-companion-agent | `docs/product/dev-platform/personality-layer/design-pillars.md` |
+| pl-feature-derivation | Personality Layer — Feature Derivation | exploring | pulse-companion-agent | `docs/product/dev-platform/personality-layer/feature-derivation.md` |
+| pl-governance | Personality Layer — Governance | exploring | pulse-companion-agent | `docs/product/dev-platform/personality-layer/governance.md` |
+| pl-implementation | Personality Layer — Implementation | exploring | pulse-companion-agent | `docs/product/dev-platform/personality-layer/implementation.md` |
+| pl-memory-moments | Personality Layer — Memory & Moments | exploring | pulse-companion-agent | `docs/product/dev-platform/personality-layer/memory-moments.md` |
+| pl-personality-stack | Personality Layer — The Five-Layer Stack | exploring | pulse-companion-agent | `docs/product/dev-platform/personality-layer/personality-stack.md` |
+| pl-procedural-engine | Personality Layer — Procedural Engine | exploring | pulse-companion-agent | `docs/product/dev-platform/personality-layer/procedural-engine.md` |
+| pl-role-archetypes | Personality Layer — Role Archetypes | exploring | pulse-companion-agent | `docs/product/dev-platform/personality-layer/role-archetypes.md` |
+| pl-voice-sheets | Personality Layer — Voice Sheets | exploring | pulse-companion-agent | `docs/product/dev-platform/personality-layer/voice-sheets.md` |
 
 ## Dev Platform — Use Cases
 

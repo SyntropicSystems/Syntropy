@@ -5,9 +5,9 @@ title: "Feature Inception"
 status: active
 owner: meta-agent
 created: 2025-02-09
-updated: 2026-02-21
+updated: 2026-02-25
 refs:
-  related: [wf-add-feature, wf-add-knowledge-document, wf-capture-observation, wf-create-agent, wf-maintain-glossary, wf-refine-story, wf-reflect, wf-sync-generated-artifacts]
+  related: [el-feature-derivation, wf-add-feature, wf-add-knowledge-document, wf-capture-observation, wf-create-agent, wf-maintain-glossary, wf-refine-story, wf-reflect, wf-sync-generated-artifacts]
 ---
 
 # Workflow: Feature Inception

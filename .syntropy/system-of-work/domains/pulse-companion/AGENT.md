@@ -7,9 +7,9 @@ inherits: [_base-traits]
 scope: "Assisted reflection, continuous pulse sensing, personalized work companionship"
 authority: domain-dri
 created: 2025-02-09
-updated: 2026-02-21
+updated: 2026-02-25
 refs:
-  related: [observations-agent, cognitive-engineering-agent, operational-engineering-agent, meta-agent, dp12, dp11, dp10, dp15, wf-reflect, observations-index]
+  related: [cognitive-engineering-agent, dp10, dp11, dp12, dp15, dp16, dp17, meta-agent, observations-agent, observations-index, operational-engineering-agent, wf-reflect]
 ---
 
 # Pulse Companion Agent

@@ -1,14 +1,14 @@
 ---
 id: "el-core-loops"
-type: feature-spec
+type: module
 title: "Experience Layer — Core Loops"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp16, experience-layer]
-  related: [dp11, dp12, el-apprenticeship, el-progression, el-narrative]
+  related: [dp11, dp12, el-apprenticeship, el-companion, el-narrative, el-phasing, el-progression, el-world-map]
 tags: [experience-layer, core-loops, feedback, satisfaction, module]
 ---
 

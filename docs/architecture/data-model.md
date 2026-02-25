@@ -5,10 +5,10 @@ title: "Data Model (Storage-Agnostic)"
 status: defining
 owner: architecture-agent
 created: 2025-02-07
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   decided-by: [adr-001, adr-002, adr-006, oq-multi-user]
-  related: [adr-004, arch-event-sourcing, arch-offline, arch-security, arch-stack, f01, f02, f11, f11-domains-agent, f12, oq-monorepo-architecture]
+  related: [adr-004, arch-event-sourcing, arch-experience-layer, arch-offline, arch-personality-layer, arch-security, arch-stack, f01, f02, f11, f11-domains-agent, f12, oq-monorepo-architecture]
 tags: [architecture, data-model]
 ---
 

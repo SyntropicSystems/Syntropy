@@ -1,14 +1,14 @@
 ---
 id: "pl-design-pillars"
-type: feature-spec
+type: module
 title: "Personality Layer — Design Pillars"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp17, personality-layer]
-  related: [pl-personality-stack, pl-governance, principles]
+  related: [pl-feature-derivation, pl-governance, pl-personality-stack, principles]
 tags: [personality-layer, design-pillars, tone, rules, module]
 ---
 

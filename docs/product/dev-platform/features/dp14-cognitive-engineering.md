@@ -6,12 +6,12 @@ status: defining
 owner: cognitive-engineering-agent
 priority: P1
 created: 2025-02-13
-updated: 2025-02-13
+updated: 2026-02-25
 refs:
   decided-by: []
   depends-on: [dp02, dp09, dp10, jtbd-dev-platform]
   enables: [dp-u14, dp-u15]
-  related: [cognitive-engineering-agent, dp-stories, dp03, dp11, dp12, dp13, dp15, dp16, observations-agent]
+  related: [arch-experience-layer, cognitive-engineering-agent, dp-stories, dp03, dp11, dp12, dp13, dp15, dp16, dp17, el-apprenticeship, el-companion, experience-layer, experience-layer-index, observations-agent]
 tags: [dev-platform, cognitive-engineering, comprehension, information-architecture]
 ---
 

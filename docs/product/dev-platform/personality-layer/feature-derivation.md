@@ -1,6 +1,6 @@
 ---
 id: "pl-feature-derivation"
-type: feature-spec
+type: module
 title: "Personality Layer — Feature Derivation"
 status: exploring
 owner: pulse-companion-agent

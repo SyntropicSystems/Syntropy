@@ -5,9 +5,9 @@ title: "Validate the Knowledge Graph"
 status: active
 owner: meta-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
-  related: [wf-sync-domain-context, wf-update-document, wf-sync-generated-artifacts, conventions, dp01, dp05]
+  related: [base-traits, conventions, dp01, dp05, wf-evolve-conventions, wf-sync-domain-context, wf-sync-generated-artifacts, wf-update-document]
 ---
 
 # Workflow: Validate the Knowledge Graph

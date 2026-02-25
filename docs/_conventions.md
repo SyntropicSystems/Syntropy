@@ -5,7 +5,7 @@ title: "Document Conventions"
 status: active
 owner: meta-agent
 created: 2025-02-07
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   decided-by: [dr-002, dr-003]
   related: [dp05, wf-add-knowledge-document, wf-evolve-conventions, wf-maintain-glossary, wf-sync-generated-artifacts, wf-update-document, wf-validate-knowledge-graph]
@@ -83,7 +83,7 @@ New layers follow the pattern: two-letter abbreviation + hyphen + slug.
 
 ## Status Lifecycles
 
-### Specs (features, use cases, stories, UX patterns):
+### Specs (features, modules, use cases, stories, UX patterns):
 `exploring` → `defining` → `specified` → `building` → `shipped`
 
 ### Decisions (ADRs and Decision Records):

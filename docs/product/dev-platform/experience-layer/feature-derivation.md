@@ -1,14 +1,14 @@
 ---
 id: "el-feature-derivation"
-type: reference
+type: module
 title: "Experience Layer — Feature Derivation Framework"
 status: exploring
 owner: pulse-companion-agent
 created: 2026-02-24
-updated: 2026-02-24
+updated: 2026-02-25
 refs:
   depends-on: [dp16, experience-layer]
-  related: [el-phasing, wf-add-feature, wf-feature-inception, dp-product-index]
+  related: [dp-product-index, el-phasing, pl-feature-derivation, wf-add-feature, wf-feature-inception]
 tags: [experience-layer, feature-derivation, methodology, framework, module]
 ---
 
